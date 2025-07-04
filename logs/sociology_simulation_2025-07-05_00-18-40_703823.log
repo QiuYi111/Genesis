@@ -46,3 +46,11 @@
 2025-07-05 00:28:09.790 | INFO     | __main__:act:197 - Agent 4 行动 → 我要去(53,57)的位置采集苹果和木材，既能补充食物又能收集资源。
 2025-07-05 00:28:14.518 | INFO     | __main__:act:197 - Agent 3 行动 → "我要前往(20,28)的位置尝试捕鱼，虽然可能失败但想测试这个外星海洋的特性。"
 2025-07-05 00:28:18.495 | INFO     | __main__:act:197 - Agent 1 行动 → 我注意到饥饿值为40，需要先解决食物问题，去附近的森林(35,33)采摘苹果。
+2025-07-05 00:29:42.157 | SUCCESS  | __main__:update:107 - [Bible] Updated rules: {'Unknown Terrain Handling': 'Gathering actions attempted in undefined terrain automatically fail. Agents must first explore coordinates to reveal terrain type before resource collection.'}
+2025-07-05 00:29:42.158 | INFO     | __main__:run_simulation:859 - ===== TURN 6 =====
+2025-07-05 00:29:51.480 | INFO     | __main__:act:197 - Agent 0 行动 → 我饿了，要摘取当前位置(32,1)的苹果来充饥。
+2025-07-05 00:29:56.486 | INFO     | __main__:act:197 - Agent 3 行动 → "我饿了，要尝试用木头制作一个简易渔具来捕鱼。"
+2025-07-05 00:30:00.531 | INFO     | __main__:act:197 - Agent 2 行动 → 收集当前位置(18,62)的石头资源，为制作狩猎工具做准备。
+2025-07-05 00:30:06.942 | INFO     | __main__:act:197 - Agent 1 行动 → "先吃掉背包里的苹果补充体力，然后前往(35,37)收集那里的2个苹果和2块木头。"
+2025-07-05 00:30:11.601 | INFO     | __main__:act:197 - Agent 4 行动 → 我要去(53,57)的位置摘取苹果，满足饥饿感并继续探索新的食物来源。
+2025-07-05 00:30:29.786 | SUCCESS  | __main__:update:107 - [Bible] Updated rules: {'Exploration Requirement': 'Agents must explore a coordinate to reveal its terrain type before resource gathering or tool use can be attempted at that location. Gathering attempts on unknown terrain automatically fail.'}

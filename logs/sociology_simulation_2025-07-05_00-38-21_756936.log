@@ -1,0 +1,272 @@
+2025-07-05 00:38:25.528 | INFO     | __main__:decide_goal:136 - Agent 4 personal goal ➜ 在确保生存的前提下，通过谨慎观察和有限度的探索，逐步掌握对抗克苏鲁威胁的实用技巧。
+2025-07-05 00:38:25.861 | INFO     | __main__:decide_goal:136 - Agent 3 personal goal ➜ 在魔法与克苏鲁威胁共存的原始时代，我要通过锻炼体魄成为部落最强的守护者，用力量保护族人免受怪物侵袭。
+2025-07-05 00:38:25.919 | INFO     | __main__:decide_goal:136 - Agent 1 personal goal ➜ 在这个充满未知危险的魔法原始时代，我要成为部落最强壮的战士，用力量守护族人免受克苏鲁怪物的侵袭。
+2025-07-05 00:38:26.356 | INFO     | __main__:decide_goal:136 - Agent 0 personal goal ➜ "在保持理智的前提下，探索这个疯狂世界的魔法奥秘，找到对抗克苏鲁怪物的知识。" 
+
+(基于10点好奇心的求知欲驱动，同时8点力量值表明会采取相对谨慎的探索方式)
+2025-07-05 00:38:26.709 | INFO     | __main__:decide_goal:136 - Agent 2 personal goal ➜ "在探索这个充满未知与危险的魔法世界时保持理智，揭开克苏鲁怪物的秘密而不被其吞噬。" 
+
+（根据9点好奇心属性突出求知欲，4点力量属性体现规避正面冲突的生存策略）
+2025-07-05 00:38:26.711 | INFO     | __main__:run_simulation:934 - ===== TURN 0 =====
+2025-07-05 00:38:26.711 | INFO     | __main__:step:739 - 
+=== TURN 0 START ===
+2025-07-05 00:38:26.712 | INFO     | __main__:step:740 - Bible Rules: {}
+2025-07-05 00:38:26.712 | INFO     | __main__:step:741 - Agent Status:
+2025-07-05 00:38:26.712 | INFO     | __main__:step:743 -   Agent 0:
+2025-07-05 00:38:26.712 | INFO     | __main__:step:744 -     Position: (3, 26)
+2025-07-05 00:38:26.712 | INFO     | __main__:step:745 -     Attributes: {'strength': 8, 'curiosity': 10}
+2025-07-05 00:38:26.713 | INFO     | __main__:step:746 -     Inventory: {'wood': 2, 'shell': 0}
+2025-07-05 00:38:26.713 | INFO     | __main__:step:747 -     Age: 32
+2025-07-05 00:38:26.713 | INFO     | __main__:step:748 -     Health: 100
+2025-07-05 00:38:26.713 | INFO     | __main__:step:749 -     Hunger: 0.0
+2025-07-05 00:38:26.713 | INFO     | __main__:step:750 -     Goal: "在保持理智的前提下，探索这个疯狂世界的魔法奥秘，找到对抗克苏鲁怪物的知识。" 
+
+(基于10点好奇心的求知欲驱动，同时8点力量值表明会采取相对谨慎的探索方式)
+2025-07-05 00:38:26.714 | INFO     | __main__:step:743 -   Agent 1:
+2025-07-05 00:38:26.714 | INFO     | __main__:step:744 -     Position: (6, 11)
+2025-07-05 00:38:26.714 | INFO     | __main__:step:745 -     Attributes: {'strength': 7, 'curiosity': 2}
+2025-07-05 00:38:26.714 | INFO     | __main__:step:746 -     Inventory: {'wood': 2, 'shell': 0}
+2025-07-05 00:38:26.714 | INFO     | __main__:step:747 -     Age: 46
+2025-07-05 00:38:26.714 | INFO     | __main__:step:748 -     Health: 100
+2025-07-05 00:38:26.714 | INFO     | __main__:step:749 -     Hunger: 0.0
+2025-07-05 00:38:26.715 | INFO     | __main__:step:750 -     Goal: 在这个充满未知危险的魔法原始时代，我要成为部落最强壮的战士，用力量守护族人免受克苏鲁怪物的侵袭。
+2025-07-05 00:38:26.715 | INFO     | __main__:step:743 -   Agent 2:
+2025-07-05 00:38:26.715 | INFO     | __main__:step:744 -     Position: (4, 12)
+2025-07-05 00:38:26.716 | INFO     | __main__:step:745 -     Attributes: {'strength': 4, 'curiosity': 9}
+2025-07-05 00:38:26.716 | INFO     | __main__:step:746 -     Inventory: {'wood': 0, 'shell': 0}
+2025-07-05 00:38:26.716 | INFO     | __main__:step:747 -     Age: 19
+2025-07-05 00:38:26.716 | INFO     | __main__:step:748 -     Health: 100
+2025-07-05 00:38:26.716 | INFO     | __main__:step:749 -     Hunger: 0.0
+2025-07-05 00:38:26.717 | INFO     | __main__:step:750 -     Goal: "在探索这个充满未知与危险的魔法世界时保持理智，揭开克苏鲁怪物的秘密而不被其吞噬。" 
+
+（根据9点好奇心属性突出求知欲，4点力量属性体现规避正面冲突的生存策略）
+2025-07-05 00:38:26.717 | INFO     | __main__:step:743 -   Agent 3:
+2025-07-05 00:38:26.717 | INFO     | __main__:step:744 -     Position: (0, 2)
+2025-07-05 00:38:26.717 | INFO     | __main__:step:745 -     Attributes: {'strength': 9, 'curiosity': 6}
+2025-07-05 00:38:26.718 | INFO     | __main__:step:746 -     Inventory: {'wood': 0, 'shell': 1}
+2025-07-05 00:38:26.718 | INFO     | __main__:step:747 -     Age: 20
+2025-07-05 00:38:26.718 | INFO     | __main__:step:748 -     Health: 100
+2025-07-05 00:38:26.718 | INFO     | __main__:step:749 -     Hunger: 0.0
+2025-07-05 00:38:26.718 | INFO     | __main__:step:750 -     Goal: 在魔法与克苏鲁威胁共存的原始时代，我要通过锻炼体魄成为部落最强的守护者，用力量保护族人免受怪物侵袭。
+2025-07-05 00:38:26.718 | INFO     | __main__:step:743 -   Agent 4:
+2025-07-05 00:38:26.718 | INFO     | __main__:step:744 -     Position: (15, 25)
+2025-07-05 00:38:26.718 | INFO     | __main__:step:745 -     Attributes: {'strength': 8, 'curiosity': 4}
+2025-07-05 00:38:26.718 | INFO     | __main__:step:746 -     Inventory: {'wood': 2, 'shell': 0}
+2025-07-05 00:38:26.719 | INFO     | __main__:step:747 -     Age: 54
+2025-07-05 00:38:26.719 | INFO     | __main__:step:748 -     Health: 100
+2025-07-05 00:38:26.719 | INFO     | __main__:step:749 -     Hunger: 0.0
+2025-07-05 00:38:26.719 | INFO     | __main__:step:750 -     Goal: 在确保生存的前提下，通过谨慎观察和有限度的探索，逐步掌握对抗克苏鲁威胁的实用技巧。
+2025-07-05 00:38:30.741 | INFO     | __main__:resolve:412 - Agent 1 (age 46) attempting action: 我要前往(8,8)的森林收集木材，为制作武器做准备。
+2025-07-05 00:38:30.885 | INFO     | __main__:resolve:412 - Agent 3 (age 20) attempting action: 我要在当前位置(0,2)捕鱼，为部落储备食物资源。
+2025-07-05 00:38:30.945 | INFO     | __main__:resolve:412 - Agent 4 (age 54) attempting action: 虽然现在不饿，但我要收集附近的苹果储备起来以防万一。
+2025-07-05 00:38:31.079 | INFO     | __main__:resolve:412 - Agent 0 (age 32) attempting action: '前往(3,25)摘取苹果，为后续探索储备食物'
+2025-07-05 00:38:33.122 | INFO     | __main__:resolve:412 - Agent 2 (age 19) attempting action: 我注意到附近森林有木材资源，但考虑到1号强壮的陌生人在附近，我决定先采集当前位置的苹果(4,12)来补充食物储备。
+2025-07-05 00:38:35.358 | INFO     | __main__:_process_outcome:526 - Processing outcome for Agent 1:
+2025-07-05 00:38:35.359 | INFO     | __main__:_process_outcome:527 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 00:38:35.360 | INFO     | __main__:_process_outcome:529 -   Inventory changes: {}
+2025-07-05 00:38:35.360 | INFO     | __main__:_process_outcome:531 -   Attribute changes: {}
+2025-07-05 00:38:35.360 | INFO     | __main__:_process_outcome:533 -   Position change: [8, 8]
+2025-07-05 00:38:35.361 | INFO     | __main__:_process_outcome:535 -   Action log: 前往(8,8)的森林收集木材
+2025-07-05 00:38:35.362 | INFO     | __main__:act:197 - Agent 1 行动 → 我要前往(8,8)的森林收集木材，为制作武器做准备。
+2025-07-05 00:38:40.744 | INFO     | __main__:_process_outcome:526 - Processing outcome for Agent 3:
+2025-07-05 00:38:40.744 | INFO     | __main__:_process_outcome:527 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 00:38:40.744 | INFO     | __main__:_process_outcome:529 -   Inventory changes: {'fish': 1}
+2025-07-05 00:38:40.745 | INFO     | __main__:_process_outcome:531 -   Attribute changes: {'strength': -1}
+2025-07-05 00:38:40.745 | INFO     | __main__:_process_outcome:533 -   Position change: [0, 2]
+2025-07-05 00:38:40.745 | INFO     | __main__:_process_outcome:535 -   Action log: 在(0,2)位置捕鱼成功，获得1条鱼
+2025-07-05 00:38:40.745 | INFO     | __main__:act:197 - Agent 3 行动 → 我要在当前位置(0,2)捕鱼，为部落储备食物资源。
+2025-07-05 00:38:47.101 | INFO     | __main__:_process_outcome:526 - Processing outcome for Agent 4:
+2025-07-05 00:38:47.102 | INFO     | __main__:_process_outcome:527 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 00:38:47.102 | INFO     | __main__:_process_outcome:529 -   Inventory changes: {'apple': 1}
+2025-07-05 00:38:47.103 | INFO     | __main__:_process_outcome:531 -   Attribute changes: {}
+2025-07-05 00:38:47.103 | INFO     | __main__:_process_outcome:533 -   Position change: [15, 25]
+2025-07-05 00:38:47.104 | INFO     | __main__:_process_outcome:535 -   Action log: 收集了一个苹果作为储备
+2025-07-05 00:38:47.105 | INFO     | __main__:act:197 - Agent 4 行动 → 虽然现在不饿，但我要收集附近的苹果储备起来以防万一。
+2025-07-05 00:38:52.104 | INFO     | __main__:_process_outcome:526 - Processing outcome for Agent 0:
+2025-07-05 00:38:52.104 | INFO     | __main__:_process_outcome:527 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 00:38:52.105 | INFO     | __main__:_process_outcome:529 -   Inventory changes: {'apple': 1}
+2025-07-05 00:38:52.105 | INFO     | __main__:_process_outcome:531 -   Attribute changes: {}
+2025-07-05 00:38:52.106 | INFO     | __main__:_process_outcome:533 -   Position change: [3, 25]
+2025-07-05 00:38:52.106 | INFO     | __main__:_process_outcome:535 -   Action log: 前往(3,25)摘取了一个苹果
+2025-07-05 00:38:52.107 | INFO     | __main__:act:197 - Agent 0 行动 → '前往(3,25)摘取苹果，为后续探索储备食物'
+2025-07-05 00:38:56.184 | INFO     | __main__:_process_outcome:526 - Processing outcome for Agent 2:
+2025-07-05 00:38:56.184 | INFO     | __main__:_process_outcome:527 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 00:38:56.185 | INFO     | __main__:_process_outcome:529 -   Inventory changes: {'apple': 1}
+2025-07-05 00:38:56.185 | INFO     | __main__:_process_outcome:531 -   Attribute changes: {}
+2025-07-05 00:38:56.186 | INFO     | __main__:_process_outcome:533 -   Position change: [4, 12]
+2025-07-05 00:38:56.187 | INFO     | __main__:_process_outcome:535 -   Action log: 采集了一个苹果
+2025-07-05 00:38:56.188 | INFO     | __main__:act:197 - Agent 2 行动 → 我注意到附近森林有木材资源，但考虑到1号强壮的陌生人在附近，我决定先采集当前位置的苹果(4,12)来补充食物储备。
+2025-07-05 00:39:32.705 | INFO     | __main__:run_simulation:934 - ===== TURN 1 =====
+2025-07-05 00:39:32.705 | INFO     | __main__:step:739 - 
+=== TURN 1 START ===
+2025-07-05 00:39:32.706 | INFO     | __main__:step:740 - Bible Rules: {}
+2025-07-05 00:39:32.706 | INFO     | __main__:step:741 - Agent Status:
+2025-07-05 00:39:32.706 | INFO     | __main__:step:743 -   Agent 0:
+2025-07-05 00:39:32.707 | INFO     | __main__:step:744 -     Position: (3, 25)
+2025-07-05 00:39:32.707 | INFO     | __main__:step:745 -     Attributes: {'strength': 8, 'curiosity': 10}
+2025-07-05 00:39:32.707 | INFO     | __main__:step:746 -     Inventory: {'wood': 2, 'shell': 0, 'apple': 1}
+2025-07-05 00:39:32.707 | INFO     | __main__:step:747 -     Age: 33
+2025-07-05 00:39:32.708 | INFO     | __main__:step:748 -     Health: 100
+2025-07-05 00:39:32.708 | INFO     | __main__:step:749 -     Hunger: 8.0
+2025-07-05 00:39:32.708 | INFO     | __main__:step:750 -     Goal: "在保持理智的前提下，探索这个疯狂世界的魔法奥秘，找到对抗克苏鲁怪物的知识。" 
+
+(基于10点好奇心的求知欲驱动，同时8点力量值表明会采取相对谨慎的探索方式)
+2025-07-05 00:39:32.708 | INFO     | __main__:step:743 -   Agent 1:
+2025-07-05 00:39:32.709 | INFO     | __main__:step:744 -     Position: (8, 8)
+2025-07-05 00:39:32.709 | INFO     | __main__:step:745 -     Attributes: {'strength': 7, 'curiosity': 2}
+2025-07-05 00:39:32.709 | INFO     | __main__:step:746 -     Inventory: {'wood': 2, 'shell': 0}
+2025-07-05 00:39:32.709 | INFO     | __main__:step:747 -     Age: 47
+2025-07-05 00:39:32.709 | INFO     | __main__:step:748 -     Health: 100
+2025-07-05 00:39:32.709 | INFO     | __main__:step:749 -     Hunger: 8.0
+2025-07-05 00:39:32.709 | INFO     | __main__:step:750 -     Goal: 在这个充满未知危险的魔法原始时代，我要成为部落最强壮的战士，用力量守护族人免受克苏鲁怪物的侵袭。
+2025-07-05 00:39:32.709 | INFO     | __main__:step:743 -   Agent 2:
+2025-07-05 00:39:32.709 | INFO     | __main__:step:744 -     Position: (4, 12)
+2025-07-05 00:39:32.709 | INFO     | __main__:step:745 -     Attributes: {'strength': 4, 'curiosity': 9}
+2025-07-05 00:39:32.709 | INFO     | __main__:step:746 -     Inventory: {'wood': 0, 'shell': 0, 'apple': 1}
+2025-07-05 00:39:32.709 | INFO     | __main__:step:747 -     Age: 20
+2025-07-05 00:39:32.709 | INFO     | __main__:step:748 -     Health: 100
+2025-07-05 00:39:32.709 | INFO     | __main__:step:749 -     Hunger: 8.0
+2025-07-05 00:39:32.710 | INFO     | __main__:step:750 -     Goal: "在探索这个充满未知与危险的魔法世界时保持理智，揭开克苏鲁怪物的秘密而不被其吞噬。" 
+
+（根据9点好奇心属性突出求知欲，4点力量属性体现规避正面冲突的生存策略）
+2025-07-05 00:39:32.710 | INFO     | __main__:step:743 -   Agent 3:
+2025-07-05 00:39:32.710 | INFO     | __main__:step:744 -     Position: (0, 2)
+2025-07-05 00:39:32.710 | INFO     | __main__:step:745 -     Attributes: {'strength': 8, 'curiosity': 6}
+2025-07-05 00:39:32.710 | INFO     | __main__:step:746 -     Inventory: {'wood': 0, 'shell': 1, 'fish': 1}
+2025-07-05 00:39:32.710 | INFO     | __main__:step:747 -     Age: 21
+2025-07-05 00:39:32.710 | INFO     | __main__:step:748 -     Health: 100
+2025-07-05 00:39:32.710 | INFO     | __main__:step:749 -     Hunger: 8.0
+2025-07-05 00:39:32.710 | INFO     | __main__:step:750 -     Goal: 在魔法与克苏鲁威胁共存的原始时代，我要通过锻炼体魄成为部落最强的守护者，用力量保护族人免受怪物侵袭。
+2025-07-05 00:39:32.710 | INFO     | __main__:step:743 -   Agent 4:
+2025-07-05 00:39:32.710 | INFO     | __main__:step:744 -     Position: (15, 25)
+2025-07-05 00:39:32.711 | INFO     | __main__:step:745 -     Attributes: {'strength': 8, 'curiosity': 4}
+2025-07-05 00:39:32.711 | INFO     | __main__:step:746 -     Inventory: {'wood': 2, 'shell': 0, 'apple': 1}
+2025-07-05 00:39:32.711 | INFO     | __main__:step:747 -     Age: 55
+2025-07-05 00:39:32.711 | INFO     | __main__:step:748 -     Health: 100
+2025-07-05 00:39:32.711 | INFO     | __main__:step:749 -     Hunger: 8.0
+2025-07-05 00:39:32.711 | INFO     | __main__:step:750 -     Goal: 在确保生存的前提下，通过谨慎观察和有限度的探索，逐步掌握对抗克苏鲁威胁的实用技巧。
+2025-07-05 00:39:37.463 | INFO     | __main__:resolve:412 - Agent 3 (age 21) attempting action: 我饿了，要捕鱼吃。
+2025-07-05 00:39:38.043 | INFO     | __main__:resolve:412 - Agent 4 (age 55) attempting action: 我饿了，要摘取(15,24)位置的苹果吃。
+2025-07-05 00:39:39.114 | INFO     | __main__:resolve:412 - Agent 1 (age 47) attempting action: 我饿了，要摘苹果吃
+2025-07-05 00:39:39.564 | INFO     | __main__:resolve:412 - Agent 0 (age 33) attempting action: 我饿了，要摘取当前位置(3,25)的苹果吃。
+2025-07-05 00:39:40.559 | INFO     | __main__:resolve:412 - Agent 2 (age 20) attempting action: 我注意到饥饿值为8，先吃掉手中的苹果充饥，然后向(8,8)位置的森林移动，想向1号询问关于森林中克苏鲁怪物的线索。
+2025-07-05 00:39:42.013 | INFO     | __main__:_process_outcome:526 - Processing outcome for Agent 3:
+2025-07-05 00:39:42.013 | INFO     | __main__:_process_outcome:527 -   Outcome type: dict_keys(['inventory', 'attributes', 'log'])
+2025-07-05 00:39:42.013 | INFO     | __main__:_process_outcome:529 -   Inventory changes: {'fish': -1}
+2025-07-05 00:39:42.013 | INFO     | __main__:_process_outcome:531 -   Attribute changes: {'hunger': -10}
+2025-07-05 00:39:42.013 | INFO     | __main__:_process_outcome:535 -   Action log: 吃了一条鱼
+2025-07-05 00:39:42.014 | INFO     | __main__:act:197 - Agent 3 行动 → 我饿了，要捕鱼吃。
+2025-07-05 00:39:47.923 | INFO     | __main__:_process_outcome:526 - Processing outcome for Agent 4:
+2025-07-05 00:39:47.923 | INFO     | __main__:_process_outcome:527 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 00:39:47.923 | INFO     | __main__:_process_outcome:529 -   Inventory changes: {'apple': 1}
+2025-07-05 00:39:47.923 | INFO     | __main__:_process_outcome:531 -   Attribute changes: {'hunger': -10}
+2025-07-05 00:39:47.923 | INFO     | __main__:_process_outcome:533 -   Position change: [15, 24]
+2025-07-05 00:39:47.923 | INFO     | __main__:_process_outcome:535 -   Action log: 摘取并吃了一个苹果
+2025-07-05 00:39:47.924 | INFO     | __main__:act:197 - Agent 4 行动 → 我饿了，要摘取(15,24)位置的苹果吃。
+2025-07-05 00:39:52.413 | INFO     | __main__:_process_outcome:526 - Processing outcome for Agent 1:
+2025-07-05 00:39:52.414 | INFO     | __main__:_process_outcome:527 -   Outcome type: dict_keys(['inventory', 'attributes', 'log'])
+2025-07-05 00:39:52.414 | INFO     | __main__:_process_outcome:529 -   Inventory changes: {'apple': 1}
+2025-07-05 00:39:52.414 | INFO     | __main__:_process_outcome:531 -   Attribute changes: {'hunger': -5}
+2025-07-05 00:39:52.414 | INFO     | __main__:_process_outcome:535 -   Action log: 摘了一个苹果充饥
+2025-07-05 00:39:52.414 | INFO     | __main__:act:197 - Agent 1 行动 → 我饿了，要摘苹果吃
+2025-07-05 00:39:57.794 | INFO     | __main__:_process_outcome:526 - Processing outcome for Agent 0:
+2025-07-05 00:39:57.795 | INFO     | __main__:_process_outcome:527 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 00:39:57.795 | INFO     | __main__:_process_outcome:529 -   Inventory changes: {'apple': 1}
+2025-07-05 00:39:57.795 | INFO     | __main__:_process_outcome:531 -   Attribute changes: {'hunger': -5}
+2025-07-05 00:39:57.796 | INFO     | __main__:_process_outcome:533 -   Position change: [3, 25]
+2025-07-05 00:39:57.796 | INFO     | __main__:_process_outcome:535 -   Action log: 摘取并吃了一个苹果
+2025-07-05 00:39:57.797 | INFO     | __main__:act:197 - Agent 0 行动 → 我饿了，要摘取当前位置(3,25)的苹果吃。
+2025-07-05 00:40:06.276 | INFO     | __main__:_process_outcome:526 - Processing outcome for Agent 2:
+2025-07-05 00:40:06.277 | INFO     | __main__:_process_outcome:527 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'chat_request', 'log'])
+2025-07-05 00:40:06.277 | INFO     | __main__:_process_outcome:529 -   Inventory changes: {'apple': -1}
+2025-07-05 00:40:06.277 | INFO     | __main__:_process_outcome:531 -   Attribute changes: {'hunger': -8}
+2025-07-05 00:40:06.277 | INFO     | __main__:_process_outcome:533 -   Position change: [8, 8]
+2025-07-05 00:40:06.277 | INFO     | __main__:_process_outcome:535 -   Action log: 吃掉了苹果充饥并移动到森林(8,8)，向1号询问关于克苏鲁怪物的线索
+2025-07-05 00:40:06.277 | INFO     | __main__:act:197 - Agent 2 行动 → 我注意到饥饿值为8，先吃掉手中的苹果充饥，然后向(8,8)位置的森林移动，想向1号询问关于森林中克苏鲁怪物的线索。
+2025-07-05 00:40:21.475 | INFO     | __main__:run_simulation:934 - ===== TURN 2 =====
+2025-07-05 00:40:21.476 | INFO     | __main__:step:739 - 
+=== TURN 2 START ===
+2025-07-05 00:40:21.476 | INFO     | __main__:step:740 - Bible Rules: {}
+2025-07-05 00:40:21.476 | INFO     | __main__:step:741 - Agent Status:
+2025-07-05 00:40:21.476 | INFO     | __main__:step:743 -   Agent 0:
+2025-07-05 00:40:21.476 | INFO     | __main__:step:744 -     Position: (3, 25)
+2025-07-05 00:40:21.476 | INFO     | __main__:step:745 -     Attributes: {'strength': 8, 'curiosity': 10, 'hunger': -5}
+2025-07-05 00:40:21.476 | INFO     | __main__:step:746 -     Inventory: {'wood': 2, 'shell': 0, 'apple': 2}
+2025-07-05 00:40:21.476 | INFO     | __main__:step:747 -     Age: 34
+2025-07-05 00:40:21.476 | INFO     | __main__:step:748 -     Health: 100
+2025-07-05 00:40:21.476 | INFO     | __main__:step:749 -     Hunger: 16.0
+2025-07-05 00:40:21.476 | INFO     | __main__:step:750 -     Goal: "在保持理智的前提下，探索这个疯狂世界的魔法奥秘，找到对抗克苏鲁怪物的知识。" 
+
+(基于10点好奇心的求知欲驱动，同时8点力量值表明会采取相对谨慎的探索方式)
+2025-07-05 00:40:21.476 | INFO     | __main__:step:743 -   Agent 1:
+2025-07-05 00:40:21.476 | INFO     | __main__:step:744 -     Position: (8, 8)
+2025-07-05 00:40:21.476 | INFO     | __main__:step:745 -     Attributes: {'strength': 7, 'curiosity': 2, 'hunger': -5}
+2025-07-05 00:40:21.476 | INFO     | __main__:step:746 -     Inventory: {'wood': 2, 'shell': 0, 'apple': 1}
+2025-07-05 00:40:21.476 | INFO     | __main__:step:747 -     Age: 48
+2025-07-05 00:40:21.477 | INFO     | __main__:step:748 -     Health: 100
+2025-07-05 00:40:21.477 | INFO     | __main__:step:749 -     Hunger: 16.0
+2025-07-05 00:40:21.477 | INFO     | __main__:step:750 -     Goal: 在这个充满未知危险的魔法原始时代，我要成为部落最强壮的战士，用力量守护族人免受克苏鲁怪物的侵袭。
+2025-07-05 00:40:21.477 | INFO     | __main__:step:743 -   Agent 2:
+2025-07-05 00:40:21.477 | INFO     | __main__:step:744 -     Position: (4, 12)
+2025-07-05 00:40:21.477 | INFO     | __main__:step:745 -     Attributes: {'strength': 4, 'curiosity': 9}
+2025-07-05 00:40:21.477 | INFO     | __main__:step:746 -     Inventory: {'wood': 0, 'shell': 0, 'apple': 1}
+2025-07-05 00:40:21.477 | INFO     | __main__:step:747 -     Age: 21
+2025-07-05 00:40:21.477 | INFO     | __main__:step:748 -     Health: 100
+2025-07-05 00:40:21.477 | INFO     | __main__:step:749 -     Hunger: 16.0
+2025-07-05 00:40:21.477 | INFO     | __main__:step:750 -     Goal: "在探索这个充满未知与危险的魔法世界时保持理智，揭开克苏鲁怪物的秘密而不被其吞噬。" 
+
+（根据9点好奇心属性突出求知欲，4点力量属性体现规避正面冲突的生存策略）
+2025-07-05 00:40:21.477 | INFO     | __main__:step:743 -   Agent 3:
+2025-07-05 00:40:21.477 | INFO     | __main__:step:744 -     Position: (0, 2)
+2025-07-05 00:40:21.477 | INFO     | __main__:step:745 -     Attributes: {'strength': 8, 'curiosity': 6, 'hunger': -10}
+2025-07-05 00:40:21.477 | INFO     | __main__:step:746 -     Inventory: {'wood': 0, 'shell': 1, 'fish': 0}
+2025-07-05 00:40:21.477 | INFO     | __main__:step:747 -     Age: 22
+2025-07-05 00:40:21.477 | INFO     | __main__:step:748 -     Health: 100
+2025-07-05 00:40:21.477 | INFO     | __main__:step:749 -     Hunger: 16.0
+2025-07-05 00:40:21.478 | INFO     | __main__:step:750 -     Goal: 在魔法与克苏鲁威胁共存的原始时代，我要通过锻炼体魄成为部落最强的守护者，用力量保护族人免受怪物侵袭。
+2025-07-05 00:40:21.478 | INFO     | __main__:step:743 -   Agent 4:
+2025-07-05 00:40:21.478 | INFO     | __main__:step:744 -     Position: (15, 24)
+2025-07-05 00:40:21.478 | INFO     | __main__:step:745 -     Attributes: {'strength': 8, 'curiosity': 4, 'hunger': -10}
+2025-07-05 00:40:21.478 | INFO     | __main__:step:746 -     Inventory: {'wood': 2, 'shell': 0, 'apple': 2}
+2025-07-05 00:40:21.478 | INFO     | __main__:step:747 -     Age: 56
+2025-07-05 00:40:21.478 | INFO     | __main__:step:748 -     Health: 100
+2025-07-05 00:40:21.478 | INFO     | __main__:step:749 -     Hunger: 16.0
+2025-07-05 00:40:21.478 | INFO     | __main__:step:750 -     Goal: 在确保生存的前提下，通过谨慎观察和有限度的探索，逐步掌握对抗克苏鲁威胁的实用技巧。
+2025-07-05 00:40:31.638 | INFO     | __main__:resolve:412 - Agent 1 (age 48) attempting action: "我要吃掉背包里的苹果来缓解饥饿，然后去(8,10)位置收集木材"
+2025-07-05 00:40:31.783 | INFO     | __main__:resolve:412 - Agent 4 (age 56) attempting action: 我饿了，要摘当前位置(15,24)的苹果吃。
+2025-07-05 00:40:31.966 | INFO     | __main__:resolve:412 - Agent 0 (age 34) attempting action: '先吃掉一个苹果补充体力，然后收集附近(3,20)和(3,21)位置的苹果储备食物'
+2025-07-05 00:40:33.221 | INFO     | __main__:resolve:412 - Agent 2 (age 21) attempting action: "我注意到8号智能体在森林里，想向他询问关于这片区域的神秘现象，发起聊天请求"
+2025-07-05 00:40:33.334 | INFO     | __main__:resolve:412 - Agent 3 (age 22) attempting action: 我要在当前位置(0,2)的海域捕鱼，补充食物储备。
+2025-07-05 00:40:37.126 | INFO     | __main__:_process_outcome:526 - Processing outcome for Agent 1:
+2025-07-05 00:40:37.127 | INFO     | __main__:_process_outcome:527 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 00:40:37.128 | INFO     | __main__:_process_outcome:529 -   Inventory changes: {'apple': -1}
+2025-07-05 00:40:37.128 | INFO     | __main__:_process_outcome:531 -   Attribute changes: {'hunger': -5}
+2025-07-05 00:40:37.128 | INFO     | __main__:_process_outcome:533 -   Position change: [8, 10]
+2025-07-05 00:40:37.129 | INFO     | __main__:_process_outcome:535 -   Action log: 吃了一个苹果缓解饥饿，然后前往(8,10)位置收集木材
+2025-07-05 00:40:37.130 | INFO     | __main__:act:197 - Agent 1 行动 → "我要吃掉背包里的苹果来缓解饥饿，然后去(8,10)位置收集木材"
+2025-07-05 00:40:42.235 | INFO     | __main__:_process_outcome:526 - Processing outcome for Agent 4:
+2025-07-05 00:40:42.239 | INFO     | __main__:_process_outcome:527 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 00:40:42.239 | INFO     | __main__:_process_outcome:529 -   Inventory changes: {'apple': 1}
+2025-07-05 00:40:42.240 | INFO     | __main__:_process_outcome:531 -   Attribute changes: {'hunger': 5}
+2025-07-05 00:40:42.245 | INFO     | __main__:_process_outcome:533 -   Position change: [15, 24]
+2025-07-05 00:40:42.245 | INFO     | __main__:_process_outcome:535 -   Action log: 摘了一个苹果吃，缓解了饥饿
+2025-07-05 00:40:42.249 | INFO     | __main__:act:197 - Agent 4 行动 → 我饿了，要摘当前位置(15,24)的苹果吃。
+2025-07-05 00:40:48.377 | INFO     | __main__:_process_outcome:526 - Processing outcome for Agent 0:
+2025-07-05 00:40:48.378 | INFO     | __main__:_process_outcome:527 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 00:40:48.378 | INFO     | __main__:_process_outcome:529 -   Inventory changes: {'apple': -1}
+2025-07-05 00:40:48.379 | INFO     | __main__:_process_outcome:531 -   Attribute changes: {'hunger': 5}
+2025-07-05 00:40:48.379 | INFO     | __main__:_process_outcome:533 -   Position change: [3, 20]
+2025-07-05 00:40:48.379 | INFO     | __main__:_process_outcome:535 -   Action log: 吃了一个苹果补充体力，然后移动到(3,20)收集苹果
+2025-07-05 00:40:48.381 | INFO     | __main__:act:197 - Agent 0 行动 → '先吃掉一个苹果补充体力，然后收集附近(3,20)和(3,21)位置的苹果储备食物'
+2025-07-05 00:40:53.945 | INFO     | __main__:_process_outcome:526 - Processing outcome for Agent 2:
+2025-07-05 00:40:53.946 | INFO     | __main__:_process_outcome:527 -   Outcome type: dict_keys(['chat_request', 'log', 'position'])
+2025-07-05 00:40:53.946 | INFO     | __main__:_process_outcome:533 -   Position change: [4, 12]
+2025-07-05 00:40:53.946 | INFO     | __main__:_process_outcome:535 -   Action log: 向8号询问关于这片区域的神秘现象
+2025-07-05 00:40:53.946 | INFO     | __main__:act:197 - Agent 2 行动 → "我注意到8号智能体在森林里，想向他询问关于这片区域的神秘现象，发起聊天请求"
+2025-07-05 00:40:59.167 | INFO     | __main__:_process_outcome:526 - Processing outcome for Agent 3:
+2025-07-05 00:40:59.168 | INFO     | __main__:_process_outcome:527 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 00:40:59.168 | INFO     | __main__:_process_outcome:529 -   Inventory changes: {'fish': 1}
+2025-07-05 00:40:59.168 | INFO     | __main__:_process_outcome:531 -   Attribute changes: {'hunger': -5}
+2025-07-05 00:40:59.169 | INFO     | __main__:_process_outcome:533 -   Position change: [0, 2]
+2025-07-05 00:40:59.169 | INFO     | __main__:_process_outcome:535 -   Action log: 在(0,2)海域捕鱼成功
+2025-07-05 00:40:59.170 | INFO     | __main__:act:197 - Agent 3 行动 → 我要在当前位置(0,2)的海域捕鱼，补充食物储备。

@@ -1,0 +1,5 @@
+2025-07-05 00:49:37.430 | INFO     | __main__:run_simulation:988 - ===== TURN 0 =====
+2025-07-05 00:49:37.430 | INFO     | __main__:step:785 - 
+=== TURN 0 START ===
+2025-07-05 00:49:37.430 | INFO     | __main__:step:786 - Bible Rules: {}
+2025-07-05 00:49:37.430 | INFO     | __main__:step:787 - Agent Status:

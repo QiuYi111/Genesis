@@ -41,7 +41,7 @@ import matplotlib.pyplot as plt
 # ─────────────────────────── Config ────────────────────────────────
 openai.api_key = os.getenv("DEEPSEEK_API_KEY")
 MODEL_AGENT = "deepseek-chat"           # or -reasoner when perf‑needed
-MODEL_TRINITY = "deepseek-reasoner"     # more deliberative
+MODEL_TRINITY = "deepseek-chat"     # more deliberative
 VISION_RADIUS = 5                       # tiles in chebyshev dist
 TERRAIN = ["OCEAN", "FOREST", "GRASSLAND", "MOUNTAIN"]
 COLOR = {
@@ -141,6 +141,23 @@ class Agent:
         x0, y0 = self.pos
         
         # Get visible tiles and agents
+        if world.map is None:
+            logger.warning("World map not initialized yet")
+            return bible.apply({
+                "you": {
+                    "aid": self.aid, 
+                    "pos": self.pos, 
+                    "attributes": self.attributes, 
+                    "inventory": self.inventory, 
+                    "age": self.age,
+                    "goal": self.goal,
+                    "hunger": self.hunger,
+                    "health": self.health
+                },
+                "visible_tiles": [],
+                "visible_agents": []
+            })
+            
         for x in range(max(0, x0 - VISION_RADIUS), min(world.size, x0 + VISION_RADIUS + 1)):
             for y in range(max(0, y0 - VISION_RADIUS), min(world.size, y0 + VISION_RADIUS + 1)):
                 if max(abs(x - x0), abs(y - y0)) <= VISION_RADIUS:
@@ -179,8 +196,8 @@ class Agent:
         system = (
             "你控制着模拟世界中的智能体。请始终遵守给定的规则。"
             "根据你的感知、属性和目标，用自然语言描述你的下一步行动。"
-            "行动示例: '我想和3号交易木材', '我饿了，要摘苹果吃', '收集附近的石头'"
-            "制造工具示例: '尝试用木头和石头制作斧头'"
+            "行动示例: '我想和3号交易木材','我想向y号询问关于xx的问题，发起聊天请求', '我饿了，要摘苹果吃', '收集附近的石头'，'请求制造工具，我想制造xx', '建造建筑'\n    "
+            "制造工具示例: '用1木头和1石头制作斧头'"
             "建造建筑示例: '想用木头建造一个小屋'"
         )
         user = (
@@ -240,32 +257,42 @@ class Trinity:
             "You are TRINITY – the omniscient adjudicator of a sociological simulation.\n"
             "Always respect the era context, be fair & impartial (公正公平)."
         )
-        # Initialize terrain and resource rules
+        # Initialize with default rules first
         self.terrain_types = TERRAIN
         self.resource_rules = DEFAULT_RESOURCE_RULES
-        
-        # Generate initial terrain and resource rules based on era
-        self._generate_initial_rules()
+        # Actual rules will be generated when _generate_initial_rules() is called with session
     
-    def _generate_initial_rules(self):
-        """Generate initial terrain and resource rules based on era"""
-        if "石器" in self.era_prompt:
-            self.terrain_types = ["FOREST", "GRASSLAND", "MOUNTAIN"]
-            self.resource_rules = {
-                "wood": {"FOREST": 0.7, "GRASSLAND": 0.1},
-                "stone": {"MOUNTAIN": 0.8, "GRASSLAND": 0.1},
-                "fruit": {"FOREST": 0.4}
-            }
-        elif "农业" in self.era_prompt:
-            self.terrain_types = ["GRASSLAND", "FOREST", "RIVER"]
-            self.resource_rules = {
-                "grain": {"GRASSLAND": 0.6},
-                "wood": {"FOREST": 0.5},
-                "fish": {"RIVER": 0.5}
-            }
-        else:  # Default rules
-            self.terrain_types = TERRAIN
-            self.resource_rules = DEFAULT_RESOURCE_RULES
+    async def _generate_initial_rules(self, session: aiohttp.ClientSession):
+        """Generate initial terrain and resource rules based on era using LLM"""
+        system = (
+            "You are TRINITY - the world builder for a sociological simulation. "
+            "Generate appropriate terrain types and resource distribution rules "
+            "based on the given era description. Return valid JSON only."
+        )
+        user = (
+            f"Era description: {self.era_prompt}\n"
+            "Return JSON with:\n"
+            "- 'terrain_types': array of terrain names\n"
+            "- 'resource_rules': dict mapping resources to terrain probabilities\n"
+            "For dangerous/magical eras, include rare and dangerous resources."
+        )
+        
+        # Try up to 3 times to get valid rules
+        for attempt in range(3):
+            resp = await adeepseek_chat(MODEL_TRINITY, system, user, session, temperature=0.7)
+            try:
+                rules = json.loads(resp)
+                self.terrain_types = rules.get("terrain_types", TERRAIN)
+                self.resource_rules = rules.get("resource_rules", DEFAULT_RESOURCE_RULES)
+                logger.success(f"[Trinity] Generated rules for era: {self.era_prompt}")
+                return
+            except json.JSONDecodeError:
+                if attempt < 2:
+                    logger.warning(f"[Trinity] Attempt {attempt+1}: Invalid rules JSON, retrying...")
+                else:
+                    logger.warning("[Trinity] Using default rules after 3 failures")
+                    self.terrain_types = TERRAIN
+                    self.resource_rules = DEFAULT_RESOURCE_RULES
 
     async def adjudicate(self, global_log: List[str], session: aiohttp.ClientSession):
         user = (
@@ -307,27 +334,64 @@ class Trinity:
 
 # ─────────────────────────── World ────────────────────────────────
 class World:
-    def __init__(self, size: int, era_prompt: str, num_agents: int = 5):
+    def __init__(self, size: int, era_prompt: str, num_agents: int):
         self.size = size
         self.era_prompt = era_prompt
-        
-        # Initialize Bible and Trinity first
+        self.num_agents = num_agents
+        self.agents: List[Agent] = []
+        self.pending_interactions = []
         self.bible = Bible()
         self.trinity = Trinity(self.bible, era_prompt)
+        self.map = None
+        self.resources = {}
+
+    async def initialize(self, session: aiohttp.ClientSession):
+        # Initialize Bible and Trinity first
+        self.bible = Bible()
+        self.trinity = Trinity(self.bible, self.era_prompt)
+        # Wait for initial rules generation to complete
+        await self.trinity._generate_initial_rules(session)
+        while not hasattr(self.trinity, 'resource_rules'):
+            await asyncio.sleep(0.1)
+        
+        # Log initial era-specific rules
+        logger.info("\n" + "="*40)
+        logger.info(f"INITIALIZING WORLD FOR ERA: {self.era_prompt}")
+        logger.info("TERRAIN TYPES: " + ", ".join(self.trinity.terrain_types))
+        logger.info("RESOURCE RULES:")
+        for res, rules in self.trinity.resource_rules.items():
+            logger.info(f"  {res.upper()}:")
+            for terrain, prob in rules.items():
+                logger.info(f"    - {terrain}: {prob*100}% chance")
+        logger.info("="*40 + "\n")
         
         # Generate terrain based on Trinity's rules
         self.map = self.generate_contiguous_terrain()
         self.resources: Dict[Tuple[int,int], Dict[str,int]] = {}
         
+        # Ensure resource rules are properly initialized
+        if not hasattr(self.trinity, 'resource_rules'):
+            self.trinity.resource_rules = DEFAULT_RESOURCE_RULES
+            
         # Place resources based on Trinity's distribution rules
         self.place_resources()
+        
+        # Log initial resource counts
+        resource_counts = {}
+        for pos, resources in self.resources.items():
+            for resource, count in resources.items():
+                resource_counts[resource] = resource_counts.get(resource, 0) + count
+        logger.info("INITIAL RESOURCE DISTRIBUTION:")
+        for resource, count in sorted(resource_counts.items()):
+            logger.info(f"  {resource.upper()}: {count} units")
+        logger.info("="*40 + "\n")
         
         self.agents: List[Agent] = []
         self.pending_interactions = []  # Stores chat requests and item exchanges
         
         # Agents will be initialized without goals first
-        for aid in range(num_agents):
-            pos = (random.randrange(size), random.randrange(size))
+        for aid in range(self.num_agents):
+            pos = (random.randrange(self.size), random.randrange(self.size))
             attr = {"strength": random.randint(1,10), "curiosity": random.randint(1,10)}
             inv = {"wood": random.randint(0,2), "shell": random.randint(0,1)}
             age = random.randint(17, 70)  # Random age between 17-70
@@ -363,6 +427,10 @@ class World:
     # ── Place resources based on Trinity's distribution rules ─────
     def place_resources(self):
         """Place resources according to Trinity's distribution rules"""
+        if self.map is None:
+            logger.warning("Cannot place resources - world map not initialized")
+            return
+            
         # Use Trinity's resource rules if available, else default
         resource_rules = getattr(self.trinity, "resource_rules", DEFAULT_RESOURCE_RULES)
         
@@ -378,6 +446,10 @@ class World:
 
     # ── Display terrain using matplotlib ───────────────────────── 
     def show_map(self):
+        if self.map is None:
+            logger.warning("Cannot show map - world map not initialized")
+            return
+            
         # Create RGB image array
         img = [[COLOR[self.map[x][y]] for y in range(self.size)] for x in range(self.size)]
         plt.figure(figsize=(6,6))
@@ -665,12 +737,12 @@ class World:
                 agent2 = next((a for a in self.world.agents if a.aid == agent_ids[1]), None)
                 
                 if agent1 and agent2:
-            # 检查繁衍条件：健康、物品丰富且年龄合适
-            if (agent1.health > 70 and agent2.health > 70 and
-                sum(agent1.inventory.values()) > 5 and 
-                sum(agent2.inventory.values()) > 5 and
-                abs(agent1.age - agent2.age) <= 20 and  # 年龄差不超过20岁
-                agent1.age >= 18 and agent2.age >= 18):  # 双方都成年
+                    # 检查繁衍条件：健康、物品丰富且年龄合适
+                    if (agent1.health > 70 and agent2.health > 70 and
+                        sum(agent1.inventory.values()) > 5 and 
+                        sum(agent2.inventory.values()) > 5 and
+                        abs(agent1.age - agent2.age) <= 20 and  # 年龄差不超过20岁
+                        agent1.age >= 18 and agent2.age >= 18):  # 双方都成年
                         
                         # 创建新代理 (后代)
                         new_aid = max(a.aid for a in self.world.agents) + 1 if self.world.agents else 0
@@ -811,13 +883,29 @@ class World:
         # Clear processed interactions
         self.pending_interactions = []
         
-        # Every 5 turns, check agent status and generate new resources
-        if self.trinity.turn % 5 == 0:
+        # Every 5 turns, output agent status and regenerate resources
+        if self.trinity.turn % 5 == 0 or self.trinity.turn == 0:
+            # Add visual separator for periodic reports
+            turn_log.append("\n" + "="*40)
+            turn_log.append(f"== PERIODIC REPORT (Turn {self.trinity.turn}) ==")
+            turn_log.append("="*40)
+            
             await self._check_agent_status(turn_log, action_handler)
             self.place_resources()  # Regenerate resources
             
-        # Every 10 turns, Trinity decides era change
-        if self.trinity.turn % 10 == 0:
+            # Output resource list with more structure
+            resource_counts = {}
+            for pos, resources in self.resources.items():
+                for resource, count in resources.items():
+                    resource_counts[resource] = resource_counts.get(resource, 0) + count
+            
+            turn_log.append("\nRESOURCE REPORT:")
+            for resource, count in sorted(resource_counts.items()):
+                turn_log.append(f"- {resource.upper()}: {count} units")
+            turn_log.append("="*40 + "\n")
+            
+        # Every 10 turns (including turn 0), Trinity decides era change
+        if self.trinity.turn % 10 == 0 or self.trinity.turn == 0:
             await self._check_era_change(session, turn_log)
         
         # Process all agents asynchronously
@@ -918,6 +1006,9 @@ def main():
     # Async main loop
     async def run_simulation():
         async with aiohttp.ClientSession() as session:
+            # Initialize world first
+            await world.initialize(session)
+            
             # Initialize agent goals
             tasks = [agent.decide_goal(args.era, session) for agent in world.agents]
             await asyncio.gather(*tasks)
