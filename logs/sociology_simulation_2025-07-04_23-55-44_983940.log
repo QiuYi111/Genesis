@@ -1,0 +1,52 @@
+2025-07-04 23:55:48.468 | INFO     | __main__:decide_goal:136 - Agent 1 personal goal ➜ 凭借强壮的体魄成为部落最出色的猎手。
+2025-07-04 23:55:48.518 | INFO     | __main__:decide_goal:136 - Agent 4 personal goal ➜ "探索并掌握自然界中最神秘的魔法奥秘。"
+2025-07-04 23:55:48.705 | INFO     | __main__:decide_goal:136 - Agent 0 personal goal ➜ 我要成为部落中最博学的巫医，用无尽的好奇心探索世间万物的奥秘。
+2025-07-04 23:55:48.775 | INFO     | __main__:decide_goal:136 - Agent 3 personal goal ➜ "通过研究自然界的奥秘，成为部落中最博学的草药师和魔法研究者。"
+2025-07-04 23:55:49.217 | INFO     | __main__:decide_goal:136 - Agent 2 personal goal ➜ 我要成为部落里最博学的巫医，用无尽的好奇心探索世间万物的奥秘。
+2025-07-04 23:55:49.218 | INFO     | __main__:run_simulation:742 - ===== TURN 0 =====
+2025-07-04 23:55:57.486 | INFO     | __main__:act:186 - Agent 0 行动 → 我要前往(50,10)的位置采集那里的苹果，研究它的药用价值。
+2025-07-04 23:56:04.613 | INFO     | __main__:act:186 - Agent 3 行动 → "前往(45,61)收集苹果，为研究草药和魔法准备食物储备。"
+2025-07-04 23:56:10.460 | INFO     | __main__:act:186 - Agent 2 行动 → "我要前往(45,61)向3号请教森林中哪些植物具有药用价值，同时收集一些苹果作为见面礼。"
+2025-07-04 23:56:15.281 | INFO     | __main__:act:186 - Agent 4 行动 → 我要前往(32,63)收集木材和苹果，为研究魔法做准备。
+2025-07-04 23:56:19.575 | INFO     | __main__:act:186 - Agent 1 行动 → 我要在当前位置(11,27)的海洋中捕鱼。
+2025-07-04 23:57:02.116 | SUCCESS  | __main__:update:107 - [Bible] Updated rules: {'gift_exchange': 'Agents may voluntarily transfer items to other agents when in proximity, establishing primitive social bonds. Recipients must accept gifts for successful exchange.'}
+2025-07-04 23:57:02.119 | INFO     | __main__:run_simulation:742 - ===== TURN 1 =====
+2025-07-04 23:57:09.918 | INFO     | __main__:act:186 - Agent 1 行动 → 我饿了，要捕鱼吃。
+2025-07-04 23:57:15.423 | INFO     | __main__:act:186 - Agent 4 行动 → 我饿了，要去附近的森林(32,63)摘苹果吃。
+2025-07-04 23:57:21.658 | INFO     | __main__:act:186 - Agent 2 行动 → "我想和3号分享我的苹果，同时询问他是否知道任何关于森林中草药的知识。"
+2025-07-04 23:57:26.240 | INFO     | __main__:act:186 - Agent 0 行动 → 我饿了，要去采集(50,5)位置的苹果充饥。
+2025-07-04 23:57:31.147 | INFO     | __main__:act:186 - Agent 3 行动 → 我饿了，要摘取当前位置(45,61)的苹果吃。
+2025-07-04 23:57:52.539 | INFO     | __main__:run_simulation:742 - ===== TURN 2 =====
+2025-07-04 23:58:01.668 | INFO     | __main__:act:186 - Agent 1 行动 → 我要在当前位置(11,27)的海域捕鱼，补充食物储备。
+2025-07-04 23:58:06.709 | INFO     | __main__:act:186 - Agent 4 行动 → "我要先吃掉手中的苹果补充体力，然后去收集附近的石头和木材，为研究魔法做准备。"
+2025-07-04 23:58:13.816 | INFO     | __main__:act:186 - Agent 2 行动 → "我想把这块木头送给3号作为友谊的礼物，同时询问他是否知道任何关于草药的知识。"
+2025-07-04 23:58:20.257 | INFO     | __main__:act:186 - Agent 3 行动 → "先吃掉手中的苹果补充体力，然后与2号交流草药知识并分享木材资源。"
+2025-07-04 23:58:25.561 | INFO     | __main__:act:186 - Agent 0 行动 → 我要先吃掉当前位置的苹果补充体力，然后前往(46,4)采集那里的2个苹果，为后续研究药用植物做准备。
+2025-07-04 23:58:56.774 | SUCCESS  | __main__:update:107 - [Bible] Updated rules: {'以物易物': '个体之间可以自愿交换物品或知识，交换条件由双方共同决定。交换必须在双方同意的前提下进行，不得强迫。'}
+2025-07-04 23:58:56.775 | INFO     | __main__:run_simulation:742 - ===== TURN 3 =====
+2025-07-04 23:59:04.735 | INFO     | __main__:act:186 - Agent 4 行动 → 去(32,63)的位置收集2个苹果和2个木头。
+2025-07-04 23:59:09.976 | INFO     | __main__:act:186 - Agent 1 行动 → 我要在当前位置(11,27)捕鱼，补充食物储备。
+2025-07-04 23:59:14.928 | INFO     | __main__:act:186 - Agent 0 行动 → 我要采集当前位置(46,4)的2个苹果来补充体力，同时研究这些苹果是否具有药用价值。
+2025-07-04 23:59:19.840 | INFO     | __main__:act:186 - Agent 3 行动 → 我注意到饥饿值较高(24)，先采集当前位置(45,61)的苹果充饥。
+2025-07-04 23:59:24.546 | INFO     | __main__:act:186 - Agent 2 行动 → "我想向3号请教森林中草药的知识，用我未来采集的苹果作为交换。"
+2025-07-05 00:00:03.663 | SUCCESS  | __main__:update:107 - [Bible] Updated rules: {'Knowledge Exchange Agreements': 'Agents may establish voluntary pacts to exchange resources or knowledge with delayed fulfillment. Such agreements must specify traded items/knowledge and timeframes. Breach may lower community trust.'}
+2025-07-05 00:00:03.664 | INFO     | __main__:run_simulation:742 - ===== TURN 4 =====
+2025-07-05 00:00:12.888 | INFO     | __main__:act:186 - Agent 1 行动 → 我要在当前位置(11,27)的海域捕鱼，补充食物储备。
+2025-07-05 00:00:17.901 | INFO     | __main__:act:186 - Agent 2 行动 → "我想向3号请教森林中草药的秘密，用我收集的苹果作为交换。"
+2025-07-05 00:00:23.686 | INFO     | __main__:act:186 - Agent 4 行动 → 我想采集附近森林中的苹果来充饥，同时收集更多木材和石头为研究魔法做准备。
+2025-07-05 00:00:28.782 | INFO     | __main__:act:186 - Agent 3 行动 → "先吃掉手中的苹果补充体力，然后前往(45,62)收集那里的苹果和木材，为研究草药准备材料。"
+2025-07-05 00:00:34.484 | INFO     | __main__:act:186 - Agent 0 行动 → "先吃掉一个苹果补充体力，然后前往(46,6)收集那里的苹果，为未来的巫医研究储备食物资源。"
+2025-07-05 00:01:55.948 | SUCCESS  | __main__:update:107 - [Bible] Updated rules: {'Resource Exchange': 'Agents may propose trades of physical resources (apples, wood, fish, herbs). Proposals require mutual agreement. Upon acceptance, resources are instantly exchanged at the specified ratio. Declined proposals incur no penalty.'}
+2025-07-05 00:01:55.949 | INFO     | __main__:run_simulation:742 - ===== TURN 5 =====
+2025-07-05 00:02:05.544 | INFO     | __main__:act:186 - Agent 2 行动 → 我想先摘取当前位置(45,61)的两个苹果充饥，然后观察3号在做什么。
+2025-07-05 00:02:12.380 | INFO     | __main__:act:186 - Agent 1 行动 → "前往(11,26)的位置捕捞更多的鱼，那里有3条鱼可以捕获。"
+2025-07-05 00:02:17.546 | INFO     | __main__:act:186 - Agent 3 行动 → 我饿了，要摘取当前位置(45,62)的苹果充饥。
+2025-07-05 00:02:21.707 | INFO     | __main__:act:186 - Agent 4 行动 → "前往(32,63)收集3个木材和2个苹果，为研究魔法做准备。"
+2025-07-05 00:02:27.423 | INFO     | __main__:act:186 - Agent 0 行动 → 我要先吃掉手中的苹果补充体力，然后去采集附近更多的苹果来研究它们的药用价值。
+2025-07-05 00:03:02.871 | INFO     | __main__:run_simulation:742 - ===== TURN 6 =====
+2025-07-05 00:03:12.026 | INFO     | __main__:act:186 - Agent 4 行动 → 我想收集附近森林里的苹果和木材，为探索魔法奥秘做准备。
+2025-07-05 00:03:17.639 | INFO     | __main__:act:186 - Agent 0 行动 → 我要摘取当前位置(46,6)的苹果来充饥，同时观察这些苹果是否具有特殊药用价值。
+2025-07-05 00:03:23.738 | INFO     | __main__:act:186 - Agent 2 行动 → "先吃掉一个苹果补充体力，然后前往(45,62)位置向3号请教草药知识。"
+2025-07-05 00:03:29.298 | INFO     | __main__:act:186 - Agent 3 行动 → "先吃掉随身携带的苹果补充体力，然后去(45,62)位置收集2个苹果和2个木头，为研究草药做准备。"
+2025-07-05 00:03:34.143 | INFO     | __main__:act:186 - Agent 1 行动 → "我要在当前位置(11,26)捕鱼，这里有3条鱼可以抓。"
+2025-07-05 00:04:20.509 | SUCCESS  | __main__:update:107 - [Bible] Updated rules: {'知识传承': '当两个智能体相遇并交换知识时，双方获得1点知识点数。知识点数可用于提升采集效率或解锁新技能。'}

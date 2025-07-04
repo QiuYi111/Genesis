@@ -1,0 +1,20 @@
+2025-07-04 23:44:36.783 | ERROR    | __main__:adeepseek_chat:86 - API error: 401, message='Unauthorized', url='https://api.deepseek.com/v1/chat/completions'
+2025-07-04 23:44:36.784 | INFO     | __main__:decide_goal:130 - Agent 1 personal goal ➜ {}
+2025-07-04 23:44:36.788 | ERROR    | __main__:adeepseek_chat:86 - API error: 401, message='Unauthorized', url='https://api.deepseek.com/v1/chat/completions'
+2025-07-04 23:44:36.788 | INFO     | __main__:decide_goal:130 - Agent 4 personal goal ➜ {}
+2025-07-04 23:44:36.789 | ERROR    | __main__:adeepseek_chat:86 - API error: 401, message='Unauthorized', url='https://api.deepseek.com/v1/chat/completions'
+2025-07-04 23:44:36.789 | INFO     | __main__:decide_goal:130 - Agent 2 personal goal ➜ {}
+2025-07-04 23:44:36.789 | ERROR    | __main__:adeepseek_chat:86 - API error: 401, message='Unauthorized', url='https://api.deepseek.com/v1/chat/completions'
+2025-07-04 23:44:36.789 | INFO     | __main__:decide_goal:130 - Agent 3 personal goal ➜ {}
+2025-07-04 23:44:36.789 | ERROR    | __main__:adeepseek_chat:86 - API error: 401, message='Unauthorized', url='https://api.deepseek.com/v1/chat/completions'
+2025-07-04 23:44:36.789 | INFO     | __main__:decide_goal:130 - Agent 0 personal goal ➜ {}
+2025-07-04 23:44:36.789 | INFO     | __main__:run_simulation:736 - ===== TURN 0 =====
+2025-07-04 23:44:37.396 | ERROR    | __main__:adeepseek_chat:86 - API error: 401, message='Unauthorized', url='https://api.deepseek.com/v1/chat/completions'
+2025-07-04 23:44:37.397 | ERROR    | __main__:adeepseek_chat:86 - API error: 401, message='Unauthorized', url='https://api.deepseek.com/v1/chat/completions'
+2025-07-04 23:44:37.398 | ERROR    | __main__:adeepseek_chat:86 - API error: 401, message='Unauthorized', url='https://api.deepseek.com/v1/chat/completions'
+2025-07-04 23:44:37.398 | ERROR    | __main__:adeepseek_chat:86 - API error: 401, message='Unauthorized', url='https://api.deepseek.com/v1/chat/completions'
+2025-07-04 23:44:37.398 | ERROR    | __main__:adeepseek_chat:86 - API error: 401, message='Unauthorized', url='https://api.deepseek.com/v1/chat/completions'
+2025-07-04 23:44:37.972 | ERROR    | __main__:adeepseek_chat:86 - API error: 401, message='Unauthorized', url='https://api.deepseek.com/v1/chat/completions'
+2025-07-04 23:44:37.975 | INFO     | __main__:act:180 - Agent 2 行动 → {}
+2025-07-04 23:44:38.551 | ERROR    | __main__:adeepseek_chat:86 - API error: 401, message='Unauthorized', url='https://api.deepseek.com/v1/chat/completions'
+2025-07-04 23:44:38.553 | INFO     | __main__:act:180 - Agent 1 行动 → {}

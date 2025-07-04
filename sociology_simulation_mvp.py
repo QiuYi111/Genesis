@@ -62,7 +62,7 @@ DEFAULT_RESOURCE_RULES = {
 # ─────────────────────── Utility: Async LLM wrapper ─────────────────
 
 async def adeepseek_chat(model: str, system: str, user: str, session: aiohttp.ClientSession, temperature=0.7) -> str:
-    """Async chat completion using aiohttp for DeepSeek API"""
+    """Async chat completion using direct aiohttp calls to DeepSeek API"""
     url = "https://api.deepseek.com/v1/chat/completions"
     headers = {
         "Authorization": f"Bearer {os.getenv('DEEPSEEK_API_KEY')}",
@@ -81,9 +81,15 @@ async def adeepseek_chat(model: str, system: str, user: str, session: aiohttp.Cl
         async with session.post(url, headers=headers, json=payload) as response:
             response.raise_for_status()
             data = await response.json()
-            return data['choices'][0]['message']['content'].strip()
+            if data.get("choices") and data["choices"][0].get("message", {}).get("content"):
+                return data["choices"][0]["message"]["content"].strip()
+            logger.error(f"Unexpected response format: {data}")
+            return "{}"
+    except aiohttp.ClientResponseError as e:
+        logger.error(f"API request failed: {e.status} - {e.message}")
+        return "{}"
     except Exception as e:
-        logger.error(f"API error: {e}")
+        logger.error(f"Unexpected error: {e}")
         return "{}"
 
 # ───────────────────────────── Bible ───────────────────────────────
@@ -131,8 +137,10 @@ class Agent:
 
     # ── Perception (5‑tile radius) ────────────────────────────────
     def perceive(self, world: "World", bible: Bible) -> Dict:
-        vis_tiles, vis_agents = [], []
+        vis_tiles, vis_agents, pending_interactions = [], [], []
         x0, y0 = self.pos
+        
+        # Get visible tiles and agents
         for x in range(max(0, x0 - VISION_RADIUS), min(world.size, x0 + VISION_RADIUS + 1)):
             for y in range(max(0, y0 - VISION_RADIUS), min(world.size, y0 + VISION_RADIUS + 1)):
                 if max(abs(x - x0), abs(y - y0)) <= VISION_RADIUS:
@@ -140,6 +148,15 @@ class Agent:
         for agent in world.agents:
             if agent.aid != self.aid and max(abs(agent.pos[0]-x0), abs(agent.pos[1]-y0)) <= VISION_RADIUS:
                 vis_agents.append({"aid": agent.aid, "pos": list(agent.pos), "attributes": agent.attributes, "age": agent.age})
+        
+        # Get pending interactions for this agent
+        for interaction in world.pending_interactions:
+            if interaction["target_id"] == self.aid:
+                pending_interactions.append({
+                    "source_id": interaction["source_id"],
+                    "type": interaction["type"],
+                    "content": interaction["content"]
+                })
         perception = {
             "you": {
                 "aid": self.aid, 
@@ -163,6 +180,8 @@ class Agent:
             "你控制着模拟世界中的智能体。请始终遵守给定的规则。"
             "根据你的感知、属性和目标，用自然语言描述你的下一步行动。"
             "行动示例: '我想和3号交易木材', '我饿了，要摘苹果吃', '收集附近的石头'"
+            "制造工具示例: '尝试用木头和石头制作斧头'"
+            "建造建筑示例: '想用木头建造一个小屋'"
         )
         user = (
             f"时代背景: {era_prompt}\n"
@@ -172,7 +191,7 @@ class Agent:
         natural_language_action = await adeepseek_chat(MODEL_AGENT, system, user, session)
         
         # Resolve natural language action through handler
-        outcome = await action_handler.resolve(natural_language_action, self, world)
+        outcome = await action_handler.resolve(natural_language_action, self, world, era_prompt)
         self.apply_outcome(outcome)
         
         logger.info(f"Agent {self.aid} 行动 → {natural_language_action}")
@@ -221,8 +240,32 @@ class Trinity:
             "You are TRINITY – the omniscient adjudicator of a sociological simulation.\n"
             "Always respect the era context, be fair & impartial (公正公平)."
         )
-        # Resource distribution rules
+        # Initialize terrain and resource rules
+        self.terrain_types = TERRAIN
         self.resource_rules = DEFAULT_RESOURCE_RULES
+        
+        # Generate initial terrain and resource rules based on era
+        self._generate_initial_rules()
+    
+    def _generate_initial_rules(self):
+        """Generate initial terrain and resource rules based on era"""
+        if "石器" in self.era_prompt:
+            self.terrain_types = ["FOREST", "GRASSLAND", "MOUNTAIN"]
+            self.resource_rules = {
+                "wood": {"FOREST": 0.7, "GRASSLAND": 0.1},
+                "stone": {"MOUNTAIN": 0.8, "GRASSLAND": 0.1},
+                "fruit": {"FOREST": 0.4}
+            }
+        elif "农业" in self.era_prompt:
+            self.terrain_types = ["GRASSLAND", "FOREST", "RIVER"]
+            self.resource_rules = {
+                "grain": {"GRASSLAND": 0.6},
+                "wood": {"FOREST": 0.5},
+                "fish": {"RIVER": 0.5}
+            }
+        else:  # Default rules
+            self.terrain_types = TERRAIN
+            self.resource_rules = DEFAULT_RESOURCE_RULES
 
     async def adjudicate(self, global_log: List[str], session: aiohttp.ClientSession):
         user = (
@@ -268,47 +311,53 @@ class World:
         self.size = size
         self.era_prompt = era_prompt
         
-        # Generate deterministic terrain with contiguous regions
-        self.map = self.generate_contiguous_terrain()
-        self.resources: Dict[Tuple[int,int], Dict[str,int]] = {}
-        
-        # Initialize Bible and Trinity first for resource rules
+        # Initialize Bible and Trinity first
         self.bible = Bible()
         self.trinity = Trinity(self.bible, era_prompt)
+        
+        # Generate terrain based on Trinity's rules
+        self.map = self.generate_contiguous_terrain()
+        self.resources: Dict[Tuple[int,int], Dict[str,int]] = {}
         
         # Place resources based on Trinity's distribution rules
         self.place_resources()
         
         self.agents: List[Agent] = []
+        self.pending_interactions = []  # Stores chat requests and item exchanges
+        
         # Agents will be initialized without goals first
         for aid in range(num_agents):
             pos = (random.randrange(size), random.randrange(size))
             attr = {"strength": random.randint(1,10), "curiosity": random.randint(1,10)}
             inv = {"wood": random.randint(0,2), "shell": random.randint(0,1)}
-            agent = Agent(aid, pos, attr, inv)
+            age = random.randint(17, 70)  # Random age between 17-70
+            agent = Agent(aid, pos, attr, inv, age=age)
             self.agents.append(agent)
 
     # ── Generate contiguous terrain regions ──────────────────────
     def generate_contiguous_terrain(self):
-        """Create deterministic terrain with contiguous regions"""
+        """Generate terrain based on Trinity's rules"""
+        # Default terrain types if Trinity hasn't specified
+        terrain_types = getattr(self.trinity, "terrain_types", TERRAIN)
+        
+        # Create empty map
         map = [["GRASSLAND"] * self.size for _ in range(self.size)]
         
-        # Ocean region (bottom-left)
-        for x in range(self.size//2):
-            for y in range(self.size//2):
-                map[x][y] = "OCEAN"
+        # Generate regions based on terrain types
+        regions = len(terrain_types)
+        region_size = self.size // regions
         
-        # Forest region (top-right)
-        for x in range(self.size//2, self.size):
-            for y in range(self.size//2, self.size):
-                map[x][y] = "FOREST"
+        for i, terrain in enumerate(terrain_types):
+            x_start = i * region_size
+            x_end = (i + 1) * region_size if i < regions - 1 else self.size
+            
+            for x in range(x_start, x_end):
+                y_start = i * region_size
+                y_end = (i + 1) * region_size if i < regions - 1 else self.size
+                
+                for y in range(y_start, y_end):
+                    map[x][y] = terrain
         
-        # Mountain region (top-left)
-        for x in range(self.size//2):
-            for y in range(self.size//2, self.size):
-                map[x][y] = "MOUNTAIN"
-        
-        # Grassland is already set as default for bottom-right
         return map
 
     # ── Place resources based on Trinity's distribution rules ─────
@@ -347,9 +396,32 @@ class World:
             self.dead_agents = []       # 存储死亡智能体ID
             self.buildings = []         # 存储建筑信息
             self.tools = []            # 存储工具信息
+            self.creation_rules = {     # 制造/建造所需的最低属性和材料
+                "axe": {
+                    "required_attributes": {"strength": 5, "curiosity": 3},
+                    "required_materials": {"wood": 2, "stone": 1}
+                },
+                "hut": {
+                    "required_attributes": {"strength": 3},
+                    "required_materials": {"wood": 5}
+                }
+            }
         
-        async def resolve(self, action: str, agent: Agent, world: World) -> Dict:
+        async def resolve(self, action: str, agent: Agent, world: World, era_prompt: str) -> Dict:
             """Resolve natural language actions using LLM arbitration with robust JSON validation"""
+            logger.info(f"Agent {agent.aid} (age {agent.age}) attempting action: {action}")
+            
+            # Age-based action restrictions
+            if "courtship" in action.lower() and agent.age < 18:
+                return {
+                    "log": "年龄太小无法求偶",
+                    "position": list(agent.pos)
+                }
+            if "build" in action.lower() and agent.age < 16:
+                return {
+                    "log": "年龄太小无法建造",
+                    "position": list(agent.pos)
+                }
             system = (
                 "你是一个行为裁决系统，根据以下要素评估行动结果:\n"
                 f"1. 圣经规则: {json.dumps(self.bible.rules, ensure_ascii=False)}\n"
@@ -362,8 +434,11 @@ class World:
                 "- 'log': 行动日志描述\n"
                 "- 'courtship_target': 求偶目标ID (可选)\n"
                 "- 'dead': 是否死亡 (可选)\n"
+                "- 'chat_request': 聊天请求 {\"target_id\": ID, \"topic\": \"话题\"} (可选)\n"
+                "- 'exchange_request': 交换请求 {\"target_id\": ID, \"offer\": {\"物品\": 数量}, \"request\": {\"物品\": 数量}} (可选)\n"
                 "示例输出: {\"inventory\": {\"apple\": -1}, \"attributes\": {\"hunger\": -10}, \"log\": \"吃了一个苹果\"}"
-                "死亡示例: {\"log\": \"在野外遭遇中死亡\", \"dead\": true}"
+                "聊天示例: {\"chat_request\": {\"target_id\": 3, \"topic\": \"草药知识\"}, \"log\": \"询问3号草药知识\"}"
+                "交换示例: {\"exchange_request\": {\"target_id\": 2, \"offer\": {\"apple\": 3}, \"request\": {\"fish\": 2}}, \"log\": \"向2号提供3个苹果换取2条鱼\"}"
                 "\n\n重要: 必须返回严格有效的JSON，仅包含JSON对象，不要包含任何额外文本或注释!"
             )
             prompt = (
@@ -382,7 +457,7 @@ class World:
                         try:
                             outcome = json.loads(response) if response else {}
                             if self._validate_outcome(outcome, agent):
-                                return self._process_outcome(outcome, agent)
+                                return await self._process_outcome(outcome, agent, self.world, session, era_prompt)
                             continue
                         except json.JSONDecodeError:
                             pass
@@ -392,7 +467,7 @@ class World:
                         try:
                             outcome = json.loads(cleaned) if cleaned else {}
                             if self._validate_outcome(outcome, agent):
-                                return self._process_outcome(outcome, agent)
+                                return await self._process_outcome(outcome, agent, self.world, session, era_prompt)
                         except json.JSONDecodeError:
                             logger.warning(f"Attempt {attempt+1}: Invalid JSON response")
                     
@@ -446,8 +521,18 @@ class World:
                 
             return True
 
-        def _process_outcome(self, outcome: Dict, agent: Agent) -> Dict:
+        async def _process_outcome(self, outcome: Dict, agent: Agent, world: World, session: aiohttp.ClientSession, era_prompt: str) -> Dict:
             """Process and record special events from a validated outcome"""
+            logger.info(f"Processing outcome for Agent {agent.aid}:")
+            logger.info(f"  Outcome type: {outcome.keys()}")
+            if "inventory" in outcome:
+                logger.info(f"  Inventory changes: {outcome['inventory']}")
+            if "attributes" in outcome:
+                logger.info(f"  Attribute changes: {outcome['attributes']}")
+            if "position" in outcome:
+                logger.info(f"  Position change: {outcome['position']}")
+            if "log" in outcome:
+                logger.info(f"  Action log: {outcome['log']}")
             # Record courtship events
             if "courtship_target" in outcome:
                 target_id = outcome["courtship_target"]
@@ -463,14 +548,106 @@ class World:
                 building["owner"] = agent.aid
                 building["position"] = list(agent.pos)
                 self.buildings.append(building)
+                # Add to Bible as new rule
+                self.bible.update({
+                    f"building_{building['type']}": f"Requires {building.get('materials', 'unknown')}"
+                })
                 
             # Record tool creation
             if "create_tool" in outcome:
                 tool = outcome["create_tool"]
                 tool["creator"] = agent.aid
                 self.tools.append(tool)
+                # Add to Bible as new rule
+                self.bible.update({
+                    f"tool_{tool['type']}": f"Requires {tool.get('materials', 'unknown')} and attributes {tool.get('required_attributes', 'unknown')}"
+                })
+                
+            # Process creation attempts
+            if "attempt_create" in outcome:
+                creation_type = outcome["attempt_create"]["type"]
+                if creation_type in self.creation_rules:
+                    rules = self.creation_rules[creation_type]
+                    # Check if agent meets requirements
+                    meets_attributes = all(
+                        agent.attributes.get(attr, 0) >= val 
+                        for attr, val in rules["required_attributes"].items()
+                    )
+                    has_materials = all(
+                        agent.inventory.get(mat, 0) >= qty 
+                        for mat, qty in rules["required_materials"].items()
+                    )
+                    
+                    if meets_attributes and has_materials:
+                        # Success - consume materials and create item
+                        for mat, qty in rules["required_materials"].items():
+                            agent.inventory[mat] = agent.inventory.get(mat, 0) - qty
+                        
+                        if creation_type in ["axe", "hammer"]:  # Tools
+                            return {
+                                "create_tool": {
+                                    "type": creation_type,
+                                    "materials": rules["required_materials"],
+                                    "required_attributes": rules["required_attributes"]
+                                },
+                                "log": f"成功制造了{creation_type}!"
+                            }
+                        else:  # Buildings
+                            return {
+                                "build": {
+                                    "type": creation_type,
+                                    "materials": rules["required_materials"]
+                                },
+                                "log": f"成功建造了{creation_type}!"
+                            }
+                    else:
+                        return {
+                            "log": f"制造{creation_type}失败: {'属性不足' if not meets_attributes else '材料不足'}"
+                        }
+            
+            # Process chat requests
+            if "chat_request" in outcome:
+                chat_data = outcome["chat_request"]
+                world.pending_interactions.append({
+                    "source_id": agent.aid,
+                    "target_id": chat_data["target_id"],
+                    "type": "chat",
+                    "content": chat_data["topic"]
+                })
+                return {
+                    "log": f"向智能体 {chat_data['target_id']} 发送聊天请求: {chat_data['topic']}"
+                }
+            
+            # Process item exchanges
+            if "exchange_request" in outcome:
+                exchange_data = outcome["exchange_request"]
+                world.pending_interactions.append({
+                    "source_id": agent.aid,
+                    "target_id": exchange_data["target_id"],
+                    "type": "exchange",
+                    "offer": exchange_data["offer"],
+                    "request": exchange_data["request"]
+                })
+                return {
+                    "log": f"向智能体 {exchange_data['target_id']} 发起交换: {exchange_data['offer']} 换 {exchange_data['request']}"
+                }
                 
             return outcome
+            
+        async def generate_chat_response(self, agent: Agent, topic: str, era_prompt: str, session: aiohttp.ClientSession) -> str:
+            """Generate a response to a chat request using LLM"""
+            system = (
+                "你是一个模拟世界中的智能体。另一个智能体向你提出了一个问题或请求。"
+                "请根据你的知识、属性和当前状态，用一句话简洁回答。"
+            )
+            user = (
+                f"时代背景: {era_prompt}\n"
+                f"你的属性: {json.dumps(agent.attributes, ensure_ascii=False)}\n"
+                f"你的背包: {json.dumps(agent.inventory, ensure_ascii=False)}\n"
+                f"问题/请求: {topic}\n"
+                "请用一句话回答:"
+            )
+            return await adeepseek_chat(MODEL_AGENT, system, user, session)
         
         def process_courtship_events(self):
             """处理求偶事件并返回新创建的代理列表"""
@@ -488,10 +665,12 @@ class World:
                 agent2 = next((a for a in self.world.agents if a.aid == agent_ids[1]), None)
                 
                 if agent1 and agent2:
-                    # 检查繁衍条件：健康且物品丰富
-                    if (agent1.health > 70 and agent2.health > 70 and
-                        sum(agent1.inventory.values()) > 5 and 
-                        sum(agent2.inventory.values()) > 5):
+            # 检查繁衍条件：健康、物品丰富且年龄合适
+            if (agent1.health > 70 and agent2.health > 70 and
+                sum(agent1.inventory.values()) > 5 and 
+                sum(agent2.inventory.values()) > 5 and
+                abs(agent1.age - agent2.age) <= 20 and  # 年龄差不超过20岁
+                agent1.age >= 18 and agent2.age >= 18):  # 双方都成年
                         
                         # 创建新代理 (后代)
                         new_aid = max(a.aid for a in self.world.agents) + 1 if self.world.agents else 0
@@ -556,8 +735,81 @@ class World:
         # This just logs the check
 
     async def step(self, session: aiohttp.ClientSession):
+        # Log turn start information
+        logger.info(f"\n=== TURN {self.trinity.turn} START ===")
+        logger.info(f"Bible Rules: {json.dumps(self.bible.rules, indent=2, ensure_ascii=False)}")
+        logger.info("Agent Status:")
+        for agent in self.agents:
+            logger.info(f"  Agent {agent.aid}:")
+            logger.info(f"    Position: {agent.pos}")
+            logger.info(f"    Attributes: {agent.attributes}")
+            logger.info(f"    Inventory: {agent.inventory}") 
+            logger.info(f"    Age: {agent.age}")
+            logger.info(f"    Health: {agent.health}")
+            logger.info(f"    Hunger: {agent.hunger}")
+            logger.info(f"    Goal: {agent.goal}")
+        
         action_handler = self.ActionHandler(self.bible, self)
         turn_log = []
+        
+        # Process pending interactions at start of turn
+        new_interactions = []
+        for interaction in self.pending_interactions:
+            target_agent = next((a for a in self.agents if a.aid == interaction["target_id"]), None)
+            if not target_agent:
+                continue
+                
+            if interaction["type"] == "chat":
+                # Generate response using action handler
+                response = await action_handler.generate_chat_response(
+                    target_agent, 
+                    interaction["content"], 
+                    self.era_prompt,
+                    session
+                )
+                
+                # Record interaction in both agents' logs
+                source_agent = next((a for a in self.agents if a.aid == interaction["source_id"]), None)
+                if source_agent:
+                    source_agent.log.append(f"你向智能体 {target_agent.aid} 询问: {interaction['content']}，回答: {response}")
+                target_agent.log.append(f"智能体 {interaction['source_id']} 向你询问: {interaction['content']}，你回答: {response}")
+                
+                turn_log.append(f"Agent {interaction['source_id']} ↔ Agent {target_agent.aid}: {interaction['content']} → {response}")
+                
+            elif interaction["type"] == "exchange":
+                # Handle item exchange
+                source_agent = next((a for a in self.agents if a.aid == interaction["source_id"]), None)
+                if not source_agent:
+                    continue
+                    
+                # Check if both agents have required items
+                can_exchange = True
+                for item, qty in interaction["offer"].items():
+                    if source_agent.inventory.get(item, 0) < qty:
+                        can_exchange = False
+                for item, qty in interaction["request"].items():
+                    if target_agent.inventory.get(item, 0) < qty:
+                        can_exchange = False
+                
+                if can_exchange:
+                    # Perform exchange
+                    for item, qty in interaction["offer"].items():
+                        source_agent.inventory[item] = source_agent.inventory.get(item, 0) - qty
+                        target_agent.inventory[item] = target_agent.inventory.get(item, 0) + qty
+                    for item, qty in interaction["request"].items():
+                        target_agent.inventory[item] = target_agent.inventory.get(item, 0) - qty
+                        source_agent.inventory[item] = source_agent.inventory.get(item, 0) + qty
+                    
+                    source_agent.log.append(f"成功与智能体 {target_agent.aid} 交换: {interaction['offer']} 换 {interaction['request']}")
+                    target_agent.log.append(f"与智能体 {source_agent.aid} 交换: 收到 {interaction['offer']} 付出 {interaction['request']}")
+                    turn_log.append(f"Agent {source_agent.aid} ↔ Agent {target_agent.aid}: 交换成功")
+                else:
+                    source_agent.log.append(f"与智能体 {target_agent.aid} 交换失败: 资源不足")
+                    target_agent.log.append(f"智能体 {source_agent.aid} 试图交换但资源不足")
+                    turn_log.append(f"Agent {source_agent.aid} ↔ Agent {target_agent.aid}: 交换失败")
+        
+        # Clear processed interactions
+        self.pending_interactions = []
         
         # Every 5 turns, check agent status and generate new resources
         if self.trinity.turn % 5 == 0:
@@ -643,7 +895,21 @@ def main():
 
     log_level = os.getenv("LOG_LEVEL", "INFO")
     logger.remove()
+    
+    # Console logging
     logger.add(lambda msg: print(msg, end=""), level=log_level)
+    
+    # File logging with rotation
+    log_dir = "logs"
+    os.makedirs(log_dir, exist_ok=True)
+    logger.add(
+        os.path.join(log_dir, "sociology_simulation_{time}.log"),
+        rotation="10 MB",  # Rotate when file reaches 10MB
+        retention="30 days",  # Keep logs for 30 days
+        compression="zip",  # Compress rotated logs
+        level=log_level,
+        format="{time:YYYY-MM-DD HH:mm:ss.SSS} | {level: <8} | {name}:{function}:{line} - {message}"
+    )
 
     world = World(args.size, args.era, args.num_agents)
     if args.show_map_every and args.turns > 0:

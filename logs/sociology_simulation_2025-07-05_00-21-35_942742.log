@@ -1,0 +1,102 @@
+2025-07-05 00:21:38.922 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.922 | INFO     | __main__:decide_goal:136 - Agent 13 personal goal ➜ {}
+2025-07-05 00:21:38.923 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.923 | INFO     | __main__:decide_goal:136 - Agent 9 personal goal ➜ {}
+2025-07-05 00:21:38.934 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.935 | INFO     | __main__:decide_goal:136 - Agent 7 personal goal ➜ {}
+2025-07-05 00:21:38.935 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.935 | INFO     | __main__:decide_goal:136 - Agent 18 personal goal ➜ {}
+2025-07-05 00:21:38.935 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.935 | INFO     | __main__:decide_goal:136 - Agent 16 personal goal ➜ {}
+2025-07-05 00:21:38.935 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.935 | INFO     | __main__:decide_goal:136 - Agent 10 personal goal ➜ {}
+2025-07-05 00:21:38.935 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.936 | INFO     | __main__:decide_goal:136 - Agent 2 personal goal ➜ {}
+2025-07-05 00:21:38.936 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.936 | INFO     | __main__:decide_goal:136 - Agent 3 personal goal ➜ {}
+2025-07-05 00:21:38.941 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.941 | INFO     | __main__:decide_goal:136 - Agent 12 personal goal ➜ {}
+2025-07-05 00:21:38.941 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.941 | INFO     | __main__:decide_goal:136 - Agent 14 personal goal ➜ {}
+2025-07-05 00:21:38.942 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.942 | INFO     | __main__:decide_goal:136 - Agent 19 personal goal ➜ {}
+2025-07-05 00:21:38.942 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.942 | INFO     | __main__:decide_goal:136 - Agent 8 personal goal ➜ {}
+2025-07-05 00:21:38.942 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.942 | INFO     | __main__:decide_goal:136 - Agent 15 personal goal ➜ {}
+2025-07-05 00:21:38.942 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.942 | INFO     | __main__:decide_goal:136 - Agent 4 personal goal ➜ {}
+2025-07-05 00:21:38.942 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.942 | INFO     | __main__:decide_goal:136 - Agent 1 personal goal ➜ {}
+2025-07-05 00:21:38.942 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.942 | INFO     | __main__:decide_goal:136 - Agent 5 personal goal ➜ {}
+2025-07-05 00:21:38.942 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.942 | INFO     | __main__:decide_goal:136 - Agent 17 personal goal ➜ {}
+2025-07-05 00:21:38.942 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.942 | INFO     | __main__:decide_goal:136 - Agent 6 personal goal ➜ {}
+2025-07-05 00:21:38.943 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.943 | INFO     | __main__:decide_goal:136 - Agent 11 personal goal ➜ {}
+2025-07-05 00:21:38.943 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:38.943 | INFO     | __main__:decide_goal:136 - Agent 0 personal goal ➜ {}
+2025-07-05 00:21:38.943 | INFO     | __main__:run_simulation:886 - ===== TURN 0 =====
+2025-07-05 00:21:39.020 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.021 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.033 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.047 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.048 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.050 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.050 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.051 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.055 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.055 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.055 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.055 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.056 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.056 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.060 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.061 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.062 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.066 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.066 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.067 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.090 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.091 | INFO     | __main__:act:197 - Agent 0 行动 → {}
+2025-07-05 00:21:39.163 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.163 | INFO     | __main__:act:197 - Agent 5 行动 → {}
+2025-07-05 00:21:39.238 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.240 | INFO     | __main__:act:197 - Agent 10 行动 → {}
+2025-07-05 00:21:39.572 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.574 | INFO     | __main__:act:197 - Agent 2 行动 → {}
+2025-07-05 00:21:39.655 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.656 | INFO     | __main__:act:197 - Agent 4 行动 → {}
+2025-07-05 00:21:39.729 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.731 | INFO     | __main__:act:197 - Agent 3 行动 → {}
+2025-07-05 00:21:39.804 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.806 | INFO     | __main__:act:197 - Agent 12 行动 → {}
+2025-07-05 00:21:39.881 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.883 | INFO     | __main__:act:197 - Agent 7 行动 → {}
+2025-07-05 00:21:39.959 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:39.960 | INFO     | __main__:act:197 - Agent 11 行动 → {}
+2025-07-05 00:21:40.030 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:40.032 | INFO     | __main__:act:197 - Agent 1 行动 → {}
+2025-07-05 00:21:40.107 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:40.109 | INFO     | __main__:act:197 - Agent 6 行动 → {}
+2025-07-05 00:21:40.180 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:40.182 | INFO     | __main__:act:197 - Agent 8 行动 → {}
+2025-07-05 00:21:40.583 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:40.585 | INFO     | __main__:act:197 - Agent 14 行动 → {}
+2025-07-05 00:21:40.658 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:40.659 | INFO     | __main__:act:197 - Agent 9 行动 → {}
+2025-07-05 00:21:40.741 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:40.743 | INFO     | __main__:act:197 - Agent 13 行动 → {}
+2025-07-05 00:21:40.844 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:40.846 | INFO     | __main__:act:197 - Agent 17 行动 → {}
+2025-07-05 00:21:40.916 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:40.917 | INFO     | __main__:act:197 - Agent 15 行动 → {}
+2025-07-05 00:21:40.994 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:40.996 | INFO     | __main__:act:197 - Agent 16 行动 → {}
+2025-07-05 00:21:41.129 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:41.132 | INFO     | __main__:act:197 - Agent 18 行动 → {}
+2025-07-05 00:21:41.220 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized
+2025-07-05 00:21:41.221 | INFO     | __main__:act:197 - Agent 19 行动 → {}
+2025-07-05 00:21:41.251 | ERROR    | __main__:adeepseek_chat:89 - API request failed: 401 - Unauthorized

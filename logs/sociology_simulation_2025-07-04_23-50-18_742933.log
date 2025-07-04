@@ -1,0 +1,8 @@
+2025-07-04 23:50:22.481 | INFO     | __main__:decide_goal:136 - Agent 3 personal goal ➜ 凭借强壮的体魄成为部落最出色的猎手。
+2025-07-04 23:50:22.738 | INFO     | __main__:decide_goal:136 - Agent 2 personal goal ➜ 凭借过人的力量和探索精神，我要成为部落最勇猛的猎手和魔法图腾的守护者。
+2025-07-04 23:50:22.772 | INFO     | __main__:decide_goal:136 - Agent 1 personal goal ➜ 凭借强壮的体魄成为部落最出色的猎手。
+2025-07-04 23:50:22.785 | INFO     | __main__:decide_goal:136 - Agent 4 personal goal ➜ 我要成为部落中最睿智的巫医，用无尽的好奇心探索世间万物的奥秘。
+2025-07-04 23:50:23.008 | INFO     | __main__:decide_goal:136 - Agent 0 personal goal ➜ 凭借有限的魔法天赋，我要成为部落最可靠的采集者，用我的力量为族人带回更多食物。
+2025-07-04 23:50:23.009 | INFO     | __main__:run_simulation:742 - ===== TURN 0 =====
+2025-07-04 23:50:31.555 | INFO     | __main__:act:186 - Agent 3 行动 → 我要前往鱼群最密集的(11,25)位置捕鱼。
+2025-07-04 23:50:36.331 | INFO     | __main__:act:186 - Agent 0 行动 → 我要前往(39,28)采集那里的苹果，为部落带回食物。
