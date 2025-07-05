@@ -1,7 +1,7 @@
 {
   "world": {
     "size": 32,
-    "turn": 5,
+    "turn": 20,
     "era": "Stone Age",
     "terrain": [
       "GRASSLAND",
@@ -2682,18 +2682,20 @@
     {
       "aid": 0,
       "name": "Rok",
-      "x": 28,
+      "x": 24,
       "y": 27,
       "health": 100,
-      "current_action": "move_east",
-      "inventory": {},
+      "current_action": "move_west",
+      "inventory": {
+        "food": 1
+      },
       "skills": {
         "foraging": {
           "level": 1,
           "experience": 0
         },
         "crafting": {
-          "level": 1,
+          "level": 3,
           "experience": 0
         }
       },
@@ -2710,18 +2712,20 @@
     {
       "aid": 1,
       "name": "Ash",
-      "x": 18,
+      "x": 21,
       "y": 6,
       "health": 100,
-      "current_action": "rest",
-      "inventory": {},
+      "current_action": "forage",
+      "inventory": {
+        "food": 1
+      },
       "skills": {
         "foraging": {
           "level": 2,
           "experience": 0
         },
         "crafting": {
-          "level": 1,
+          "level": 2,
           "experience": 0
         }
       },
@@ -2738,20 +2742,23 @@
     {
       "aid": 2,
       "name": "Flint",
-      "x": 25,
-      "y": 7,
+      "x": 23,
+      "y": 9,
       "health": 100,
-      "current_action": "forage",
+      "current_action": "move_north",
       "inventory": {
-        "wood": 1
+        "wood": 2,
+        "fruit": 1,
+        "food": 1,
+        "stone": 1
       },
       "skills": {
         "foraging": {
-          "level": 1,
+          "level": 2,
           "experience": 0
         },
         "crafting": {
-          "level": 1,
+          "level": 3,
           "experience": 0
         }
       },
@@ -2768,18 +2775,20 @@
     {
       "aid": 3,
       "name": "Clay",
-      "x": 2,
-      "y": 23,
+      "x": 0,
+      "y": 24,
       "health": 100,
       "current_action": "move_west",
-      "inventory": {},
+      "inventory": {
+        "food": 1
+      },
       "skills": {
         "foraging": {
           "level": 1,
           "experience": 0
         },
         "crafting": {
-          "level": 1,
+          "level": 3,
           "experience": 0
         }
       },
@@ -2796,16 +2805,16 @@
     {
       "aid": 4,
       "name": "Storm",
-      "x": 7,
-      "y": 16,
+      "x": 8,
+      "y": 14,
       "health": 100,
-      "current_action": "forage",
+      "current_action": "rest",
       "inventory": {
         "food": 1
       },
       "skills": {
         "foraging": {
-          "level": 1,
+          "level": 2,
           "experience": 0
         },
         "crafting": {
@@ -2826,14 +2835,14 @@
     {
       "aid": 5,
       "name": "River",
-      "x": 9,
+      "x": 8,
       "y": 14,
       "health": 100,
       "current_action": "forage",
       "inventory": {},
       "skills": {
         "foraging": {
-          "level": 1,
+          "level": 3,
           "experience": 0
         },
         "crafting": {
@@ -2854,18 +2863,20 @@
     {
       "aid": 6,
       "name": "Pine",
-      "x": 26,
-      "y": 20,
+      "x": 27,
+      "y": 23,
       "health": 100,
-      "current_action": "move_north",
-      "inventory": {},
+      "current_action": "move_south",
+      "inventory": {
+        "fruit": 1
+      },
       "skills": {
         "foraging": {
           "level": 1,
           "experience": 0
         },
         "crafting": {
-          "level": 1,
+          "level": 2,
           "experience": 0
         }
       },
@@ -2882,18 +2893,20 @@
     {
       "aid": 7,
       "name": "Stone",
-      "x": 9,
+      "x": 11,
       "y": 2,
       "health": 100,
       "current_action": "forage",
-      "inventory": {},
+      "inventory": {
+        "fruit": 1
+      },
       "skills": {
         "foraging": {
           "level": 1,
           "experience": 0
         },
         "crafting": {
-          "level": 1,
+          "level": 2,
           "experience": 0
         }
       },
@@ -2913,11 +2926,13 @@
       "x": 2,
       "y": 7,
       "health": 100,
-      "current_action": "move_west",
-      "inventory": {},
+      "current_action": "move_east",
+      "inventory": {
+        "food": 1
+      },
       "skills": {
         "foraging": {
-          "level": 2,
+          "level": 3,
           "experience": 0
         },
         "crafting": {
@@ -2938,18 +2953,20 @@
     {
       "aid": 9,
       "name": "Bear",
-      "x": 28,
-      "y": 3,
+      "x": 30,
+      "y": 5,
       "health": 100,
-      "current_action": "move_north",
-      "inventory": {},
+      "current_action": "move_south",
+      "inventory": {
+        "food": 1
+      },
       "skills": {
         "foraging": {
-          "level": 1,
+          "level": 3,
           "experience": 0
         },
         "crafting": {
-          "level": 1,
+          "level": 2,
           "experience": 0
         }
       },
@@ -2964,8 +2981,8 @@
       "memory": []
     }
   ],
-  "turn": 5,
-  "timestamp": 1751729709.685534,
+  "turn": 20,
+  "timestamp": 1751729724.8921988,
   "logs": [
     {
       "timestamp": 1751729705.623557,
@@ -3097,6 +3114,360 @@
       "timestamp": 1751729709.68312,
       "level": "INFO",
       "message": "Storm found food",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729709.694077,
+      "level": "INFO",
+      "message": "Turn 5 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729710.695822,
+      "level": "INFO",
+      "message": "=== Turn 6 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729710.696251,
+      "level": "INFO",
+      "message": "Rok improved crafting to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729710.696741,
+      "level": "INFO",
+      "message": "River improved foraging to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729710.696913,
+      "level": "INFO",
+      "message": "Wolf found food",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729710.7069921,
+      "level": "INFO",
+      "message": "Turn 6 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729711.7084868,
+      "level": "INFO",
+      "message": "=== Turn 7 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729711.719993,
+      "level": "INFO",
+      "message": "Turn 7 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729712.72174,
+      "level": "INFO",
+      "message": "=== Turn 8 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729712.7220302,
+      "level": "INFO",
+      "message": "Flint improved crafting to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729712.734676,
+      "level": "INFO",
+      "message": "Turn 8 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729713.736352,
+      "level": "INFO",
+      "message": "=== Turn 9 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729713.7365499,
+      "level": "INFO",
+      "message": "Flint improved crafting to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729713.7366242,
+      "level": "INFO",
+      "message": "Pine found fruit",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729713.7475982,
+      "level": "INFO",
+      "message": "Turn 9 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729714.749336,
+      "level": "INFO",
+      "message": "=== Turn 10 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729714.749652,
+      "level": "INFO",
+      "message": "Ash found food",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729714.749831,
+      "level": "INFO",
+      "message": "Clay improved crafting to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729714.761174,
+      "level": "INFO",
+      "message": "Turn 10 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729715.762607,
+      "level": "INFO",
+      "message": "Completed 10 turns",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729715.762669,
+      "level": "INFO",
+      "message": "=== Turn 11 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729715.778624,
+      "level": "INFO",
+      "message": "Turn 11 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729716.7799811,
+      "level": "INFO",
+      "message": "=== Turn 12 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729716.780313,
+      "level": "INFO",
+      "message": "Bear improved foraging to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729716.78641,
+      "level": "INFO",
+      "message": "Turn 12 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729717.7873821,
+      "level": "INFO",
+      "message": "=== Turn 13 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729717.787657,
+      "level": "INFO",
+      "message": "Flint found fruit",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729717.7879932,
+      "level": "INFO",
+      "message": "Clay found food",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729717.8002849,
+      "level": "INFO",
+      "message": "Turn 13 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729718.802064,
+      "level": "INFO",
+      "message": "=== Turn 14 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729718.802369,
+      "level": "INFO",
+      "message": "Ash improved crafting to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729718.8025322,
+      "level": "INFO",
+      "message": "Flint found food",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729718.8030038,
+      "level": "INFO",
+      "message": "Flint improved foraging to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729718.8039198,
+      "level": "INFO",
+      "message": "Bear improved crafting to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729718.816381,
+      "level": "INFO",
+      "message": "Turn 14 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729719.8181272,
+      "level": "INFO",
+      "message": "=== Turn 15 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729719.818462,
+      "level": "INFO",
+      "message": "Rok found food",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729719.818741,
+      "level": "INFO",
+      "message": "River improved foraging to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729719.832892,
+      "level": "INFO",
+      "message": "Turn 15 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729720.834541,
+      "level": "INFO",
+      "message": "=== Turn 16 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729720.8348181,
+      "level": "INFO",
+      "message": "Storm improved foraging to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729720.845579,
+      "level": "INFO",
+      "message": "Turn 16 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729721.847389,
+      "level": "INFO",
+      "message": "=== Turn 17 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729721.847837,
+      "level": "INFO",
+      "message": "Wolf improved foraging to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729721.8480031,
+      "level": "INFO",
+      "message": "Bear found food",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729721.848299,
+      "level": "INFO",
+      "message": "Bear improved foraging to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729721.857676,
+      "level": "INFO",
+      "message": "Turn 17 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729722.859623,
+      "level": "INFO",
+      "message": "=== Turn 18 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729722.86007,
+      "level": "INFO",
+      "message": "Rok improved crafting to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729722.8602839,
+      "level": "INFO",
+      "message": "Flint found stone",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729722.860458,
+      "level": "INFO",
+      "message": "Clay improved crafting to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729722.860611,
+      "level": "INFO",
+      "message": "Stone found fruit",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729722.860728,
+      "level": "INFO",
+      "message": "Stone improved crafting to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729722.872546,
+      "level": "INFO",
+      "message": "Turn 18 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729723.87429,
+      "level": "INFO",
+      "message": "=== Turn 19 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729723.87452,
+      "level": "INFO",
+      "message": "Flint found wood",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729723.8895528,
+      "level": "INFO",
+      "message": "Turn 19 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729724.891262,
+      "level": "INFO",
+      "message": "=== Turn 20 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729724.8913972,
+      "level": "INFO",
+      "message": "Pine improved crafting to level 2",
       "agent_id": null
     }
   ]

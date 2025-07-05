@@ -117,7 +117,12 @@ class World:
                 "curiosity": random.randint(1,10),
                 "charm": random.randint(1,10)
             }
-            inv = {"wood": random.randint(0,2), "shell": random.randint(0,1)}
+            inv = {
+                "wood": random.randint(0,2), 
+                "shell": random.randint(0,1),
+                "apple": random.randint(0,2),  # Some starting food
+                "fish": random.randint(0,1)    # Occasional fish
+            }
             age = random.randint(17, 70)
             agent = Agent(aid, pos, attr, inv, age=age)
             self.agents.append(agent)
@@ -400,20 +405,33 @@ class World:
             if "chat_request" in outcome:
                 chat_data = outcome["chat_request"]
                 if chat_data and isinstance(chat_data, dict) and "target_id" in chat_data and "topic" in chat_data:
-                    world.pending_interactions.append({
-                        "source_id": agent.aid,
-                        "target_id": chat_data["target_id"],
-                        "type": "chat",
-                        "content": chat_data["topic"]
-                    })
-                    return {
-                        "log": f"向智能体 {chat_data['target_id']} 发送聊天请求: {chat_data['topic']}"
-                    }
+                    # 验证目标智能体存在
+                    target_agent = next((a for a in world.agents if a.aid == chat_data["target_id"]), None)
+                    if target_agent:
+                        world.pending_interactions.append({
+                            "source_id": agent.aid,
+                            "target_id": chat_data["target_id"],
+                            "type": "chat",
+                            "content": chat_data["topic"]
+                        })
+                        return {
+                            "log": f"向智能体 {chat_data['target_id']} 发送聊天请求: {chat_data['topic']}"
+                        }
+                    else:
+                        return {
+                            "log": f"目标智能体 {chat_data['target_id']} 不存在"
+                        }
                 else:
-                    logger.warning(f"Invalid chat_request data: {chat_data}")
-                    return {
-                        "log": "聊天请求格式无效"
-                    }
+                    # 提供更详细的错误信息但不记录为警告
+                    if chat_data is None:
+                        return {
+                            "log": "聊天请求为空，继续其他行动"
+                        }
+                    else:
+                        logger.debug(f"Invalid chat_request format: {chat_data}")
+                        return {
+                            "log": "聊天请求格式无效，继续其他行动"
+                        }
             
             if "exchange_request" in outcome:
                 exchange_data = outcome["exchange_request"]
@@ -603,15 +621,38 @@ class World:
         self.agents = [a for a in self.agents if a.aid not in {d.aid for d in dead_agents}]
         self.agents.extend(new_agents)
         
-        # Age agents and handle hunger
+        # Age agents and handle hunger/health
+        agents_to_remove = []
         for agent in self.agents:
             agent.age += 1
-            agent.hunger = min(100, agent.hunger + 8)
-            if agent.hunger > 70:
-                agent.health = max(0, agent.health - 5)
-                if agent.health == 0:
-                    turn_log.append(f"{agent.name}({agent.aid}) starved to death at age {agent.age}!")
-                    self.agents.remove(agent)
+            
+            # Try to consume food if hungry
+            if agent.hunger > 50:
+                food_consumed = self._try_consume_food(agent)
+                if food_consumed:
+                    turn_log.append(f"{agent.name}({agent.aid}) ate {food_consumed} to reduce hunger")
+            
+            # More gradual hunger increase based on activity
+            base_hunger_increase = 3  # Reduced from 8
+            activity_bonus = 1 if hasattr(agent, 'current_action') and agent.current_action else 0
+            agent.hunger = min(100, agent.hunger + base_hunger_increase + activity_bonus)
+            
+            # More forgiving health decrease
+            if agent.hunger > 85:  # Only at very high hunger
+                agent.health = max(0, agent.health - 8)  # Higher damage but later
+            elif agent.hunger > 70:
+                agent.health = max(0, agent.health - 3)  # Gradual damage
+            elif agent.hunger < 30:  # Bonus for well-fed agents
+                agent.health = min(100, agent.health + 1)
+            
+            # Death handling
+            if agent.health == 0:
+                turn_log.append(f"{agent.name}({agent.aid}) starved to death at age {agent.age}!")
+                agents_to_remove.append(agent)
+        
+        # Remove dead agents
+        for agent in agents_to_remove:
+            self.agents.remove(agent)
         
         # Generate status report every 5 turns
         if self.trinity.turn % 5 == 0:
@@ -792,3 +833,42 @@ class World:
             report.append("知识积累丰富，文化传承活跃")
         
         return report
+    
+    def _try_consume_food(self, agent) -> Optional[str]:
+        """Try to consume food from agent's inventory to reduce hunger"""
+        food_items = {
+            "fish": 25,      # High nutrition
+            "apple": 20,     # Good nutrition
+            "fruit": 20,     # Good nutrition
+            "berries": 15,   # Medium nutrition
+            "bread": 30,     # High nutrition
+            "meat": 35,      # Very high nutrition
+            "vegetables": 10 # Low nutrition
+        }
+        
+        # Find available food in inventory
+        available_food = []
+        for food_type, nutrition in food_items.items():
+            if agent.inventory.get(food_type, 0) > 0:
+                available_food.append((food_type, nutrition))
+        
+        if not available_food:
+            return None
+        
+        # Choose the most nutritious food available
+        available_food.sort(key=lambda x: x[1], reverse=True)
+        food_type, nutrition = available_food[0]
+        
+        # Consume the food
+        agent.inventory[food_type] -= 1
+        if agent.inventory[food_type] == 0:
+            del agent.inventory[food_type]
+        
+        # Reduce hunger
+        agent.hunger = max(0, agent.hunger - nutrition)
+        
+        # Small health bonus for eating
+        if agent.health < 100:
+            agent.health = min(100, agent.health + 2)
+        
+        return food_type

@@ -1,7 +1,7 @@
 {
   "world": {
     "size": 32,
-    "turn": 5,
+    "turn": 7,
     "era": "Stone Age",
     "terrain": [
       "GRASSLAND",
@@ -2683,9 +2683,9 @@
       "aid": 0,
       "name": "Rok",
       "x": 28,
-      "y": 27,
+      "y": 28,
       "health": 100,
-      "current_action": "move_east",
+      "current_action": "rest",
       "inventory": {},
       "skills": {
         "foraging": {
@@ -2693,7 +2693,7 @@
           "experience": 0
         },
         "crafting": {
-          "level": 1,
+          "level": 2,
           "experience": 0
         }
       },
@@ -2710,10 +2710,10 @@
     {
       "aid": 1,
       "name": "Ash",
-      "x": 18,
-      "y": 6,
+      "x": 19,
+      "y": 7,
       "health": 100,
-      "current_action": "rest",
+      "current_action": "move_south",
       "inventory": {},
       "skills": {
         "foraging": {
@@ -2738,10 +2738,10 @@
     {
       "aid": 2,
       "name": "Flint",
-      "x": 25,
-      "y": 7,
+      "x": 26,
+      "y": 8,
       "health": 100,
-      "current_action": "forage",
+      "current_action": "move_east",
       "inventory": {
         "wood": 1
       },
@@ -2768,8 +2768,8 @@
     {
       "aid": 3,
       "name": "Clay",
-      "x": 2,
-      "y": 23,
+      "x": 1,
+      "y": 22,
       "health": 100,
       "current_action": "move_west",
       "inventory": {},
@@ -2797,7 +2797,7 @@
       "aid": 4,
       "name": "Storm",
       "x": 7,
-      "y": 16,
+      "y": 15,
       "health": 100,
       "current_action": "forage",
       "inventory": {
@@ -2827,13 +2827,13 @@
       "aid": 5,
       "name": "River",
       "x": 9,
-      "y": 14,
+      "y": 13,
       "health": 100,
       "current_action": "forage",
       "inventory": {},
       "skills": {
         "foraging": {
-          "level": 1,
+          "level": 2,
           "experience": 0
         },
         "crafting": {
@@ -2854,10 +2854,10 @@
     {
       "aid": 6,
       "name": "Pine",
-      "x": 26,
+      "x": 25,
       "y": 20,
       "health": 100,
-      "current_action": "move_north",
+      "current_action": "rest",
       "inventory": {},
       "skills": {
         "foraging": {
@@ -2882,10 +2882,10 @@
     {
       "aid": 7,
       "name": "Stone",
-      "x": 9,
+      "x": 10,
       "y": 2,
       "health": 100,
-      "current_action": "forage",
+      "current_action": "rest",
       "inventory": {},
       "skills": {
         "foraging": {
@@ -2910,11 +2910,13 @@
     {
       "aid": 8,
       "name": "Wolf",
-      "x": 2,
+      "x": 1,
       "y": 7,
       "health": 100,
       "current_action": "move_west",
-      "inventory": {},
+      "inventory": {
+        "food": 1
+      },
       "skills": {
         "foraging": {
           "level": 2,
@@ -2938,10 +2940,10 @@
     {
       "aid": 9,
       "name": "Bear",
-      "x": 28,
+      "x": 29,
       "y": 3,
       "health": 100,
-      "current_action": "move_north",
+      "current_action": "move_east",
       "inventory": {},
       "skills": {
         "foraging": {
@@ -2964,8 +2966,8 @@
       "memory": []
     }
   ],
-  "turn": 5,
-  "timestamp": 1751729709.685534,
+  "turn": 7,
+  "timestamp": 1751729711.710965,
   "logs": [
     {
       "timestamp": 1751729705.623557,
@@ -3097,6 +3099,48 @@
       "timestamp": 1751729709.68312,
       "level": "INFO",
       "message": "Storm found food",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729709.694077,
+      "level": "INFO",
+      "message": "Turn 5 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729710.695822,
+      "level": "INFO",
+      "message": "=== Turn 6 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729710.696251,
+      "level": "INFO",
+      "message": "Rok improved crafting to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729710.696741,
+      "level": "INFO",
+      "message": "River improved foraging to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729710.696913,
+      "level": "INFO",
+      "message": "Wolf found food",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729710.7069921,
+      "level": "INFO",
+      "message": "Turn 6 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751729711.7084868,
+      "level": "INFO",
+      "message": "=== Turn 7 ===",
       "agent_id": null
     }
   ]

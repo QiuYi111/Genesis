@@ -67,13 +67,27 @@ class EnhancedLLMService:
         
         # JSON修复正则表达式
         self.json_repair_patterns = [
+            # 基础修复
             (r"'([^']*)':", r'"\1":'),  # 单引号转双引号
             (r",\s*}", r"}"),           # 移除尾随逗号
             (r",\s*]", r"]"),           # 移除数组尾随逗号
             (r":\s*'([^']*)'", r': "\1"'),  # 值的单引号转双引号
             (r'"\s*(\w+)\s*"', r'"\1"'),     # 清理多余空格
-            (r"\n|\r", ""),             # 移除换行符
             (r"//.*", ""),              # 移除注释
+            (r"/\*.*?\*/", ""),         # 移除块注释
+            
+            # 高级修复模式
+            (r"```json\s*", ""),        # 移除markdown代码块
+            (r"```\s*", ""),            # 移除代码块结束
+            (r"(?<!:)\s*\n\s*", " "),   # 压缩多行到单行
+            (r':\s*"([^"]*)"([^,}\]])', r': "\1"\2'),  # 修复缺失逗号
+            (r"(\w+):", r'"\1":'),      # 无引号键名
+            (r':\s*([^",}\[\]]+)(?=[,}\]])', r': "\1"'),  # 无引号字符串值
+            (r':\s*(\d+\.?\d*)', r': \1'),  # 确保数字不加引号
+            (r':\s*true\b', r': true'), # 确保布尔值正确
+            (r':\s*false\b', r': false'),
+            (r':\s*null\b', r': null'),
+            (r"([^\\])\\(?![\"\\\/bfnrtu])", r"\1\\\\"),  # 修复转义字符
         ]
     
     async def generate(
@@ -281,27 +295,59 @@ class EnhancedLLMService:
     
     def _repair_json(self, content: str) -> Optional[str]:
         """智能修复JSON格式"""
-        # 提取JSON部分
-        json_match = re.search(r'\{.*\}', content, re.DOTALL)
-        if not json_match:
-            json_match = re.search(r'\[.*\]', content, re.DOTALL)
+        # 尝试多种JSON提取策略
+        json_candidates = []
         
-        if not json_match:
+        # 策略1: 查找完整的JSON对象
+        json_match = re.search(r'\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}', content, re.DOTALL)
+        if json_match:
+            json_candidates.append(json_match.group())
+        
+        # 策略2: 查找数组
+        array_match = re.search(r'\[[^\[\]]*(?:\[[^\[\]]*\][^\[\]]*)*\]', content, re.DOTALL)
+        if array_match:
+            json_candidates.append(array_match.group())
+        
+        # 策略3: 简单提取大括号内容
+        simple_match = re.search(r'\{.*\}', content, re.DOTALL)
+        if simple_match:
+            json_candidates.append(simple_match.group())
+        
+        if not json_candidates:
             logger.warning("未找到JSON结构")
             return None
         
-        json_str = json_match.group()
+        # 尝试修复每个候选JSON
+        for json_str in json_candidates:
+            # 预处理
+            json_str = json_str.strip()
+            
+            # 应用修复模式
+            for pattern, replacement in self.json_repair_patterns:
+                try:
+                    json_str = re.sub(pattern, replacement, json_str)
+                except Exception as e:
+                    logger.debug(f"修复模式应用失败: {e}")
+                    continue
+            
+            # 尝试解析修复后的JSON
+            try:
+                parsed = json.loads(json_str)
+                logger.debug(f"JSON修复成功，长度: {len(json_str)}")
+                return json_str
+            except json.JSONDecodeError as e:
+                logger.debug(f"JSON修复失败: {e}")
+                continue
         
-        # 应用修复模式
-        for pattern, replacement in self.json_repair_patterns:
-            json_str = re.sub(pattern, replacement, json_str)
-        
-        # 尝试解析修复后的JSON
+        # 最后的尝试：创建最小有效JSON
         try:
-            json.loads(json_str)
-            return json_str
-        except json.JSONDecodeError:
-            logger.warning("JSON修复失败")
+            # 如果所有修复都失败，返回空对象
+            fallback = "{}"
+            json.loads(fallback)
+            logger.warning("使用空JSON对象作为回退")
+            return fallback
+        except:
+            logger.warning("JSON修复完全失败")
             return None
     
     def _enhance_json_system_prompt(self, original_system: str) -> str:
@@ -473,14 +519,21 @@ IF YOU CANNOT GENERATE VALID JSON, RETURN: {}
         
         # 基于生存需求的行动
         if hunger > 60:
-            # 寻找食物资源
-            for tile in visible_tiles:
-                resources = tile.get("resource", {})
-                if any(food in resources for food in ["apple", "fish", "fruit", "berries"]):
-                    x, y = tile["pos"]
-                    possible_actions.append(f"移动到({x},{y})采集食物")
-            if not possible_actions:
-                possible_actions.append("寻找食物")
+            # 首先尝试吃库存中的食物
+            food_in_inventory = [item for item in ["fish", "apple", "fruit", "berries", "bread", "meat"] 
+                               if inventory.get(item, 0) > 0]
+            if food_in_inventory:
+                food = food_in_inventory[0]  # 吃第一个可用的食物
+                possible_actions.append(f"吃{food}")
+            else:
+                # 寻找食物资源
+                for tile in visible_tiles:
+                    resources = tile.get("resource", {})
+                    if any(food in resources for food in ["apple", "fish", "fruit", "berries"]):
+                        x, y = tile["pos"]
+                        possible_actions.append(f"移动到({x},{y})采集食物")
+                if not possible_actions:
+                    possible_actions.append("寻找食物")
         
         # 基于健康状况的行动
         if health < 70:
@@ -801,6 +854,24 @@ IF YOU CANNOT GENERATE VALID JSON, RETURN: {}
                         },
                         "log": f"向智能体{target_id}发起聊天"
                     }
+        
+        # 进食行动
+        if any(word in action_lower for word in ["吃", "进食", "食用", "eat"]):
+            # 尝试从库存中找到食物
+            food_items = {"fish": 25, "apple": 20, "fruit": 20, "berries": 15, "bread": 30, "meat": 35}
+            
+            for food_type, nutrition in food_items.items():
+                if agent_inventory.get(food_type, 0) > 0:
+                    return {
+                        "inventory": {food_type: -1},
+                        "hunger": max(0, agent_hunger - nutrition),
+                        "health": min(100, agent_health + 2),
+                        "log": f"吃了{food_type}，减少了{nutrition}点饥饿"
+                    }
+            
+            return {
+                "log": "没有可食用的食物"
+            }
         
         # 休息行动
         if any(word in action_lower for word in ["休息", "睡觉", "恢复"]):

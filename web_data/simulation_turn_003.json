@@ -1,7 +1,7 @@
 {
   "world": {
     "size": 32,
-    "turn": 5,
+    "turn": 3,
     "era": "Stone Age",
     "terrain": [
       "GRASSLAND",
@@ -2682,10 +2682,10 @@
     {
       "aid": 0,
       "name": "Rok",
-      "x": 28,
+      "x": 27,
       "y": 27,
       "health": 100,
-      "current_action": "move_east",
+      "current_action": "move_north",
       "inventory": {},
       "skills": {
         "foraging": {
@@ -2741,10 +2741,8 @@
       "x": 25,
       "y": 7,
       "health": 100,
-      "current_action": "forage",
-      "inventory": {
-        "wood": 1
-      },
+      "current_action": "move_west",
+      "inventory": {},
       "skills": {
         "foraging": {
           "level": 1,
@@ -2771,7 +2769,7 @@
       "x": 2,
       "y": 23,
       "health": 100,
-      "current_action": "move_west",
+      "current_action": "move_south",
       "inventory": {},
       "skills": {
         "foraging": {
@@ -2796,13 +2794,11 @@
     {
       "aid": 4,
       "name": "Storm",
-      "x": 7,
+      "x": 8,
       "y": 16,
       "health": 100,
-      "current_action": "forage",
-      "inventory": {
-        "food": 1
-      },
+      "current_action": "move_east",
+      "inventory": {},
       "skills": {
         "foraging": {
           "level": 1,
@@ -2827,9 +2823,9 @@
       "aid": 5,
       "name": "River",
       "x": 9,
-      "y": 14,
+      "y": 15,
       "health": 100,
-      "current_action": "forage",
+      "current_action": "move_north",
       "inventory": {},
       "skills": {
         "foraging": {
@@ -2855,7 +2851,7 @@
       "aid": 6,
       "name": "Pine",
       "x": 26,
-      "y": 20,
+      "y": 22,
       "health": 100,
       "current_action": "move_north",
       "inventory": {},
@@ -2883,7 +2879,7 @@
       "aid": 7,
       "name": "Stone",
       "x": 9,
-      "y": 2,
+      "y": 1,
       "health": 100,
       "current_action": "forage",
       "inventory": {},
@@ -2910,7 +2906,7 @@
     {
       "aid": 8,
       "name": "Wolf",
-      "x": 2,
+      "x": 4,
       "y": 7,
       "health": 100,
       "current_action": "move_west",
@@ -2939,9 +2935,9 @@
       "aid": 9,
       "name": "Bear",
       "x": 28,
-      "y": 3,
+      "y": 4,
       "health": 100,
-      "current_action": "move_north",
+      "current_action": "move_east",
       "inventory": {},
       "skills": {
         "foraging": {
@@ -2964,8 +2960,8 @@
       "memory": []
     }
   ],
-  "turn": 5,
-  "timestamp": 1751729709.685534,
+  "turn": 3,
+  "timestamp": 1751729707.6576672,
   "logs": [
     {
       "timestamp": 1751729705.623557,
@@ -3061,42 +3057,6 @@
       "timestamp": 1751729707.6558578,
       "level": "INFO",
       "message": "Ash improved foraging to level 2",
-      "agent_id": null
-    },
-    {
-      "timestamp": 1751729707.666553,
-      "level": "INFO",
-      "message": "Turn 3 completed with 10 active agents",
-      "agent_id": null
-    },
-    {
-      "timestamp": 1751729708.668282,
-      "level": "INFO",
-      "message": "=== Turn 4 ===",
-      "agent_id": null
-    },
-    {
-      "timestamp": 1751729708.668569,
-      "level": "INFO",
-      "message": "Flint found wood",
-      "agent_id": null
-    },
-    {
-      "timestamp": 1751729708.6809442,
-      "level": "INFO",
-      "message": "Turn 4 completed with 10 active agents",
-      "agent_id": null
-    },
-    {
-      "timestamp": 1751729709.682561,
-      "level": "INFO",
-      "message": "=== Turn 5 ===",
-      "agent_id": null
-    },
-    {
-      "timestamp": 1751729709.68312,
-      "level": "INFO",
-      "message": "Storm found food",
       "agent_id": null
     }
   ]

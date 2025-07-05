@@ -1,7 +1,7 @@
 {
   "world": {
     "size": 32,
-    "turn": 5,
+    "turn": 4,
     "era": "Stone Age",
     "terrain": [
       "GRASSLAND",
@@ -2682,10 +2682,10 @@
     {
       "aid": 0,
       "name": "Rok",
-      "x": 28,
+      "x": 27,
       "y": 27,
       "health": 100,
-      "current_action": "move_east",
+      "current_action": "forage",
       "inventory": {},
       "skills": {
         "foraging": {
@@ -2768,10 +2768,10 @@
     {
       "aid": 3,
       "name": "Clay",
-      "x": 2,
+      "x": 3,
       "y": 23,
       "health": 100,
-      "current_action": "move_west",
+      "current_action": "move_east",
       "inventory": {},
       "skills": {
         "foraging": {
@@ -2799,10 +2799,8 @@
       "x": 7,
       "y": 16,
       "health": 100,
-      "current_action": "forage",
-      "inventory": {
-        "food": 1
-      },
+      "current_action": "move_west",
+      "inventory": {},
       "skills": {
         "foraging": {
           "level": 1,
@@ -2829,7 +2827,7 @@
       "x": 9,
       "y": 14,
       "health": 100,
-      "current_action": "forage",
+      "current_action": "move_north",
       "inventory": {},
       "skills": {
         "foraging": {
@@ -2855,7 +2853,7 @@
       "aid": 6,
       "name": "Pine",
       "x": 26,
-      "y": 20,
+      "y": 21,
       "health": 100,
       "current_action": "move_north",
       "inventory": {},
@@ -2885,7 +2883,7 @@
       "x": 9,
       "y": 2,
       "health": 100,
-      "current_action": "forage",
+      "current_action": "move_south",
       "inventory": {},
       "skills": {
         "foraging": {
@@ -2910,7 +2908,7 @@
     {
       "aid": 8,
       "name": "Wolf",
-      "x": 2,
+      "x": 3,
       "y": 7,
       "health": 100,
       "current_action": "move_west",
@@ -2939,9 +2937,9 @@
       "aid": 9,
       "name": "Bear",
       "x": 28,
-      "y": 3,
+      "y": 4,
       "health": 100,
-      "current_action": "move_north",
+      "current_action": "rest",
       "inventory": {},
       "skills": {
         "foraging": {
@@ -2964,8 +2962,8 @@
       "memory": []
     }
   ],
-  "turn": 5,
-  "timestamp": 1751729709.685534,
+  "turn": 4,
+  "timestamp": 1751729708.67059,
   "logs": [
     {
       "timestamp": 1751729705.623557,
@@ -3079,24 +3077,6 @@
       "timestamp": 1751729708.668569,
       "level": "INFO",
       "message": "Flint found wood",
-      "agent_id": null
-    },
-    {
-      "timestamp": 1751729708.6809442,
-      "level": "INFO",
-      "message": "Turn 4 completed with 10 active agents",
-      "agent_id": null
-    },
-    {
-      "timestamp": 1751729709.682561,
-      "level": "INFO",
-      "message": "=== Turn 5 ===",
-      "agent_id": null
-    },
-    {
-      "timestamp": 1751729709.68312,
-      "level": "INFO",
-      "message": "Storm found food",
       "agent_id": null
     }
   ]
