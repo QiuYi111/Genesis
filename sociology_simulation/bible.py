@@ -438,3 +438,7 @@ class Bible:
             self.add_rule(rule)
         
         logger.success(f"[Bible] Added {len(new_rules)} legacy rules")
+    
+    def apply(self, perception: Dict[str, Any]) -> Dict[str, Any]:
+        """Legacy method - alias for apply_to_perception"""
+        return self.apply_to_perception(perception)

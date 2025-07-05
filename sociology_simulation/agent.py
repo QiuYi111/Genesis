@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     from .bible import Bible
 
 from .config import VISION_RADIUS
-from .llm import adeepseek_chat
+from .enhanced_llm import get_llm_service
 
 @dataclass
 class Agent:
@@ -45,30 +45,23 @@ class Agent:
     hunger: float = 0.0
     health: int = 100
 
-    async def generate_name(self, session: aiohttp.ClientSession):
-        """Generate agent name using LLM"""
-        system = "你是一个名字生成器，请为模拟世界中的角色生成一个英文名"
-        user = f"根据以下属性生成名字:\n属性: {self.attributes}\n年龄: {self.age}。你只能输出名字本身，不要包含任何其他文本。"
-        self.name = await adeepseek_chat("deepseek-chat", system, user, session)
+    async def generate_name(self, session: aiohttp.ClientSession, era: str = "石器时代"):
+        """Generate agent name using enhanced LLM service"""
+        llm_service = get_llm_service()
+        self.name = await llm_service.generate_agent_name(era, self.attributes, self.age, session)
 
     async def decide_goal(self, era_prompt: str, session: aiohttp.ClientSession):
-        """Determine agent's personal goal using LLM"""
+        """Determine agent's personal goal using enhanced LLM service"""
         if self.goal:
             return
         
         if not self.name:
-            await self.generate_name(session)
+            await self.generate_name(session, era_prompt)
             
-        system = (
-            "You are a simulated person in a large‑scale sociological experiment. "
-            "Be realistic (实事求是) and strive for a personal goal that aligns with your innate attributes."
+        llm_service = get_llm_service()
+        self.goal = await llm_service.generate_agent_goal(
+            era_prompt, self.attributes, self.age, self.inventory, session
         )
-        user = (
-            f"时代背景: {era_prompt}\n"
-            f"你的初始属性: {json.dumps(self.attributes, ensure_ascii=False)}\n"
-            "请用一句话 (简体中文) 给出你的个人长期目标。"
-        )
-        self.goal = await adeepseek_chat("deepseek-chat", system, user, session, temperature=0.9)
         logger.info(f"{self.name}({self.aid}) personal goal ➜ {self.goal}")
 
     def perceive(self, world: "World", bible: "Bible") -> Dict:
@@ -204,17 +197,6 @@ class Agent:
     async def act(self, world: "World", bible: "Bible", era_prompt: str, session: aiohttp.ClientSession, action_handler):
         """Execute agent's action for the turn"""
         perception = self.perceive(world, bible)
-        system = (
-            "你控制着模拟世界中的智能体。请始终遵守给定的规则。"
-            "根据你的感知、记忆、属性和目标，用自然语言描述你的下一步行动。"
-            "你可以参考以下记忆信息来做出更明智的决定:\n"
-            "1. 你之前遇到过的人和他们的位置\n"
-            "2. 你知道的资源位置\n"
-            "3. 你与其他人之前的互动历史\n\n"
-            "行动示例: '我想和3号交易木材','我想向y号询问关于xx的问题，发起聊天请求', '我饿了，要摘苹果吃', '收集附近的石头'，'请求制造工具，我想制造xx', '建造建筑'\n"
-            "制造工具示例: '用1木头和1石头制作斧头'\n"
-            "建造建筑示例: '想用木头建造一个小屋'"
-        )
         
         # Prepare memory information summary
         memory_summary = {
@@ -224,14 +206,11 @@ class Agent:
                               for l in self.memory.get("locations", [])]
         }
         
-        user = (
-            f"时代背景: {era_prompt}\n"
-            f"当前状态(JSON):\n{json.dumps(perception, ensure_ascii=False, indent=2)}\n"
-            f"记忆摘要(JSON):\n{json.dumps(memory_summary, ensure_ascii=False, indent=2)}\n"
-            "请综合考虑当前状态和记忆信息，用一句话描述你的下一步行动:"
+        llm_service = get_llm_service()
+        natural_language_action = await llm_service.generate_agent_action(
+            era_prompt, perception, memory_summary, self.goal, session
         )
         
-        natural_language_action = await adeepseek_chat("deepseek-chat", system, user, session)
         outcome = await action_handler.resolve(natural_language_action, self, world, era_prompt)
         self.apply_outcome(outcome)
         logger.info(f"{self.name}({self.aid}) 行动 → {natural_language_action}")

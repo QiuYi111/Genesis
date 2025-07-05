@@ -145,3 +145,666 @@
 2025-07-05 10:40:15.078 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(7) (age 44) attempting action: 我饿了，要去(60,26)的位置摘苹果并收集木材。
 2025-07-05 10:40:15.089 | INFO     | sociology_simulation.world:resolve:166 - Garrick(3) (age 43) attempting action: 我饿了，要摘当前位置(51,22)的苹果吃。
 2025-07-05 10:40:15.144 | INFO     | sociology_simulation.world:resolve:166 - Bartholomew Quill(19) (age 52) attempting action: 我饿了，要摘当前位置(3,51)的苹果吃。
+2025-07-05 10:40:15.484 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(16) (age 54) attempting action: "我饿了，要去(57,28)摘苹果吃，顺便和Valerion交流增进关系。"
+2025-07-05 10:40:15.671 | INFO     | sociology_simulation.world:resolve:166 - Valdric(17) (age 55) attempting action: 我饿了，要摘苹果吃。先摘当前位置(35,2)的苹果，然后前往(34,5)摘更多苹果。
+2025-07-05 10:40:16.851 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(4) (age 48) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:40:16.998 | INFO     | sociology_simulation.world:resolve:166 - Lucian Brightvale(8) (age 60) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:40:18.496 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brutus Ironfist(5):
+2025-07-05 10:40:18.497 | INFO     | sociology_simulation.agent:act:237 - Brutus Ironfist(5) 行动 → 我饿了，要捕鱼吃。
+2025-07-05 10:40:22.824 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(1):
+2025-07-05 10:40:22.825 | INFO     | sociology_simulation.agent:act:237 - Brock(1) 行动 → 我饿了，要摘苹果吃。
+2025-07-05 10:40:27.441 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valerion(6):
+2025-07-05 10:40:27.442 | INFO     | sociology_simulation.agent:act:237 - Valerion(6) 行动 → 我饿了，要摘苹果吃。
+2025-07-05 10:40:32.630 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quillwhisper(9):
+2025-07-05 10:40:32.632 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quillwhisper(9) 行动 → 我饿了，要摘当前位置(11,54)的苹果吃。
+2025-07-05 10:40:37.017 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorelei(2):
+2025-07-05 10:40:37.018 | INFO     | sociology_simulation.agent:act:237 - Lorelei(2) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:40:42.148 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(12):
+2025-07-05 10:40:42.150 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(12) 行动 → 我饿了，要摘当前位置(22,17)的苹果吃，同时收集这里的魔法水晶来研究。
+2025-07-05 10:40:46.354 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentina(18):
+2025-07-05 10:40:46.356 | INFO     | sociology_simulation.agent:act:237 - Valentina(18) 行动 → 我饿了，要摘当前位置(5,17)的苹果吃。
+2025-07-05 10:40:50.252 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(11):
+2025-07-05 10:40:50.254 | INFO     | sociology_simulation.agent:act:237 - Lorinda(11) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:40:55.372 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brenda(10):
+2025-07-05 10:40:55.374 | INFO     | sociology_simulation.agent:act:237 - Brenda(10) 行动 → 我饿了，要摘当前位置(16,16)的苹果吃。
+2025-07-05 10:40:59.664 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(15):
+2025-07-05 10:40:59.666 | INFO     | sociology_simulation.agent:act:237 - Brock(15) 行动 → 我饿了，要摘苹果吃。我会前往最近的(27,28)位置摘取那里的苹果。
+2025-07-05 10:41:04.060 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(0):
+2025-07-05 10:41:04.062 | INFO     | sociology_simulation.agent:act:237 - Lorinda(0) 行动 → 我饿了，要摘当前位置(56,1)的苹果吃。
+2025-07-05 10:41:08.193 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian(13):
+2025-07-05 10:41:08.195 | INFO     | sociology_simulation.agent:act:237 - Lucian(13) 行动 → "我饿了，要去(59,4)摘苹果吃"
+2025-07-05 10:41:12.765 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Winslow(14):
+2025-07-05 10:41:12.767 | INFO     | sociology_simulation.agent:act:237 - Winslow(14) 行动 → 我饿了，要去(57,6)摘苹果吃。
+2025-07-05 10:41:16.041 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(7):
+2025-07-05 10:41:16.043 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(7) 行动 → 我饿了，要去(60,26)的位置摘苹果并收集木材。
+2025-07-05 10:41:20.649 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Garrick(3):
+2025-07-05 10:41:20.651 | INFO     | sociology_simulation.agent:act:237 - Garrick(3) 行动 → 我饿了，要摘当前位置(51,22)的苹果吃。
+2025-07-05 10:41:25.042 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Bartholomew Quill(19):
+2025-07-05 10:41:25.043 | INFO     | sociology_simulation.agent:act:237 - Bartholomew Quill(19) 行动 → 我饿了，要摘当前位置(3,51)的苹果吃。
+2025-07-05 10:41:30.787 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(16):
+2025-07-05 10:41:30.789 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(16) 行动 → "我饿了，要去(57,28)摘苹果吃，顺便和Valerion交流增进关系。"
+2025-07-05 10:41:35.240 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valdric(17):
+2025-07-05 10:41:35.242 | INFO     | sociology_simulation.agent:act:237 - Valdric(17) 行动 → 我饿了，要摘苹果吃。先摘当前位置(35,2)的苹果，然后前往(34,5)摘更多苹果。
+2025-07-05 10:41:40.003 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(4):
+2025-07-05 10:41:40.003 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(4) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:41:44.304 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian Brightvale(8):
+2025-07-05 10:41:44.304 | INFO     | sociology_simulation.agent:act:237 - Lucian Brightvale(8) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:41:47.926 | SUCCESS  | sociology_simulation.trinity:adjudicate:95 - [Trinity] Updated resource rules: {'shell': {'river': 0.6, 'mountain': 0.4}}
+2025-07-05 10:41:52.190 | SUCCESS  | sociology_simulation.trinity:execute_actions:147 - [Trinity] Spawned resources: {'wood': 10, 'apple': 5, 'fish': 8, 'stone': 7}
+2025-07-05 10:41:52.191 | INFO     | sociology_simulation.world:step:578 - 
+========================================
+2025-07-05 10:41:52.191 | INFO     | sociology_simulation.world:step:579 - TURN SUMMARY - 20 agents alive
+2025-07-05 10:41:52.192 | INFO     | sociology_simulation.world:step:581 - Eldrin Quill(7) ↔ Valerion(6): 最近发现的资源和故事 → 我在河边捡到一块漂亮的木头，还听说山顶的部落用贝壳换食物。
+2025-07-05 10:41:52.192 | INFO     | sociology_simulation.world:step:581 - Valentine Sterling(16) ↔ Valerion(6): 合作收集资源 → "我可以用这块木头帮你搭个简易工具，但得先找些贝壳来加固。"
+2025-07-05 10:41:52.192 | INFO     | sociology_simulation.world:step:581 - Lucian(13) ↔ Winslow(14): 分享贝壳 → （低头看着空空的双手）我没有贝壳可以分享。
+2025-07-05 10:41:52.192 | INFO     | sociology_simulation.world:step:581 - Winslow(14) ↔ Lucian(13): 草原资源分布规律 → 根据我采集的经验，野果和蘑菇多生长在湿润的河谷地带，而燧石和木材则常见于向阳的山坡。
+2025-07-05 10:41:52.193 | INFO     | sociology_simulation.world:step:582 - ========================================
+
+2025-07-05 10:41:54.328 | INFO     | __main__:run_simulation:92 - ===== TURN 2 =====
+2025-07-05 10:41:54.328 | INFO     | sociology_simulation.world:step:475 - 
+=== TURN 4 START ===
+2025-07-05 10:41:57.995 | INFO     | sociology_simulation.world:resolve:166 - Valdric(17) (age 56) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:41:58.030 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(4) (age 49) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:41:58.072 | INFO     | sociology_simulation.world:resolve:166 - Garrick(3) (age 44) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:41:58.436 | INFO     | sociology_simulation.world:resolve:166 - Bartholomew Quill(19) (age 53) attempting action: 我饿了，要摘当前位置(3,51)的苹果吃。
+2025-07-05 10:41:58.447 | INFO     | sociology_simulation.world:resolve:166 - Lorinda(0) (age 53) attempting action: "我想先摘取当前位置(56,1)的苹果充饥，然后前往(52,3)收集木材用于工具制作。"
+2025-07-05 10:41:58.745 | INFO     | sociology_simulation.world:resolve:166 - Lucian Brightvale(8) (age 61) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:41:58.747 | INFO     | sociology_simulation.world:resolve:166 - Brock(15) (age 29) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:41:58.771 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(7) (age 45) attempting action: "我想和6号Valerion分享我发现的苹果树位置，并请教他关于制作工具的知识，发起聊天请求"
+2025-07-05 10:41:58.778 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(16) (age 55) attempting action: "我想和Valerion(6号)交流，分享我收集的木材，以增进关系并提升我在部落中的影响力。"
+2025-07-05 10:41:58.820 | INFO     | sociology_simulation.world:resolve:166 - Brock(1) (age 47) attempting action: "我要前往(62,9)捕捉鱼来补充食物储备，为成为部落最优秀猎手做准备。"
+2025-07-05 10:41:59.238 | INFO     | sociology_simulation.world:resolve:166 - Valerion(6) (age 53) attempting action: "我要收集当前位置(57,28)的2个苹果来补充饥饿值。"
+2025-07-05 10:41:59.305 | INFO     | sociology_simulation.world:resolve:166 - Lorinda(11) (age 40) attempting action: "我注意到(39,25)位置有一块石头，先去收集石头以便后续研究石器制作技术。"
+2025-07-05 10:41:59.702 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(12) (age 44) attempting action: 我注意到当前位置(22,17)有一个魔法水晶和苹果，而且我的好奇心很高(11)，所以"我想收集当前位置的魔法水晶和苹果"。
+2025-07-05 10:41:59.800 | INFO     | sociology_simulation.world:resolve:166 - Brenda(10) (age 55) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:41:59.812 | INFO     | sociology_simulation.world:resolve:166 - Valentina(18) (age 26) attempting action: "我饿了，要摘苹果吃"
+2025-07-05 10:42:00.032 | INFO     | sociology_simulation.world:resolve:166 - Lorelei(2) (age 69) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:42:00.710 | INFO     | sociology_simulation.world:resolve:166 - Brutus Ironfist(5) (age 31) attempting action: 我饿了，要捕鱼吃
+2025-07-05 10:42:00.822 | INFO     | sociology_simulation.world:resolve:166 - Winslow(14) (age 36) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:42:01.567 | INFO     | sociology_simulation.world:resolve:166 - Lucian(13) (age 52) attempting action: "我想和Lorinda(0号)交流，分享我收集的苹果来增进关系，为成为部落领袖积累人脉。"
+2025-07-05 10:42:02.126 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quillwhisper(9) (age 54) attempting action: 我注意到在(12,55)位置有一块木材，同时我的饥饿值也较高(16/100)。我会先吃掉手中的苹果补充体力，然后前往(12,55)收集木材，为部落探索更多资源做准备。
+2025-07-05 10:42:02.639 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valdric(17):
+2025-07-05 10:42:02.640 | INFO     | sociology_simulation.agent:act:237 - Valdric(17) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:42:06.538 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(4):
+2025-07-05 10:42:06.540 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(4) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:42:10.727 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Garrick(3):
+2025-07-05 10:42:10.729 | INFO     | sociology_simulation.agent:act:237 - Garrick(3) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:42:15.035 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Bartholomew Quill(19):
+2025-07-05 10:42:15.035 | INFO     | sociology_simulation.agent:act:237 - Bartholomew Quill(19) 行动 → 我饿了，要摘当前位置(3,51)的苹果吃。
+2025-07-05 10:42:19.328 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(0):
+2025-07-05 10:42:19.330 | INFO     | sociology_simulation.agent:act:237 - Lorinda(0) 行动 → "我想先摘取当前位置(56,1)的苹果充饥，然后前往(52,3)收集木材用于工具制作。"
+2025-07-05 10:42:23.610 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian Brightvale(8):
+2025-07-05 10:42:23.612 | INFO     | sociology_simulation.agent:act:237 - Lucian Brightvale(8) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:42:27.768 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(15):
+2025-07-05 10:42:27.770 | INFO     | sociology_simulation.agent:act:237 - Brock(15) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:42:32.601 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(7):
+2025-07-05 10:42:32.603 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(7) 行动 → "我想和6号Valerion分享我发现的苹果树位置，并请教他关于制作工具的知识，发起聊天请求"
+2025-07-05 10:42:38.475 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(16):
+2025-07-05 10:42:38.477 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(16) 行动 → "我想和Valerion(6号)交流，分享我收集的木材，以增进关系并提升我在部落中的影响力。"
+2025-07-05 10:42:42.491 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(1):
+2025-07-05 10:42:42.492 | INFO     | sociology_simulation.agent:act:237 - Brock(1) 行动 → "我要前往(62,9)捕捉鱼来补充食物储备，为成为部落最优秀猎手做准备。"
+2025-07-05 10:42:46.859 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valerion(6):
+2025-07-05 10:42:46.861 | INFO     | sociology_simulation.agent:act:237 - Valerion(6) 行动 → "我要收集当前位置(57,28)的2个苹果来补充饥饿值。"
+2025-07-05 10:42:51.587 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(11):
+2025-07-05 10:42:51.589 | INFO     | sociology_simulation.agent:act:237 - Lorinda(11) 行动 → "我注意到(39,25)位置有一块石头，先去收集石头以便后续研究石器制作技术。"
+2025-07-05 10:42:56.431 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(12):
+2025-07-05 10:42:56.433 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(12) 行动 → 我注意到当前位置(22,17)有一个魔法水晶和苹果，而且我的好奇心很高(11)，所以"我想收集当前位置的魔法水晶和苹果"。
+2025-07-05 10:43:00.416 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brenda(10):
+2025-07-05 10:43:00.418 | INFO     | sociology_simulation.agent:act:237 - Brenda(10) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:43:04.982 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentina(18):
+2025-07-05 10:43:04.984 | INFO     | sociology_simulation.agent:act:237 - Valentina(18) 行动 → "我饿了，要摘苹果吃"
+2025-07-05 10:43:08.790 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorelei(2):
+2025-07-05 10:43:08.792 | INFO     | sociology_simulation.agent:act:237 - Lorelei(2) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:43:12.965 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brutus Ironfist(5):
+2025-07-05 10:43:12.966 | INFO     | sociology_simulation.agent:act:237 - Brutus Ironfist(5) 行动 → 我饿了，要捕鱼吃
+2025-07-05 10:43:17.012 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Winslow(14):
+2025-07-05 10:43:17.014 | INFO     | sociology_simulation.agent:act:237 - Winslow(14) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:43:22.596 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian(13):
+2025-07-05 10:43:22.597 | INFO     | sociology_simulation.agent:act:237 - Lucian(13) 行动 → "我想和Lorinda(0号)交流，分享我收集的苹果来增进关系，为成为部落领袖积累人脉。"
+2025-07-05 10:43:27.377 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quillwhisper(9):
+2025-07-05 10:43:27.379 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quillwhisper(9) 行动 → 我注意到在(12,55)位置有一块木材，同时我的饥饿值也较高(16/100)。我会先吃掉手中的苹果补充体力，然后前往(12,55)收集木材，为部落探索更多资源做准备。
+2025-07-05 10:43:33.385 | SUCCESS  | sociology_simulation.trinity:execute_actions:147 - [Trinity] Spawned resources: {'wood': 10, 'apple': 5, 'fish': 8, 'stone': 7}
+2025-07-05 10:43:33.386 | INFO     | sociology_simulation.world:step:578 - 
+========================================
+2025-07-05 10:43:33.386 | INFO     | sociology_simulation.world:step:579 - TURN SUMMARY - 20 agents alive
+2025-07-05 10:43:33.387 | INFO     | sociology_simulation.world:step:582 - ========================================
+
+2025-07-05 10:54:45.129 | INFO     | __main__:run_simulation:92 - ===== TURN 3 =====
+2025-07-05 10:54:45.130 | INFO     | sociology_simulation.world:step:475 - 
+=== TURN 6 START ===
+2025-07-05 10:54:59.320 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quillwhisper(9) (age 55) attempting action: 我饿了，要摘苹果吃。
+2025-07-05 10:54:59.763 | INFO     | sociology_simulation.world:resolve:166 - Brock(1) (age 48) attempting action: 我饿了，要收集当前位置(62,9)的鱼来吃。
+2025-07-05 10:54:59.853 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(4) (age 50) attempting action: 我饿了，要摘苹果吃。
+2025-07-05 10:54:59.939 | INFO     | sociology_simulation.world:resolve:166 - Brutus Ironfist(5) (age 32) attempting action: '我要在当前位置(10,1)捕鱼，补充食物储备'
+2025-07-05 10:54:59.953 | INFO     | sociology_simulation.world:resolve:166 - Brenda(10) (age 56) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:55:00.018 | INFO     | sociology_simulation.world:resolve:166 - Lucian Brightvale(8) (age 62) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:55:00.225 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(7) (age 46) attempting action: "我想向6号Valerion请教关于收集和利用贝壳的经验，发起聊天请求"
+2025-07-05 10:55:00.393 | INFO     | sociology_simulation.world:resolve:166 - Lorelei(2) (age 70) attempting action: "我饿了，要摘苹果吃" - 我注意到当前位置(16,4)就有苹果资源，而且饥饿值为24，应该先补充食物。
+2025-07-05 10:55:00.477 | INFO     | sociology_simulation.world:resolve:166 - Garrick(3) (age 45) attempting action: "我要前往(55,20)收集那里的木材和苹果，为狩猎做准备。"
+2025-07-05 10:55:00.510 | INFO     | sociology_simulation.world:resolve:166 - Winslow(14) (age 37) attempting action: 我注意到附近(58,3)位置同时有苹果和石头资源，我决定前往那里收集石头，因为我的目标是成为智者，而石头可以用来制作工具或进行研究。
+2025-07-05 10:55:00.662 | INFO     | sociology_simulation.world:resolve:166 - Lucian(13) (age 53) attempting action: 我想和14号Winslow交谈，分享我收集的苹果并建立友好关系。
+2025-07-05 10:55:00.665 | INFO     | sociology_simulation.world:resolve:166 - Bartholomew Quill(19) (age 54) attempting action: 我注意到当前位置(3,51)就有1个苹果，而且饥饿值为24，所以先采集身边的苹果补充能量。行动是："采集当前位置(3,51)的苹果"。
+2025-07-05 10:55:00.692 | INFO     | sociology_simulation.world:resolve:166 - Valdric(17) (age 57) attempting action: 我注意到附近(34,0)位置有1个木材和1个苹果，先去收集这些资源来增强我的储备。
+2025-07-05 10:55:01.041 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(16) (age 56) attempting action: 我想和6号Valerion交流，建立友好关系以提升在部落中的影响力。
+2025-07-05 10:55:01.515 | INFO     | sociology_simulation.world:resolve:166 - Valentina(18) (age 27) attempting action: "我要前往(7,20)收集木材，为制作装饰品做准备以提升魅力。"
+2025-07-05 10:55:01.573 | INFO     | sociology_simulation.world:resolve:166 - Valerion(6) (age 54) attempting action: "我想前往(60,26)位置与Eldrin Quill交谈，同时收集那里的木材资源。"
+2025-07-05 10:55:01.648 | INFO     | sociology_simulation.world:resolve:166 - Brock(15) (age 30) attempting action: 我想收集当前位置(27,28)的木材和魔法水晶，为制作狩猎工具做准备。
+2025-07-05 10:55:01.708 | INFO     | sociology_simulation.world:resolve:166 - Lorinda(11) (age 41) attempting action: "我想用1木头和1石头制作一把石斧，以便更高效地收集资源。"
+2025-07-05 10:55:01.723 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(12) (age 45) attempting action: 我想收集当前位置(22,17)的魔法水晶和苹果，以补充资源和研究魔法水晶的特性。
+2025-07-05 10:55:02.459 | INFO     | sociology_simulation.world:resolve:166 - Lorinda(0) (age 54) attempting action: "我想收集当前位置(52,3)的木材，然后去(51,3)捕鱼，探索新的资源获取方式。"
+2025-07-05 10:55:03.522 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quillwhisper(9):
+2025-07-05 10:55:03.524 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quillwhisper(9) 行动 → 我饿了，要摘苹果吃。
+2025-07-05 10:55:09.127 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(1):
+2025-07-05 10:55:09.128 | INFO     | sociology_simulation.agent:act:237 - Brock(1) 行动 → 我饿了，要收集当前位置(62,9)的鱼来吃。
+2025-07-05 10:55:13.712 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(4):
+2025-07-05 10:55:13.714 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(4) 行动 → 我饿了，要摘苹果吃。
+2025-07-05 10:55:19.535 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brutus Ironfist(5):
+2025-07-05 10:55:19.537 | INFO     | sociology_simulation.agent:act:237 - Brutus Ironfist(5) 行动 → '我要在当前位置(10,1)捕鱼，补充食物储备'
+2025-07-05 10:55:23.613 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brenda(10):
+2025-07-05 10:55:23.614 | INFO     | sociology_simulation.agent:act:237 - Brenda(10) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:55:28.209 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian Brightvale(8):
+2025-07-05 10:55:28.211 | INFO     | sociology_simulation.agent:act:237 - Lucian Brightvale(8) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:55:32.419 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(7):
+2025-07-05 10:55:32.421 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(7) 行动 → "我想向6号Valerion请教关于收集和利用贝壳的经验，发起聊天请求"
+2025-07-05 10:55:36.361 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorelei(2):
+2025-07-05 10:55:36.363 | INFO     | sociology_simulation.agent:act:237 - Lorelei(2) 行动 → "我饿了，要摘苹果吃" - 我注意到当前位置(16,4)就有苹果资源，而且饥饿值为24，应该先补充食物。
+2025-07-05 10:55:40.190 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Garrick(3):
+2025-07-05 10:55:40.191 | INFO     | sociology_simulation.agent:act:237 - Garrick(3) 行动 → "我要前往(55,20)收集那里的木材和苹果，为狩猎做准备。"
+2025-07-05 10:55:44.636 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Winslow(14):
+2025-07-05 10:55:44.638 | INFO     | sociology_simulation.agent:act:237 - Winslow(14) 行动 → 我注意到附近(58,3)位置同时有苹果和石头资源，我决定前往那里收集石头，因为我的目标是成为智者，而石头可以用来制作工具或进行研究。
+2025-07-05 10:55:50.045 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian(13):
+2025-07-05 10:55:50.046 | INFO     | sociology_simulation.agent:act:237 - Lucian(13) 行动 → 我想和14号Winslow交谈，分享我收集的苹果并建立友好关系。
+2025-07-05 10:55:54.452 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Bartholomew Quill(19):
+2025-07-05 10:55:54.454 | INFO     | sociology_simulation.agent:act:237 - Bartholomew Quill(19) 行动 → 我注意到当前位置(3,51)就有1个苹果，而且饥饿值为24，所以先采集身边的苹果补充能量。行动是："采集当前位置(3,51)的苹果"。
+2025-07-05 10:55:59.101 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valdric(17):
+2025-07-05 10:55:59.102 | INFO     | sociology_simulation.agent:act:237 - Valdric(17) 行动 → 我注意到附近(34,0)位置有1个木材和1个苹果，先去收集这些资源来增强我的储备。
+2025-07-05 10:56:03.975 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(16):
+2025-07-05 10:56:03.976 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(16) 行动 → 我想和6号Valerion交流，建立友好关系以提升在部落中的影响力。
+2025-07-05 10:56:08.315 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentina(18):
+2025-07-05 10:56:08.317 | INFO     | sociology_simulation.agent:act:237 - Valentina(18) 行动 → "我要前往(7,20)收集木材，为制作装饰品做准备以提升魅力。"
+2025-07-05 10:56:13.790 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valerion(6):
+2025-07-05 10:56:13.791 | INFO     | sociology_simulation.agent:act:237 - Valerion(6) 行动 → "我想前往(60,26)位置与Eldrin Quill交谈，同时收集那里的木材资源。"
+2025-07-05 10:56:19.522 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(15):
+2025-07-05 10:56:19.524 | INFO     | sociology_simulation.agent:act:237 - Brock(15) 行动 → 我想收集当前位置(27,28)的木材和魔法水晶，为制作狩猎工具做准备。
+2025-07-05 10:56:24.032 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(11):
+2025-07-05 10:56:24.033 | INFO     | sociology_simulation.agent:act:237 - Lorinda(11) 行动 → "我想用1木头和1石头制作一把石斧，以便更高效地收集资源。"
+2025-07-05 10:56:29.040 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(12):
+2025-07-05 10:56:29.042 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(12) 行动 → 我想收集当前位置(22,17)的魔法水晶和苹果，以补充资源和研究魔法水晶的特性。
+2025-07-05 10:56:33.830 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(0):
+2025-07-05 10:56:33.832 | INFO     | sociology_simulation.agent:act:237 - Lorinda(0) 行动 → "我想收集当前位置(52,3)的木材，然后去(51,3)捕鱼，探索新的资源获取方式。"
+2025-07-05 10:56:37.642 | SUCCESS  | sociology_simulation.bible:update:34 - [Bible] Updated rules: {'shared_resources': 'When sharing resources, both parties must agree on the amount and type of resource being exchanged to ensure fairness.'}
+2025-07-05 10:56:42.293 | SUCCESS  | sociology_simulation.trinity:execute_actions:147 - [Trinity] Spawned resources: {'wood': 5, 'apple': 3, 'fish': 4, 'stone': 2}
+2025-07-05 10:56:42.293 | INFO     | sociology_simulation.world:step:578 - 
+========================================
+2025-07-05 10:56:42.294 | INFO     | sociology_simulation.world:step:579 - TURN SUMMARY - 20 agents alive
+2025-07-05 10:56:42.294 | INFO     | sociology_simulation.world:step:581 - Eldrin Quill(7) ↔ Valerion(6): 苹果树位置和制作工具知识 → "东边山脚有片苹果林，用石头和木头可以制作简易石斧。"
+2025-07-05 10:56:42.294 | INFO     | sociology_simulation.world:step:581 - Valentine Sterling(16) ↔ Valerion(6): 分享木材 → 我只有一块木材，但可以分你半块。
+2025-07-05 10:56:42.294 | INFO     | sociology_simulation.world:step:581 - Lucian(13) ↔ Lorinda(0): 部落领导力 → （摸着咕咕叫的肚子）等我吃完这三个苹果，就带你们去找更多食物和贝壳。
+2025-07-05 10:56:42.294 | INFO     | sociology_simulation.world:step:582 - ========================================
+
+2025-07-05 10:56:56.354 | INFO     | __main__:run_simulation:92 - ===== TURN 4 =====
+2025-07-05 10:56:56.355 | INFO     | sociology_simulation.world:step:475 - 
+=== TURN 8 START ===
+2025-07-05 10:57:10.308 | INFO     | sociology_simulation.world:resolve:166 - Valdric(17) (age 58) attempting action: 收集当前位置(34,0)的木材和苹果。
+2025-07-05 10:57:10.371 | INFO     | sociology_simulation.world:resolve:166 - Brock(1) (age 49) attempting action: 我饿了，要摘苹果吃。先去(62,5)摘苹果。
+2025-07-05 10:57:10.812 | INFO     | sociology_simulation.world:resolve:166 - Lucian Brightvale(8) (age 63) attempting action: "我饿了，要摘苹果吃"
+2025-07-05 10:57:10.885 | INFO     | sociology_simulation.world:resolve:166 - Garrick(3) (age 46) attempting action: 收集当前位置(55,20)的木材和苹果。
+2025-07-05 10:57:10.944 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(16) (age 57) attempting action: "我想和6号Valerion交流，分享我收集的木材来增进关系"
+2025-07-05 10:57:11.014 | INFO     | sociology_simulation.world:resolve:166 - Lorinda(0) (age 55) attempting action: "我想收集当前位置(51,3)的鱼，然后前往(52,3)收集木材。"
+2025-07-05 10:57:11.125 | INFO     | sociology_simulation.world:resolve:166 - Lucian(13) (age 54) attempting action: "我想和14号Winslow交易石头，用我的贝壳交换"
+2025-07-05 10:57:11.126 | INFO     | sociology_simulation.world:resolve:166 - Brutus Ironfist(5) (age 33) attempting action: '我要前往(7,6)位置收集那里的鱼和苹果来补充食物'
+2025-07-05 10:57:11.133 | INFO     | sociology_simulation.world:resolve:166 - Valentina(18) (age 28) attempting action: 我想收集当前位置(7,20)的木材和苹果，为将来制作礼物或与部落首领交易做准备。
+2025-07-05 10:57:11.155 | INFO     | sociology_simulation.world:resolve:166 - Valerion(6) (age 55) attempting action: "我想和16号Valentine Sterling交谈，分享我收集的苹果并建立友好关系"
+2025-07-05 10:57:11.375 | INFO     | sociology_simulation.world:resolve:166 - Brock(15) (age 31) attempting action: 我想前往(27,28)的位置收集那里的木材和魔法水晶，为成为出色猎手做准备。
+2025-07-05 10:57:11.393 | INFO     | sociology_simulation.world:resolve:166 - Winslow(14) (age 38) attempting action: "我饿了，要摘当前位置(58,3)的苹果吃，同时收集这里的石头。"
+2025-07-05 10:57:11.416 | INFO     | sociology_simulation.world:resolve:166 - Lorelei(2) (age 71) attempting action: "我想摘取当前位置(16,4)的苹果来补充能量，然后前往(19,3)收集石头来制作工具。"
+2025-07-05 10:57:11.521 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(7) (age 47) attempting action: "我想和6号Valerion分享我发现的苹果资源位置，并询问他是否愿意交换一些木材。"
+2025-07-05 10:57:11.779 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quillwhisper(9) (age 56) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:57:12.611 | INFO     | sociology_simulation.world:resolve:166 - Brenda(10) (age 57) attempting action: 我饿了，要摘苹果吃。
+2025-07-05 10:57:12.642 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(12) (age 46) attempting action: 我注意到当前位置(22,17)有魔法水晶和苹果，而且我的饥饿值是32(需要补充食物)，同时我的目标是成为发明家。因此我会先收集身边的魔法水晶和苹果。
+
+行动:收集当前位置(22,17)的魔法水晶和苹果。
+2025-07-05 10:57:12.790 | INFO     | sociology_simulation.world:resolve:166 - Lorinda(11) (age 42) attempting action: 我注意到饥饿值较低(32)，且当前位置(39,25)有一块石头，附近(39,24)还有木材。为了提升工具制造能力，我决定收集这些资源。
+
+行动: 收集当前位置(39,25)的石头和附近(39,24)的木材。
+2025-07-05 10:57:12.963 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(4) (age 51) attempting action: "我要收集附近(30,58)位置的石头和苹果，为制作工具做准备。"
+2025-07-05 10:57:13.307 | INFO     | sociology_simulation.world:resolve:166 - Bartholomew Quill(19) (age 55) attempting action: 我注意到当前位置(3,51)就有苹果资源，而且饥饿值为32，所以"摘取当前位置的苹果"。
+2025-07-05 10:57:15.539 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valdric(17):
+2025-07-05 10:57:15.540 | INFO     | sociology_simulation.agent:act:237 - Valdric(17) 行动 → 收集当前位置(34,0)的木材和苹果。
+2025-07-05 10:57:20.640 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(1):
+2025-07-05 10:57:20.642 | INFO     | sociology_simulation.agent:act:237 - Brock(1) 行动 → 我饿了，要摘苹果吃。先去(62,5)摘苹果。
+2025-07-05 10:57:24.879 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian Brightvale(8):
+2025-07-05 10:57:24.880 | INFO     | sociology_simulation.agent:act:237 - Lucian Brightvale(8) 行动 → "我饿了，要摘苹果吃"
+2025-07-05 10:57:29.847 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Garrick(3):
+2025-07-05 10:57:29.848 | INFO     | sociology_simulation.agent:act:237 - Garrick(3) 行动 → 收集当前位置(55,20)的木材和苹果。
+2025-07-05 10:57:34.709 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(16):
+2025-07-05 10:57:34.710 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(16) 行动 → "我想和6号Valerion交流，分享我收集的木材来增进关系"
+2025-07-05 10:57:40.265 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(0):
+2025-07-05 10:57:40.266 | INFO     | sociology_simulation.agent:act:237 - Lorinda(0) 行动 → "我想收集当前位置(51,3)的鱼，然后前往(52,3)收集木材。"
+2025-07-05 10:57:45.056 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian(13):
+2025-07-05 10:57:45.057 | INFO     | sociology_simulation.agent:act:237 - Lucian(13) 行动 → "我想和14号Winslow交易石头，用我的贝壳交换"
+2025-07-05 10:57:47.004 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brutus Ironfist(5):
+2025-07-05 10:57:47.005 | INFO     | sociology_simulation.agent:act:237 - Brutus Ironfist(5) 行动 → '我要前往(7,6)位置收集那里的鱼和苹果来补充食物'
+2025-07-05 10:57:52.167 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentina(18):
+2025-07-05 10:57:52.169 | INFO     | sociology_simulation.agent:act:237 - Valentina(18) 行动 → 我想收集当前位置(7,20)的木材和苹果，为将来制作礼物或与部落首领交易做准备。
+2025-07-05 10:57:57.283 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valerion(6):
+2025-07-05 10:57:57.284 | INFO     | sociology_simulation.agent:act:237 - Valerion(6) 行动 → "我想和16号Valentine Sterling交谈，分享我收集的苹果并建立友好关系"
+2025-07-05 10:58:01.422 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(15):
+2025-07-05 10:58:01.423 | INFO     | sociology_simulation.agent:act:237 - Brock(15) 行动 → 我想前往(27,28)的位置收集那里的木材和魔法水晶，为成为出色猎手做准备。
+2025-07-05 10:58:06.039 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Winslow(14):
+2025-07-05 10:58:06.040 | INFO     | sociology_simulation.agent:act:237 - Winslow(14) 行动 → "我饿了，要摘当前位置(58,3)的苹果吃，同时收集这里的石头。"
+2025-07-05 10:58:10.599 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorelei(2):
+2025-07-05 10:58:10.600 | INFO     | sociology_simulation.agent:act:237 - Lorelei(2) 行动 → "我想摘取当前位置(16,4)的苹果来补充能量，然后前往(19,3)收集石头来制作工具。"
+2025-07-05 10:58:15.018 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(7):
+2025-07-05 10:58:15.020 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(7) 行动 → "我想和6号Valerion分享我发现的苹果资源位置，并询问他是否愿意交换一些木材。"
+2025-07-05 10:58:18.849 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quillwhisper(9):
+2025-07-05 10:58:18.851 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quillwhisper(9) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:58:24.570 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brenda(10):
+2025-07-05 10:58:24.571 | INFO     | sociology_simulation.agent:act:237 - Brenda(10) 行动 → 我饿了，要摘苹果吃。
+2025-07-05 10:58:29.168 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(12):
+2025-07-05 10:58:29.169 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(12) 行动 → 我注意到当前位置(22,17)有魔法水晶和苹果，而且我的饥饿值是32(需要补充食物)，同时我的目标是成为发明家。因此我会先收集身边的魔法水晶和苹果。
+
+行动:收集当前位置(22,17)的魔法水晶和苹果。
+2025-07-05 10:58:34.478 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(11):
+2025-07-05 10:58:34.479 | INFO     | sociology_simulation.agent:act:237 - Lorinda(11) 行动 → 我注意到饥饿值较低(32)，且当前位置(39,25)有一块石头，附近(39,24)还有木材。为了提升工具制造能力，我决定收集这些资源。
+
+行动: 收集当前位置(39,25)的石头和附近(39,24)的木材。
+2025-07-05 10:58:38.419 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(4):
+2025-07-05 10:58:38.420 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(4) 行动 → "我要收集附近(30,58)位置的石头和苹果，为制作工具做准备。"
+2025-07-05 10:58:42.367 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Bartholomew Quill(19):
+2025-07-05 10:58:42.369 | INFO     | sociology_simulation.agent:act:237 - Bartholomew Quill(19) 行动 → 我注意到当前位置(3,51)就有苹果资源，而且饥饿值为32，所以"摘取当前位置的苹果"。
+2025-07-05 10:58:46.048 | SUCCESS  | sociology_simulation.bible:update:34 - [Bible] Updated rules: {'贝壳交换': '贝壳可以作为装饰品或交换食物的资源'}
+2025-07-05 10:58:50.203 | SUCCESS  | sociology_simulation.trinity:execute_actions:147 - [Trinity] Spawned resources: {'wood': 5, 'apple': 3, 'fish': 4, 'stone': 2}
+2025-07-05 10:58:50.203 | INFO     | sociology_simulation.world:step:578 - 
+========================================
+2025-07-05 10:58:50.203 | INFO     | sociology_simulation.world:step:579 - TURN SUMMARY - 20 agents alive
+2025-07-05 10:58:50.203 | INFO     | sociology_simulation.world:step:581 - Eldrin Quill(7) ↔ Valerion(6): 收集和利用贝壳的经验 → "我用木头工具在河边收集贝壳，它们可以做成装饰品或交换食物。"
+2025-07-05 10:58:50.203 | INFO     | sociology_simulation.world:step:581 - Lucian(13) ↔ Winslow(14): 分享苹果 → (摇头摆手) 我连一个苹果都没有，没法分享。
+2025-07-05 10:58:50.203 | INFO     | sociology_simulation.world:step:581 - Valentine Sterling(16) ↔ Valerion(6): 建立友好关系 → (热情地递出一个苹果) 让我们分享这个甜美的果实，成为朋友吧！
+2025-07-05 10:58:50.203 | INFO     | sociology_simulation.world:step:582 - ========================================
+
+2025-07-05 10:58:58.258 | INFO     | __main__:run_simulation:92 - ===== TURN 5 =====
+2025-07-05 10:58:58.258 | INFO     | sociology_simulation.world:step:475 - 
+=== TURN 10 START ===
+2025-07-05 10:59:08.485 | INFO     | sociology_simulation.world:resolve:166 - Brutus Ironfist(5) (age 34) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:59:09.162 | INFO     | sociology_simulation.world:resolve:166 - Lucian Brightvale(8) (age 64) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:59:09.609 | INFO     | sociology_simulation.world:resolve:166 - Lorinda(11) (age 43) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:59:09.834 | INFO     | sociology_simulation.world:resolve:166 - Brock(15) (age 32) attempting action: 我想前往(27,28)的位置收集那里的木材和魔法水晶，以增强我的资源储备。
+2025-07-05 10:59:09.910 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quillwhisper(9) (age 57) attempting action: 我饿了，要摘苹果吃。我会先摘取当前位置(12,55)附近的苹果，比如(12,51)、(12,52)或(12,54)位置的苹果。
+2025-07-05 10:59:09.911 | INFO     | sociology_simulation.world:resolve:166 - Valerion(6) (age 56) attempting action: "我想和16号Valentine Sterling交流，分享我的苹果来增进关系。"
+2025-07-05 10:59:09.938 | INFO     | sociology_simulation.world:resolve:166 - Lorelei(2) (age 72) attempting action: "我想收集当前位置(19,3)的石头，为制作工具做准备。"
+2025-07-05 10:59:10.063 | INFO     | sociology_simulation.world:resolve:166 - Valdric(17) (age 59) attempting action: "收集当前位置(34,0)的木材和苹果"
+2025-07-05 10:59:10.102 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(4) (age 52) attempting action: "收集当前位置(30,58)的苹果和石头，然后前往(25,53)采集更多苹果。"
+2025-07-05 10:59:10.311 | INFO     | sociology_simulation.world:resolve:166 - Bartholomew Quill(19) (age 56) attempting action: 我要先摘取当前位置(3,51)的苹果补充体力，然后前往(4,56)收集那里的木材和苹果。
+2025-07-05 10:59:10.401 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(12) (age 47) attempting action: 我想收集当前位置(22,17)的魔法水晶和苹果，以补充资源和研究材料。
+2025-07-05 10:59:10.469 | INFO     | sociology_simulation.world:resolve:166 - Garrick(3) (age 47) attempting action: '收集当前位置(55,20)的苹果和木材，然后前往(60,16)捕鱼以补充食物储备'
+2025-07-05 10:59:10.473 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(7) (age 48) attempting action: "我想用1个贝壳和6号Valerion交换一些苹果，发起交易请求"
+2025-07-05 10:59:10.671 | INFO     | sociology_simulation.world:resolve:166 - Lucian(13) (age 55) attempting action: "我想向14号Winslow提议用1个苹果交换他附近的石头，以建立友好关系并获取资源。"
+2025-07-05 10:59:10.729 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(16) (age 58) attempting action: "我想和6号Valerion交流，分享我收集的木材来增进关系，为成为部落领袖做准备"
+2025-07-05 10:59:11.038 | INFO     | sociology_simulation.world:resolve:166 - Valentina(18) (age 29) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:59:11.169 | INFO     | sociology_simulation.world:resolve:166 - Winslow(14) (age 39) attempting action: 我饿了，要摘当前位置(58,3)的苹果吃，并收集这里的石头。
+2025-07-05 10:59:11.275 | INFO     | sociology_simulation.world:resolve:166 - Lorinda(0) (age 56) attempting action: "收集当前位置的木材，然后前往(51,3)捕捉鱼来补充食物储备。"
+2025-07-05 10:59:11.408 | INFO     | sociology_simulation.world:resolve:166 - Brock(1) (age 50) attempting action: 我想用1个贝壳和Winslow交换他附近的石头，用来制作更好的狩猎工具。
+2025-07-05 10:59:11.788 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brutus Ironfist(5):
+2025-07-05 10:59:11.789 | INFO     | sociology_simulation.agent:act:237 - Brutus Ironfist(5) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:59:12.086 | INFO     | sociology_simulation.world:resolve:166 - Brenda(10) (age 58) attempting action: 我饿了，要摘苹果吃
+2025-07-05 10:59:15.649 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian Brightvale(8):
+2025-07-05 10:59:15.651 | INFO     | sociology_simulation.agent:act:237 - Lucian Brightvale(8) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:59:19.957 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(11):
+2025-07-05 10:59:19.957 | INFO     | sociology_simulation.agent:act:237 - Lorinda(11) 行动 → 我饿了，要摘苹果吃
+2025-07-05 10:59:23.610 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(15):
+2025-07-05 10:59:23.611 | INFO     | sociology_simulation.agent:act:237 - Brock(15) 行动 → 我想前往(27,28)的位置收集那里的木材和魔法水晶，以增强我的资源储备。
+2025-07-05 10:59:28.263 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quillwhisper(9):
+2025-07-05 10:59:28.264 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quillwhisper(9) 行动 → 我饿了，要摘苹果吃。我会先摘取当前位置(12,55)附近的苹果，比如(12,51)、(12,52)或(12,54)位置的苹果。
+2025-07-05 10:59:33.250 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valerion(6):
+2025-07-05 10:59:33.251 | INFO     | sociology_simulation.agent:act:237 - Valerion(6) 行动 → "我想和16号Valentine Sterling交流，分享我的苹果来增进关系。"
+2025-07-05 10:59:37.938 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorelei(2):
+2025-07-05 10:59:37.939 | INFO     | sociology_simulation.agent:act:237 - Lorelei(2) 行动 → "我想收集当前位置(19,3)的石头，为制作工具做准备。"
+2025-07-05 10:59:42.714 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valdric(17):
+2025-07-05 10:59:42.716 | INFO     | sociology_simulation.agent:act:237 - Valdric(17) 行动 → "收集当前位置(34,0)的木材和苹果"
+2025-07-05 10:59:47.940 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(4):
+2025-07-05 10:59:47.946 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(4) 行动 → "收集当前位置(30,58)的苹果和石头，然后前往(25,53)采集更多苹果。"
+2025-07-05 11:00:01.083 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Bartholomew Quill(19):
+2025-07-05 11:00:01.085 | INFO     | sociology_simulation.agent:act:237 - Bartholomew Quill(19) 行动 → 我要先摘取当前位置(3,51)的苹果补充体力，然后前往(4,56)收集那里的木材和苹果。
+2025-07-05 11:00:05.776 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(12):
+2025-07-05 11:00:05.777 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(12) 行动 → 我想收集当前位置(22,17)的魔法水晶和苹果，以补充资源和研究材料。
+2025-07-05 11:00:10.865 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Garrick(3):
+2025-07-05 11:00:10.866 | INFO     | sociology_simulation.agent:act:237 - Garrick(3) 行动 → '收集当前位置(55,20)的苹果和木材，然后前往(60,16)捕鱼以补充食物储备'
+2025-07-05 11:00:15.650 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(7):
+2025-07-05 11:00:15.651 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(7) 行动 → "我想用1个贝壳和6号Valerion交换一些苹果，发起交易请求"
+2025-07-05 11:00:19.552 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian(13):
+2025-07-05 11:00:19.554 | INFO     | sociology_simulation.agent:act:237 - Lucian(13) 行动 → "我想向14号Winslow提议用1个苹果交换他附近的石头，以建立友好关系并获取资源。"
+2025-07-05 11:00:25.020 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(16):
+2025-07-05 11:00:25.022 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(16) 行动 → "我想和6号Valerion交流，分享我收集的木材来增进关系，为成为部落领袖做准备"
+2025-07-05 11:00:28.935 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentina(18):
+2025-07-05 11:00:28.936 | INFO     | sociology_simulation.agent:act:237 - Valentina(18) 行动 → 我饿了，要摘苹果吃
+2025-07-05 11:00:33.968 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Winslow(14):
+2025-07-05 11:00:33.970 | INFO     | sociology_simulation.agent:act:237 - Winslow(14) 行动 → 我饿了，要摘当前位置(58,3)的苹果吃，并收集这里的石头。
+2025-07-05 11:00:37.596 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(0):
+2025-07-05 11:00:37.597 | INFO     | sociology_simulation.agent:act:237 - Lorinda(0) 行动 → "收集当前位置的木材，然后前往(51,3)捕捉鱼来补充食物储备。"
+2025-07-05 11:00:43.020 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(1):
+2025-07-05 11:00:43.021 | INFO     | sociology_simulation.agent:act:237 - Brock(1) 行动 → 我想用1个贝壳和Winslow交换他附近的石头，用来制作更好的狩猎工具。
+2025-07-05 11:00:49.407 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brenda(10):
+2025-07-05 11:00:49.409 | INFO     | sociology_simulation.agent:act:237 - Brenda(10) 行动 → 我饿了，要摘苹果吃
+2025-07-05 11:00:53.459 | SUCCESS  | sociology_simulation.bible:update:34 - [Bible] Updated rules: {'gift_exchange': 'Exchanging gifts (like shells) can establish friendly relations between tribes, granting +1 relationship point per gift.'}
+2025-07-05 11:00:57.625 | SUCCESS  | sociology_simulation.trinity:execute_actions:147 - [Trinity] Spawned resources: {'wood': 5, 'apple': 3, 'fish': 4, 'stone': 3}
+2025-07-05 11:00:57.625 | INFO     | sociology_simulation.world:step:578 - 
+========================================
+2025-07-05 11:00:57.625 | INFO     | sociology_simulation.world:step:579 - TURN SUMMARY - 20 agents alive
+2025-07-05 11:00:57.625 | INFO     | sociology_simulation.world:step:581 - Valentine Sterling(16) ↔ Valerion(6): 交换成功
+2025-07-05 11:00:57.625 | INFO     | sociology_simulation.world:step:581 - Lucian(13) ↔ Winslow(14): 交换成功
+2025-07-05 11:00:57.626 | INFO     | sociology_simulation.world:step:581 - Valerion(6) ↔ Valentine Sterling(16): 建立友好关系 → (捡起一个漂亮的贝壳)这个闪亮的贝壳送给你，让我们成为朋友吧。
+2025-07-05 11:00:57.626 | INFO     | sociology_simulation.world:step:581 - Eldrin Quill(7) ↔ Valerion(6): 苹果资源位置和木材交换 → "东边树林有苹果树，用2块木头换你3个苹果。"
+2025-07-05 11:00:57.626 | INFO     | sociology_simulation.world:step:582 - ========================================
+
+2025-07-05 11:01:00.601 | INFO     | __main__:run_simulation:92 - ===== TURN 6 =====
+2025-07-05 11:01:00.602 | INFO     | sociology_simulation.world:step:475 - 
+=== TURN 12 START ===
+2025-07-05 11:01:03.972 | INFO     | sociology_simulation.world:resolve:166 - Brock(1) (age 51) attempting action: "我想用1个贝壳和Winslow交换2个苹果"
+2025-07-05 11:01:04.080 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quillwhisper(9) (age 58) attempting action: 我饿了，要摘苹果吃
+2025-07-05 11:01:04.339 | INFO     | sociology_simulation.world:resolve:166 - Brenda(10) (age 59) attempting action: 我饿了，要摘苹果吃。
+2025-07-05 11:01:04.491 | INFO     | sociology_simulation.world:resolve:166 - Lucian Brightvale(8) (age 65) attempting action: "我想前往(12,48)收集那里的1个木材和1个苹果，为后续的物资交换做准备。"
+2025-07-05 11:01:04.558 | INFO     | sociology_simulation.world:resolve:166 - Winslow(14) (age 40) attempting action: "我想用1个贝壳和Lucian(13号)交换2个苹果，建立友好关系"
+2025-07-05 11:01:04.619 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(12) (age 48) attempting action: 我想收集当前位置(22,17)的魔法水晶(magical_crystal)和木材(wood)，以用于未来的发明创造。
+2025-07-05 11:01:04.648 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(7) (age 49) attempting action: "我想和6号Valerion分享一个苹果，建立友好关系"
+2025-07-05 11:01:04.651 | INFO     | sociology_simulation.world:resolve:166 - Lorinda(11) (age 44) attempting action: "收集当前位置(39,24)的2个木材资源，为后续工具制作做准备。"
+2025-07-05 11:01:04.715 | INFO     | sociology_simulation.world:resolve:166 - Valerion(6) (age 57) attempting action: 我想用1个贝壳与16号Valentine Sterling交换食物，建立友好关系。
+2025-07-05 11:01:04.717 | INFO     | sociology_simulation.world:resolve:166 - Brock(15) (age 33) attempting action: 我想前往(27,28)的位置收集那里的木材和魔法水晶，为成为部落最出色的猎手做准备。
+2025-07-05 11:01:04.758 | INFO     | sociology_simulation.world:resolve:166 - Lorelei(2) (age 73) attempting action: 我想收集当前位置(19,3)的石头，为以后制作工具或交换物品做准备。
+2025-07-05 11:01:04.780 | INFO     | sociology_simulation.world:resolve:166 - Lucian(13) (age 56) attempting action: "我想摘取当前位置(59,4)的苹果来充饥，然后前往(58,3)与Winslow交流，赠送他一个苹果以增进关系。"
+2025-07-05 11:01:05.155 | INFO     | sociology_simulation.world:resolve:166 - Lorinda(0) (age 57) attempting action: "我想收集52,3位置的木材，然后尝试用木材和贝壳制作一个简单的装饰品来提升部落关系。"
+2025-07-05 11:01:05.905 | INFO     | sociology_simulation.world:resolve:166 - Valdric(17) (age 60) attempting action: "收集当前位置(34,0)的木材和苹果"
+2025-07-05 11:01:06.534 | INFO     | sociology_simulation.world:resolve:166 - Valentina(18) (age 30) attempting action: 收集当前位置(7,20)的木材和苹果，为将来制作装饰品或交换礼物做准备。
+2025-07-05 11:01:06.955 | INFO     | sociology_simulation.world:resolve:166 - Brutus Ironfist(5) (age 35) attempting action: "我要前往(8,11)收集石头，用来制作更好的狩猎工具。" 
+
+(选择这个行动的原因：
+1. 当前饥饿值为48/100，不算紧急，可以先收集资源
+2. 目标是要成为优秀猎手，需要更好的工具
+3. 在(8,11)位置发现了石头资源
+4. 目前已有1木头，可以配合石头制作工具
+5. 该位置距离当前位置(7,6)较近，移动效率高)
+2025-07-05 11:01:07.434 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(16) (age 59) attempting action: 我想向6号Valerion赠送一个苹果，建立友好关系
+2025-07-05 11:01:07.572 | INFO     | sociology_simulation.world:resolve:166 - Bartholomew Quill(19) (age 57) attempting action: "收集当前位置(4,56)的木材和苹果，然后前往(1,58)收集那里的木材和苹果。"
+2025-07-05 11:01:07.620 | INFO     | sociology_simulation.world:resolve:166 - Garrick(3) (age 48) attempting action: 我要去(62,17)收集石头，为制作狩猎工具做准备。
+2025-07-05 11:01:08.181 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(4) (age 53) attempting action: 我注意到附近有丰富的苹果资源(当前位置25,53就有2个苹果)，而且我的饥饿值是48/100。我会先收集当前位置的2个苹果补充体力，然后前往(23,52)收集那里的1个苹果和1个木头，为后续建造或制作工具做准备。
+2025-07-05 11:01:08.960 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(1):
+2025-07-05 11:01:08.964 | INFO     | sociology_simulation.agent:act:237 - Brock(1) 行动 → "我想用1个贝壳和Winslow交换2个苹果"
+2025-07-05 11:01:13.184 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quillwhisper(9):
+2025-07-05 11:01:13.185 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quillwhisper(9) 行动 → 我饿了，要摘苹果吃
+2025-07-05 11:01:15.874 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brenda(10):
+2025-07-05 11:01:15.876 | INFO     | sociology_simulation.agent:act:237 - Brenda(10) 行动 → 我饿了，要摘苹果吃。
+2025-07-05 11:01:20.252 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian Brightvale(8):
+2025-07-05 11:01:20.253 | INFO     | sociology_simulation.agent:act:237 - Lucian Brightvale(8) 行动 → "我想前往(12,48)收集那里的1个木材和1个苹果，为后续的物资交换做准备。"
+2025-07-05 11:01:25.862 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Winslow(14):
+2025-07-05 11:01:25.864 | INFO     | sociology_simulation.agent:act:237 - Winslow(14) 行动 → "我想用1个贝壳和Lucian(13号)交换2个苹果，建立友好关系"
+2025-07-05 11:01:30.941 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(12):
+2025-07-05 11:01:30.942 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(12) 行动 → 我想收集当前位置(22,17)的魔法水晶(magical_crystal)和木材(wood)，以用于未来的发明创造。
+2025-07-05 11:01:36.735 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(7):
+2025-07-05 11:01:36.736 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(7) 行动 → "我想和6号Valerion分享一个苹果，建立友好关系"
+2025-07-05 11:01:40.364 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(11):
+2025-07-05 11:01:40.365 | INFO     | sociology_simulation.agent:act:237 - Lorinda(11) 行动 → "收集当前位置(39,24)的2个木材资源，为后续工具制作做准备。"
+2025-07-05 11:01:45.897 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valerion(6):
+2025-07-05 11:01:45.899 | INFO     | sociology_simulation.agent:act:237 - Valerion(6) 行动 → 我想用1个贝壳与16号Valentine Sterling交换食物，建立友好关系。
+2025-07-05 11:01:50.287 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(15):
+2025-07-05 11:01:50.289 | INFO     | sociology_simulation.agent:act:237 - Brock(15) 行动 → 我想前往(27,28)的位置收集那里的木材和魔法水晶，为成为部落最出色的猎手做准备。
+2025-07-05 11:01:54.192 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorelei(2):
+2025-07-05 11:01:54.193 | INFO     | sociology_simulation.agent:act:237 - Lorelei(2) 行动 → 我想收集当前位置(19,3)的石头，为以后制作工具或交换物品做准备。
+2025-07-05 11:02:00.640 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian(13):
+2025-07-05 11:02:00.642 | INFO     | sociology_simulation.agent:act:237 - Lucian(13) 行动 → "我想摘取当前位置(59,4)的苹果来充饥，然后前往(58,3)与Winslow交流，赠送他一个苹果以增进关系。"
+2025-07-05 11:02:07.309 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(0):
+2025-07-05 11:02:07.310 | INFO     | sociology_simulation.agent:act:237 - Lorinda(0) 行动 → "我想收集52,3位置的木材，然后尝试用木材和贝壳制作一个简单的装饰品来提升部落关系。"
+2025-07-05 11:02:12.714 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valdric(17):
+2025-07-05 11:02:12.715 | INFO     | sociology_simulation.agent:act:237 - Valdric(17) 行动 → "收集当前位置(34,0)的木材和苹果"
+2025-07-05 11:02:18.075 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentina(18):
+2025-07-05 11:02:18.076 | INFO     | sociology_simulation.agent:act:237 - Valentina(18) 行动 → 收集当前位置(7,20)的木材和苹果，为将来制作装饰品或交换礼物做准备。
+2025-07-05 11:02:22.279 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brutus Ironfist(5):
+2025-07-05 11:02:22.280 | INFO     | sociology_simulation.agent:act:237 - Brutus Ironfist(5) 行动 → "我要前往(8,11)收集石头，用来制作更好的狩猎工具。" 
+
+(选择这个行动的原因：
+1. 当前饥饿值为48/100，不算紧急，可以先收集资源
+2. 目标是要成为优秀猎手，需要更好的工具
+3. 在(8,11)位置发现了石头资源
+4. 目前已有1木头，可以配合石头制作工具
+5. 该位置距离当前位置(7,6)较近，移动效率高)
+2025-07-05 11:02:26.666 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(16):
+2025-07-05 11:02:26.668 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(16) 行动 → 我想向6号Valerion赠送一个苹果，建立友好关系
+2025-07-05 11:02:32.328 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Bartholomew Quill(19):
+2025-07-05 11:02:32.329 | INFO     | sociology_simulation.agent:act:237 - Bartholomew Quill(19) 行动 → "收集当前位置(4,56)的木材和苹果，然后前往(1,58)收集那里的木材和苹果。"
+2025-07-05 11:02:36.408 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Garrick(3):
+2025-07-05 11:02:36.410 | INFO     | sociology_simulation.agent:act:237 - Garrick(3) 行动 → 我要去(62,17)收集石头，为制作狩猎工具做准备。
+2025-07-05 11:02:41.235 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(4):
+2025-07-05 11:02:41.236 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(4) 行动 → 我注意到附近有丰富的苹果资源(当前位置25,53就有2个苹果)，而且我的饥饿值是48/100。我会先收集当前位置的2个苹果补充体力，然后前往(23,52)收集那里的1个苹果和1个木头，为后续建造或制作工具做准备。
+2025-07-05 11:02:47.709 | SUCCESS  | sociology_simulation.trinity:execute_actions:147 - [Trinity] Spawned resources: {'wood': 5, 'apple': 3, 'fish': 4, 'stone': 2}
+2025-07-05 11:02:47.709 | INFO     | sociology_simulation.world:step:578 - 
+========================================
+2025-07-05 11:02:47.709 | INFO     | sociology_simulation.world:step:579 - TURN SUMMARY - 20 agents alive
+2025-07-05 11:02:47.709 | INFO     | sociology_simulation.world:step:581 - Valerion(6) ↔ Valentine Sterling(16): 交换成功
+2025-07-05 11:02:47.709 | INFO     | sociology_simulation.world:step:581 - Eldrin Quill(7) ↔ Valerion(6): 交换成功
+2025-07-05 11:02:47.709 | INFO     | sociology_simulation.world:step:581 - Lucian(13) ↔ Winslow(14): 交换成功
+2025-07-05 11:02:47.709 | INFO     | sociology_simulation.world:step:581 - Valentine Sterling(16) ↔ Valerion(6): 交换成功
+2025-07-05 11:02:47.709 | INFO     | sociology_simulation.world:step:582 - ========================================
+
+2025-07-05 11:02:49.991 | INFO     | __main__:run_simulation:92 - ===== TURN 7 =====
+2025-07-05 11:02:49.991 | INFO     | sociology_simulation.world:step:475 - 
+=== TURN 14 START ===
+2025-07-05 11:02:53.300 | INFO     | sociology_simulation.world:resolve:166 - Lorinda(0) (age 58) attempting action: "我想收集(52,3)位置的木材来增加我的木材储备。"
+2025-07-05 11:02:53.424 | INFO     | sociology_simulation.world:resolve:166 - Brock(15) (age 34) attempting action: 我饿了，要摘苹果吃
+2025-07-05 11:02:53.640 | INFO     | sociology_simulation.world:resolve:166 - Bartholomew Quill(19) (age 58) attempting action: 收集当前位置(1,58)的木材和苹果，以补充资源储备。
+2025-07-05 11:02:53.746 | INFO     | sociology_simulation.world:resolve:166 - Lorelei(2) (age 74) attempting action: "我想前往(19,1)摘苹果，同时留意周围是否有其他部落成员可以交流故事。"
+2025-07-05 11:02:53.750 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quillwhisper(9) (age 59) attempting action: 我想和8号Lucian Brightvale交流，询问他是否愿意用我的1个苹果交换他附近的木材资源。
+2025-07-05 11:02:53.763 | INFO     | sociology_simulation.world:resolve:166 - Brutus Ironfist(5) (age 36) attempting action: "用1木头和1石头制作斧头，提升狩猎能力"
+2025-07-05 11:02:53.790 | INFO     | sociology_simulation.world:resolve:166 - Winslow(14) (age 41) attempting action: 我想用1个贝壳和Lucian交换一些食物，建立友好关系。
+2025-07-05 11:02:53.853 | INFO     | sociology_simulation.world:resolve:166 - Valerion(6) (age 58) attempting action: 我想用1个贝壳和Valentine Sterling交换一些食物，建立友好关系。
+2025-07-05 11:02:54.052 | INFO     | sociology_simulation.world:resolve:166 - Garrick(3) (age 49) attempting action: "收集当前位置(62,17)的石头，然后前往(62,18)捕鱼，为部落带回更多食物。"
+2025-07-05 11:02:54.398 | INFO     | sociology_simulation.world:resolve:166 - Valentina(18) (age 31) attempting action: 我想收集当前位置(7,20)的木材和苹果，为将来制作装饰品或交换礼物做准备。
+2025-07-05 11:02:54.555 | INFO     | sociology_simulation.world:resolve:166 - Brenda(10) (age 60) attempting action: 我注意到饥饿值较高(56)，而且附近森林里有苹果资源(16,16位置有2个苹果)。我会先收集这些苹果充饥。行动是："收集当前位置(16,16)的苹果"。
+2025-07-05 11:02:54.830 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(7) (age 50) attempting action: "我饿了，要摘苹果吃"，先去采集当前位置(60,26)的2个苹果，然后向Valerion(57,28)移动，准备用苹果交换贝壳来建立友好关系。
+2025-07-05 11:02:55.001 | INFO     | sociology_simulation.world:resolve:166 - Lucian Brightvale(8) (age 66) attempting action: 我想用1个贝壳和9号Eldrin Quillwhisper交换一些苹果，建立友好关系。
+2025-07-05 11:02:55.261 | INFO     | sociology_simulation.world:resolve:166 - Brock(1) (age 52) attempting action: "我想用1个贝壳和Winslow交换2个苹果"
+2025-07-05 11:02:55.291 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(16) (age 60) attempting action: 我想向Valerion赠送一个苹果来增进关系
+2025-07-05 11:02:55.672 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(12) (age 49) attempting action: "我想收集当前位置(22,17)的魔法水晶和木材，以用于未来的发明创造。"
+2025-07-05 11:02:55.688 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(4) (age 54) attempting action: "收集当前位置(23,52)的木材和苹果，为部落储备资源。"
+2025-07-05 11:02:55.800 | INFO     | sociology_simulation.world:resolve:166 - Valdric(17) (age 61) attempting action: "收集当前位置(34,0)的木材和苹果，然后前往(36,1)收集那里的石头和苹果。"
+2025-07-05 11:02:56.297 | INFO     | sociology_simulation.world:resolve:166 - Lucian(13) (age 57) attempting action: "我想摘取当前位置(59,4)的2个苹果来补充饥饿值，然后前往(58,3)与Winslow交流，利用我的高魅力值建立友好关系。"
+2025-07-05 11:02:56.540 | INFO     | sociology_simulation.world:resolve:166 - Lorinda(11) (age 45) attempting action: 我注意到饥饿值较高(56)，而且附近有大量苹果资源。我会先收集当前位置(39,24)的2个木材，然后前往(39,25)收集石头和苹果来补充食物和资源。
+2025-07-05 11:02:57.752 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(0):
+2025-07-05 11:02:57.753 | INFO     | sociology_simulation.agent:act:237 - Lorinda(0) 行动 → "我想收集(52,3)位置的木材来增加我的木材储备。"
+2025-07-05 11:03:01.870 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(15):
+2025-07-05 11:03:01.870 | INFO     | sociology_simulation.agent:act:237 - Brock(15) 行动 → 我饿了，要摘苹果吃
+2025-07-05 11:03:06.322 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Bartholomew Quill(19):
+2025-07-05 11:03:06.322 | INFO     | sociology_simulation.agent:act:237 - Bartholomew Quill(19) 行动 → 收集当前位置(1,58)的木材和苹果，以补充资源储备。
+2025-07-05 11:03:10.448 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorelei(2):
+2025-07-05 11:03:10.449 | INFO     | sociology_simulation.agent:act:237 - Lorelei(2) 行动 → "我想前往(19,1)摘苹果，同时留意周围是否有其他部落成员可以交流故事。"
+2025-07-05 11:03:15.620 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quillwhisper(9):
+2025-07-05 11:03:15.621 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quillwhisper(9) 行动 → 我想和8号Lucian Brightvale交流，询问他是否愿意用我的1个苹果交换他附近的木材资源。
+2025-07-05 11:03:19.626 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brutus Ironfist(5):
+2025-07-05 11:03:19.627 | INFO     | sociology_simulation.agent:act:237 - Brutus Ironfist(5) 行动 → "用1木头和1石头制作斧头，提升狩猎能力"
+2025-07-05 11:03:25.724 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Winslow(14):
+2025-07-05 11:03:25.725 | INFO     | sociology_simulation.agent:act:237 - Winslow(14) 行动 → 我想用1个贝壳和Lucian交换一些食物，建立友好关系。
+2025-07-05 11:03:30.626 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valerion(6):
+2025-07-05 11:03:30.626 | INFO     | sociology_simulation.agent:act:237 - Valerion(6) 行动 → 我想用1个贝壳和Valentine Sterling交换一些食物，建立友好关系。
+2025-07-05 11:03:35.843 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Garrick(3):
+2025-07-05 11:03:35.845 | INFO     | sociology_simulation.agent:act:237 - Garrick(3) 行动 → "收集当前位置(62,17)的石头，然后前往(62,18)捕鱼，为部落带回更多食物。"
+2025-07-05 11:03:40.848 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentina(18):
+2025-07-05 11:03:40.849 | INFO     | sociology_simulation.agent:act:237 - Valentina(18) 行动 → 我想收集当前位置(7,20)的木材和苹果，为将来制作装饰品或交换礼物做准备。
+2025-07-05 11:03:45.118 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brenda(10):
+2025-07-05 11:03:45.120 | INFO     | sociology_simulation.agent:act:237 - Brenda(10) 行动 → 我注意到饥饿值较高(56)，而且附近森林里有苹果资源(16,16位置有2个苹果)。我会先收集这些苹果充饥。行动是："收集当前位置(16,16)的苹果"。
+2025-07-05 11:03:51.158 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(7):
+2025-07-05 11:03:51.160 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(7) 行动 → "我饿了，要摘苹果吃"，先去采集当前位置(60,26)的2个苹果，然后向Valerion(57,28)移动，准备用苹果交换贝壳来建立友好关系。
+2025-07-05 11:03:58.749 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian Brightvale(8):
+2025-07-05 11:03:58.751 | INFO     | sociology_simulation.agent:act:237 - Lucian Brightvale(8) 行动 → 我想用1个贝壳和9号Eldrin Quillwhisper交换一些苹果，建立友好关系。
+2025-07-05 11:04:03.633 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(1):
+2025-07-05 11:04:03.634 | INFO     | sociology_simulation.agent:act:237 - Brock(1) 行动 → "我想用1个贝壳和Winslow交换2个苹果"
+2025-07-05 11:04:07.674 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(16):
+2025-07-05 11:04:07.676 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(16) 行动 → 我想向Valerion赠送一个苹果来增进关系
+2025-07-05 11:04:12.160 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(12):
+2025-07-05 11:04:12.161 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(12) 行动 → "我想收集当前位置(22,17)的魔法水晶和木材，以用于未来的发明创造。"
+2025-07-05 11:04:16.351 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(4):
+2025-07-05 11:04:16.352 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(4) 行动 → "收集当前位置(23,52)的木材和苹果，为部落储备资源。"
+2025-07-05 11:04:21.045 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valdric(17):
+2025-07-05 11:04:21.047 | INFO     | sociology_simulation.agent:act:237 - Valdric(17) 行动 → "收集当前位置(34,0)的木材和苹果，然后前往(36,1)收集那里的石头和苹果。"
+2025-07-05 11:04:26.169 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian(13):
+2025-07-05 11:04:26.171 | INFO     | sociology_simulation.agent:act:237 - Lucian(13) 行动 → "我想摘取当前位置(59,4)的2个苹果来补充饥饿值，然后前往(58,3)与Winslow交流，利用我的高魅力值建立友好关系。"
+2025-07-05 11:04:31.668 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(11):
+2025-07-05 11:04:31.670 | INFO     | sociology_simulation.agent:act:237 - Lorinda(11) 行动 → 我注意到饥饿值较高(56)，而且附近有大量苹果资源。我会先收集当前位置(39,24)的2个木材，然后前往(39,25)收集石头和苹果来补充食物和资源。
+2025-07-05 11:04:39.341 | SUCCESS  | sociology_simulation.trinity:execute_actions:147 - [Trinity] Spawned resources: {'wood': 10, 'apple': 5, 'fish': 8, 'stone': 7, 'shell': 4}
+2025-07-05 11:04:39.342 | INFO     | sociology_simulation.world:step:578 - 
+========================================
+2025-07-05 11:04:39.342 | INFO     | sociology_simulation.world:step:579 - TURN SUMMARY - 20 agents alive
+2025-07-05 11:04:39.343 | INFO     | sociology_simulation.world:step:581 - Winslow(14) ↔ Lucian(13): 交换失败
+2025-07-05 11:04:39.343 | INFO     | sociology_simulation.world:step:581 - Eldrin Quill(7) ↔ Valerion(6): 交换成功
+2025-07-05 11:04:39.343 | INFO     | sociology_simulation.world:step:581 - Valerion(6) ↔ Valentine Sterling(16): 交换失败
+2025-07-05 11:04:39.344 | INFO     | sociology_simulation.world:step:582 - ========================================
+
+2025-07-05 11:04:41.794 | INFO     | __main__:run_simulation:92 - ===== TURN 8 =====
+2025-07-05 11:04:41.794 | INFO     | sociology_simulation.world:step:475 - 
+=== TURN 16 START ===
+2025-07-05 11:04:45.534 | INFO     | sociology_simulation.world:resolve:166 - Valdric(17) (age 62) attempting action: "收集当前位置(36,1)的石头和苹果"
+2025-07-05 11:04:45.723 | INFO     | sociology_simulation.world:resolve:166 - Winslow(14) (age 42) attempting action: 我想用贝壳和Lucian交换一些食物，建立友好关系。
+2025-07-05 11:04:45.772 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(16) (age 61) attempting action: 我饿了，要去(57,28)摘苹果吃，同时可以和Valerion交流增进关系。
+2025-07-05 11:04:45.788 | INFO     | sociology_simulation.world:resolve:166 - Lucian(13) (age 58) attempting action: "我想和14号Winslow分享一些苹果，建立友好关系"
+2025-07-05 11:04:45.855 | INFO     | sociology_simulation.world:resolve:166 - Brock(1) (age 53) attempting action: 我想用1个贝壳和Winslow交换一些食物，建立友好关系。
+2025-07-05 11:04:46.081 | INFO     | sociology_simulation.world:resolve:166 - Valentina(18) (age 32) attempting action: 收集当前位置(7,20)的木材和苹果，为将来与部落首领交换礼物做准备。
+2025-07-05 11:04:46.140 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quillwhisper(9) (age 60) attempting action: 我想用贝壳和8号Lucian Brightvale交换一些苹果，建立友好关系。
+2025-07-05 11:04:46.166 | INFO     | sociology_simulation.world:resolve:166 - Valerion(6) (age 59) attempting action: 我想用1个贝壳和Valentine Sterling交换一些苹果，建立友好关系。
+2025-07-05 11:04:46.376 | INFO     | sociology_simulation.world:resolve:166 - Garrick(3) (age 50) attempting action: "我要收集当前位置(62,18)的鱼，然后前往(62,20)收集木材，为制作狩猎工具做准备。"
+2025-07-05 11:04:46.922 | INFO     | sociology_simulation.world:resolve:166 - Brutus Ironfist(5) (age 37) attempting action: 收集当前位置(8,11)的石头，为制作狩猎工具做准备。
+2025-07-05 11:04:46.964 | INFO     | sociology_simulation.world:resolve:166 - Lorelei(2) (age 75) attempting action: "我想收集当前位置(19,1)的2个苹果来补充食物储备。"
+2025-07-05 11:04:47.522 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valdric(17):
+2025-07-05 11:04:47.524 | INFO     | sociology_simulation.agent:act:237 - Valdric(17) 行动 → "收集当前位置(36,1)的石头和苹果"
+2025-07-05 11:04:47.670 | INFO     | sociology_simulation.world:resolve:166 - Brenda(10) (age 61) attempting action: 我注意到附近(20,18)位置有一块魔法水晶，这是个稀有资源。虽然我现在的饥饿值是64(不算太饿)，但为了部落的未来发展，我决定先去收集那块魔法水晶。
+
+行动: 前往(20,18)位置收集魔法水晶
+2025-07-05 11:04:47.673 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(4) (age 55) attempting action: "收集当前位置(23,52)的苹果和木材"
+2025-07-05 11:04:47.918 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(7) (age 51) attempting action: "我想和6号Valerion分享我发现的苹果树位置，并询问他是否知道任何有趣的发明或故事。"
+2025-07-05 11:04:47.981 | INFO     | sociology_simulation.world:resolve:166 - Lucian Brightvale(8) (age 67) attempting action: 我想用1个苹果和9号Eldrin Quillwhisper交换贝壳，建立友好关系。
+2025-07-05 11:04:47.983 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(12) (age 50) attempting action: 我想收集(22,17)位置的魔法水晶和木材，同时摘取那里的苹果来补充食物。
+2025-07-05 11:04:48.048 | INFO     | sociology_simulation.world:resolve:166 - Lorinda(0) (age 59) attempting action: 我想收集附近(52,3)位置的木材，然后尝试用1木头和1石头制作一把石斧。
+2025-07-05 11:04:48.164 | INFO     | sociology_simulation.world:resolve:166 - Bartholomew Quill(19) (age 59) attempting action: "收集当前位置(1,58)的木材和苹果，然后研究如何用木材制作简单的石器工具。" 
+
+(理由：1. 当前饥饿值64不算高，但收集苹果可以预防饥饿；2. 附近有木材资源可以收集；3. 根据目标需要研究石器制作技术；4. 力量属性较低(4)，更适合知识型活动而非体力劳动)
+2025-07-05 11:04:48.360 | INFO     | sociology_simulation.world:resolve:166 - Lorinda(11) (age 46) attempting action: 我想收集当前位置(39,25)的石头和苹果，然后前往(36,30)收集那里的石头和苹果，为制作新工具做准备。
+2025-07-05 11:04:49.080 | INFO     | sociology_simulation.world:resolve:166 - Brock(15) (age 35) attempting action: 我注意到附近(27,28)位置有木材和魔法水晶，同时我的饥饿值为64，需要补充食物。我会先收集当前位置(27,28)的苹果充饥，然后采集木材和魔法水晶来为成为出色猎手做准备。
+2025-07-05 11:04:55.777 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Winslow(14):
+2025-07-05 11:04:55.779 | INFO     | sociology_simulation.agent:act:237 - Winslow(14) 行动 → 我想用贝壳和Lucian交换一些食物，建立友好关系。
+2025-07-05 11:05:01.546 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(16):
+2025-07-05 11:05:01.548 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(16) 行动 → 我饿了，要去(57,28)摘苹果吃，同时可以和Valerion交流增进关系。
+2025-07-05 11:05:05.251 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian(13):
+2025-07-05 11:05:05.252 | INFO     | sociology_simulation.agent:act:237 - Lucian(13) 行动 → "我想和14号Winslow分享一些苹果，建立友好关系"
+2025-07-05 11:05:09.882 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(1):
+2025-07-05 11:05:09.883 | INFO     | sociology_simulation.agent:act:237 - Brock(1) 行动 → 我想用1个贝壳和Winslow交换一些食物，建立友好关系。
+2025-07-05 11:05:13.992 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentina(18):
+2025-07-05 11:05:13.993 | INFO     | sociology_simulation.agent:act:237 - Valentina(18) 行动 → 收集当前位置(7,20)的木材和苹果，为将来与部落首领交换礼物做准备。
+2025-07-05 11:05:19.759 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quillwhisper(9):
+2025-07-05 11:05:19.761 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quillwhisper(9) 行动 → 我想用贝壳和8号Lucian Brightvale交换一些苹果，建立友好关系。
+2025-07-05 11:05:25.436 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valerion(6):
+2025-07-05 11:05:25.437 | INFO     | sociology_simulation.agent:act:237 - Valerion(6) 行动 → 我想用1个贝壳和Valentine Sterling交换一些苹果，建立友好关系。
+2025-07-05 11:05:30.593 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Garrick(3):
+2025-07-05 11:05:30.594 | INFO     | sociology_simulation.agent:act:237 - Garrick(3) 行动 → "我要收集当前位置(62,18)的鱼，然后前往(62,20)收集木材，为制作狩猎工具做准备。"
+2025-07-05 11:05:33.769 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brutus Ironfist(5):
+2025-07-05 11:05:33.770 | INFO     | sociology_simulation.agent:act:237 - Brutus Ironfist(5) 行动 → 收集当前位置(8,11)的石头，为制作狩猎工具做准备。
+2025-07-05 11:05:38.243 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorelei(2):
+2025-07-05 11:05:38.245 | INFO     | sociology_simulation.agent:act:237 - Lorelei(2) 行动 → "我想收集当前位置(19,1)的2个苹果来补充食物储备。"
+2025-07-05 11:05:42.500 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brenda(10):
+2025-07-05 11:05:42.501 | INFO     | sociology_simulation.agent:act:237 - Brenda(10) 行动 → 我注意到附近(20,18)位置有一块魔法水晶，这是个稀有资源。虽然我现在的饥饿值是64(不算太饿)，但为了部落的未来发展，我决定先去收集那块魔法水晶。
+
+行动: 前往(20,18)位置收集魔法水晶
+2025-07-05 11:05:47.564 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(4):
+2025-07-05 11:05:47.566 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(4) 行动 → "收集当前位置(23,52)的苹果和木材"
+2025-07-05 11:05:52.325 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(7):
+2025-07-05 11:05:52.326 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(7) 行动 → "我想和6号Valerion分享我发现的苹果树位置，并询问他是否知道任何有趣的发明或故事。"
+2025-07-05 11:05:57.538 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian Brightvale(8):
+2025-07-05 11:05:57.538 | INFO     | sociology_simulation.agent:act:237 - Lucian Brightvale(8) 行动 → 我想用1个苹果和9号Eldrin Quillwhisper交换贝壳，建立友好关系。
+2025-07-05 11:06:03.610 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(12):
+2025-07-05 11:06:03.612 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(12) 行动 → 我想收集(22,17)位置的魔法水晶和木材，同时摘取那里的苹果来补充食物。
+2025-07-05 11:06:07.969 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(0):
+2025-07-05 11:06:07.972 | INFO     | sociology_simulation.agent:act:237 - Lorinda(0) 行动 → 我想收集附近(52,3)位置的木材，然后尝试用1木头和1石头制作一把石斧。
+2025-07-05 11:06:13.400 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Bartholomew Quill(19):
+2025-07-05 11:06:13.402 | INFO     | sociology_simulation.agent:act:237 - Bartholomew Quill(19) 行动 → "收集当前位置(1,58)的木材和苹果，然后研究如何用木材制作简单的石器工具。" 
+
+(理由：1. 当前饥饿值64不算高，但收集苹果可以预防饥饿；2. 附近有木材资源可以收集；3. 根据目标需要研究石器制作技术；4. 力量属性较低(4)，更适合知识型活动而非体力劳动)
+2025-07-05 11:06:18.094 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(11):
+2025-07-05 11:06:18.095 | INFO     | sociology_simulation.agent:act:237 - Lorinda(11) 行动 → 我想收集当前位置(39,25)的石头和苹果，然后前往(36,30)收集那里的石头和苹果，为制作新工具做准备。
+2025-07-05 11:06:22.542 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(15):
+2025-07-05 11:06:22.543 | INFO     | sociology_simulation.agent:act:237 - Brock(15) 行动 → 我注意到附近(27,28)位置有木材和魔法水晶，同时我的饥饿值为64，需要补充食物。我会先收集当前位置(27,28)的苹果充饥，然后采集木材和魔法水晶来为成为出色猎手做准备。
+2025-07-05 11:06:29.532 | SUCCESS  | sociology_simulation.trinity:execute_actions:147 - [Trinity] Spawned resources: {'wood': 5, 'apple': 3, 'fish': 4, 'stone': 2}
+2025-07-05 11:06:29.533 | INFO     | sociology_simulation.world:step:578 - 
+========================================
+2025-07-05 11:06:29.533 | INFO     | sociology_simulation.world:step:579 - TURN SUMMARY - 20 agents alive
+2025-07-05 11:06:29.533 | INFO     | sociology_simulation.world:step:581 - Eldrin Quillwhisper(9) ↔ Lucian Brightvale(8): 交换成功
+2025-07-05 11:06:29.533 | INFO     | sociology_simulation.world:step:581 - Lucian Brightvale(8) ↔ Eldrin Quillwhisper(9): 交换成功
+2025-07-05 11:06:29.533 | INFO     | sociology_simulation.world:step:582 - ========================================
+
+2025-07-05 11:06:31.826 | INFO     | __main__:run_simulation:92 - ===== TURN 9 =====
+2025-07-05 11:06:31.827 | INFO     | sociology_simulation.world:step:475 - 
+=== TURN 18 START ===
+2025-07-05 11:06:39.124 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(16) (age 62) attempting action: 我想向Valerion赠送一个苹果以增进关系
+2025-07-05 11:06:39.179 | INFO     | sociology_simulation.world:resolve:166 - Brock(1) (age 54) attempting action: 我想用1个贝壳和Winslow交换2个苹果
+2025-07-05 11:06:39.291 | INFO     | sociology_simulation.world:resolve:166 - Lucian(13) (age 59) attempting action: "我想和14号Winslow分享我收集的苹果，建立友好关系"
+2025-07-05 11:06:39.388 | INFO     | sociology_simulation.world:resolve:166 - Lorelei(2) (age 76) attempting action: "我想收集当前位置(19,1)的2个苹果来补充食物储备。"
+2025-07-05 11:06:39.732 | INFO     | sociology_simulation.world:resolve:166 - Bartholomew Quill(19) (age 60) attempting action: 收集当前位置(1,58)的木材和苹果。
+2025-07-05 11:06:39.747 | INFO     | sociology_simulation.world:resolve:166 - Lucian Brightvale(8) (age 68) attempting action: 我想用1个贝壳和9号Eldrin Quillwhisper交换一些食物，建立友好关系。
+2025-07-05 11:06:39.760 | INFO     | sociology_simulation.world:resolve:166 - Brenda(10) (age 62) attempting action: 我想用1个贝壳和12号Eldrin Quill交换一些食物，建立友好关系。
+2025-07-05 11:06:39.933 | INFO     | sociology_simulation.world:resolve:166 - Winslow(14) (age 43) attempting action: 我想用贝壳和Lucian(13号)交换一些苹果，建立友好关系。
+2025-07-05 11:06:40.013 | INFO     | sociology_simulation.world:resolve:166 - Lorinda(0) (age 60) attempting action: '收集当前位置(52,3)的木材，然后前往(57,3)收集石头，为制作新工具做准备'
+2025-07-05 11:06:40.058 | INFO     | sociology_simulation.world:resolve:166 - Valentina(18) (age 33) attempting action: 收集当前位置(7,20)的木材和苹果，为将来与部落首领交换礼物做准备。
+2025-07-05 11:06:40.073 | INFO     | sociology_simulation.world:resolve:166 - Brock(15) (age 36) attempting action: 我饿了，要摘苹果吃。我会前往最近的(27,28)位置摘取那里的苹果。
+2025-07-05 11:06:40.300 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quillwhisper(9) (age 61) attempting action: 我想和8号Lucian Brightvale交流，询问他是否愿意用我手中的1个木材交换一些食物。
+2025-07-05 11:06:40.389 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(7) (age 52) attempting action: "我想先摘取当前位置(60,26)的2个苹果来充饥，然后去(57,24)收集贝壳，准备送给Valerion建立友好关系。"
+2025-07-05 11:06:40.544 | INFO     | sociology_simulation.world:resolve:166 - Valentine Sterling(4) (age 56) attempting action: 我饿了，要摘苹果吃
+2025-07-05 11:06:40.631 | INFO     | sociology_simulation.world:resolve:166 - Garrick(3) (age 51) attempting action: 我饿了，要摘苹果吃
+2025-07-05 11:06:40.796 | INFO     | sociology_simulation.world:resolve:166 - Brutus Ironfist(5) (age 38) attempting action: 我饿了，要吃掉背包里的鱼和苹果来补充体力。
+2025-07-05 11:06:40.921 | INFO     | sociology_simulation.world:resolve:166 - Valerion(6) (age 60) attempting action: "我想用1个贝壳和Valentine Sterling交换一些苹果，建立友好关系。"
+2025-07-05 11:06:40.938 | INFO     | sociology_simulation.world:resolve:166 - Valdric(17) (age 63) attempting action: "收集当前位置(36,1)的石头和苹果，为制作工具做准备"
+2025-07-05 11:06:41.009 | INFO     | sociology_simulation.world:resolve:166 - Eldrin Quill(12) (age 51) attempting action: 我想前往(20,18)的位置采集魔法水晶并与Brenda交流关于水晶的知识。
+2025-07-05 11:06:41.498 | INFO     | sociology_simulation.world:resolve:166 - Lorinda(11) (age 47) attempting action: 我注意到在(31,30)位置有一块魔法水晶，这非常符合我探索自然奥秘的目标，我要前往那里研究这块水晶。
+2025-07-05 11:06:42.927 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(16):
+2025-07-05 11:06:42.928 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(16) 行动 → 我想向Valerion赠送一个苹果以增进关系
+2025-07-05 11:06:48.260 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(1):
+2025-07-05 11:06:48.262 | INFO     | sociology_simulation.agent:act:237 - Brock(1) 行动 → 我想用1个贝壳和Winslow交换2个苹果
+2025-07-05 11:06:53.107 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian(13):
+2025-07-05 11:06:53.108 | INFO     | sociology_simulation.agent:act:237 - Lucian(13) 行动 → "我想和14号Winslow分享我收集的苹果，建立友好关系"
+2025-07-05 11:06:58.962 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorelei(2):
+2025-07-05 11:06:58.963 | INFO     | sociology_simulation.agent:act:237 - Lorelei(2) 行动 → "我想收集当前位置(19,1)的2个苹果来补充食物储备。"
+2025-07-05 11:07:05.673 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Bartholomew Quill(19):
+2025-07-05 11:07:05.676 | INFO     | sociology_simulation.agent:act:237 - Bartholomew Quill(19) 行动 → 收集当前位置(1,58)的木材和苹果。
+2025-07-05 11:07:10.596 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lucian Brightvale(8):
+2025-07-05 11:07:10.598 | INFO     | sociology_simulation.agent:act:237 - Lucian Brightvale(8) 行动 → 我想用1个贝壳和9号Eldrin Quillwhisper交换一些食物，建立友好关系。
+2025-07-05 11:07:15.359 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brenda(10):
+2025-07-05 11:07:15.361 | INFO     | sociology_simulation.agent:act:237 - Brenda(10) 行动 → 我想用1个贝壳和12号Eldrin Quill交换一些食物，建立友好关系。
+2025-07-05 11:07:20.893 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Winslow(14):
+2025-07-05 11:07:20.896 | INFO     | sociology_simulation.agent:act:237 - Winslow(14) 行动 → 我想用贝壳和Lucian(13号)交换一些苹果，建立友好关系。
+2025-07-05 11:07:25.788 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(0):
+2025-07-05 11:07:25.790 | INFO     | sociology_simulation.agent:act:237 - Lorinda(0) 行动 → '收集当前位置(52,3)的木材，然后前往(57,3)收集石头，为制作新工具做准备'
+2025-07-05 11:07:30.844 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentina(18):
+2025-07-05 11:07:30.846 | INFO     | sociology_simulation.agent:act:237 - Valentina(18) 行动 → 收集当前位置(7,20)的木材和苹果，为将来与部落首领交换礼物做准备。
+2025-07-05 11:07:37.073 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brock(15):
+2025-07-05 11:07:37.074 | INFO     | sociology_simulation.agent:act:237 - Brock(15) 行动 → 我饿了，要摘苹果吃。我会前往最近的(27,28)位置摘取那里的苹果。
+2025-07-05 11:07:42.457 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quillwhisper(9):
+2025-07-05 11:07:42.459 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quillwhisper(9) 行动 → 我想和8号Lucian Brightvale交流，询问他是否愿意用我手中的1个木材交换一些食物。
+2025-07-05 11:07:47.141 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(7):
+2025-07-05 11:07:47.143 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(7) 行动 → "我想先摘取当前位置(60,26)的2个苹果来充饥，然后去(57,24)收集贝壳，准备送给Valerion建立友好关系。"
+2025-07-05 11:07:50.237 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valentine Sterling(4):
+2025-07-05 11:07:50.238 | INFO     | sociology_simulation.agent:act:237 - Valentine Sterling(4) 行动 → 我饿了，要摘苹果吃
+2025-07-05 11:07:54.310 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Garrick(3):
+2025-07-05 11:07:54.312 | INFO     | sociology_simulation.agent:act:237 - Garrick(3) 行动 → 我饿了，要摘苹果吃
+2025-07-05 11:07:59.102 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Brutus Ironfist(5):
+2025-07-05 11:07:59.103 | INFO     | sociology_simulation.agent:act:237 - Brutus Ironfist(5) 行动 → 我饿了，要吃掉背包里的鱼和苹果来补充体力。
+2025-07-05 11:08:04.407 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valerion(6):
+2025-07-05 11:08:04.408 | INFO     | sociology_simulation.agent:act:237 - Valerion(6) 行动 → "我想用1个贝壳和Valentine Sterling交换一些苹果，建立友好关系。"
+2025-07-05 11:08:08.389 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Valdric(17):
+2025-07-05 11:08:08.390 | INFO     | sociology_simulation.agent:act:237 - Valdric(17) 行动 → "收集当前位置(36,1)的石头和苹果，为制作工具做准备"
+2025-07-05 11:08:13.147 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Eldrin Quill(12):
+2025-07-05 11:08:13.148 | INFO     | sociology_simulation.agent:act:237 - Eldrin Quill(12) 行动 → 我想前往(20,18)的位置采集魔法水晶并与Brenda交流关于水晶的知识。
+2025-07-05 11:08:17.345 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for Lorinda(11):
+2025-07-05 11:08:17.347 | INFO     | sociology_simulation.agent:act:237 - Lorinda(11) 行动 → 我注意到在(31,30)位置有一块魔法水晶，这非常符合我探索自然奥秘的目标，我要前往那里研究这块水晶。
+2025-07-05 11:08:21.935 | SUCCESS  | sociology_simulation.bible:update:34 - [Bible] Updated rules: {'tool_discovery': 'When a player shares information about discovering a new tool-making method (like sharpening stones), all players gain +1 knowledge point in the next turn.'}
+2025-07-05 11:08:26.668 | SUCCESS  | sociology_simulation.trinity:execute_actions:147 - [Trinity] Spawned resources: {'wood': 5, 'apple': 3, 'fish': 4, 'stone': 2}
+2025-07-05 11:08:26.668 | INFO     | sociology_simulation.world:step:578 - 
+========================================
+2025-07-05 11:08:26.669 | INFO     | sociology_simulation.world:step:579 - TURN SUMMARY - 20 agents alive
+2025-07-05 11:08:26.669 | INFO     | sociology_simulation.world:step:581 - Eldrin Quillwhisper(9) ↔ Lucian Brightvale(8): 交换成功
+2025-07-05 11:08:26.669 | INFO     | sociology_simulation.world:step:581 - Eldrin Quill(7) ↔ Valerion(6): 苹果树位置和发明故事 → "我看到西边山坡有棵苹果树，昨天用石头砸下果子时发现石头能削尖做成工具。"
+2025-07-05 11:08:26.669 | INFO     | sociology_simulation.world:step:581 - Lucian Brightvale(8) ↔ Eldrin Quillwhisper(9): 交换失败
+2025-07-05 11:08:26.670 | INFO     | sociology_simulation.world:step:582 - ========================================
+

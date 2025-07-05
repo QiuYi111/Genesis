@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from loguru import logger
 
 from .config import VISION_RADIUS, DEFAULT_TERRAIN, TERRAIN_COLORS, DEFAULT_RESOURCE_RULES
-from .llm import adeepseek_chat
+from .enhanced_llm import get_llm_service
 from .bible import Bible
 from .agent import Agent
 from .trinity import Trinity
@@ -162,73 +162,34 @@ class World:
             }
 
         async def resolve(self, action: str, agent: Agent, world: World, era_prompt: str) -> Dict:
-            """Resolve natural language actions using LLM arbitration"""
+            """Resolve natural language actions using enhanced LLM service"""
             logger.info(f"{agent.name}({agent.aid}) (age {agent.age}) attempting action: {action}")
             
+            # Age-based restrictions
             if "courtship" in action.lower() and agent.age < 18:
-                return {
-                    "log": "年龄太小无法求偶",
-                    "position": list(agent.pos)
-                }
+                return {"log": "年龄太小无法求偶", "position": list(agent.pos)}
             if "build" in action.lower() and agent.age < 16:
-                return {
-                    "log": "年龄太小无法建造",
-                    "position": list(agent.pos)
-                }
+                return {"log": "年龄太小无法建造", "position": list(agent.pos)}
 
-            system = (
-                "你是一个行为裁决系统，根据以下要素评估行动结果:\n"
-                f"1. 圣经规则: {json.dumps(self.bible.rules, ensure_ascii=False)}\n"
-                "2. 智能体属性\n"
-                "3. 当前世界状态\n\n"
-                "请将自然语言行动转化为严格有效的JSON结果，必须使用双引号，包含以下字段:\n"
-                "- 'inventory': 背包变化 {物品: 数量变化}\n"
-                "- 'attributes': 属性变化 {属性: 数值变化}\n"
-                "- 'position': 新位置 [x, y] (可选)\n"
-                "- 'log': 行动日志描述\n"
-                "- 'courtship_target': 求偶目标ID (可选)\n"
-                "- 'dead': 是否死亡 (可选)\n"
-                "- 'chat_request': 聊天请求 {\"target_id\": ID, \"topic\": \"话题\"} (可选)\n"
-                "- 'exchange_request': 交换请求 {\"target_id\": ID, \"offer\": {\"物品\": 数量}, \"request\": {\"物品\": 数量}} (可选)\n"
-                "示例输出: {\"inventory\": {\"apple\": -1}, \"attributes\": {\"hunger\": -10}, \"log\": \"吃了一个苹果\"}"
-                "聊天示例: {\"chat_request\": {\"target_id\": 3, \"topic\": \"草药知识\"}, \"log\": \"询问3号草药知识\"}"
-                "交换示例: {\"exchange_request\": {\"target_id\": 2, \"offer\": {\"apple\": 3}, \"request\": {\"fish\": 2}}, \"log\": \"向2号提供3个苹果换取2条鱼\"}"
-                "\n\n重要: 必须返回严格有效的JSON，仅包含JSON对象，不要包含任何额外文本或注释!"
-            )
-            prompt = (
-                f"智能体 {agent.aid} (属性: {agent.attributes}) 位于位置 {agent.pos} "
-                f"背包: {agent.inventory} 想要执行行动: {action}\n"
-                "请评估并返回严格有效的JSON结果:"
-            )
-            
             async with self.lock:
                 async with aiohttp.ClientSession() as session:
-                    for attempt in range(3):
-                        response = await adeepseek_chat("deepseek-chat", system, prompt, session)
-                        
-                        # First try parsing as-is
-                        try:
-                            outcome = json.loads(response) if response else {}
-                            if self._validate_outcome(outcome, agent):
-                                return await self._process_outcome(outcome, agent, world, session, era_prompt)
-                            continue
-                        except json.JSONDecodeError:
-                            pass
-                        
-                        # If first parse fails, try cleaning response
-                        cleaned = self._clean_json_response(response)
-                        try:
-                            outcome = json.loads(cleaned) if cleaned else {}
-                            if self._validate_outcome(outcome, agent):
-                                return await self._process_outcome(outcome, agent, world, session, era_prompt)
-                        except json.JSONDecodeError:
-                            logger.warning(f"Attempt {attempt+1}: Invalid JSON response")
+                    llm_service = get_llm_service()
+                    bible_rules = json.dumps(self.bible.get_rules_for_action_handler(), ensure_ascii=False)
                     
-                    logger.error(f"Failed to get valid JSON after 3 attempts for action: {action}")
-                    return {
-                        "log": f"行动失败: {action}",
-                        "position": list(agent.pos)
-                    }
+                    outcome = await llm_service.resolve_action(
+                        bible_rules=bible_rules,
+                        agent_id=agent.aid,
+                        agent_age=agent.age,
+                        agent_attributes=agent.attributes,
+                        agent_position=list(agent.pos),
+                        agent_inventory=agent.inventory,
+                        agent_health=agent.health,
+                        agent_hunger=agent.hunger,
+                        action=action,
+                        session=session
+                    )
+                    
+                    return await self._process_outcome(outcome, agent, world, session, era_prompt)
 
         def _clean_json_response(self, response: str) -> str:
             """Clean potentially malformed JSON response"""
@@ -383,19 +344,11 @@ class World:
             
         async def generate_chat_response(self, agent: Agent, topic: str, 
                                        era_prompt: str, session: aiohttp.ClientSession) -> str:
-            """Generate response to chat request"""
-            system = (
-                "你是一个模拟世界中的智能体。另一个智能体向你提出了一个问题或请求。"
-                "请根据你的知识、属性和当前状态，用一句话简洁回答。"
+            """Generate response to chat request using enhanced LLM service"""
+            llm_service = get_llm_service()
+            return await llm_service.generate_chat_response(
+                era_prompt, agent.age, agent.attributes, agent.inventory, topic, session
             )
-            user = (
-                f"时代背景: {era_prompt}\n"
-                f"你的属性: {json.dumps(agent.attributes, ensure_ascii=False)}\n"
-                f"你的背包: {json.dumps(agent.inventory, ensure_ascii=False)}\n"
-                f"问题/请求: {topic}\n"
-                "请用一句话回答:"
-            )
-            return await adeepseek_chat("deepseek-chat", system, user, session)
         
         def process_courtship_events(self) -> List[Agent]:
             """Process courtship events and create new agents"""

@@ -3,12 +3,12 @@ import asyncio
 import random
 import json
 import aiohttp
-from typing import Dict, List
+from typing import Dict, List, Any
 from dataclasses import dataclass
 from loguru import logger
 
 from .config import DEFAULT_TERRAIN, DEFAULT_RESOURCE_RULES
-from .llm import adeepseek_chat
+from .enhanced_llm import get_llm_service
 from .bible import Bible
 
 class Trinity:
@@ -34,142 +34,159 @@ class Trinity:
         )
 
     async def _generate_initial_rules(self, session: aiohttp.ClientSession):
-        """Generate initial terrain and resource rules based on era using LLM"""
-        system = (
-            "You are TRINITY - the world builder for a sociological simulation. "
-            "Generate appropriate terrain types and resource distribution rules "
-            "based on the given era description. Return valid JSON only."
-        )
-        user = (
-            f"Era description: {self.era_prompt}\n"
-            "Return JSON with:\n"
-            "- 'terrain_types': array of terrain names\n"
-            "- 'resource_rules': dict mapping resources to terrain probabilities\n"
-            "For dangerous/magical eras, include rare and dangerous resources."
-        )
+        """Generate initial terrain and resource rules based on era using enhanced LLM"""
+        llm_service = get_llm_service()
+        rules = await llm_service.trinity_generate_rules(self.era_prompt, session)
         
-        # Try up to 3 times to get valid rules
-        for attempt in range(3):
-            resp = await adeepseek_chat("deepseek-chat", system, user, session, temperature=0.7)
-            try:
-                rules = json.loads(resp)
-                self.terrain_types = rules.get("terrain_types", DEFAULT_TERRAIN)
-                self.resource_rules = rules.get("resource_rules", DEFAULT_RESOURCE_RULES)
-                logger.success(f"[Trinity] Generated rules for era: {self.era_prompt}")
-                return
-            except json.JSONDecodeError:
-                if attempt < 2:
-                    logger.warning(f"[Trinity] Attempt {attempt+1}: Invalid rules JSON, retrying...")
-                else:
-                    logger.warning("[Trinity] Using default rules after 3 failures")
-                    self.terrain_types = DEFAULT_TERRAIN
-                    self.resource_rules = DEFAULT_RESOURCE_RULES
+        self.terrain_types = rules.get("terrain_types", DEFAULT_TERRAIN)
+        self.resource_rules = rules.get("resource_rules", DEFAULT_RESOURCE_RULES)
+        logger.success(f"[Trinity] Generated rules for era: {self.era_prompt}")
 
     async def adjudicate(self, global_log: List[str], session: aiohttp.ClientSession):
-        """Adjudicate simulation events and update rules"""
-        user = (
-            f"时代背景: {self.era_prompt}\n"
-            f"TURN {self.turn} global log:\n" + "\n".join(global_log) + "\n"
-            "Based on these events, decide if:\n"
-            "1. A new rule should be added\n"
-            "2. Resource distribution rules should be updated\n"
-            "3. The era should change (only if turn is multiple of 10)\n"
-            "Return VALID JSON ONLY with one of these structures:\n"
-            "1. Add rules: {\"add_rules\": {\"rule_name\": \"description\"}}\n"
-            "2. Update resource distribution: {\"update_resource_rules\": {\"resource_name\": {\"terrain1\": probability, \"terrain2\": probability}}}\n"
-            "3. Change era: {\"change_era\": \"new era name\"}\n"
-            "4. Any combination of the above\n"
-            "5. No change: {}\n"
-            "DO NOT include any additional text outside the JSON object."
+        """Adjudicate simulation events and update rules using enhanced LLM"""
+        llm_service = get_llm_service()
+        data = await llm_service.trinity_adjudicate(
+            self.era_prompt, self.turn, global_log, session
         )
         
-        # Try up to 3 times to get valid JSON
-        for attempt in range(3):
-            resp = await adeepseek_chat("deepseek-chat", self.system_prompt, user, session, temperature=0.2)
-            try:
-                data = json.loads(resp)
-                if "add_rules" in data:
-                    self.bible.update(data["add_rules"])
-                if "update_resource_rules" in data:
-                    self.resource_rules.update(data["update_resource_rules"])
-                    logger.success(f"[Trinity] Updated resource rules: {data['update_resource_rules']}")
-                if "change_era" in data and self.turn % 10 == 0:
-                    self.era_prompt = data["change_era"]
-                    logger.success(f"[Trinity] Era changed to: {self.era_prompt}")
-                break  # Exit loop if successful
-            except json.JSONDecodeError:
-                if attempt < 2:
-                    logger.warning(f"[Trinity] Attempt {attempt+1}: Invalid JSON, retrying...")
-                else:
-                    logger.warning(f"[Trinity] Final attempt failed. Raw response: {resp[:200]}")
+        if "add_rules" in data:
+            self.bible.update(data["add_rules"])
+        if "update_resource_rules" in data:
+            self.resource_rules.update(data["update_resource_rules"])
+            logger.success(f"[Trinity] Updated resource rules: {data['update_resource_rules']}")
+        if "change_era" in data and self.turn % 10 == 0:
+            self.era_prompt = data["change_era"]
+            logger.success(f"[Trinity] Era changed to: {self.era_prompt}")
+        
         self.turn += 1
 
     async def execute_actions(self, world, session: aiohttp.ClientSession):
-        """Execute Trinity's actions at the end of each turn"""
-        system = (
-            "You are TRINITY - the omniscient adjudicator of a sociological simulation.\n"
-            "Based on the current state of the world, decide what actions to take to maintain balance.\n"
-            "Possible actions include:\n"
-            "1. Spawning new resources\n"
-            "2. Adjusting terrain\n"
-            "3. Directly influencing agents\n"
-            "4. Adding new resource rules\n"
-            "Return VALID JSON ONLY with one of these structures:\n"
-            "1. Spawn resources: {\"spawn_resources\": {\"resource_name\": quantity}}\n"
-            "2. Adjust terrain: {\"adjust_terrain\": {\"positions\": [[x1,y1],...], \"new_terrain\": \"type\"}}\n"
-            "3. Influence agents: {\"influence_agents\": {\"agent_ids\": [id1,id2,...], \"effect\": \"description\"}}\n"
-            "4. Add resource rules: {\"add_resource_rules\": {\"resource_name\": {\"terrain1\": probability, \"terrain2\": probability}}}\n"
-            "5. Any combination of the above\n"
-            "6. No action: {}\n"
-            "DO NOT include any additional text outside the JSON object."
+        """Execute Trinity's ecological management actions using enhanced LLM"""
+        # Calculate resource status for Trinity's decision making
+        resource_status = self._calculate_resource_status(world)
+        
+        llm_service = get_llm_service()
+        data = await llm_service.trinity_execute_actions(
+            self.era_prompt, self.turn, len(world.agents), 
+            self.resource_rules, resource_status, session
         )
         
-        user = (
-            f"Current era: {self.era_prompt}\n"
-            f"Current turn: {self.turn}\n"
-            f"Number of agents: {len(world.agents)}\n"
-            f"Current resource rules: {json.dumps(self.resource_rules, ensure_ascii=False)}\n"
-            "What actions should TRINITY take this turn?"
-        )
-        
-        # Try up to 3 times to get valid JSON
-        for attempt in range(3):
-            resp = await adeepseek_chat("deepseek-chat", system, user, session, temperature=0.3)
-            try:
-                data = json.loads(resp)
-                if "spawn_resources" in data:
-                    for resource, quantity in data["spawn_resources"].items():
-                        for _ in range(quantity):
-                            x, y = random.randint(0, world.size-1), random.randint(0, world.size-1)
-                            if (x,y) not in world.resources:
-                                world.resources[(x,y)] = {}
-                            world.resources[(x,y)][resource] = world.resources[(x,y)].get(resource, 0) + 1
-                    logger.success(f"[Trinity] Spawned resources: {data['spawn_resources']}")
-                
-                if "adjust_terrain" in data:
-                    if world.map is None:
-                        logger.warning("[Trinity] Cannot adjust terrain - world map not initialized")
-                    else:
-                        for pos in data["adjust_terrain"]["positions"]:
-                            x, y = pos[0], pos[1]
-                            if 0 <= x < world.size and 0 <= y < world.size:
-                                world.map[x][y] = data["adjust_terrain"]["new_terrain"]
-                        logger.success(f"[Trinity] Adjusted terrain at {len(data['adjust_terrain']['positions'])} positions")
-                
-                if "influence_agents" in data:
-                    for agent_id in data["influence_agents"]["agent_ids"]:
-                        agent = next((a for a in world.agents if a.aid == agent_id), None)
-                        if agent:
-                            agent.log.append(f"TRINITY干预: {data['influence_agents']['effect']}")
-                    logger.success(f"[Trinity] Influenced {len(data['influence_agents']['agent_ids'])} agents")
-                
-                if "add_resource_rules" in data:
-                    self.resource_rules.update(data["add_resource_rules"])
-                    logger.success(f"[Trinity] Added new resource rules: {data['add_resource_rules']}")
-                
-                break  # Exit loop if successful
-            except json.JSONDecodeError:
-                if attempt < 2:
-                    logger.warning(f"[Trinity] Attempt {attempt+1}: Invalid JSON, retrying...")
+        # Process new action types
+        if "update_resource_distribution" in data:
+            for resource, terrain_probs in data["update_resource_distribution"].items():
+                if resource in self.resource_rules:
+                    self.resource_rules[resource].update(terrain_probs)
                 else:
-                    logger.warning(f"[Trinity] Final attempt failed. Raw response: {resp[:200]}")
+                    self.resource_rules[resource] = terrain_probs
+            logger.success(f"[Trinity] Updated resource distribution: {data['update_resource_distribution']}")
+        
+        if "regenerate_resources" in data:
+            regenerate_data = data["regenerate_resources"]
+            multiplier = regenerate_data.get("probability_multiplier", 1.0)
+            specific_resources = regenerate_data.get("specific_resources", [])
+            self._regenerate_resources(world, multiplier, specific_resources)
+            logger.success(f"[Trinity] Regenerated resources with multiplier {multiplier}")
+        
+        if "adjust_terrain" in data:
+            if world.map is None:
+                logger.warning("[Trinity] Cannot adjust terrain - world map not initialized")
+            else:
+                for pos in data["adjust_terrain"]["positions"]:
+                    x, y = pos[0], pos[1]
+                    if 0 <= x < world.size and 0 <= y < world.size:
+                        world.map[x][y] = data["adjust_terrain"]["new_terrain"]
+                logger.success(f"[Trinity] Adjusted terrain at {len(data['adjust_terrain']['positions'])} positions")
+        
+        if "environmental_influence" in data:
+            for agent_id in data["environmental_influence"]["agent_ids"]:
+                agent = next((a for a in world.agents if a.aid == agent_id), None)
+                if agent:
+                    agent.log.append(f"环境影响: {data['environmental_influence']['effect']}")
+            logger.success(f"[Trinity] Environmental influence on {len(data['environmental_influence']['agent_ids'])} agents")
+        
+        if "add_resource_rules" in data:
+            self.resource_rules.update(data["add_resource_rules"])
+            logger.success(f"[Trinity] Added new resource rules: {data['add_resource_rules']}")
+        
+        if "climate_change" in data:
+            climate_data = data["climate_change"]
+            self._apply_climate_change(world, climate_data)
+            logger.success(f"[Trinity] Climate change: {climate_data['type']} - {climate_data['effect']}")
+    
+    def _calculate_resource_status(self, world) -> Dict[str, Any]:
+        """Calculate current resource status for Trinity's decision making"""
+        resource_counts = {}
+        total_tiles = world.size * world.size
+        
+        # Count current resources
+        for pos, resources in world.resources.items():
+            for resource, count in resources.items():
+                resource_counts[resource] = resource_counts.get(resource, 0) + count
+        
+        # Calculate resource density and scarcity
+        resource_status = {}
+        for resource in self.resource_rules.keys():
+            count = resource_counts.get(resource, 0)
+            density = count / total_tiles
+            
+            # Calculate expected count based on terrain and probability
+            expected = 0
+            for terrain, prob in self.resource_rules[resource].items():
+                terrain_count = sum(1 for x in range(world.size) for y in range(world.size) 
+                                  if world.map and world.map[x][y] == terrain)
+                expected += terrain_count * prob
+            
+            scarcity_ratio = count / max(expected, 1)
+            
+            resource_status[resource] = {
+                "current_count": count,
+                "expected_count": int(expected),
+                "density": density,
+                "scarcity_ratio": scarcity_ratio,
+                "status": "abundant" if scarcity_ratio > 1.2 else 
+                         "normal" if scarcity_ratio > 0.8 else "scarce"
+            }
+        
+        return resource_status
+    
+    def _regenerate_resources(self, world, multiplier: float, specific_resources: List[str]):
+        """Regenerate resources according to current rules with probability multiplier"""
+        if not world.map:
+            return
+        
+        resources_to_regenerate = specific_resources if specific_resources else self.resource_rules.keys()
+        
+        for resource in resources_to_regenerate:
+            if resource not in self.resource_rules:
+                continue
+                
+            terrain_probs = self.resource_rules[resource]
+            for terrain, base_prob in terrain_probs.items():
+                adjusted_prob = min(1.0, base_prob * multiplier)
+                
+                # Find all tiles of this terrain type
+                for x in range(world.size):
+                    for y in range(world.size):
+                        if world.map[x][y] == terrain and random.random() < adjusted_prob:
+                            if (x, y) not in world.resources:
+                                world.resources[(x, y)] = {}
+                            world.resources[(x, y)][resource] = world.resources[(x, y)].get(resource, 0) + 1
+    
+    def _apply_climate_change(self, world, climate_data: Dict[str, str]):
+        """Apply climate/seasonal changes to the world"""
+        climate_type = climate_data.get("type", "")
+        effect = climate_data.get("effect", "")
+        
+        # Example climate effects - can be expanded
+        if "drought" in climate_type.lower():
+            # Reduce water-related resources
+            for pos, resources in world.resources.items():
+                if "water" in resources:
+                    resources["water"] = max(0, resources["water"] - 1)
+        elif "abundance" in climate_type.lower():
+            # Increase plant-related resources slightly
+            self._regenerate_resources(world, 1.3, ["wood", "apple", "fruit"])
+        
+        # Broadcast climate change to all agents
+        for agent in world.agents:
+            agent.log.append(f"气候变化: {effect}")
