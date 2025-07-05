@@ -252,6 +252,10 @@ templates:
         "log": "action result description"
       }}
       
+      IMPORTANT: Use actual numbers, not strings!
+      - change_quantity must be a number like 1 or -1, NOT "1" or "-1"
+      - coordinates must be numbers like [10, 20], NOT ["10", "20"]
+      
       Optional fields:
       - "attributes": {{"attribute_name": change_value}}
       - "chat_request": {{"target_id": ID, "topic": "topic"}}

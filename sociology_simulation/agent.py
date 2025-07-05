@@ -281,11 +281,21 @@ class Agent:
         """Apply action outcome to agent"""
         if "inventory" in outcome:
             for item, qty in outcome["inventory"].items():
-                self.inventory[item] = self.inventory.get(item, 0) + qty
+                # Convert string quantities to integers
+                try:
+                    qty_int = int(qty) if isinstance(qty, str) else qty
+                    self.inventory[item] = self.inventory.get(item, 0) + qty_int
+                except (ValueError, TypeError):
+                    logger.warning(f"Invalid quantity for {item}: {qty}, skipping")
         
         if "attributes" in outcome:
             for attr, val in outcome["attributes"].items():
-                self.attributes[attr] = self.attributes.get(attr, 0) + val
+                # Convert string values to integers/floats
+                try:
+                    val_num = float(val) if isinstance(val, str) else val
+                    self.attributes[attr] = self.attributes.get(attr, 0) + val_num
+                except (ValueError, TypeError):
+                    logger.warning(f"Invalid attribute value for {attr}: {val}, skipping")
         
         if "position" in outcome:
             new_pos = outcome["position"]

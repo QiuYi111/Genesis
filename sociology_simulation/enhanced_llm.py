@@ -341,8 +341,10 @@ class EnhancedLLMService:
             # 尝试解析修复后的JSON
             try:
                 parsed = json.loads(json_str)
+                # Post-process to convert string numbers to actual numbers
+                parsed = self._convert_string_numbers(parsed)
                 logger.debug(f"JSON修复成功，长度: {len(json_str)}")
-                return json_str
+                return json.dumps(parsed)  # Return the clean JSON string
             except json.JSONDecodeError as e:
                 logger.debug(f"JSON修复失败: {e}")
                 continue
@@ -357,6 +359,28 @@ class EnhancedLLMService:
         except:
             logger.warning("JSON修复完全失败")
             return None
+    
+    def _convert_string_numbers(self, obj):
+        """Convert string numbers to actual numbers in JSON data"""
+        if isinstance(obj, dict):
+            return {k: self._convert_string_numbers(v) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [self._convert_string_numbers(item) for item in obj]
+        elif isinstance(obj, str):
+            # Try to convert string to number
+            try:
+                # Check if it's an integer
+                if obj.isdigit() or (obj.startswith('-') and obj[1:].isdigit()):
+                    return int(obj)
+                # Check if it's a float
+                elif '.' in obj:
+                    return float(obj)
+                else:
+                    return obj
+            except (ValueError, AttributeError):
+                return obj
+        else:
+            return obj
     
     def _enhance_json_system_prompt(self, original_system: str) -> str:
         """增强JSON生成的系统提示词"""
