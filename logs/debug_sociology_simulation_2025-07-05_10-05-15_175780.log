@@ -1,0 +1,53 @@
+2025-07-05 10:05:15.177 | INFO     | __main__:main:71 - Starting sociology simulation with Hydra configuration
+2025-07-05 10:05:15.177 | INFO     | __main__:main:72 - Era: 石器时代
+2025-07-05 10:05:15.177 | INFO     | __main__:main:73 - World size: 64x64
+2025-07-05 10:05:15.177 | INFO     | __main__:main:74 - Number of agents: 1
+2025-07-05 10:05:15.177 | INFO     | __main__:main:75 - Turns: 1
+2025-07-05 10:05:15.265 | ERROR    | sociology_simulation.llm:adeepseek_chat:51 - API request failed: 401 - Unauthorized
+2025-07-05 10:05:15.265 | SUCCESS  | sociology_simulation.trinity:_generate_initial_rules:58 - [Trinity] Generated rules for era: 石器时代
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:53 - 
+========================================
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:54 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:55 - TERRAIN TYPES: OCEAN, FOREST, GRASSLAND, MOUNTAIN
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:56 - RESOURCE RULES:
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:58 -   WOOD:
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:60 -     - FOREST: 50.0% chance
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:60 -     - OCEAN: 0% chance
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:58 -   APPLE:
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:60 -     - FOREST: 30.0% chance
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:60 -     - GRASSLAND: 20.0% chance
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:58 -   FISH:
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:60 -     - OCEAN: 40.0% chance
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:58 -   STONE:
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:60 -     - MOUNTAIN: 60.0% chance
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:58 -   MAGICAL_CRYSTAL:
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:60 -     - MOUNTAIN: 10.0% chance
+2025-07-05 10:05:15.265 | INFO     | sociology_simulation.world:initialize:60 -     - FOREST: 5.0% chance
+2025-07-05 10:05:15.266 | INFO     | sociology_simulation.world:initialize:61 - ========================================
+
+2025-07-05 10:05:15.267 | INFO     | sociology_simulation.world:initialize:71 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-05 10:05:15.267 | INFO     | sociology_simulation.world:initialize:73 -   APPLE: 736 units
+2025-07-05 10:05:15.267 | INFO     | sociology_simulation.world:initialize:73 -   FISH: 109 units
+2025-07-05 10:05:15.267 | INFO     | sociology_simulation.world:initialize:73 -   MAGICAL_CRYSTAL: 43 units
+2025-07-05 10:05:15.267 | INFO     | sociology_simulation.world:initialize:73 -   STONE: 145 units
+2025-07-05 10:05:15.267 | INFO     | sociology_simulation.world:initialize:73 -   WOOD: 128 units
+2025-07-05 10:05:15.267 | INFO     | sociology_simulation.world:initialize:74 - ========================================
+
+2025-07-05 10:05:15.291 | ERROR    | sociology_simulation.llm:adeepseek_chat:51 - API request failed: 401 - Unauthorized
+2025-07-05 10:05:15.321 | ERROR    | sociology_simulation.llm:adeepseek_chat:51 - API request failed: 401 - Unauthorized
+2025-07-05 10:05:15.322 | INFO     | sociology_simulation.agent:decide_goal:72 - {}(0) personal goal ➜ {}
+2025-07-05 10:05:15.322 | INFO     | __main__:run_simulation:92 - ===== TURN 0 =====
+2025-07-05 10:05:15.322 | INFO     | sociology_simulation.world:step:475 - 
+=== TURN 0 START ===
+2025-07-05 10:05:15.379 | ERROR    | sociology_simulation.llm:adeepseek_chat:51 - API request failed: 401 - Unauthorized
+2025-07-05 10:05:15.379 | INFO     | sociology_simulation.world:resolve:166 - {}(0) (age 58) attempting action: {}
+2025-07-05 10:05:15.463 | ERROR    | sociology_simulation.llm:adeepseek_chat:51 - API request failed: 401 - Unauthorized
+2025-07-05 10:05:15.464 | INFO     | sociology_simulation.world:_process_outcome:276 - Processing outcome for {}(0):
+2025-07-05 10:05:15.465 | INFO     | sociology_simulation.agent:act:237 - {}(0) 行动 → {}
+2025-07-05 10:05:15.497 | ERROR    | sociology_simulation.llm:adeepseek_chat:51 - API request failed: 401 - Unauthorized
+2025-07-05 10:05:15.522 | ERROR    | sociology_simulation.llm:adeepseek_chat:51 - API request failed: 401 - Unauthorized
+2025-07-05 10:05:15.523 | INFO     | sociology_simulation.world:step:578 - 
+========================================
+2025-07-05 10:05:15.523 | INFO     | sociology_simulation.world:step:579 - TURN SUMMARY - 1 agents alive
+2025-07-05 10:05:15.523 | INFO     | sociology_simulation.world:step:582 - ========================================
+

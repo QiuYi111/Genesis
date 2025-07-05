@@ -1,0 +1,867 @@
+2025-07-05 08:31:15.396 | WARNING  | __main__:_generate_initial_rules:363 - [Trinity] Attempt 1: Invalid rules JSON, retrying...
+2025-07-05 08:31:34.762 | WARNING  | __main__:_generate_initial_rules:363 - [Trinity] Attempt 2: Invalid rules JSON, retrying...
+2025-07-05 08:31:55.145 | WARNING  | __main__:_generate_initial_rules:365 - [Trinity] Using default rules after 3 failures
+2025-07-05 08:31:55.146 | INFO     | __main__:initialize:500 - 
+========================================
+2025-07-05 08:31:55.147 | INFO     | __main__:initialize:501 - INITIALIZING WORLD FOR ERA: 魔法原始时代,魔能水晶是魔法源头,可以用于制造法杖.水晶有多种属性,跟出产地有关
+2025-07-05 08:31:55.147 | INFO     | __main__:initialize:502 - TERRAIN TYPES: OCEAN, FOREST, GRASSLAND, MOUNTAIN
+2025-07-05 08:31:55.148 | INFO     | __main__:initialize:503 - RESOURCE RULES:
+2025-07-05 08:31:55.149 | INFO     | __main__:initialize:505 -   WOOD:
+2025-07-05 08:31:55.149 | INFO     | __main__:initialize:507 -     - FOREST: 50.0% chance
+2025-07-05 08:31:55.150 | INFO     | __main__:initialize:507 -     - OCEAN: 0% chance
+2025-07-05 08:31:55.150 | INFO     | __main__:initialize:505 -   APPLE:
+2025-07-05 08:31:55.152 | INFO     | __main__:initialize:507 -     - FOREST: 30.0% chance
+2025-07-05 08:31:55.152 | INFO     | __main__:initialize:507 -     - GRASSLAND: 20.0% chance
+2025-07-05 08:31:55.153 | INFO     | __main__:initialize:505 -   FISH:
+2025-07-05 08:31:55.153 | INFO     | __main__:initialize:507 -     - OCEAN: 40.0% chance
+2025-07-05 08:31:55.153 | INFO     | __main__:initialize:505 -   STONE:
+2025-07-05 08:31:55.153 | INFO     | __main__:initialize:507 -     - MOUNTAIN: 60.0% chance
+2025-07-05 08:31:55.153 | INFO     | __main__:initialize:508 - ========================================
+
+2025-07-05 08:31:55.154 | INFO     | __main__:initialize:526 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-05 08:31:55.154 | INFO     | __main__:initialize:528 -   APPLE: 196 units
+2025-07-05 08:31:55.154 | INFO     | __main__:initialize:528 -   FISH: 27 units
+2025-07-05 08:31:55.154 | INFO     | __main__:initialize:528 -   STONE: 37 units
+2025-07-05 08:31:55.154 | INFO     | __main__:initialize:528 -   WOOD: 35 units
+2025-07-05 08:31:55.154 | INFO     | __main__:initialize:529 - ========================================
+
+2025-07-05 08:32:01.293 | INFO     | __main__:decide_goal:150 - Lorelei Quill(7) personal goal ➜ "探索世界各地的魔能水晶奥秘，成为最渊博的水晶学者。"
+2025-07-05 08:32:01.415 | INFO     | __main__:decide_goal:150 - Brock(2) personal goal ➜ 我要成为最强大的水晶猎人，用力量征服各种属性的魔能水晶。
+2025-07-05 08:32:01.425 | INFO     | __main__:decide_goal:150 - Brock Ironhide(4) personal goal ➜ 我要成为这片大陆上最强大的水晶战士，用力量征服所有稀有魔能水晶产地。
+2025-07-05 08:32:01.480 | INFO     | __main__:decide_goal:150 - Valentine Sterling(6) personal goal ➜ 凭借出众的魅力结交各方势力，建立水晶贸易网络，成为掌控魔法资源的大商人。
+2025-07-05 08:32:01.568 | INFO     | __main__:decide_goal:150 - Brutus Ironfist(9) personal goal ➜ 我要成为这片大陆上最强大的战士，用力量征服所有魔能水晶矿脉。
+2025-07-05 08:32:01.814 | INFO     | __main__:decide_goal:150 - Brondar the Ironheart(3) personal goal ➜ "凭借出众的力量与魅力，我要成为统领最强魔法战士部落的首领，掌控最珍贵的魔能水晶矿脉。"
+2025-07-05 08:32:02.562 | INFO     | __main__:decide_goal:150 - Valdric Brightbane(0) personal goal ➜ 凭借出众的魅力结交强大的盟友，组建自己的魔法商队，垄断优质魔能水晶的贸易渠道。
+2025-07-05 08:32:03.228 | INFO     | __main__:decide_goal:150 - Magnus Ironheart(5) personal goal ➜ 凭借出众的魅力和力量，成为统领多个水晶矿区的部落首领，建立以水晶贸易为核心的强大势力。
+2025-07-05 08:32:03.826 | INFO     | __main__:decide_goal:150 - Bartholomew Quill(8) personal goal ➜ "我要探索世界各地神秘的魔能水晶矿脉，发现最稀有的水晶属性并研究其魔法特性。" 
+
+(基于高好奇心和中等力量的初始属性，这个目标既符合探索未知的强烈欲望，又能发挥一定的体力优势进行实地考察，同时回避了需要高魅力的社交路线)
+2025-07-05 08:32:03.991 | INFO     | __main__:decide_goal:150 - Lorelei Whimsy(1) personal goal ➜ "我要探索世界上所有未知的魔能水晶矿脉，发现最稀有的魔法属性。" 
+
+(基于8点好奇心属性，突出探索未知的倾向；5点魅力值适合与各地居民交流获取线索；2点力量值表明更倾向于知识探索而非武力征服)
+2025-07-05 08:32:03.993 | INFO     | __main__:run_simulation:1234 - ===== TURN 0 =====
+2025-07-05 08:32:03.993 | INFO     | __main__:step:1019 - 
+=== TURN 0 START ===
+2025-07-05 08:32:03.994 | INFO     | __main__:step:1020 - Bible Rules: {}
+2025-07-05 08:32:03.995 | INFO     | __main__:step:1021 - Agent Status:
+2025-07-05 08:32:03.996 | INFO     | __main__:step:1023 -   Agent 0:
+2025-07-05 08:32:03.996 | INFO     | __main__:step:1024 -     Position: (31, 12)
+2025-07-05 08:32:03.996 | INFO     | __main__:step:1025 -     Attributes: {'strength': 10, 'curiosity': 5, 'charm': 9}
+2025-07-05 08:32:03.996 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 0}
+2025-07-05 08:32:03.997 | INFO     | __main__:step:1027 -     Age: 48
+2025-07-05 08:32:03.997 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:32:03.999 | INFO     | __main__:step:1029 -     Hunger: 0.0
+2025-07-05 08:32:03.999 | INFO     | __main__:step:1030 -     Goal: 凭借出众的魅力结交强大的盟友，组建自己的魔法商队，垄断优质魔能水晶的贸易渠道。
+2025-07-05 08:32:03.999 | INFO     | __main__:step:1023 -   Agent 1:
+2025-07-05 08:32:04.000 | INFO     | __main__:step:1024 -     Position: (3, 11)
+2025-07-05 08:32:04.000 | INFO     | __main__:step:1025 -     Attributes: {'strength': 2, 'curiosity': 8, 'charm': 5}
+2025-07-05 08:32:04.000 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 1}
+2025-07-05 08:32:04.001 | INFO     | __main__:step:1027 -     Age: 30
+2025-07-05 08:32:04.001 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:32:04.001 | INFO     | __main__:step:1029 -     Hunger: 0.0
+2025-07-05 08:32:04.001 | INFO     | __main__:step:1030 -     Goal: "我要探索世界上所有未知的魔能水晶矿脉，发现最稀有的魔法属性。" 
+
+(基于8点好奇心属性，突出探索未知的倾向；5点魅力值适合与各地居民交流获取线索；2点力量值表明更倾向于知识探索而非武力征服)
+2025-07-05 08:32:04.001 | INFO     | __main__:step:1023 -   Agent 2:
+2025-07-05 08:32:04.001 | INFO     | __main__:step:1024 -     Position: (2, 29)
+2025-07-05 08:32:04.001 | INFO     | __main__:step:1025 -     Attributes: {'strength': 3, 'curiosity': 1, 'charm': 1}
+2025-07-05 08:32:04.001 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 1}
+2025-07-05 08:32:04.001 | INFO     | __main__:step:1027 -     Age: 22
+2025-07-05 08:32:04.001 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:32:04.001 | INFO     | __main__:step:1029 -     Hunger: 0.0
+2025-07-05 08:32:04.001 | INFO     | __main__:step:1030 -     Goal: 我要成为最强大的水晶猎人，用力量征服各种属性的魔能水晶。
+2025-07-05 08:32:04.001 | INFO     | __main__:step:1023 -   Agent 3:
+2025-07-05 08:32:04.001 | INFO     | __main__:step:1024 -     Position: (21, 24)
+2025-07-05 08:32:04.001 | INFO     | __main__:step:1025 -     Attributes: {'strength': 9, 'curiosity': 2, 'charm': 9}
+2025-07-05 08:32:04.001 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 0}
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1027 -     Age: 52
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1029 -     Hunger: 0.0
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1030 -     Goal: "凭借出众的力量与魅力，我要成为统领最强魔法战士部落的首领，掌控最珍贵的魔能水晶矿脉。"
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1023 -   Agent 4:
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1024 -     Position: (22, 2)
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1025 -     Attributes: {'strength': 7, 'curiosity': 2, 'charm': 1}
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 0}
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1027 -     Age: 53
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1029 -     Hunger: 0.0
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1030 -     Goal: 我要成为这片大陆上最强大的水晶战士，用力量征服所有稀有魔能水晶产地。
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1023 -   Agent 5:
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1024 -     Position: (8, 31)
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1025 -     Attributes: {'strength': 10, 'curiosity': 3, 'charm': 10}
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1026 -     Inventory: {'wood': 0, 'shell': 0}
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1027 -     Age: 62
+2025-07-05 08:32:04.002 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:32:04.003 | INFO     | __main__:step:1029 -     Hunger: 0.0
+2025-07-05 08:32:04.003 | INFO     | __main__:step:1030 -     Goal: 凭借出众的魅力和力量，成为统领多个水晶矿区的部落首领，建立以水晶贸易为核心的强大势力。
+2025-07-05 08:32:04.003 | INFO     | __main__:step:1023 -   Agent 6:
+2025-07-05 08:32:04.003 | INFO     | __main__:step:1024 -     Position: (3, 30)
+2025-07-05 08:32:04.003 | INFO     | __main__:step:1025 -     Attributes: {'strength': 7, 'curiosity': 3, 'charm': 10}
+2025-07-05 08:32:04.003 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 1}
+2025-07-05 08:32:04.003 | INFO     | __main__:step:1027 -     Age: 54
+2025-07-05 08:32:04.003 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:32:04.003 | INFO     | __main__:step:1029 -     Hunger: 0.0
+2025-07-05 08:32:04.003 | INFO     | __main__:step:1030 -     Goal: 凭借出众的魅力结交各方势力，建立水晶贸易网络，成为掌控魔法资源的大商人。
+2025-07-05 08:32:04.003 | INFO     | __main__:step:1023 -   Agent 7:
+2025-07-05 08:32:04.003 | INFO     | __main__:step:1024 -     Position: (1, 1)
+2025-07-05 08:32:04.003 | INFO     | __main__:step:1025 -     Attributes: {'strength': 4, 'curiosity': 8, 'charm': 3}
+2025-07-05 08:32:04.003 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 1}
+2025-07-05 08:32:04.004 | INFO     | __main__:step:1027 -     Age: 18
+2025-07-05 08:32:04.004 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:32:04.004 | INFO     | __main__:step:1029 -     Hunger: 0.0
+2025-07-05 08:32:04.004 | INFO     | __main__:step:1030 -     Goal: "探索世界各地的魔能水晶奥秘，成为最渊博的水晶学者。"
+2025-07-05 08:32:04.004 | INFO     | __main__:step:1023 -   Agent 8:
+2025-07-05 08:32:04.004 | INFO     | __main__:step:1024 -     Position: (1, 19)
+2025-07-05 08:32:04.004 | INFO     | __main__:step:1025 -     Attributes: {'strength': 7, 'curiosity': 8, 'charm': 4}
+2025-07-05 08:32:04.004 | INFO     | __main__:step:1026 -     Inventory: {'wood': 0, 'shell': 0}
+2025-07-05 08:32:04.004 | INFO     | __main__:step:1027 -     Age: 39
+2025-07-05 08:32:04.004 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:32:04.004 | INFO     | __main__:step:1029 -     Hunger: 0.0
+2025-07-05 08:32:04.004 | INFO     | __main__:step:1030 -     Goal: "我要探索世界各地神秘的魔能水晶矿脉，发现最稀有的水晶属性并研究其魔法特性。" 
+
+(基于高好奇心和中等力量的初始属性，这个目标既符合探索未知的强烈欲望，又能发挥一定的体力优势进行实地考察，同时回避了需要高魅力的社交路线)
+2025-07-05 08:32:04.004 | INFO     | __main__:step:1023 -   Agent 9:
+2025-07-05 08:32:04.004 | INFO     | __main__:step:1024 -     Position: (5, 7)
+2025-07-05 08:32:04.004 | INFO     | __main__:step:1025 -     Attributes: {'strength': 9, 'curiosity': 1, 'charm': 5}
+2025-07-05 08:32:04.004 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 1}
+2025-07-05 08:32:04.005 | INFO     | __main__:step:1027 -     Age: 56
+2025-07-05 08:32:04.005 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:32:04.005 | INFO     | __main__:step:1029 -     Hunger: 0.0
+2025-07-05 08:32:04.005 | INFO     | __main__:step:1030 -     Goal: 我要成为这片大陆上最强大的战士，用力量征服所有魔能水晶矿脉。
+2025-07-05 08:32:07.952 | INFO     | __main__:resolve:630 - Brock Ironhide(4) (age 53) attempting action: 我要前往(23,2)位置收集苹果，为探索魔能水晶产地储备食物。
+2025-07-05 08:32:07.956 | INFO     | __main__:resolve:630 - Valdric Brightbane(0) (age 48) attempting action: 我想摘取当前位置(31,12)的苹果，为未来的贸易储备食物资源。
+2025-07-05 08:32:08.236 | INFO     | __main__:resolve:630 - Brock(2) (age 22) attempting action: 我要向Valentine Sterling询问关于魔能水晶的信息，发起聊天请求。
+2025-07-05 08:32:08.358 | INFO     | __main__:resolve:630 - Lorelei Whimsy(1) (age 30) attempting action: 我想向Brutus Ironfist询问关于附近魔能水晶矿脉的信息，发起聊天请求
+2025-07-05 08:32:08.458 | INFO     | __main__:resolve:630 - Brutus Ironfist(9) (age 56) attempting action: 我要前往(8,8)的森林收集更多木材，为征服魔能水晶矿脉做准备。
+2025-07-05 08:32:08.659 | INFO     | __main__:resolve:630 - Bartholomew Quill(8) (age 39) attempting action: 我注意到附近有多个苹果资源点，虽然现在不饿，但为了储备食物以便专注于探索魔能水晶矿脉，我决定前往(1,20)的位置采集苹果。
+2025-07-05 08:32:09.383 | INFO     | __main__:resolve:630 - Lorelei Quill(7) (age 18) attempting action: 我注意到周围都是海洋地形，而且我目前的位置(1,1)有2条鱼资源。为了探索魔能水晶的奥秘，我需要先确保生存基础。我会先收集当前位置的2条鱼作为食物储备。
+2025-07-05 08:32:09.489 | INFO     | __main__:resolve:630 - Valentine Sterling(6) (age 54) attempting action: 我想向Magnus Ironheart(5号)发起聊天请求，讨论建立水晶贸易网络的可能性。
+2025-07-05 08:32:10.240 | INFO     | __main__:resolve:630 - Magnus Ironheart(5) (age 62) attempting action: 我想向6号Valentine Sterling发起聊天请求，讨论关于建立水晶贸易联盟的可能性。
+2025-07-05 08:32:10.348 | INFO     | __main__:resolve:630 - Brondar the Ironheart(3) (age 52) attempting action: 我要前往(24,25)收集石头，为制造魔法武器做准备。
+2025-07-05 08:32:12.674 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brock Ironhide(4):
+2025-07-05 08:32:12.675 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:32:12.675 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {}
+2025-07-05 08:32:12.676 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {}
+2025-07-05 08:32:12.676 | INFO     | __main__:_process_outcome:751 -   Position change: [23, 2]
+2025-07-05 08:32:12.676 | INFO     | __main__:_process_outcome:753 -   Action log: 前往(23,2)位置收集苹果
+2025-07-05 08:32:12.678 | INFO     | __main__:act:286 - Brock Ironhide(4) 行动 → 我要前往(23,2)位置收集苹果，为探索魔能水晶产地储备食物。
+2025-07-05 08:32:18.588 | INFO     | __main__:_process_outcome:744 - Processing outcome for Valdric Brightbane(0):
+2025-07-05 08:32:18.589 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:32:18.589 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'apple': 1}
+2025-07-05 08:32:18.590 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'strength': -1}
+2025-07-05 08:32:18.590 | INFO     | __main__:_process_outcome:751 -   Position change: [31, 12]
+2025-07-05 08:32:18.590 | INFO     | __main__:_process_outcome:753 -   Action log: 摘取了一个苹果
+2025-07-05 08:32:18.592 | INFO     | __main__:act:286 - Valdric Brightbane(0) 行动 → 我想摘取当前位置(31,12)的苹果，为未来的贸易储备食物资源。
+2025-07-05 08:32:23.162 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brock(2):
+2025-07-05 08:32:23.162 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['chat_request', 'log'])
+2025-07-05 08:32:23.163 | INFO     | __main__:_process_outcome:753 -   Action log: 向Valentine Sterling询问关于魔能水晶的信息
+2025-07-05 08:32:23.164 | INFO     | __main__:act:286 - Brock(2) 行动 → 我要向Valentine Sterling询问关于魔能水晶的信息，发起聊天请求。
+2025-07-05 08:32:28.297 | INFO     | __main__:_process_outcome:744 - Processing outcome for Lorelei Whimsy(1):
+2025-07-05 08:32:28.298 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['chat_request', 'log', 'position'])
+2025-07-05 08:32:28.298 | INFO     | __main__:_process_outcome:751 -   Position change: [3, 11]
+2025-07-05 08:32:28.299 | INFO     | __main__:_process_outcome:753 -   Action log: 向Brutus Ironfist询问关于附近魔能水晶矿脉的信息
+2025-07-05 08:32:28.300 | INFO     | __main__:act:286 - Lorelei Whimsy(1) 行动 → 我想向Brutus Ironfist询问关于附近魔能水晶矿脉的信息，发起聊天请求
+2025-07-05 08:32:32.799 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brutus Ironfist(9):
+2025-07-05 08:32:32.799 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:32:32.800 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {}
+2025-07-05 08:32:32.800 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {}
+2025-07-05 08:32:32.800 | INFO     | __main__:_process_outcome:751 -   Position change: [8, 8]
+2025-07-05 08:32:32.800 | INFO     | __main__:_process_outcome:753 -   Action log: 前往(8,8)的森林准备收集木材
+2025-07-05 08:32:32.800 | INFO     | __main__:act:286 - Brutus Ironfist(9) 行动 → 我要前往(8,8)的森林收集更多木材，为征服魔能水晶矿脉做准备。
+2025-07-05 08:32:37.777 | INFO     | __main__:_process_outcome:744 - Processing outcome for Bartholomew Quill(8):
+2025-07-05 08:32:37.777 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:32:37.777 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'apple': 1}
+2025-07-05 08:32:37.777 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {}
+2025-07-05 08:32:37.778 | INFO     | __main__:_process_outcome:751 -   Position change: [1, 20]
+2025-07-05 08:32:37.778 | INFO     | __main__:_process_outcome:753 -   Action log: 前往(1,20)采集了一个苹果
+2025-07-05 08:32:37.779 | INFO     | __main__:act:286 - Bartholomew Quill(8) 行动 → 我注意到附近有多个苹果资源点，虽然现在不饿，但为了储备食物以便专注于探索魔能水晶矿脉，我决定前往(1,20)的位置采集苹果。
+2025-07-05 08:32:41.948 | INFO     | __main__:_process_outcome:744 - Processing outcome for Lorelei Quill(7):
+2025-07-05 08:32:41.950 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'position', 'log'])
+2025-07-05 08:32:41.950 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'fish': 2}
+2025-07-05 08:32:41.951 | INFO     | __main__:_process_outcome:751 -   Position change: [1, 1]
+2025-07-05 08:32:41.951 | INFO     | __main__:_process_outcome:753 -   Action log: 收集了当前位置的2条鱼作为食物储备
+2025-07-05 08:32:41.952 | INFO     | __main__:act:286 - Lorelei Quill(7) 行动 → 我注意到周围都是海洋地形，而且我目前的位置(1,1)有2条鱼资源。为了探索魔能水晶的奥秘，我需要先确保生存基础。我会先收集当前位置的2条鱼作为食物储备。
+2025-07-05 08:32:46.627 | INFO     | __main__:_process_outcome:744 - Processing outcome for Valentine Sterling(6):
+2025-07-05 08:32:46.627 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['chat_request', 'log'])
+2025-07-05 08:32:46.628 | INFO     | __main__:_process_outcome:753 -   Action log: 向5号Magnus Ironheart发起关于建立水晶贸易网络的聊天请求
+2025-07-05 08:32:46.628 | INFO     | __main__:act:286 - Valentine Sterling(6) 行动 → 我想向Magnus Ironheart(5号)发起聊天请求，讨论建立水晶贸易网络的可能性。
+2025-07-05 08:32:51.293 | INFO     | __main__:_process_outcome:744 - Processing outcome for Magnus Ironheart(5):
+2025-07-05 08:32:51.293 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['chat_request', 'log', 'position'])
+2025-07-05 08:32:51.293 | INFO     | __main__:_process_outcome:751 -   Position change: [8, 31]
+2025-07-05 08:32:51.293 | INFO     | __main__:_process_outcome:753 -   Action log: 向6号Valentine Sterling发起关于建立水晶贸易联盟的聊天请求
+2025-07-05 08:32:51.294 | INFO     | __main__:act:286 - Magnus Ironheart(5) 行动 → 我想向6号Valentine Sterling发起聊天请求，讨论关于建立水晶贸易联盟的可能性。
+2025-07-05 08:32:55.697 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brondar the Ironheart(3):
+2025-07-05 08:32:55.699 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['position', 'log'])
+2025-07-05 08:32:55.699 | INFO     | __main__:_process_outcome:751 -   Position change: [24, 25]
+2025-07-05 08:32:55.700 | INFO     | __main__:_process_outcome:753 -   Action log: 前往(24,25)收集石头
+2025-07-05 08:32:55.701 | INFO     | __main__:act:286 - Brondar the Ironheart(3) 行动 → 我要前往(24,25)收集石头，为制造魔法武器做准备。
+2025-07-05 08:33:11.223 | WARNING  | __main__:execute_actions:473 - [Trinity] Attempt 1: Invalid JSON, retrying...
+2025-07-05 08:33:16.151 | WARNING  | __main__:execute_actions:473 - [Trinity] Attempt 2: Invalid JSON, retrying...
+2025-07-05 08:33:25.278 | WARNING  | __main__:execute_actions:475 - [Trinity] Final attempt failed. Raw response: ```json
+{
+  "spawn_resources": {
+    "magic_crystal_fire": 3,
+    "magic_crystal_water": 3,
+    "magic_crystal_earth": 3,
+    "magic_crystal_air": 3
+  },
+  "add_resource_rules": {
+    "magic_crystal_f
+2025-07-05 08:33:25.280 | INFO     | __main__:run_simulation:1234 - ===== TURN 1 =====
+2025-07-05 08:33:25.281 | INFO     | __main__:step:1019 - 
+=== TURN 1 START ===
+2025-07-05 08:33:25.281 | INFO     | __main__:step:1020 - Bible Rules: {}
+2025-07-05 08:33:25.281 | INFO     | __main__:step:1021 - Agent Status:
+2025-07-05 08:33:25.281 | INFO     | __main__:step:1023 -   Agent 0:
+2025-07-05 08:33:25.281 | INFO     | __main__:step:1024 -     Position: (31, 12)
+2025-07-05 08:33:25.282 | INFO     | __main__:step:1025 -     Attributes: {'strength': 9, 'curiosity': 5, 'charm': 9}
+2025-07-05 08:33:25.282 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 0, 'apple': 1}
+2025-07-05 08:33:25.282 | INFO     | __main__:step:1027 -     Age: 49
+2025-07-05 08:33:25.282 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:33:25.282 | INFO     | __main__:step:1029 -     Hunger: 8.0
+2025-07-05 08:33:25.282 | INFO     | __main__:step:1030 -     Goal: 凭借出众的魅力结交强大的盟友，组建自己的魔法商队，垄断优质魔能水晶的贸易渠道。
+2025-07-05 08:33:25.282 | INFO     | __main__:step:1023 -   Agent 1:
+2025-07-05 08:33:25.282 | INFO     | __main__:step:1024 -     Position: (3, 11)
+2025-07-05 08:33:25.282 | INFO     | __main__:step:1025 -     Attributes: {'strength': 2, 'curiosity': 8, 'charm': 5}
+2025-07-05 08:33:25.282 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 1}
+2025-07-05 08:33:25.282 | INFO     | __main__:step:1027 -     Age: 31
+2025-07-05 08:33:25.283 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:33:25.283 | INFO     | __main__:step:1029 -     Hunger: 8.0
+2025-07-05 08:33:25.283 | INFO     | __main__:step:1030 -     Goal: "我要探索世界上所有未知的魔能水晶矿脉，发现最稀有的魔法属性。" 
+
+(基于8点好奇心属性，突出探索未知的倾向；5点魅力值适合与各地居民交流获取线索；2点力量值表明更倾向于知识探索而非武力征服)
+2025-07-05 08:33:25.283 | INFO     | __main__:step:1023 -   Agent 2:
+2025-07-05 08:33:25.283 | INFO     | __main__:step:1024 -     Position: (2, 29)
+2025-07-05 08:33:25.283 | INFO     | __main__:step:1025 -     Attributes: {'strength': 3, 'curiosity': 1, 'charm': 1}
+2025-07-05 08:33:25.283 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 1}
+2025-07-05 08:33:25.283 | INFO     | __main__:step:1027 -     Age: 23
+2025-07-05 08:33:25.283 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:33:25.283 | INFO     | __main__:step:1029 -     Hunger: 8.0
+2025-07-05 08:33:25.284 | INFO     | __main__:step:1030 -     Goal: 我要成为最强大的水晶猎人，用力量征服各种属性的魔能水晶。
+2025-07-05 08:33:25.284 | INFO     | __main__:step:1023 -   Agent 3:
+2025-07-05 08:33:25.284 | INFO     | __main__:step:1024 -     Position: (24, 25)
+2025-07-05 08:33:25.284 | INFO     | __main__:step:1025 -     Attributes: {'strength': 9, 'curiosity': 2, 'charm': 9}
+2025-07-05 08:33:25.284 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 0}
+2025-07-05 08:33:25.284 | INFO     | __main__:step:1027 -     Age: 53
+2025-07-05 08:33:25.284 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:33:25.284 | INFO     | __main__:step:1029 -     Hunger: 8.0
+2025-07-05 08:33:25.284 | INFO     | __main__:step:1030 -     Goal: "凭借出众的力量与魅力，我要成为统领最强魔法战士部落的首领，掌控最珍贵的魔能水晶矿脉。"
+2025-07-05 08:33:25.284 | INFO     | __main__:step:1023 -   Agent 4:
+2025-07-05 08:33:25.284 | INFO     | __main__:step:1024 -     Position: (23, 2)
+2025-07-05 08:33:25.285 | INFO     | __main__:step:1025 -     Attributes: {'strength': 7, 'curiosity': 2, 'charm': 1}
+2025-07-05 08:33:25.285 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 0}
+2025-07-05 08:33:25.285 | INFO     | __main__:step:1027 -     Age: 54
+2025-07-05 08:33:25.285 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:33:25.285 | INFO     | __main__:step:1029 -     Hunger: 8.0
+2025-07-05 08:33:25.285 | INFO     | __main__:step:1030 -     Goal: 我要成为这片大陆上最强大的水晶战士，用力量征服所有稀有魔能水晶产地。
+2025-07-05 08:33:25.285 | INFO     | __main__:step:1023 -   Agent 5:
+2025-07-05 08:33:25.285 | INFO     | __main__:step:1024 -     Position: (8, 31)
+2025-07-05 08:33:25.285 | INFO     | __main__:step:1025 -     Attributes: {'strength': 10, 'curiosity': 3, 'charm': 10}
+2025-07-05 08:33:25.285 | INFO     | __main__:step:1026 -     Inventory: {'wood': 0, 'shell': 0}
+2025-07-05 08:33:25.285 | INFO     | __main__:step:1027 -     Age: 63
+2025-07-05 08:33:25.285 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:33:25.286 | INFO     | __main__:step:1029 -     Hunger: 8.0
+2025-07-05 08:33:25.286 | INFO     | __main__:step:1030 -     Goal: 凭借出众的魅力和力量，成为统领多个水晶矿区的部落首领，建立以水晶贸易为核心的强大势力。
+2025-07-05 08:33:25.286 | INFO     | __main__:step:1023 -   Agent 6:
+2025-07-05 08:33:25.286 | INFO     | __main__:step:1024 -     Position: (3, 30)
+2025-07-05 08:33:25.286 | INFO     | __main__:step:1025 -     Attributes: {'strength': 7, 'curiosity': 3, 'charm': 10}
+2025-07-05 08:33:25.286 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 1}
+2025-07-05 08:33:25.286 | INFO     | __main__:step:1027 -     Age: 55
+2025-07-05 08:33:25.286 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:33:25.286 | INFO     | __main__:step:1029 -     Hunger: 8.0
+2025-07-05 08:33:25.286 | INFO     | __main__:step:1030 -     Goal: 凭借出众的魅力结交各方势力，建立水晶贸易网络，成为掌控魔法资源的大商人。
+2025-07-05 08:33:25.286 | INFO     | __main__:step:1023 -   Agent 7:
+2025-07-05 08:33:25.286 | INFO     | __main__:step:1024 -     Position: (1, 1)
+2025-07-05 08:33:25.286 | INFO     | __main__:step:1025 -     Attributes: {'strength': 4, 'curiosity': 8, 'charm': 3}
+2025-07-05 08:33:25.286 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 1, 'fish': 2}
+2025-07-05 08:33:25.286 | INFO     | __main__:step:1027 -     Age: 19
+2025-07-05 08:33:25.286 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:33:25.287 | INFO     | __main__:step:1029 -     Hunger: 8.0
+2025-07-05 08:33:25.287 | INFO     | __main__:step:1030 -     Goal: "探索世界各地的魔能水晶奥秘，成为最渊博的水晶学者。"
+2025-07-05 08:33:25.287 | INFO     | __main__:step:1023 -   Agent 8:
+2025-07-05 08:33:25.287 | INFO     | __main__:step:1024 -     Position: (1, 20)
+2025-07-05 08:33:25.287 | INFO     | __main__:step:1025 -     Attributes: {'strength': 7, 'curiosity': 8, 'charm': 4}
+2025-07-05 08:33:25.287 | INFO     | __main__:step:1026 -     Inventory: {'wood': 0, 'shell': 0, 'apple': 1}
+2025-07-05 08:33:25.287 | INFO     | __main__:step:1027 -     Age: 40
+2025-07-05 08:33:25.287 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:33:25.287 | INFO     | __main__:step:1029 -     Hunger: 8.0
+2025-07-05 08:33:25.287 | INFO     | __main__:step:1030 -     Goal: "我要探索世界各地神秘的魔能水晶矿脉，发现最稀有的水晶属性并研究其魔法特性。" 
+
+(基于高好奇心和中等力量的初始属性，这个目标既符合探索未知的强烈欲望，又能发挥一定的体力优势进行实地考察，同时回避了需要高魅力的社交路线)
+2025-07-05 08:33:25.287 | INFO     | __main__:step:1023 -   Agent 9:
+2025-07-05 08:33:25.287 | INFO     | __main__:step:1024 -     Position: (8, 8)
+2025-07-05 08:33:25.287 | INFO     | __main__:step:1025 -     Attributes: {'strength': 9, 'curiosity': 1, 'charm': 5}
+2025-07-05 08:33:25.287 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 1}
+2025-07-05 08:33:25.287 | INFO     | __main__:step:1027 -     Age: 57
+2025-07-05 08:33:25.288 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:33:25.288 | INFO     | __main__:step:1029 -     Hunger: 8.0
+2025-07-05 08:33:25.288 | INFO     | __main__:step:1030 -     Goal: 我要成为这片大陆上最强大的战士，用力量征服所有魔能水晶矿脉。
+2025-07-05 08:33:34.886 | INFO     | __main__:resolve:630 - Valdric Brightbane(0) (age 49) attempting action: 我饿了，要摘苹果吃
+2025-07-05 08:33:35.219 | INFO     | __main__:resolve:630 - Lorelei Quill(7) (age 19) attempting action: "我饿了，要捕鱼吃"
+2025-07-05 08:33:35.224 | INFO     | __main__:resolve:630 - Valentine Sterling(6) (age 55) attempting action: 我饿了，要摘苹果吃
+2025-07-05 08:33:35.264 | INFO     | __main__:resolve:630 - Brondar the Ironheart(3) (age 53) attempting action: 我饿了，要摘苹果吃
+2025-07-05 08:33:35.292 | INFO     | __main__:resolve:630 - Bartholomew Quill(8) (age 40) attempting action: 我饿了，要摘苹果吃
+2025-07-05 08:33:35.401 | INFO     | __main__:resolve:630 - Brock(2) (age 23) attempting action: 我饿了，要去(1,25)摘苹果吃。
+2025-07-05 08:33:35.615 | INFO     | __main__:resolve:630 - Brutus Ironfist(9) (age 57) attempting action: 我饿了，要摘苹果吃。先去(8,6)的位置摘苹果。
+2025-07-05 08:33:36.871 | INFO     | __main__:resolve:630 - Brock Ironhide(4) (age 54) attempting action: 我饿了，要摘苹果吃
+2025-07-05 08:33:37.962 | INFO     | __main__:resolve:630 - Magnus Ironheart(5) (age 63) attempting action: 我饿了，要去(3,30)位置摘苹果吃，同时可以结识Valentine Sterling这位有魅力的人。
+2025-07-05 08:33:38.927 | INFO     | __main__:resolve:630 - Lorelei Whimsy(1) (age 31) attempting action: "我饿了，要摘苹果吃" - 我会先前往(3,11)的位置采集苹果补充体力，然后准备向Brutus Ironfist询问关于附近魔能水晶矿脉的线索。
+2025-07-05 08:33:41.657 | INFO     | __main__:_process_outcome:744 - Processing outcome for Valdric Brightbane(0):
+2025-07-05 08:33:41.658 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:33:41.658 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'apple': 1}
+2025-07-05 08:33:41.659 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': -10}
+2025-07-05 08:33:41.659 | INFO     | __main__:_process_outcome:751 -   Position change: [31, 12]
+2025-07-05 08:33:41.659 | INFO     | __main__:_process_outcome:753 -   Action log: 摘了一个苹果并吃掉
+2025-07-05 08:33:41.660 | INFO     | __main__:act:286 - Valdric Brightbane(0) 行动 → 我饿了，要摘苹果吃
+2025-07-05 08:33:45.851 | INFO     | __main__:_process_outcome:744 - Processing outcome for Lorelei Quill(7):
+2025-07-05 08:33:45.852 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'log'])
+2025-07-05 08:33:45.852 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'fish': -1}
+2025-07-05 08:33:45.852 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': -10}
+2025-07-05 08:33:45.852 | INFO     | __main__:_process_outcome:753 -   Action log: 吃了一条鱼
+2025-07-05 08:33:45.854 | INFO     | __main__:act:286 - Lorelei Quill(7) 行动 → "我饿了，要捕鱼吃"
+2025-07-05 08:33:50.861 | INFO     | __main__:_process_outcome:744 - Processing outcome for Valentine Sterling(6):
+2025-07-05 08:33:50.861 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:33:50.862 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'apple': 1}
+2025-07-05 08:33:50.862 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': -5}
+2025-07-05 08:33:50.862 | INFO     | __main__:_process_outcome:751 -   Position change: [3, 30]
+2025-07-05 08:33:50.862 | INFO     | __main__:_process_outcome:753 -   Action log: 摘了一个苹果充饥
+2025-07-05 08:33:50.864 | INFO     | __main__:act:286 - Valentine Sterling(6) 行动 → 我饿了，要摘苹果吃
+2025-07-05 08:33:55.287 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brondar the Ironheart(3):
+2025-07-05 08:33:55.288 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:33:55.288 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'apple': 1}
+2025-07-05 08:33:55.288 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': -5}
+2025-07-05 08:33:55.289 | INFO     | __main__:_process_outcome:751 -   Position change: [24, 25]
+2025-07-05 08:33:55.289 | INFO     | __main__:_process_outcome:753 -   Action log: 摘了一个苹果充饥
+2025-07-05 08:33:55.290 | INFO     | __main__:act:286 - Brondar the Ironheart(3) 行动 → 我饿了，要摘苹果吃
+2025-07-05 08:33:59.865 | INFO     | __main__:_process_outcome:744 - Processing outcome for Bartholomew Quill(8):
+2025-07-05 08:33:59.865 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:33:59.865 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'apple': 1}
+2025-07-05 08:33:59.866 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': -10}
+2025-07-05 08:33:59.866 | INFO     | __main__:_process_outcome:751 -   Position change: [1, 20]
+2025-07-05 08:33:59.866 | INFO     | __main__:_process_outcome:753 -   Action log: 吃了一个苹果
+2025-07-05 08:33:59.867 | INFO     | __main__:act:286 - Bartholomew Quill(8) 行动 → 我饿了，要摘苹果吃
+2025-07-05 08:34:07.250 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brock(2):
+2025-07-05 08:34:07.251 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:34:07.251 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'apple': 1}
+2025-07-05 08:34:07.251 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': -5}
+2025-07-05 08:34:07.252 | INFO     | __main__:_process_outcome:751 -   Position change: [1, 25]
+2025-07-05 08:34:07.252 | INFO     | __main__:_process_outcome:753 -   Action log: 移动到(1,25)并摘了一个苹果
+2025-07-05 08:34:07.253 | INFO     | __main__:act:286 - Brock(2) 行动 → 我饿了，要去(1,25)摘苹果吃。
+2025-07-05 08:34:11.590 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brutus Ironfist(9):
+2025-07-05 08:34:11.591 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:34:11.591 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'apple': 1}
+2025-07-05 08:34:11.591 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': -5}
+2025-07-05 08:34:11.592 | INFO     | __main__:_process_outcome:751 -   Position change: [8, 6]
+2025-07-05 08:34:11.592 | INFO     | __main__:_process_outcome:753 -   Action log: 移动到(8,6)并摘了一个苹果
+2025-07-05 08:34:11.593 | INFO     | __main__:act:286 - Brutus Ironfist(9) 行动 → 我饿了，要摘苹果吃。先去(8,6)的位置摘苹果。
+2025-07-05 08:34:16.052 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brock Ironhide(4):
+2025-07-05 08:34:16.052 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:34:16.053 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'apple': 1}
+2025-07-05 08:34:16.053 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': -5}
+2025-07-05 08:34:16.053 | INFO     | __main__:_process_outcome:751 -   Position change: [23, 2]
+2025-07-05 08:34:16.054 | INFO     | __main__:_process_outcome:753 -   Action log: 摘了一个苹果吃
+2025-07-05 08:34:16.055 | INFO     | __main__:act:286 - Brock Ironhide(4) 行动 → 我饿了，要摘苹果吃
+2025-07-05 08:34:21.084 | INFO     | __main__:_process_outcome:744 - Processing outcome for Magnus Ironheart(5):
+2025-07-05 08:34:21.085 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log', 'courtship_target'])
+2025-07-05 08:34:21.085 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {}
+2025-07-05 08:34:21.085 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {}
+2025-07-05 08:34:21.086 | INFO     | __main__:_process_outcome:751 -   Position change: [3, 30]
+2025-07-05 08:34:21.086 | INFO     | __main__:_process_outcome:753 -   Action log: 前往(3,30)位置寻找苹果并结识Valentine Sterling
+2025-07-05 08:34:21.087 | INFO     | __main__:act:286 - Magnus Ironheart(5) 行动 → 我饿了，要去(3,30)位置摘苹果吃，同时可以结识Valentine Sterling这位有魅力的人。
+2025-07-05 08:34:26.899 | INFO     | __main__:_process_outcome:744 - Processing outcome for Lorelei Whimsy(1):
+2025-07-05 08:34:26.900 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log', 'chat_request'])
+2025-07-05 08:34:26.900 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'apple': 2}
+2025-07-05 08:34:26.900 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': -15}
+2025-07-05 08:34:26.900 | INFO     | __main__:_process_outcome:751 -   Position change: [3, 11]
+2025-07-05 08:34:26.901 | INFO     | __main__:_process_outcome:753 -   Action log: 采集了2个苹果充饥
+2025-07-05 08:34:26.902 | INFO     | __main__:act:286 - Lorelei Whimsy(1) 行动 → "我饿了，要摘苹果吃" - 我会先前往(3,11)的位置采集苹果补充体力，然后准备向Brutus Ironfist询问关于附近魔能水晶矿脉的线索。
+2025-07-05 08:34:35.058 | SUCCESS  | __main__:execute_actions:447 - [Trinity] Spawned resources: {'magic_crystal': 5}
+2025-07-05 08:34:35.059 | SUCCESS  | __main__:execute_actions:468 - [Trinity] Added new resource rules: {'magic_crystal': {'MOUNTAIN': 0.4, 'FOREST': 0.2, 'GRASSLAND': 0.1}}
+2025-07-05 08:34:35.059 | INFO     | __main__:run_simulation:1234 - ===== TURN 2 =====
+2025-07-05 08:34:35.060 | INFO     | __main__:step:1019 - 
+=== TURN 2 START ===
+2025-07-05 08:34:35.060 | INFO     | __main__:step:1020 - Bible Rules: {}
+2025-07-05 08:34:35.060 | INFO     | __main__:step:1021 - Agent Status:
+2025-07-05 08:34:35.060 | INFO     | __main__:step:1023 -   Agent 0:
+2025-07-05 08:34:35.060 | INFO     | __main__:step:1024 -     Position: (31, 12)
+2025-07-05 08:34:35.060 | INFO     | __main__:step:1025 -     Attributes: {'strength': 9, 'curiosity': 5, 'charm': 9, 'hunger': -10}
+2025-07-05 08:34:35.060 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 0, 'apple': 2}
+2025-07-05 08:34:35.060 | INFO     | __main__:step:1027 -     Age: 50
+2025-07-05 08:34:35.060 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:34:35.060 | INFO     | __main__:step:1029 -     Hunger: 16.0
+2025-07-05 08:34:35.060 | INFO     | __main__:step:1030 -     Goal: 凭借出众的魅力结交强大的盟友，组建自己的魔法商队，垄断优质魔能水晶的贸易渠道。
+2025-07-05 08:34:35.060 | INFO     | __main__:step:1023 -   Agent 1:
+2025-07-05 08:34:35.060 | INFO     | __main__:step:1024 -     Position: (3, 11)
+2025-07-05 08:34:35.061 | INFO     | __main__:step:1025 -     Attributes: {'strength': 2, 'curiosity': 8, 'charm': 5}
+2025-07-05 08:34:35.061 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 1}
+2025-07-05 08:34:35.061 | INFO     | __main__:step:1027 -     Age: 32
+2025-07-05 08:34:35.061 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:34:35.061 | INFO     | __main__:step:1029 -     Hunger: 16.0
+2025-07-05 08:34:35.061 | INFO     | __main__:step:1030 -     Goal: "我要探索世界上所有未知的魔能水晶矿脉，发现最稀有的魔法属性。" 
+
+(基于8点好奇心属性，突出探索未知的倾向；5点魅力值适合与各地居民交流获取线索；2点力量值表明更倾向于知识探索而非武力征服)
+2025-07-05 08:34:35.061 | INFO     | __main__:step:1023 -   Agent 2:
+2025-07-05 08:34:35.061 | INFO     | __main__:step:1024 -     Position: (1, 25)
+2025-07-05 08:34:35.061 | INFO     | __main__:step:1025 -     Attributes: {'strength': 3, 'curiosity': 1, 'charm': 1, 'hunger': -5}
+2025-07-05 08:34:35.061 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 1, 'apple': 1}
+2025-07-05 08:34:35.061 | INFO     | __main__:step:1027 -     Age: 24
+2025-07-05 08:34:35.062 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:34:35.062 | INFO     | __main__:step:1029 -     Hunger: 16.0
+2025-07-05 08:34:35.062 | INFO     | __main__:step:1030 -     Goal: 我要成为最强大的水晶猎人，用力量征服各种属性的魔能水晶。
+2025-07-05 08:34:35.062 | INFO     | __main__:step:1023 -   Agent 3:
+2025-07-05 08:34:35.062 | INFO     | __main__:step:1024 -     Position: (24, 25)
+2025-07-05 08:34:35.062 | INFO     | __main__:step:1025 -     Attributes: {'strength': 9, 'curiosity': 2, 'charm': 9, 'hunger': -5}
+2025-07-05 08:34:35.062 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 0, 'apple': 1}
+2025-07-05 08:34:35.062 | INFO     | __main__:step:1027 -     Age: 54
+2025-07-05 08:34:35.062 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:34:35.062 | INFO     | __main__:step:1029 -     Hunger: 16.0
+2025-07-05 08:34:35.062 | INFO     | __main__:step:1030 -     Goal: "凭借出众的力量与魅力，我要成为统领最强魔法战士部落的首领，掌控最珍贵的魔能水晶矿脉。"
+2025-07-05 08:34:35.062 | INFO     | __main__:step:1023 -   Agent 4:
+2025-07-05 08:34:35.062 | INFO     | __main__:step:1024 -     Position: (23, 2)
+2025-07-05 08:34:35.062 | INFO     | __main__:step:1025 -     Attributes: {'strength': 7, 'curiosity': 2, 'charm': 1, 'hunger': -5}
+2025-07-05 08:34:35.062 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 0, 'apple': 1}
+2025-07-05 08:34:35.063 | INFO     | __main__:step:1027 -     Age: 55
+2025-07-05 08:34:35.063 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:34:35.063 | INFO     | __main__:step:1029 -     Hunger: 16.0
+2025-07-05 08:34:35.063 | INFO     | __main__:step:1030 -     Goal: 我要成为这片大陆上最强大的水晶战士，用力量征服所有稀有魔能水晶产地。
+2025-07-05 08:34:35.064 | INFO     | __main__:step:1023 -   Agent 5:
+2025-07-05 08:34:35.064 | INFO     | __main__:step:1024 -     Position: (3, 30)
+2025-07-05 08:34:35.064 | INFO     | __main__:step:1025 -     Attributes: {'strength': 10, 'curiosity': 3, 'charm': 10}
+2025-07-05 08:34:35.064 | INFO     | __main__:step:1026 -     Inventory: {'wood': 0, 'shell': 0}
+2025-07-05 08:34:35.064 | INFO     | __main__:step:1027 -     Age: 64
+2025-07-05 08:34:35.064 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:34:35.064 | INFO     | __main__:step:1029 -     Hunger: 16.0
+2025-07-05 08:34:35.064 | INFO     | __main__:step:1030 -     Goal: 凭借出众的魅力和力量，成为统领多个水晶矿区的部落首领，建立以水晶贸易为核心的强大势力。
+2025-07-05 08:34:35.064 | INFO     | __main__:step:1023 -   Agent 6:
+2025-07-05 08:34:35.064 | INFO     | __main__:step:1024 -     Position: (3, 30)
+2025-07-05 08:34:35.064 | INFO     | __main__:step:1025 -     Attributes: {'strength': 7, 'curiosity': 3, 'charm': 10, 'hunger': -5}
+2025-07-05 08:34:35.064 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 1, 'apple': 1}
+2025-07-05 08:34:35.064 | INFO     | __main__:step:1027 -     Age: 56
+2025-07-05 08:34:35.065 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:34:35.065 | INFO     | __main__:step:1029 -     Hunger: 16.0
+2025-07-05 08:34:35.066 | INFO     | __main__:step:1030 -     Goal: 凭借出众的魅力结交各方势力，建立水晶贸易网络，成为掌控魔法资源的大商人。
+2025-07-05 08:34:35.066 | INFO     | __main__:step:1023 -   Agent 7:
+2025-07-05 08:34:35.066 | INFO     | __main__:step:1024 -     Position: (1, 1)
+2025-07-05 08:34:35.066 | INFO     | __main__:step:1025 -     Attributes: {'strength': 4, 'curiosity': 8, 'charm': 3, 'hunger': -10}
+2025-07-05 08:34:35.066 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 1, 'fish': 1}
+2025-07-05 08:34:35.066 | INFO     | __main__:step:1027 -     Age: 20
+2025-07-05 08:34:35.066 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:34:35.067 | INFO     | __main__:step:1029 -     Hunger: 16.0
+2025-07-05 08:34:35.067 | INFO     | __main__:step:1030 -     Goal: "探索世界各地的魔能水晶奥秘，成为最渊博的水晶学者。"
+2025-07-05 08:34:35.067 | INFO     | __main__:step:1023 -   Agent 8:
+2025-07-05 08:34:35.067 | INFO     | __main__:step:1024 -     Position: (1, 20)
+2025-07-05 08:34:35.067 | INFO     | __main__:step:1025 -     Attributes: {'strength': 7, 'curiosity': 8, 'charm': 4, 'hunger': -10}
+2025-07-05 08:34:35.068 | INFO     | __main__:step:1026 -     Inventory: {'wood': 0, 'shell': 0, 'apple': 2}
+2025-07-05 08:34:35.068 | INFO     | __main__:step:1027 -     Age: 41
+2025-07-05 08:34:35.068 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:34:35.068 | INFO     | __main__:step:1029 -     Hunger: 16.0
+2025-07-05 08:34:35.068 | INFO     | __main__:step:1030 -     Goal: "我要探索世界各地神秘的魔能水晶矿脉，发现最稀有的水晶属性并研究其魔法特性。" 
+
+(基于高好奇心和中等力量的初始属性，这个目标既符合探索未知的强烈欲望，又能发挥一定的体力优势进行实地考察，同时回避了需要高魅力的社交路线)
+2025-07-05 08:34:35.068 | INFO     | __main__:step:1023 -   Agent 9:
+2025-07-05 08:34:35.068 | INFO     | __main__:step:1024 -     Position: (8, 6)
+2025-07-05 08:34:35.068 | INFO     | __main__:step:1025 -     Attributes: {'strength': 9, 'curiosity': 1, 'charm': 5, 'hunger': -5}
+2025-07-05 08:34:35.068 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 1, 'apple': 1}
+2025-07-05 08:34:35.068 | INFO     | __main__:step:1027 -     Age: 58
+2025-07-05 08:34:35.069 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:34:35.069 | INFO     | __main__:step:1029 -     Hunger: 16.0
+2025-07-05 08:34:35.069 | INFO     | __main__:step:1030 -     Goal: 我要成为这片大陆上最强大的战士，用力量征服所有魔能水晶矿脉。
+2025-07-05 08:34:38.018 | INFO     | __main__:resolve:630 - Valdric Brightbane(0) (age 50) attempting action: 我饿了，要摘苹果吃
+2025-07-05 08:34:38.266 | INFO     | __main__:resolve:630 - Lorelei Quill(7) (age 20) attempting action: '我饿了，要捕鱼吃'
+2025-07-05 08:34:38.381 | INFO     | __main__:resolve:630 - Magnus Ironheart(5) (age 64) attempting action: 我饿了，要摘苹果吃。
+2025-07-05 08:34:38.617 | INFO     | __main__:resolve:630 - Valentine Sterling(6) (age 56) attempting action: 我想和Magnus Ironheart(5号)交谈，讨论建立水晶贸易网络的可能性。
+2025-07-05 08:34:38.864 | INFO     | __main__:resolve:630 - Brock(2) (age 24) attempting action: 我要前往(5,22)的位置获取那里的魔法水晶，实现成为最强水晶猎人的目标。
+2025-07-05 08:34:38.868 | INFO     | __main__:resolve:630 - Lorelei Whimsy(1) (age 32) attempting action: 我注意到在(7,9)位置有一块魔能水晶，这正是我探索稀有魔法属性的目标，我要前往那里收集这块水晶。
+2025-07-05 08:34:39.134 | INFO     | __main__:resolve:630 - Brock Ironhide(4) (age 55) attempting action: 我要前往(26,5)和(27,2)收集魔能水晶，为成为最强水晶战士做准备。
+2025-07-05 08:34:39.388 | INFO     | __main__:resolve:630 - Brutus Ironfist(9) (age 58) attempting action: 我注意到在(7,9)位置有一块魔能水晶，这正是我成为最强战士所需的关键资源。我要立即前往那里获取魔能水晶。
+2025-07-05 08:34:41.082 | INFO     | __main__:resolve:630 - Brondar the Ironheart(3) (age 54) attempting action: 收集当前位置(24,25)的石头，为制造武器和建造部落据点做准备。
+2025-07-05 08:34:41.175 | INFO     | __main__:_process_outcome:744 - Processing outcome for Valdric Brightbane(0):
+2025-07-05 08:34:41.175 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'log'])
+2025-07-05 08:34:41.175 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'apple': 1}
+2025-07-05 08:34:41.176 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': 5}
+2025-07-05 08:34:41.176 | INFO     | __main__:_process_outcome:753 -   Action log: 摘了一个苹果吃
+2025-07-05 08:34:41.176 | INFO     | __main__:act:286 - Valdric Brightbane(0) 行动 → 我饿了，要摘苹果吃
+2025-07-05 08:34:41.641 | INFO     | __main__:resolve:630 - Bartholomew Quill(8) (age 41) attempting action: 我注意到在(5,22)位置有一块魔能水晶，这正是我探索目标所需，现在饥饿值16还算安全，我要前往收集那块魔能水晶。
+2025-07-05 08:34:45.185 | INFO     | __main__:_process_outcome:744 - Processing outcome for Lorelei Quill(7):
+2025-07-05 08:34:45.186 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'log'])
+2025-07-05 08:34:45.187 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'fish': -1}
+2025-07-05 08:34:45.187 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': 5}
+2025-07-05 08:34:45.187 | INFO     | __main__:_process_outcome:753 -   Action log: 吃了一条鱼
+2025-07-05 08:34:45.188 | INFO     | __main__:act:286 - Lorelei Quill(7) 行动 → '我饿了，要捕鱼吃'
+2025-07-05 08:34:49.811 | INFO     | __main__:_process_outcome:744 - Processing outcome for Magnus Ironheart(5):
+2025-07-05 08:34:49.813 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:34:49.814 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'apple': 1}
+2025-07-05 08:34:49.815 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': -5}
+2025-07-05 08:34:49.815 | INFO     | __main__:_process_outcome:751 -   Position change: [3, 30]
+2025-07-05 08:34:49.815 | INFO     | __main__:_process_outcome:753 -   Action log: 摘了一个苹果充饥
+2025-07-05 08:34:49.817 | INFO     | __main__:act:286 - Magnus Ironheart(5) 行动 → 我饿了，要摘苹果吃。
+2025-07-05 08:34:54.553 | INFO     | __main__:_process_outcome:744 - Processing outcome for Valentine Sterling(6):
+2025-07-05 08:34:54.554 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['chat_request', 'log'])
+2025-07-05 08:34:54.554 | INFO     | __main__:_process_outcome:753 -   Action log: 与5号Magnus Ironheart讨论建立水晶贸易网络的可能性
+2025-07-05 08:34:54.556 | INFO     | __main__:act:286 - Valentine Sterling(6) 行动 → 我想和Magnus Ironheart(5号)交谈，讨论建立水晶贸易网络的可能性。
+2025-07-05 08:34:58.382 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brock(2):
+2025-07-05 08:34:58.382 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['position', 'log'])
+2025-07-05 08:34:58.383 | INFO     | __main__:_process_outcome:751 -   Position change: [5, 22]
+2025-07-05 08:34:58.383 | INFO     | __main__:_process_outcome:753 -   Action log: 前往(5,22)的位置寻找魔法水晶
+2025-07-05 08:34:58.384 | INFO     | __main__:act:286 - Brock(2) 行动 → 我要前往(5,22)的位置获取那里的魔法水晶，实现成为最强水晶猎人的目标。
+2025-07-05 08:35:02.382 | INFO     | __main__:_process_outcome:744 - Processing outcome for Lorelei Whimsy(1):
+2025-07-05 08:35:02.383 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:35:02.383 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {}
+2025-07-05 08:35:02.383 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {}
+2025-07-05 08:35:02.383 | INFO     | __main__:_process_outcome:751 -   Position change: [7, 9]
+2025-07-05 08:35:02.383 | INFO     | __main__:_process_outcome:753 -   Action log: 前往(7,9)位置寻找魔能水晶
+2025-07-05 08:35:02.384 | INFO     | __main__:act:286 - Lorelei Whimsy(1) 行动 → 我注意到在(7,9)位置有一块魔能水晶，这正是我探索稀有魔法属性的目标，我要前往那里收集这块水晶。
+2025-07-05 08:35:07.080 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brock Ironhide(4):
+2025-07-05 08:35:07.080 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['position', 'inventory', 'attributes', 'log'])
+2025-07-05 08:35:07.081 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {}
+2025-07-05 08:35:07.081 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {}
+2025-07-05 08:35:07.081 | INFO     | __main__:_process_outcome:751 -   Position change: [27, 2]
+2025-07-05 08:35:07.082 | INFO     | __main__:_process_outcome:753 -   Action log: 移动至(27,2)寻找魔能水晶
+2025-07-05 08:35:07.083 | INFO     | __main__:act:286 - Brock Ironhide(4) 行动 → 我要前往(26,5)和(27,2)收集魔能水晶，为成为最强水晶战士做准备。
+2025-07-05 08:35:10.931 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brutus Ironfist(9):
+2025-07-05 08:35:10.933 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:35:10.933 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {}
+2025-07-05 08:35:10.934 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {}
+2025-07-05 08:35:10.934 | INFO     | __main__:_process_outcome:751 -   Position change: [7, 9]
+2025-07-05 08:35:10.935 | INFO     | __main__:_process_outcome:753 -   Action log: 前往(7,9)位置寻找魔能水晶
+2025-07-05 08:35:10.936 | INFO     | __main__:act:286 - Brutus Ironfist(9) 行动 → 我注意到在(7,9)位置有一块魔能水晶，这正是我成为最强战士所需的关键资源。我要立即前往那里获取魔能水晶。
+2025-07-05 08:35:16.066 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brondar the Ironheart(3):
+2025-07-05 08:35:16.066 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:35:16.067 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'stone': 1}
+2025-07-05 08:35:16.067 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'strength': 1}
+2025-07-05 08:35:16.067 | INFO     | __main__:_process_outcome:751 -   Position change: [24, 25]
+2025-07-05 08:35:16.067 | INFO     | __main__:_process_outcome:753 -   Action log: 收集了一块石头用于制造武器和建造部落据点
+2025-07-05 08:35:16.068 | INFO     | __main__:act:286 - Brondar the Ironheart(3) 行动 → 收集当前位置(24,25)的石头，为制造武器和建造部落据点做准备。
+2025-07-05 08:35:20.613 | INFO     | __main__:_process_outcome:744 - Processing outcome for Bartholomew Quill(8):
+2025-07-05 08:35:20.614 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:35:20.615 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {}
+2025-07-05 08:35:20.615 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': 4}
+2025-07-05 08:35:20.616 | INFO     | __main__:_process_outcome:751 -   Position change: [5, 22]
+2025-07-05 08:35:20.616 | INFO     | __main__:_process_outcome:753 -   Action log: 前往(5,22)位置寻找魔能水晶
+2025-07-05 08:35:20.618 | INFO     | __main__:act:286 - Bartholomew Quill(8) 行动 → 我注意到在(5,22)位置有一块魔能水晶，这正是我探索目标所需，现在饥饿值16还算安全，我要前往收集那块魔能水晶。
+2025-07-05 08:35:25.195 | SUCCESS  | __main__:update:107 - [Bible] Updated rules: {'crystal_ownership': 'First agent to find a magic crystal at a location gains temporary ownership rights for trade purposes'}
+2025-07-05 08:35:30.834 | SUCCESS  | __main__:execute_actions:447 - [Trinity] Spawned resources: {'magic_crystal': 5, 'wood': 10, 'stone': 7}
+2025-07-05 08:35:30.835 | SUCCESS  | __main__:execute_actions:464 - [Trinity] Influenced 5 agents
+2025-07-05 08:35:30.836 | INFO     | __main__:run_simulation:1234 - ===== TURN 3 =====
+2025-07-05 08:35:30.836 | INFO     | __main__:step:1019 - 
+=== TURN 3 START ===
+2025-07-05 08:35:30.837 | INFO     | __main__:step:1020 - Bible Rules: {
+  "crystal_ownership": "First agent to find a magic crystal at a location gains temporary ownership rights for trade purposes"
+}
+2025-07-05 08:35:30.837 | INFO     | __main__:step:1021 - Agent Status:
+2025-07-05 08:35:30.837 | INFO     | __main__:step:1023 -   Agent 0:
+2025-07-05 08:35:30.837 | INFO     | __main__:step:1024 -     Position: (31, 12)
+2025-07-05 08:35:30.838 | INFO     | __main__:step:1025 -     Attributes: {'strength': 9, 'curiosity': 5, 'charm': 9, 'hunger': -5}
+2025-07-05 08:35:30.838 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 0, 'apple': 3}
+2025-07-05 08:35:30.838 | INFO     | __main__:step:1027 -     Age: 51
+2025-07-05 08:35:30.839 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:35:30.839 | INFO     | __main__:step:1029 -     Hunger: 24.0
+2025-07-05 08:35:30.839 | INFO     | __main__:step:1030 -     Goal: 凭借出众的魅力结交强大的盟友，组建自己的魔法商队，垄断优质魔能水晶的贸易渠道。
+2025-07-05 08:35:30.839 | INFO     | __main__:step:1023 -   Agent 1:
+2025-07-05 08:35:30.839 | INFO     | __main__:step:1024 -     Position: (7, 9)
+2025-07-05 08:35:30.839 | INFO     | __main__:step:1025 -     Attributes: {'strength': 2, 'curiosity': 8, 'charm': 5}
+2025-07-05 08:35:30.839 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 1}
+2025-07-05 08:35:30.839 | INFO     | __main__:step:1027 -     Age: 33
+2025-07-05 08:35:30.839 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:35:30.839 | INFO     | __main__:step:1029 -     Hunger: 24.0
+2025-07-05 08:35:30.839 | INFO     | __main__:step:1030 -     Goal: "我要探索世界上所有未知的魔能水晶矿脉，发现最稀有的魔法属性。" 
+
+(基于8点好奇心属性，突出探索未知的倾向；5点魅力值适合与各地居民交流获取线索；2点力量值表明更倾向于知识探索而非武力征服)
+2025-07-05 08:35:30.840 | INFO     | __main__:step:1023 -   Agent 2:
+2025-07-05 08:35:30.840 | INFO     | __main__:step:1024 -     Position: (5, 22)
+2025-07-05 08:35:30.840 | INFO     | __main__:step:1025 -     Attributes: {'strength': 3, 'curiosity': 1, 'charm': 1, 'hunger': -5}
+2025-07-05 08:35:30.840 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 1, 'apple': 1}
+2025-07-05 08:35:30.840 | INFO     | __main__:step:1027 -     Age: 25
+2025-07-05 08:35:30.840 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:35:30.840 | INFO     | __main__:step:1029 -     Hunger: 24.0
+2025-07-05 08:35:30.840 | INFO     | __main__:step:1030 -     Goal: 我要成为最强大的水晶猎人，用力量征服各种属性的魔能水晶。
+2025-07-05 08:35:30.840 | INFO     | __main__:step:1023 -   Agent 3:
+2025-07-05 08:35:30.840 | INFO     | __main__:step:1024 -     Position: (24, 25)
+2025-07-05 08:35:30.840 | INFO     | __main__:step:1025 -     Attributes: {'strength': 10, 'curiosity': 2, 'charm': 9, 'hunger': -5}
+2025-07-05 08:35:30.840 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 0, 'apple': 1, 'stone': 1}
+2025-07-05 08:35:30.840 | INFO     | __main__:step:1027 -     Age: 55
+2025-07-05 08:35:30.840 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:35:30.840 | INFO     | __main__:step:1029 -     Hunger: 24.0
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1030 -     Goal: "凭借出众的力量与魅力，我要成为统领最强魔法战士部落的首领，掌控最珍贵的魔能水晶矿脉。"
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1023 -   Agent 4:
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1024 -     Position: (27, 2)
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1025 -     Attributes: {'strength': 7, 'curiosity': 2, 'charm': 1, 'hunger': -5}
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 0, 'apple': 1}
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1027 -     Age: 56
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1029 -     Hunger: 24.0
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1030 -     Goal: 我要成为这片大陆上最强大的水晶战士，用力量征服所有稀有魔能水晶产地。
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1023 -   Agent 5:
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1024 -     Position: (3, 30)
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1025 -     Attributes: {'strength': 10, 'curiosity': 3, 'charm': 10, 'hunger': -5}
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1026 -     Inventory: {'wood': 0, 'shell': 0, 'apple': 1}
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1027 -     Age: 65
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1029 -     Hunger: 24.0
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1030 -     Goal: 凭借出众的魅力和力量，成为统领多个水晶矿区的部落首领，建立以水晶贸易为核心的强大势力。
+2025-07-05 08:35:30.841 | INFO     | __main__:step:1023 -   Agent 6:
+2025-07-05 08:35:30.842 | INFO     | __main__:step:1024 -     Position: (3, 30)
+2025-07-05 08:35:30.842 | INFO     | __main__:step:1025 -     Attributes: {'strength': 7, 'curiosity': 3, 'charm': 10, 'hunger': -5}
+2025-07-05 08:35:30.842 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 1, 'apple': 1}
+2025-07-05 08:35:30.842 | INFO     | __main__:step:1027 -     Age: 57
+2025-07-05 08:35:30.842 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:35:30.842 | INFO     | __main__:step:1029 -     Hunger: 24.0
+2025-07-05 08:35:30.842 | INFO     | __main__:step:1030 -     Goal: 凭借出众的魅力结交各方势力，建立水晶贸易网络，成为掌控魔法资源的大商人。
+2025-07-05 08:35:30.842 | INFO     | __main__:step:1023 -   Agent 7:
+2025-07-05 08:35:30.842 | INFO     | __main__:step:1024 -     Position: (1, 1)
+2025-07-05 08:35:30.843 | INFO     | __main__:step:1025 -     Attributes: {'strength': 4, 'curiosity': 8, 'charm': 3, 'hunger': -5}
+2025-07-05 08:35:30.843 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 1, 'fish': 0}
+2025-07-05 08:35:30.843 | INFO     | __main__:step:1027 -     Age: 21
+2025-07-05 08:35:30.843 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:35:30.843 | INFO     | __main__:step:1029 -     Hunger: 24.0
+2025-07-05 08:35:30.843 | INFO     | __main__:step:1030 -     Goal: "探索世界各地的魔能水晶奥秘，成为最渊博的水晶学者。"
+2025-07-05 08:35:30.843 | INFO     | __main__:step:1023 -   Agent 8:
+2025-07-05 08:35:30.843 | INFO     | __main__:step:1024 -     Position: (5, 22)
+2025-07-05 08:35:30.843 | INFO     | __main__:step:1025 -     Attributes: {'strength': 7, 'curiosity': 8, 'charm': 4, 'hunger': -6}
+2025-07-05 08:35:30.843 | INFO     | __main__:step:1026 -     Inventory: {'wood': 0, 'shell': 0, 'apple': 2}
+2025-07-05 08:35:30.843 | INFO     | __main__:step:1027 -     Age: 42
+2025-07-05 08:35:30.843 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:35:30.843 | INFO     | __main__:step:1029 -     Hunger: 24.0
+2025-07-05 08:35:30.844 | INFO     | __main__:step:1030 -     Goal: "我要探索世界各地神秘的魔能水晶矿脉，发现最稀有的水晶属性并研究其魔法特性。" 
+
+(基于高好奇心和中等力量的初始属性，这个目标既符合探索未知的强烈欲望，又能发挥一定的体力优势进行实地考察，同时回避了需要高魅力的社交路线)
+2025-07-05 08:35:30.844 | INFO     | __main__:step:1023 -   Agent 9:
+2025-07-05 08:35:30.844 | INFO     | __main__:step:1024 -     Position: (7, 9)
+2025-07-05 08:35:30.844 | INFO     | __main__:step:1025 -     Attributes: {'strength': 9, 'curiosity': 1, 'charm': 5, 'hunger': -5}
+2025-07-05 08:35:30.844 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 1, 'apple': 1}
+2025-07-05 08:35:30.844 | INFO     | __main__:step:1027 -     Age: 59
+2025-07-05 08:35:30.844 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:35:30.844 | INFO     | __main__:step:1029 -     Hunger: 24.0
+2025-07-05 08:35:30.844 | INFO     | __main__:step:1030 -     Goal: 我要成为这片大陆上最强大的战士，用力量征服所有魔能水晶矿脉。
+2025-07-05 08:35:37.687 | INFO     | __main__:resolve:630 - Brondar the Ironheart(3) (age 55) attempting action: 我饿了，要摘苹果吃
+2025-07-05 08:35:37.757 | INFO     | __main__:resolve:630 - Valentine Sterling(6) (age 57) attempting action: 我想前往(1,28)收集那里的魔法水晶，为建立水晶贸易网络做准备。
+2025-07-05 08:35:37.929 | INFO     | __main__:resolve:630 - Magnus Ironheart(5) (age 65) attempting action: "我要前往(1,28)收集那里的魔法水晶和苹果，为建立水晶贸易势力积累资源。"
+2025-07-05 08:35:37.941 | INFO     | __main__:resolve:630 - Brutus Ironfist(9) (age 59) attempting action: 收集当前位置(7,9)的魔能水晶。
+2025-07-05 08:35:38.103 | INFO     | __main__:resolve:630 - Brock Ironhide(4) (age 56) attempting action: 收集当前位置(27,2)的魔能水晶，并前往(26,5)收集那里的另一个魔能水晶。
+2025-07-05 08:35:38.117 | INFO     | __main__:resolve:630 - Lorelei Quill(7) (age 21) attempting action: '前往(2,6)位置收集魔能水晶，同时留意沿途的鱼类资源'
+2025-07-05 08:35:38.266 | INFO     | __main__:resolve:630 - Brock(2) (age 25) attempting action: 我要收集当前位置(5,22)的魔能水晶，实现成为最强水晶猎人的目标。
+2025-07-05 08:35:38.277 | INFO     | __main__:resolve:630 - Bartholomew Quill(8) (age 42) attempting action: 收集当前位置(5,22)的魔能水晶，这是实现我研究稀有水晶属性的重要第一步。
+2025-07-05 08:35:38.460 | INFO     | __main__:resolve:630 - Valdric Brightbane(0) (age 51) attempting action: 我要前往(31,16)收集那块魔能水晶，这将是我组建魔法商队的重要资源。
+2025-07-05 08:35:41.564 | INFO     | __main__:resolve:630 - Lorelei Whimsy(1) (age 33) attempting action: 我注意到当前位置(7,9)有一块魔能水晶，而且Brutus Ironfist也在这里。考虑到我的好奇心属性和探索目标，我决定"先收集当前格子的魔能水晶，然后向Brutus Ironfist询问关于附近水晶矿脉的信息"。
+2025-07-05 08:35:42.083 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brondar the Ironheart(3):
+2025-07-05 08:35:42.084 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'log'])
+2025-07-05 08:35:42.085 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'apple': -1}
+2025-07-05 08:35:42.085 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': 5}
+2025-07-05 08:35:42.086 | INFO     | __main__:_process_outcome:753 -   Action log: 吃了一个苹果
+2025-07-05 08:35:42.087 | INFO     | __main__:act:286 - Brondar the Ironheart(3) 行动 → 我饿了，要摘苹果吃
+2025-07-05 08:35:47.241 | INFO     | __main__:_process_outcome:744 - Processing outcome for Valentine Sterling(6):
+2025-07-05 08:35:47.241 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:35:47.242 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'magic_crystal': 1}
+2025-07-05 08:35:47.242 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'curiosity': 1}
+2025-07-05 08:35:47.242 | INFO     | __main__:_process_outcome:751 -   Position change: [1, 28]
+2025-07-05 08:35:47.242 | INFO     | __main__:_process_outcome:753 -   Action log: 前往(1,28)并收集了魔法水晶，获得临时所有权
+2025-07-05 08:35:47.243 | INFO     | __main__:act:286 - Valentine Sterling(6) 行动 → 我想前往(1,28)收集那里的魔法水晶，为建立水晶贸易网络做准备。
+2025-07-05 08:35:52.354 | INFO     | __main__:_process_outcome:744 - Processing outcome for Magnus Ironheart(5):
+2025-07-05 08:35:52.354 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:35:52.354 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'apple': 1, 'magic_crystal': 1}
+2025-07-05 08:35:52.354 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': -2}
+2025-07-05 08:35:52.355 | INFO     | __main__:_process_outcome:751 -   Position change: [1, 28]
+2025-07-05 08:35:52.355 | INFO     | __main__:_process_outcome:753 -   Action log: 移动到(1,28)并收集了魔法水晶和苹果
+2025-07-05 08:35:52.355 | INFO     | __main__:act:286 - Magnus Ironheart(5) 行动 → "我要前往(1,28)收集那里的魔法水晶和苹果，为建立水晶贸易势力积累资源。"
+2025-07-05 08:35:57.537 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brutus Ironfist(9):
+2025-07-05 08:35:57.539 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:35:57.539 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'magic_crystal': 1}
+2025-07-05 08:35:57.539 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'curiosity': 1}
+2025-07-05 08:35:57.540 | INFO     | __main__:_process_outcome:751 -   Position change: [7, 9]
+2025-07-05 08:35:57.540 | INFO     | __main__:_process_outcome:753 -   Action log: 收集了魔能水晶，获得临时所有权
+2025-07-05 08:35:57.542 | INFO     | __main__:act:286 - Brutus Ironfist(9) 行动 → 收集当前位置(7,9)的魔能水晶。
+2025-07-05 08:36:02.872 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brock Ironhide(4):
+2025-07-05 08:36:02.873 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:36:02.874 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'magic_crystal': 1}
+2025-07-05 08:36:02.874 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'curiosity': 1}
+2025-07-05 08:36:02.874 | INFO     | __main__:_process_outcome:751 -   Position change: [26, 5]
+2025-07-05 08:36:02.875 | INFO     | __main__:_process_outcome:753 -   Action log: 收集了位置(27,2)的魔能水晶并获得临时所有权，前往(26,5)收集另一个水晶
+2025-07-05 08:36:02.876 | INFO     | __main__:act:286 - Brock Ironhide(4) 行动 → 收集当前位置(27,2)的魔能水晶，并前往(26,5)收集那里的另一个魔能水晶。
+2025-07-05 08:36:07.838 | INFO     | __main__:_process_outcome:744 - Processing outcome for Lorelei Quill(7):
+2025-07-05 08:36:07.839 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log', 'dead'])
+2025-07-05 08:36:07.839 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {}
+2025-07-05 08:36:07.839 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': 1}
+2025-07-05 08:36:07.840 | INFO     | __main__:_process_outcome:751 -   Position change: [2, 6]
+2025-07-05 08:36:07.840 | INFO     | __main__:_process_outcome:753 -   Action log: 前往(2,6)位置收集魔能水晶，沿途未发现鱼类资源
+2025-07-05 08:36:07.841 | INFO     | __main__:act:286 - Lorelei Quill(7) 行动 → '前往(2,6)位置收集魔能水晶，同时留意沿途的鱼类资源'
+2025-07-05 08:36:12.846 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brock(2):
+2025-07-05 08:36:12.848 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:36:12.848 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'magic_crystal': 1}
+2025-07-05 08:36:12.848 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'curiosity': 1}
+2025-07-05 08:36:12.848 | INFO     | __main__:_process_outcome:751 -   Position change: [5, 22]
+2025-07-05 08:36:12.848 | INFO     | __main__:_process_outcome:753 -   Action log: 2号在位置(5,22)发现并收集了魔能水晶，获得临时所有权
+2025-07-05 08:36:12.849 | INFO     | __main__:act:286 - Brock(2) 行动 → 我要收集当前位置(5,22)的魔能水晶，实现成为最强水晶猎人的目标。
+2025-07-05 08:36:18.092 | INFO     | __main__:_process_outcome:744 - Processing outcome for Bartholomew Quill(8):
+2025-07-05 08:36:18.094 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:36:18.095 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'magic_crystal': 1}
+2025-07-05 08:36:18.095 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'curiosity': 1}
+2025-07-05 08:36:18.095 | INFO     | __main__:_process_outcome:751 -   Position change: [5, 22]
+2025-07-05 08:36:18.096 | INFO     | __main__:_process_outcome:753 -   Action log: 收集到魔能水晶，获得临时所有权
+2025-07-05 08:36:18.097 | INFO     | __main__:act:286 - Bartholomew Quill(8) 行动 → 收集当前位置(5,22)的魔能水晶，这是实现我研究稀有水晶属性的重要第一步。
+2025-07-05 08:36:23.110 | INFO     | __main__:_process_outcome:744 - Processing outcome for Valdric Brightbane(0):
+2025-07-05 08:36:23.111 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:36:23.112 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'magic_crystal': 1}
+2025-07-05 08:36:23.113 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'curiosity': 1}
+2025-07-05 08:36:23.113 | INFO     | __main__:_process_outcome:751 -   Position change: [31, 16]
+2025-07-05 08:36:23.113 | INFO     | __main__:_process_outcome:753 -   Action log: 在(31,16)发现并收集了魔能水晶，获得临时所有权
+2025-07-05 08:36:23.115 | INFO     | __main__:act:286 - Valdric Brightbane(0) 行动 → 我要前往(31,16)收集那块魔能水晶，这将是我组建魔法商队的重要资源。
+2025-07-05 08:36:28.102 | INFO     | __main__:_process_outcome:744 - Processing outcome for Lorelei Whimsy(1):
+2025-07-05 08:36:28.103 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log', 'chat_request'])
+2025-07-05 08:36:28.104 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'magic_crystal': 1}
+2025-07-05 08:36:28.104 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'curiosity': 1}
+2025-07-05 08:36:28.104 | INFO     | __main__:_process_outcome:751 -   Position change: [7, 9]
+2025-07-05 08:36:28.105 | INFO     | __main__:_process_outcome:753 -   Action log: 收集了魔能水晶并暂时获得所有权
+2025-07-05 08:36:28.106 | INFO     | __main__:act:286 - Lorelei Whimsy(1) 行动 → 我注意到当前位置(7,9)有一块魔能水晶，而且Brutus Ironfist也在这里。考虑到我的好奇心属性和探索目标，我决定"先收集当前格子的魔能水晶，然后向Brutus Ironfist询问关于附近水晶矿脉的信息"。
+2025-07-05 08:36:34.788 | SUCCESS  | __main__:execute_actions:447 - [Trinity] Spawned resources: {'magic_crystal': 3, 'wood': 5, 'stone': 2}
+2025-07-05 08:36:34.790 | INFO     | __main__:run_simulation:1234 - ===== TURN 4 =====
+2025-07-05 08:36:34.790 | INFO     | __main__:step:1019 - 
+=== TURN 4 START ===
+2025-07-05 08:36:34.791 | INFO     | __main__:step:1020 - Bible Rules: {
+  "crystal_ownership": "First agent to find a magic crystal at a location gains temporary ownership rights for trade purposes"
+}
+2025-07-05 08:36:34.791 | INFO     | __main__:step:1021 - Agent Status:
+2025-07-05 08:36:34.791 | INFO     | __main__:step:1023 -   Agent 0:
+2025-07-05 08:36:34.791 | INFO     | __main__:step:1024 -     Position: (31, 16)
+2025-07-05 08:36:34.791 | INFO     | __main__:step:1025 -     Attributes: {'strength': 9, 'curiosity': 6, 'charm': 9, 'hunger': -5}
+2025-07-05 08:36:34.792 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 0, 'apple': 3, 'magic_crystal': 1}
+2025-07-05 08:36:34.792 | INFO     | __main__:step:1027 -     Age: 52
+2025-07-05 08:36:34.792 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:36:34.792 | INFO     | __main__:step:1029 -     Hunger: 32.0
+2025-07-05 08:36:34.792 | INFO     | __main__:step:1030 -     Goal: 凭借出众的魅力结交强大的盟友，组建自己的魔法商队，垄断优质魔能水晶的贸易渠道。
+2025-07-05 08:36:34.792 | INFO     | __main__:step:1023 -   Agent 1:
+2025-07-05 08:36:34.792 | INFO     | __main__:step:1024 -     Position: (7, 9)
+2025-07-05 08:36:34.792 | INFO     | __main__:step:1025 -     Attributes: {'strength': 2, 'curiosity': 8, 'charm': 5}
+2025-07-05 08:36:34.793 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 1}
+2025-07-05 08:36:34.793 | INFO     | __main__:step:1027 -     Age: 34
+2025-07-05 08:36:34.793 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:36:34.793 | INFO     | __main__:step:1029 -     Hunger: 32.0
+2025-07-05 08:36:34.793 | INFO     | __main__:step:1030 -     Goal: "我要探索世界上所有未知的魔能水晶矿脉，发现最稀有的魔法属性。" 
+
+(基于8点好奇心属性，突出探索未知的倾向；5点魅力值适合与各地居民交流获取线索；2点力量值表明更倾向于知识探索而非武力征服)
+2025-07-05 08:36:34.793 | INFO     | __main__:step:1023 -   Agent 2:
+2025-07-05 08:36:34.793 | INFO     | __main__:step:1024 -     Position: (5, 22)
+2025-07-05 08:36:34.793 | INFO     | __main__:step:1025 -     Attributes: {'strength': 3, 'curiosity': 2, 'charm': 1, 'hunger': -5}
+2025-07-05 08:36:34.793 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 1, 'apple': 1, 'magic_crystal': 1}
+2025-07-05 08:36:34.793 | INFO     | __main__:step:1027 -     Age: 26
+2025-07-05 08:36:34.794 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:36:34.794 | INFO     | __main__:step:1029 -     Hunger: 32.0
+2025-07-05 08:36:34.794 | INFO     | __main__:step:1030 -     Goal: 我要成为最强大的水晶猎人，用力量征服各种属性的魔能水晶。
+2025-07-05 08:36:34.794 | INFO     | __main__:step:1023 -   Agent 3:
+2025-07-05 08:36:34.794 | INFO     | __main__:step:1024 -     Position: (24, 25)
+2025-07-05 08:36:34.794 | INFO     | __main__:step:1025 -     Attributes: {'strength': 10, 'curiosity': 2, 'charm': 9, 'hunger': 0}
+2025-07-05 08:36:34.794 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 0, 'apple': 0, 'stone': 1}
+2025-07-05 08:36:34.794 | INFO     | __main__:step:1027 -     Age: 56
+2025-07-05 08:36:34.794 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:36:34.794 | INFO     | __main__:step:1029 -     Hunger: 32.0
+2025-07-05 08:36:34.794 | INFO     | __main__:step:1030 -     Goal: "凭借出众的力量与魅力，我要成为统领最强魔法战士部落的首领，掌控最珍贵的魔能水晶矿脉。"
+2025-07-05 08:36:34.794 | INFO     | __main__:step:1023 -   Agent 4:
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1024 -     Position: (26, 5)
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1025 -     Attributes: {'strength': 7, 'curiosity': 3, 'charm': 1, 'hunger': -5}
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 0, 'apple': 1, 'magic_crystal': 1}
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1027 -     Age: 57
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1029 -     Hunger: 32.0
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1030 -     Goal: 我要成为这片大陆上最强大的水晶战士，用力量征服所有稀有魔能水晶产地。
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1023 -   Agent 5:
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1024 -     Position: (1, 28)
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1025 -     Attributes: {'strength': 10, 'curiosity': 3, 'charm': 10, 'hunger': -7}
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1026 -     Inventory: {'wood': 0, 'shell': 0, 'apple': 2, 'magic_crystal': 1}
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1027 -     Age: 66
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1029 -     Hunger: 32.0
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1030 -     Goal: 凭借出众的魅力和力量，成为统领多个水晶矿区的部落首领，建立以水晶贸易为核心的强大势力。
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1023 -   Agent 6:
+2025-07-05 08:36:34.795 | INFO     | __main__:step:1024 -     Position: (1, 28)
+2025-07-05 08:36:34.796 | INFO     | __main__:step:1025 -     Attributes: {'strength': 7, 'curiosity': 4, 'charm': 10, 'hunger': -5}
+2025-07-05 08:36:34.796 | INFO     | __main__:step:1026 -     Inventory: {'wood': 1, 'shell': 1, 'apple': 1, 'magic_crystal': 1}
+2025-07-05 08:36:34.796 | INFO     | __main__:step:1027 -     Age: 58
+2025-07-05 08:36:34.796 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:36:34.796 | INFO     | __main__:step:1029 -     Hunger: 32.0
+2025-07-05 08:36:34.796 | INFO     | __main__:step:1030 -     Goal: 凭借出众的魅力结交各方势力，建立水晶贸易网络，成为掌控魔法资源的大商人。
+2025-07-05 08:36:34.797 | INFO     | __main__:step:1023 -   Agent 7:
+2025-07-05 08:36:34.797 | INFO     | __main__:step:1024 -     Position: (2, 6)
+2025-07-05 08:36:34.797 | INFO     | __main__:step:1025 -     Attributes: {'strength': 4, 'curiosity': 8, 'charm': 3, 'hunger': -4}
+2025-07-05 08:36:34.797 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 1, 'fish': 0}
+2025-07-05 08:36:34.797 | INFO     | __main__:step:1027 -     Age: 22
+2025-07-05 08:36:34.797 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:36:34.797 | INFO     | __main__:step:1029 -     Hunger: 32.0
+2025-07-05 08:36:34.797 | INFO     | __main__:step:1030 -     Goal: "探索世界各地的魔能水晶奥秘，成为最渊博的水晶学者。"
+2025-07-05 08:36:34.797 | INFO     | __main__:step:1023 -   Agent 8:
+2025-07-05 08:36:34.797 | INFO     | __main__:step:1024 -     Position: (5, 22)
+2025-07-05 08:36:34.797 | INFO     | __main__:step:1025 -     Attributes: {'strength': 7, 'curiosity': 9, 'charm': 4, 'hunger': -6}
+2025-07-05 08:36:34.797 | INFO     | __main__:step:1026 -     Inventory: {'wood': 0, 'shell': 0, 'apple': 2, 'magic_crystal': 1}
+2025-07-05 08:36:34.797 | INFO     | __main__:step:1027 -     Age: 43
+2025-07-05 08:36:34.797 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:36:34.797 | INFO     | __main__:step:1029 -     Hunger: 32.0
+2025-07-05 08:36:34.797 | INFO     | __main__:step:1030 -     Goal: "我要探索世界各地神秘的魔能水晶矿脉，发现最稀有的水晶属性并研究其魔法特性。" 
+
+(基于高好奇心和中等力量的初始属性，这个目标既符合探索未知的强烈欲望，又能发挥一定的体力优势进行实地考察，同时回避了需要高魅力的社交路线)
+2025-07-05 08:36:34.798 | INFO     | __main__:step:1023 -   Agent 9:
+2025-07-05 08:36:34.798 | INFO     | __main__:step:1024 -     Position: (7, 9)
+2025-07-05 08:36:34.798 | INFO     | __main__:step:1025 -     Attributes: {'strength': 9, 'curiosity': 2, 'charm': 5, 'hunger': -5}
+2025-07-05 08:36:34.798 | INFO     | __main__:step:1026 -     Inventory: {'wood': 2, 'shell': 1, 'apple': 1, 'magic_crystal': 1}
+2025-07-05 08:36:34.798 | INFO     | __main__:step:1027 -     Age: 60
+2025-07-05 08:36:34.798 | INFO     | __main__:step:1028 -     Health: 100
+2025-07-05 08:36:34.798 | INFO     | __main__:step:1029 -     Hunger: 32.0
+2025-07-05 08:36:34.798 | INFO     | __main__:step:1030 -     Goal: 我要成为这片大陆上最强大的战士，用力量征服所有魔能水晶矿脉。
+2025-07-05 08:36:38.365 | INFO     | __main__:resolve:630 - Valentine Sterling(6) (age 58) attempting action: 我想和Magnus Ironheart讨论关于魔法水晶贸易的可能性，发起聊天请求
+2025-07-05 08:36:38.504 | INFO     | __main__:resolve:630 - Valdric Brightbane(0) (age 52) attempting action: 收集当前位置(31,16)的魔能水晶，为组建魔法商队积累资源。
+2025-07-05 08:36:38.547 | INFO     | __main__:resolve:630 - Brock(2) (age 26) attempting action: 收集当前位置(5,22)的魔能水晶，以增加我的水晶储备。
+2025-07-05 08:36:38.570 | INFO     | __main__:resolve:630 - Lorelei Quill(7) (age 22) attempting action: 收集当前位置(2,6)的魔能水晶，同时捕鱼补充饥饿值。
+2025-07-05 08:36:38.623 | INFO     | __main__:resolve:630 - Brondar the Ironheart(3) (age 56) attempting action: 收集附近(24,26)位置的石头，为制造魔法工具做准备。
+2025-07-05 08:36:38.662 | INFO     | __main__:resolve:630 - Brock Ironhide(4) (age 57) attempting action: 收集当前位置(26,5)的魔能水晶和苹果，以增强我的魔法储备和补充体力。
+2025-07-05 08:36:38.663 | INFO     | __main__:resolve:630 - Magnus Ironheart(5) (age 66) attempting action: "收集当前位置的魔法水晶和苹果，然后与Valentine Sterling商讨关于水晶贸易的合作事宜。"
+2025-07-05 08:36:38.734 | INFO     | __main__:resolve:630 - Brutus Ironfist(9) (age 60) attempting action: "收集当前位置(7,9)的魔能水晶，以增强我的力量储备。"
+2025-07-05 08:36:38.902 | INFO     | __main__:resolve:630 - Bartholomew Quill(8) (age 43) attempting action: 收集当前位置(5,22)的魔能水晶和苹果，以补充库存并研究水晶属性。
+2025-07-05 08:36:40.299 | INFO     | __main__:resolve:630 - Lorelei Whimsy(1) (age 34) attempting action: 我注意到当前位置(7,9)有一块魔能水晶，而且附近(2,6)和(11,14)也有水晶。根据我的探索目标，我决定先收集当前这块水晶，然后前往(11,14)研究那里的水晶属性。
+
+行动: 收集当前位置(7,9)的魔能水晶
+2025-07-05 08:36:42.932 | INFO     | __main__:_process_outcome:744 - Processing outcome for Valentine Sterling(6):
+2025-07-05 08:36:42.933 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['chat_request', 'log'])
+2025-07-05 08:36:42.934 | INFO     | __main__:_process_outcome:753 -   Action log: 向Magnus Ironheart发起关于魔法水晶贸易的聊天请求
+2025-07-05 08:36:42.935 | INFO     | __main__:act:286 - Valentine Sterling(6) 行动 → 我想和Magnus Ironheart讨论关于魔法水晶贸易的可能性，发起聊天请求
+2025-07-05 08:36:47.024 | INFO     | __main__:_process_outcome:744 - Processing outcome for Valdric Brightbane(0):
+2025-07-05 08:36:47.025 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'log'])
+2025-07-05 08:36:47.025 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'magic_crystal': 1}
+2025-07-05 08:36:47.026 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'curiosity': 1}
+2025-07-05 08:36:47.026 | INFO     | __main__:_process_outcome:753 -   Action log: 收集了当前位置的魔能水晶，为魔法商队积累资源
+2025-07-05 08:36:47.028 | INFO     | __main__:act:286 - Valdric Brightbane(0) 行动 → 收集当前位置(31,16)的魔能水晶，为组建魔法商队积累资源。
+2025-07-05 08:36:51.610 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brock(2):
+2025-07-05 08:36:51.610 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'log'])
+2025-07-05 08:36:51.611 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {}
+2025-07-05 08:36:51.611 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {}
+2025-07-05 08:36:51.611 | INFO     | __main__:_process_outcome:753 -   Action log: 当前位置(5,22)没有新的魔能水晶可收集，你已拥有1个magic_crystal
+2025-07-05 08:36:51.613 | INFO     | __main__:act:286 - Brock(2) 行动 → 收集当前位置(5,22)的魔能水晶，以增加我的水晶储备。
+2025-07-05 08:36:57.038 | INFO     | __main__:_process_outcome:744 - Processing outcome for Lorelei Quill(7):
+2025-07-05 08:36:57.039 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:36:57.039 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'magic_crystal': 1, 'fish': 1}
+2025-07-05 08:36:57.039 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': -2, 'curiosity': 1}
+2025-07-05 08:36:57.040 | INFO     | __main__:_process_outcome:751 -   Position change: [2, 6]
+2025-07-05 08:36:57.040 | INFO     | __main__:_process_outcome:753 -   Action log: 收集了魔能水晶并捕鱼充饥
+2025-07-05 08:36:57.041 | INFO     | __main__:act:286 - Lorelei Quill(7) 行动 → 收集当前位置(2,6)的魔能水晶，同时捕鱼补充饥饿值。
+2025-07-05 08:37:03.074 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brondar the Ironheart(3):
+2025-07-05 08:37:03.075 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log'])
+2025-07-05 08:37:03.076 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'stone': 1}
+2025-07-05 08:37:03.076 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'curiosity': 1}
+2025-07-05 08:37:03.076 | INFO     | __main__:_process_outcome:751 -   Position change: [24, 26]
+2025-07-05 08:37:03.076 | INFO     | __main__:_process_outcome:753 -   Action log: 在(24,26)位置收集了1块石头
+2025-07-05 08:37:03.077 | INFO     | __main__:act:286 - Brondar the Ironheart(3) 行动 → 收集附近(24,26)位置的石头，为制造魔法工具做准备。
+2025-07-05 08:37:08.380 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brock Ironhide(4):
+2025-07-05 08:37:08.381 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'log'])
+2025-07-05 08:37:08.381 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'magic_crystal': 1, 'apple': 1}
+2025-07-05 08:37:08.381 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': -2}
+2025-07-05 08:37:08.382 | INFO     | __main__:_process_outcome:753 -   Action log: 在(26,5)收集了魔能水晶和苹果
+2025-07-05 08:37:08.383 | INFO     | __main__:act:286 - Brock Ironhide(4) 行动 → 收集当前位置(26,5)的魔能水晶和苹果，以增强我的魔法储备和补充体力。
+2025-07-05 08:37:14.445 | INFO     | __main__:_process_outcome:744 - Processing outcome for Magnus Ironheart(5):
+2025-07-05 08:37:14.446 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'position', 'log', 'chat_request'])
+2025-07-05 08:37:14.446 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'magic_crystal': 1, 'apple': 1}
+2025-07-05 08:37:14.446 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'hunger': -1, 'curiosity': 1}
+2025-07-05 08:37:14.446 | INFO     | __main__:_process_outcome:751 -   Position change: [1, 28]
+2025-07-05 08:37:14.446 | INFO     | __main__:_process_outcome:753 -   Action log: 收集了魔法水晶和苹果，准备与Valentine Sterling商讨贸易合作
+2025-07-05 08:37:14.447 | INFO     | __main__:act:286 - Magnus Ironheart(5) 行动 → "收集当前位置的魔法水晶和苹果，然后与Valentine Sterling商讨关于水晶贸易的合作事宜。"
+2025-07-05 08:37:19.334 | INFO     | __main__:_process_outcome:744 - Processing outcome for Brutus Ironfist(9):
+2025-07-05 08:37:19.334 | INFO     | __main__:_process_outcome:745 -   Outcome type: dict_keys(['inventory', 'attributes', 'log'])
+2025-07-05 08:37:19.335 | INFO     | __main__:_process_outcome:747 -   Inventory changes: {'magic_crystal': 1}
+2025-07-05 08:37:19.335 | INFO     | __main__:_process_outcome:749 -   Attribute changes: {'strength': 1}
+2025-07-05 08:37:19.335 | INFO     | __main__:_process_outcome:753 -   Action log: 收集了魔能水晶，力量增加1点
+2025-07-05 08:37:19.336 | INFO     | __main__:act:286 - Brutus Ironfist(9) 行动 → "收集当前位置(7,9)的魔能水晶，以增强我的力量储备。"

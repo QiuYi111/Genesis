@@ -1,0 +1,29 @@
+defaults:
+  - simulation: stone_age
+  - model: deepseek
+  - logging: default
+  - _self_
+
+# Main simulation parameters
+world:
+  size: 64
+  num_agents: 20
+
+# Runtime parameters  
+runtime:
+  turns: 10
+  show_map_every: 1
+  show_conversations: false
+  timeout_per_agent: 15.0
+
+# Display and output
+output:
+  log_level: INFO
+  logs_dir: logs
+  log_rotation: "10 MB"
+  log_retention: "30 days"
+  log_compression: "zip"
+
+# Vision and perception
+perception:
+  vision_radius: 5

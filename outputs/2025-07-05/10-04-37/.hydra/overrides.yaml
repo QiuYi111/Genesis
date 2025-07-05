@@ -1,0 +1,3 @@
+- runtime.turns=1
+- world.num_agents=3
+- runtime.show_map_every=0

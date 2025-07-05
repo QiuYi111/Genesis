@@ -1,0 +1,18 @@
+# @package _global_
+model:
+  api_key_env: "OPENAI_API_KEY"
+  agent_model: "gpt-4o-mini"
+  trinity_model: "gpt-4o"
+  base_url: "https://api.openai.com/v1/chat/completions"
+  
+  # Temperature settings
+  temperatures:
+    agent_action: 0.7
+    agent_goal: 0.9
+    trinity_adjudicate: 0.2
+    trinity_execute: 0.3
+    world_rules: 0.7
+  
+  # Retry settings
+  max_retries: 3
+  retry_delay: 1.0

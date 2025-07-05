@@ -1,0 +1,36 @@
+2025-07-05 08:29:26.705 | ERROR    | __main__:adeepseek_chat:92 - Unexpected error: Connection timeout to host https://api.deepseek.com/v1/chat/completions
+2025-07-05 08:29:26.706 | SUCCESS  | __main__:_generate_initial_rules:359 - [Trinity] Generated rules for era: 魔法原始时代,魔能水晶是魔法源头,可以用于制造法杖.水晶有多种属性,跟出产地有关
+2025-07-05 08:29:26.707 | INFO     | __main__:initialize:500 - 
+========================================
+2025-07-05 08:29:26.707 | INFO     | __main__:initialize:501 - INITIALIZING WORLD FOR ERA: 魔法原始时代,魔能水晶是魔法源头,可以用于制造法杖.水晶有多种属性,跟出产地有关
+2025-07-05 08:29:26.707 | INFO     | __main__:initialize:502 - TERRAIN TYPES: OCEAN, FOREST, GRASSLAND, MOUNTAIN
+2025-07-05 08:29:26.707 | INFO     | __main__:initialize:503 - RESOURCE RULES:
+2025-07-05 08:29:26.707 | INFO     | __main__:initialize:505 -   WOOD:
+2025-07-05 08:29:26.707 | INFO     | __main__:initialize:507 -     - FOREST: 50.0% chance
+2025-07-05 08:29:26.707 | INFO     | __main__:initialize:507 -     - OCEAN: 0% chance
+2025-07-05 08:29:26.707 | INFO     | __main__:initialize:505 -   APPLE:
+2025-07-05 08:29:26.707 | INFO     | __main__:initialize:507 -     - FOREST: 30.0% chance
+2025-07-05 08:29:26.707 | INFO     | __main__:initialize:507 -     - GRASSLAND: 20.0% chance
+2025-07-05 08:29:26.707 | INFO     | __main__:initialize:505 -   FISH:
+2025-07-05 08:29:26.708 | INFO     | __main__:initialize:507 -     - OCEAN: 40.0% chance
+2025-07-05 08:29:26.708 | INFO     | __main__:initialize:505 -   STONE:
+2025-07-05 08:29:26.708 | INFO     | __main__:initialize:507 -     - MOUNTAIN: 60.0% chance
+2025-07-05 08:29:26.708 | INFO     | __main__:initialize:508 - ========================================
+
+2025-07-05 08:29:26.709 | INFO     | __main__:initialize:526 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-05 08:29:26.709 | INFO     | __main__:initialize:528 -   APPLE: 191 units
+2025-07-05 08:29:26.709 | INFO     | __main__:initialize:528 -   FISH: 28 units
+2025-07-05 08:29:26.709 | INFO     | __main__:initialize:528 -   STONE: 40 units
+2025-07-05 08:29:26.709 | INFO     | __main__:initialize:528 -   WOOD: 34 units
+2025-07-05 08:29:26.709 | INFO     | __main__:initialize:529 - ========================================
+
+2025-07-05 08:30:28.704 | ERROR    | __main__:adeepseek_chat:92 - Unexpected error: Connection timeout to host https://api.deepseek.com/v1/chat/completions
+2025-07-05 08:30:28.705 | ERROR    | __main__:adeepseek_chat:92 - Unexpected error: Connection timeout to host https://api.deepseek.com/v1/chat/completions
+2025-07-05 08:30:28.706 | ERROR    | __main__:adeepseek_chat:92 - Unexpected error: Connection timeout to host https://api.deepseek.com/v1/chat/completions
+2025-07-05 08:30:28.706 | ERROR    | __main__:adeepseek_chat:92 - Unexpected error: Connection timeout to host https://api.deepseek.com/v1/chat/completions
+2025-07-05 08:30:28.706 | ERROR    | __main__:adeepseek_chat:92 - Unexpected error: Connection timeout to host https://api.deepseek.com/v1/chat/completions
+2025-07-05 08:30:28.706 | ERROR    | __main__:adeepseek_chat:92 - Unexpected error: Connection timeout to host https://api.deepseek.com/v1/chat/completions
+2025-07-05 08:30:28.706 | ERROR    | __main__:adeepseek_chat:92 - Unexpected error: Connection timeout to host https://api.deepseek.com/v1/chat/completions
+2025-07-05 08:30:28.706 | ERROR    | __main__:adeepseek_chat:92 - Unexpected error: Connection timeout to host https://api.deepseek.com/v1/chat/completions
+2025-07-05 08:30:28.707 | ERROR    | __main__:adeepseek_chat:92 - Unexpected error: Connection timeout to host https://api.deepseek.com/v1/chat/completions
+2025-07-05 08:30:28.707 | ERROR    | __main__:adeepseek_chat:92 - Unexpected error: Connection timeout to host https://api.deepseek.com/v1/chat/completions

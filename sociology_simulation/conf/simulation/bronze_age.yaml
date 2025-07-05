@@ -1,0 +1,61 @@
+# @package _global_
+simulation:
+  era_prompt: "青铜时代"
+  terrain_types:
+    - OCEAN
+    - FOREST
+    - GRASSLAND  
+    - MOUNTAIN
+    - DESERT
+  
+  resource_rules:
+    wood:
+      FOREST: 0.4
+      GRASSLAND: 0.1
+    bronze:
+      MOUNTAIN: 0.3
+      DESERT: 0.1
+    copper:
+      MOUNTAIN: 0.4
+    tin:
+      MOUNTAIN: 0.2
+    fish:
+      OCEAN: 0.4
+    grain:
+      GRASSLAND: 0.5
+      FOREST: 0.1
+    
+  # Agent initialization with better tools  
+  agent_attributes:
+    strength:
+      min: 2
+      max: 12
+    curiosity:
+      min: 2
+      max: 12
+    charm:
+      min: 1
+      max: 10
+    
+  agent_inventory:
+    wood:
+      min: 1
+      max: 3
+    bronze:
+      min: 0
+      max: 1
+    grain:
+      min: 1
+      max: 2
+
+  agent_age:
+    min: 16
+    max: 75
+
+  # Improved survival mechanics
+  survival:
+    hunger_increase_per_turn: 6
+    health_loss_when_hungry: 4
+    hunger_threshold: 60
+    critical_health: 25
+    starvation_threshold: 85

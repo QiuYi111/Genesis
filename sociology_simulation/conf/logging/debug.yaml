@@ -1,0 +1,16 @@
+# @package _global_
+logging:
+  level: DEBUG
+  format: "{time:YYYY-MM-DD HH:mm:ss.SSS} | {level: <8} | {name}:{function}:{line} - {message}"
+  console_format: "<level>{message}</level>"
+  
+  file:
+    enabled: true
+    path: "logs/debug_sociology_simulation_{time}.log"
+    rotation: "50 MB"
+    retention: "7 days"
+    compression: "zip"
+  
+  console:
+    enabled: true
+    level: DEBUG
