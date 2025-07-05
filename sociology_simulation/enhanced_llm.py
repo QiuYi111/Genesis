@@ -9,6 +9,7 @@
 """
 
 import asyncio
+import os
 import json
 import re
 import time
@@ -257,6 +258,22 @@ class EnhancedLLMService:
                 if not self._validate_json_schema(data, validation_schema):
                     return False, f"JSON不符合schema要求"
             
+            # 额外验证：确保关键字段不为None
+            if isinstance(data, dict):
+                for key, value in data.items():
+                    if key in ["chat_request", "exchange_request"] and value is not None:
+                        if not isinstance(value, dict):
+                            logger.warning(f"Invalid {key} format: {value}")
+                            data[key] = None
+                        elif key == "chat_request":
+                            if not all(k in value for k in ["target_id", "topic"]):
+                                logger.warning(f"Incomplete chat_request: {value}")
+                                data[key] = None
+                        elif key == "exchange_request":
+                            if not all(k in value for k in ["target_id", "offer", "request"]):
+                                logger.warning(f"Incomplete exchange_request: {value}")
+                                data[key] = None
+            
             return True, data
             
         except json.JSONDecodeError as e:
@@ -345,11 +362,18 @@ IF YOU CANNOT GENERATE VALID JSON, RETURN: {}
         session: aiohttp.ClientSession
     ) -> str:
         """调用LLM API"""
-        url = self.config.model.base_url.rstrip('/') + '/v1/chat/completions'
+        url = self.config.model.base_url
+        api_key = os.getenv(self.config.model.api_key_env)
+        if not api_key:
+            raise ValueError(f"API key not found in environment variable {self.config.model.api_key_env}")
+        
         headers = {
-            "Authorization": f"Bearer {self.config.model.api_key_env}",
+            "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json"
         }
+        logger.debug(f"Making LLM request to {url}")
+        if api_key:
+            logger.debug(f"Using API key: {api_key[:5]}...{api_key[-5:]}")
         
         payload = {
             "model": self.config.model.agent_model,
@@ -407,20 +431,136 @@ IF YOU CANNOT GENERATE VALID JSON, RETURN: {}
         perception: Dict,
         memory_summary: Dict,
         goal: str,
+        skills: Dict,
         session: aiohttp.ClientSession
     ) -> str:
         """生成Agent行动"""
+        # Format skills for display
+        skills_display = {}
+        for skill_name, skill_data in skills.items():
+            skills_display[skill_name] = f"Level {skill_data.get('level', 1)}"
+        
         response = await self.generate(
             "agent_action",
             session,
             era_prompt=era_prompt,
             perception=json.dumps(perception, ensure_ascii=False, indent=2),
             memory_summary=json.dumps(memory_summary, ensure_ascii=False, indent=2),
-            goal=goal
+            goal=goal,
+            skills=json.dumps(skills_display, ensure_ascii=False, indent=2)
         )
-        return response.content if response.success else "休息一下"
+        if response.success:
+            return response.content
+        else:
+            # 提供更智能的fallback行动
+            return self._generate_fallback_action(perception, goal)
     
-    async def trinity_generate_rules(self, era_prompt: str, session: aiohttp.ClientSession) -> Dict[str, Any]:
+    def _generate_fallback_action(self, perception: Dict, goal: str) -> str:
+        """生成智能的fallback行动"""
+        import random
+        
+        agent_info = perception.get("you", {})
+        visible_tiles = perception.get("visible_tiles", [])
+        visible_agents = perception.get("visible_agents", [])
+        
+        age = agent_info.get("age", 25)
+        health = agent_info.get("health", 100)
+        hunger = agent_info.get("hunger", 0)
+        inventory = agent_info.get("inventory", {})
+        attributes = agent_info.get("attributes", {})
+        
+        possible_actions = []
+        
+        # 基于生存需求的行动
+        if hunger > 60:
+            # 寻找食物资源
+            for tile in visible_tiles:
+                resources = tile.get("resource", {})
+                if any(food in resources for food in ["apple", "fish", "fruit", "berries"]):
+                    x, y = tile["pos"]
+                    possible_actions.append(f"移动到({x},{y})采集食物")
+            if not possible_actions:
+                possible_actions.append("寻找食物")
+        
+        # 基于健康状况的行动
+        if health < 70:
+            possible_actions.extend([
+                "休息恢复体力",
+                "寻找安全的地方休息",
+                "寻找治疗用的草药"
+            ])
+        
+        # 资源收集行动
+        strength = attributes.get("strength", 5)
+        curiosity = attributes.get("curiosity", 5)
+        
+        for tile in visible_tiles:
+            resources = tile.get("resource", {})
+            x, y = tile["pos"]
+            
+            if "wood" in resources and strength >= 3:
+                possible_actions.append(f"移动到({x},{y})砍伐木材")
+            if "stone" in resources and strength >= 4:
+                possible_actions.append(f"移动到({x},{y})采集石头")
+            if "fish" in resources:
+                possible_actions.append(f"移动到({x},{y})捕鱼")
+            if any(mineral in resources for mineral in ["iron", "copper", "crystal", "magical_crystal"]):
+                possible_actions.append(f"移动到({x},{y})开采矿物")
+        
+        # 工具制作行动（基于库存）
+        wood_count = inventory.get("wood", 0)
+        stone_count = inventory.get("stone", 0)
+        
+        if wood_count >= 2 and stone_count >= 1 and strength >= 5:
+            possible_actions.extend([
+                "制作石斧",
+                "制作工具"
+            ])
+        
+        if wood_count >= 5 and strength >= 3:
+            possible_actions.extend([
+                "建造简易住所",
+                "制作木屋"
+            ])
+        
+        # 社交行动（基于年龄和魅力）
+        charm = attributes.get("charm", 5)
+        if visible_agents and age >= 18:
+            if charm >= 6:
+                agent = random.choice(visible_agents)
+                possible_actions.extend([
+                    f"与智能体{agent['aid']}聊天交流",
+                    f"向智能体{agent['aid']}求助"
+                ])
+                
+                # 求偶行动（年龄合适且魅力高）
+                if 18 <= age <= 50 and charm >= 7:
+                    suitable_partners = [a for a in visible_agents 
+                                       if a.get("age", 0) >= 18 and abs(a.get("age", 25) - age) <= 15]
+                    if suitable_partners:
+                        partner = random.choice(suitable_partners)
+                        possible_actions.append(f"向智能体{partner['aid']}表示好感")
+        
+        # 探索行动（基于好奇心）
+        if curiosity >= 6:
+            possible_actions.extend([
+                "探索附近区域",
+                "寻找新的资源点",
+                "研究周围环境"
+            ])
+        
+        # 如果没有特殊行动，使用基础行动
+        if not possible_actions:
+            possible_actions = [
+                "四处走动",
+                "观察环境",
+                "休息一下",
+                "整理物品"
+            ]
+        
+        return random.choice(possible_actions)
+    
+    async def trinity_generate_rules(self, era_prompt: str, session: aiohttp.ClientSession) -> Optional[Dict[str, Any]]:
         """Trinity生成初始规则"""
         response = await self.generate(
             "trinity_generate_initial_rules",
@@ -442,7 +582,7 @@ IF YOU CANNOT GENERATE VALID JSON, RETURN: {}
         turn: int,
         global_log: List[str],
         session: aiohttp.ClientSession
-    ) -> Dict[str, Any]:
+    ) -> Optional[Dict[str, Any]]:
         """Trinity事件裁决"""
         response = await self.generate(
             "trinity_adjudicate",
@@ -461,7 +601,7 @@ IF YOU CANNOT GENERATE VALID JSON, RETURN: {}
         resource_rules: Dict,
         resource_status: Dict,
         session: aiohttp.ClientSession
-    ) -> Dict[str, Any]:
+    ) -> Optional[Dict[str, Any]]:
         """Trinity执行生态管理行动"""
         response = await self.generate(
             "trinity_execute_actions",
@@ -484,10 +624,16 @@ IF YOU CANNOT GENERATE VALID JSON, RETURN: {}
         agent_inventory: Dict,
         agent_health: int,
         agent_hunger: float,
+        agent_skills: Dict,
         action: str,
         session: aiohttp.ClientSession
-    ) -> Dict[str, Any]:
+    ) -> Optional[Dict[str, Any]]:
         """解析Agent行动"""
+        # Format skills for display
+        skills_display = {}
+        for skill_name, skill_data in agent_skills.items():
+            skills_display[skill_name] = f"Level {skill_data.get('level', 1)}"
+        
         response = await self.generate(
             "action_handler_resolve",
             session,
@@ -499,10 +645,191 @@ IF YOU CANNOT GENERATE VALID JSON, RETURN: {}
             agent_inventory=agent_inventory,
             agent_health=agent_health,
             agent_hunger=agent_hunger,
+            agent_skills=json.dumps(skills_display, ensure_ascii=False, indent=2),
             action=action
         )
-        return response.parsed_data if response.success else {
-            "log": f"行动失败: {action}",
+        if response.success:
+            return response.parsed_data
+        else:
+            # 提供更智能的行动解析fallback
+            return self._resolve_action_fallback(
+                action, agent_attributes, agent_position, agent_inventory, agent_health, agent_hunger
+            )
+    
+    def _resolve_action_fallback(self, action: str, agent_attributes: Dict, agent_position: List[int], 
+                               agent_inventory: Dict, agent_health: int, agent_hunger: float) -> Dict:
+        """智能的行动解析fallback"""
+        import random
+        import re
+        
+        action_lower = action.lower()
+        x, y = agent_position
+        strength = agent_attributes.get("strength", 5)
+        curiosity = agent_attributes.get("curiosity", 5)
+        charm = agent_attributes.get("charm", 5)
+        
+        # 移动行动
+        move_match = re.search(r'移动到?\(?(\d+),?\s*(\d+)\)?', action)
+        if move_match or "移动" in action_lower or "前往" in action_lower:
+            if move_match:
+                new_x, new_y = int(move_match.group(1)), int(move_match.group(2))
+                # 限制移动距离
+                max_distance = 3 if strength >= 5 else 2
+                distance = abs(new_x - x) + abs(new_y - y)
+                if distance <= max_distance:
+                    return {
+                        "position": [new_x, new_y],
+                        "log": f"移动到了({new_x},{new_y})"
+                    }
+            
+            # 随机移动
+            dx, dy = random.choice([(-1,0), (1,0), (0,-1), (0,1), (-1,-1), (1,1), (-1,1), (1,-1)])
+            new_x, new_y = max(0, min(63, x + dx)), max(0, min(63, y + dy))
+            return {
+                "position": [new_x, new_y],
+                "log": f"移动到了({new_x},{new_y})"
+            }
+        
+        # 资源采集行动
+        if any(word in action_lower for word in ["采集", "砍伐", "挖掘", "捕鱼", "收集", "开采"]):
+            resource_gained = {}
+            
+            if "木材" in action or "wood" in action_lower or "砍伐" in action:
+                if strength >= 3:
+                    gained = random.randint(1, 3)
+                    resource_gained["wood"] = gained
+                    return {
+                        "inventory": resource_gained,
+                        "log": f"砍伐获得了{gained}个木材"
+                    }
+            
+            elif "石头" in action or "stone" in action_lower or "开采" in action:
+                if strength >= 4:
+                    gained = random.randint(1, 2)
+                    resource_gained["stone"] = gained
+                    return {
+                        "inventory": resource_gained,
+                        "log": f"开采获得了{gained}个石头"
+                    }
+            
+            elif "鱼" in action or "fish" in action_lower or "捕鱼" in action:
+                gained = random.randint(1, 2)
+                resource_gained["fish"] = gained
+                return {
+                    "inventory": resource_gained,
+                    "log": f"捕鱼获得了{gained}条鱼",
+                    "hunger": max(0, agent_hunger - 20)  # 吃鱼减少饥饿
+                }
+            
+            elif any(fruit in action for fruit in ["苹果", "fruit", "berries", "浆果"]):
+                gained = random.randint(1, 3)
+                resource_gained["apple"] = gained
+                return {
+                    "inventory": resource_gained,
+                    "log": f"采集获得了{gained}个苹果",
+                    "hunger": max(0, agent_hunger - 15)
+                }
+            
+            # 通用采集
+            return {
+                "inventory": {"wood": 1} if strength >= 3 else {},
+                "log": "尝试采集了一些资源"
+            }
+        
+        # 制作行动
+        if any(word in action_lower for word in ["制作", "建造", "制造", "打造"]):
+            wood_count = agent_inventory.get("wood", 0)
+            stone_count = agent_inventory.get("stone", 0)
+            
+            if "斧" in action or "axe" in action_lower:
+                if wood_count >= 2 and stone_count >= 1 and strength >= 5:
+                    return {
+                        "inventory": {"wood": -2, "stone": -1, "axe": 1},
+                        "log": "成功制作了石斧!"
+                    }
+                else:
+                    return {
+                        "log": "材料不足，无法制作石斧"
+                    }
+            
+            elif any(word in action for word in ["住所", "房屋", "木屋", "hut"]):
+                if wood_count >= 5 and strength >= 3:
+                    return {
+                        "inventory": {"wood": -5},
+                        "build": {
+                            "type": "hut",
+                            "materials": {"wood": 5}
+                        },
+                        "log": "成功建造了简易住所!"
+                    }
+                else:
+                    return {
+                        "log": "木材不足，无法建造住所"
+                    }
+            
+            # 通用制作
+            if wood_count >= 1:
+                return {
+                    "inventory": {"wood": -1},
+                    "log": "制作了一些简单的工具"
+                }
+        
+        # 社交行动
+        if any(word in action_lower for word in ["聊天", "交流", "求助", "好感", "求偶"]):
+            # 提取目标智能体ID
+            agent_match = re.search(r'智能体(\d+)', action)
+            if agent_match:
+                target_id = int(agent_match.group(1))
+                
+                if "好感" in action or "求偶" in action:
+                    if charm >= 7:
+                        return {
+                            "courtship_target": target_id,
+                            "log": f"向智能体{target_id}表达了好感"
+                        }
+                    else:
+                        return {
+                            "log": "魅力不足，求偶失败"
+                        }
+                
+                elif "聊天" in action or "交流" in action:
+                    topic = "天气" if "天气" in action else "日常话题"
+                    return {
+                        "chat_request": {
+                            "target_id": target_id,
+                            "topic": topic
+                        },
+                        "log": f"向智能体{target_id}发起聊天"
+                    }
+        
+        # 休息行动
+        if any(word in action_lower for word in ["休息", "睡觉", "恢复"]):
+            health_gain = random.randint(5, 15)
+            hunger_gain = random.randint(3, 8)
+            return {
+                "health": min(100, agent_health + health_gain),
+                "hunger": min(100, agent_hunger + hunger_gain),
+                "log": f"休息恢复了{health_gain}点健康值"
+            }
+        
+        # 探索行动
+        if any(word in action_lower for word in ["探索", "寻找", "搜索", "研究"]):
+            if curiosity >= 6:
+                # 可能发现新资源点
+                if random.random() < 0.3:
+                    resource_type = random.choice(["wood", "stone", "apple"])
+                    return {
+                        "inventory": {resource_type: 1},
+                        "log": f"探索中发现了{resource_type}!"
+                    }
+                else:
+                    return {
+                        "log": "探索了周围环境，但没有特别发现"
+                    }
+        
+        # 默认fallback
+        return {
+            "log": f"尝试执行: {action}",
             "position": agent_position
         }
     
@@ -526,6 +853,48 @@ IF YOU CANNOT GENERATE VALID JSON, RETURN: {}
             topic=topic
         )
         return response.content if response.success else "嗯，我不太明白。"
+    
+    async def trinity_analyze_behaviors(
+        self,
+        era_prompt: str,
+        turn: int,
+        agent_behaviors: Dict,
+        available_skills: Dict,
+        unlock_conditions: Dict,
+        session: aiohttp.ClientSession
+    ) -> Optional[Dict[str, Any]]:
+        """Trinity分析智能体行为并管理技能系统"""
+        response = await self.generate(
+            "trinity_analyze_behaviors",
+            session,
+            era_prompt=era_prompt,
+            turn=turn,
+            agent_behaviors=json.dumps(agent_behaviors, ensure_ascii=False, indent=2),
+            available_skills=json.dumps(available_skills, ensure_ascii=False, indent=2),
+            unlock_conditions=json.dumps(unlock_conditions, ensure_ascii=False, indent=2)
+        )
+        return response.parsed_data if response.success else {}
+    
+    async def trinity_natural_events(
+        self,
+        era_prompt: str,
+        turn: int,
+        agent_count: int,
+        development_level: str,
+        recent_activities: List[str],
+        session: aiohttp.ClientSession
+    ) -> Optional[Dict[str, Any]]:
+        """Trinity生成自然事件"""
+        response = await self.generate(
+            "trinity_natural_events",
+            session,
+            era_prompt=era_prompt,
+            turn=turn,
+            agent_count=agent_count,
+            development_level=development_level,
+            recent_activities="\n".join(recent_activities)
+        )
+        return response.parsed_data if response.success else {}
     
     def get_statistics(self) -> Dict[str, Any]:
         """获取LLM服务统计信息"""

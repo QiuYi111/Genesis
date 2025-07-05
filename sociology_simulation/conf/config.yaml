@@ -7,13 +7,13 @@ defaults:
 # Main simulation parameters
 world:
   size: 64
-  num_agents: 20
+  num_agents: 10
 
 # Runtime parameters  
 runtime:
-  turns: 10
-  show_map_every: 1
-  show_conversations: false
+  turns: 1000
+  show_map_every: 0
+  show_conversations: true
   timeout_per_agent: 15.0
 
 # Display and output

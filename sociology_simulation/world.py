@@ -13,6 +13,16 @@ from .enhanced_llm import get_llm_service
 from .bible import Bible
 from .agent import Agent
 from .trinity import Trinity
+from .terrain_generator import generate_advanced_terrain
+from .social_structures import SocialStructureManager
+from .cultural_memory import CulturalMemorySystem
+from .technology_system import TechnologySystem
+from .interaction_system import InteractionSystem
+from .economic_system import EconomicSystem, PoliticalSystem
+from .web_export import (
+    initialize_web_export, save_world_for_web, save_turn_for_web, 
+    export_web_data, export_incremental_web_data
+)
 
 if TYPE_CHECKING:
     from .world import World
@@ -30,6 +40,12 @@ class World:
         trinity: World rules manager
         map: Terrain map
         resources: Resource distribution
+        social_manager: Social structures manager
+        cultural_memory: Cultural memory and knowledge system
+        tech_system: Technology progression system
+        interaction_system: Enhanced interaction system
+        economic_system: Economic and trade system
+        political_system: Political entities and governance
     """
     def __init__(self, size: int, era_prompt: str, num_agents: int):
         self.size = size
@@ -41,6 +57,12 @@ class World:
         self.trinity = Trinity(self.bible, era_prompt)
         self.map = None
         self.resources = {}
+        self.social_manager = SocialStructureManager()
+        self.cultural_memory = CulturalMemorySystem()
+        self.tech_system = TechnologySystem()
+        self.interaction_system = InteractionSystem()
+        self.economic_system = EconomicSystem()
+        self.political_system = PoliticalSystem()
 
     async def initialize(self, session: aiohttp.ClientSession):
         """Initialize world state"""
@@ -60,7 +82,7 @@ class World:
                 logger.info(f"    - {terrain}: {prob*100}% chance")
         logger.info("="*40 + "\n")
         
-        self.map = self.generate_contiguous_terrain()
+        self.map = self.generate_realistic_terrain()
         self.resources = {}
         self.place_resources()
         
@@ -72,6 +94,18 @@ class World:
         for resource, count in sorted(resource_counts.items()):
             logger.info(f"  {resource.upper()}: {count} units")
         logger.info("="*40 + "\n")
+        
+        # Initialize web export
+        initialize_web_export(
+            world_size=self.size,
+            era_prompt=self.era_prompt,
+            num_agents=self.num_agents,
+            terrain_types=self.trinity.terrain_types,
+            resource_rules=self.trinity.resource_rules
+        )
+        
+        # Save world state for web export
+        save_world_for_web(self.map, self.resources)
         
         self.agents = []
         self.pending_interactions = []
@@ -88,8 +122,38 @@ class World:
             agent = Agent(aid, pos, attr, inv, age=age)
             self.agents.append(agent)
 
-    def generate_contiguous_terrain(self):
-        """Generate terrain map with contiguous regions"""
+    def generate_realistic_terrain(self):
+        """Generate realistic terrain using advanced algorithms"""
+        terrain_types = getattr(self.trinity, "terrain_types", DEFAULT_TERRAIN)
+        terrain_colors = getattr(self.trinity, "terrain_colors", {})
+        
+        # Choose algorithm based on era or randomly
+        algorithms = ["noise", "voronoi", "mixed"]
+        algorithm = "mixed"  # Default to mixed for best results
+        
+        # Use a seed based on era for consistency
+        seed = hash(self.era_prompt) % 1000000
+        
+        logger.info(f"Generating terrain using '{algorithm}' algorithm with seed {seed}")
+        
+        try:
+            terrain_map = generate_advanced_terrain(
+                size=self.size,
+                terrain_types=terrain_types,
+                terrain_colors=terrain_colors,
+                algorithm=algorithm,
+                seed=seed
+            )
+            logger.success(f"Generated realistic {self.size}x{self.size} terrain map")
+            return terrain_map
+            
+        except Exception as e:
+            logger.error(f"Advanced terrain generation failed: {e}")
+            logger.info("Falling back to simple terrain generation")
+            return self.generate_simple_terrain()
+    
+    def generate_simple_terrain(self):
+        """Fallback: Generate simple terrain map with contiguous regions"""
         terrain_types = getattr(self.trinity, "terrain_types", DEFAULT_TERRAIN)
         map = [["GRASSLAND"] * self.size for _ in range(self.size)]
         
@@ -132,7 +196,23 @@ class World:
             logger.warning("Cannot show map - world map not initialized")
             return
             
-        img = [[TERRAIN_COLORS[self.map[x][y]] for y in range(self.size)] for x in range(self.size)]
+        # Use Trinity-generated colors, fallback to default colors, then to gray
+        def get_terrain_color(terrain_type):
+            # First try Trinity-generated colors
+            if hasattr(self.trinity, 'terrain_colors') and terrain_type in self.trinity.terrain_colors:
+                color = self.trinity.terrain_colors[terrain_type]
+                if isinstance(color, list) and len(color) == 3:
+                    return tuple(color)
+            
+            # Fallback to static colors
+            if terrain_type in TERRAIN_COLORS:
+                return TERRAIN_COLORS[terrain_type]
+            
+            # Default gray for unknown terrains
+            logger.warning(f"Unknown terrain type '{terrain_type}', using gray color")
+            return (0.5, 0.5, 0.5)
+        
+        img = [[get_terrain_color(self.map[x][y]) for y in range(self.size)] for x in range(self.size)]
         import matplotlib.pyplot as plt
         plt.figure(figsize=(6,6))
         plt.title("World Terrain")
@@ -185,6 +265,7 @@ class World:
                         agent_inventory=agent.inventory,
                         agent_health=agent.health,
                         agent_hunger=agent.hunger,
+                        agent_skills=agent.skills,
                         action=action,
                         session=session
                     )
@@ -235,6 +316,7 @@ class World:
                                  session: aiohttp.ClientSession, era_prompt: str) -> Dict:
             """Process and record special events from action outcome"""
             logger.info(f"Processing outcome for {agent.name}({agent.aid}):")
+            logger.debug(f"Outcome content: {outcome}")
             
             if "courtship_target" in outcome:
                 self.courtship_events.append((agent.aid, outcome["courtship_target"]))
@@ -317,28 +399,41 @@ class World:
             
             if "chat_request" in outcome:
                 chat_data = outcome["chat_request"]
-                world.pending_interactions.append({
-                    "source_id": agent.aid,
-                    "target_id": chat_data["target_id"],
-                    "type": "chat",
-                    "content": chat_data["topic"]
-                })
-                return {
-                    "log": f"向智能体 {chat_data['target_id']} 发送聊天请求: {chat_data['topic']}"
-                }
+                if chat_data and isinstance(chat_data, dict) and "target_id" in chat_data and "topic" in chat_data:
+                    world.pending_interactions.append({
+                        "source_id": agent.aid,
+                        "target_id": chat_data["target_id"],
+                        "type": "chat",
+                        "content": chat_data["topic"]
+                    })
+                    return {
+                        "log": f"向智能体 {chat_data['target_id']} 发送聊天请求: {chat_data['topic']}"
+                    }
+                else:
+                    logger.warning(f"Invalid chat_request data: {chat_data}")
+                    return {
+                        "log": "聊天请求格式无效"
+                    }
             
             if "exchange_request" in outcome:
                 exchange_data = outcome["exchange_request"]
-                world.pending_interactions.append({
-                    "source_id": agent.aid,
-                    "target_id": exchange_data["target_id"],
-                    "type": "exchange",
-                    "offer": exchange_data["offer"],
-                    "request": exchange_data["request"]
-                })
-                return {
-                    "log": f"向智能体 {exchange_data['target_id']} 发起交换: {exchange_data['offer']} 换 {exchange_data['request']}"
-                }
+                if (exchange_data and isinstance(exchange_data, dict) and 
+                    "target_id" in exchange_data and "offer" in exchange_data and "request" in exchange_data):
+                    world.pending_interactions.append({
+                        "source_id": agent.aid,
+                        "target_id": exchange_data["target_id"],
+                        "type": "exchange",
+                        "offer": exchange_data["offer"],
+                        "request": exchange_data["request"]
+                    })
+                    return {
+                        "log": f"向智能体 {exchange_data['target_id']} 发起交换: {exchange_data['offer']} 换 {exchange_data['request']}"
+                    }
+                else:
+                    logger.warning(f"Invalid exchange_request data: {exchange_data}")
+                    return {
+                        "log": "交换请求格式无效"
+                    }
                 
             return outcome
             
@@ -523,13 +618,102 @@ class World:
             await self._check_agent_status(turn_log, action_handler)
             self.place_resources()
         
+        # Process social structures and group dynamics
+        self.social_manager.process_group_actions(self, self.trinity.turn)
+        
+        # Process cultural evolution and knowledge transfer
+        self.cultural_memory.process_cultural_evolution(self, self.trinity.turn)
+        
+        # Process technology spread and innovation
+        self.tech_system.spread_technology(self)
+        
+        # Process complex interactions
+        self.interaction_system.process_interactions(self, self.trinity.turn)
+        
+        # Suggest and potentially start new interactions
+        interaction_suggestions = self.interaction_system.suggest_interactions(self, self.trinity.turn)
+        for suggestion in interaction_suggestions[:2]:  # Max 2 new interactions per turn
+            if random.random() < suggestion["priority"]:
+                interaction = self.interaction_system.initiate_interaction(
+                    suggestion["initiator"], suggestion["target"], 
+                    suggestion["type"], suggestion["context"], self.trinity.turn
+                )
+                if interaction:
+                    turn_log.append(f"{suggestion['initiator'].name}与{suggestion['target'].name}开始{suggestion['type']}")
+        
+        # Check for technology discoveries
+        for agent in random.sample(self.agents, min(len(self.agents), 3)):  # Max 3 attempts per turn
+            if random.random() < 0.1:  # 10% chance per selected agent
+                discovery = self.tech_system.attempt_discovery(agent, self, self.trinity.turn)
+                if discovery:
+                    turn_log.append(f"{agent.name}发明了{discovery.name}!")
+        
+        # Suggest new group formations
+        group_suggestions = self.social_manager.suggest_group_formation(self.agents, self.trinity.turn)
+        for suggestion in group_suggestions:
+            founder = suggestion["founder"]
+            if founder.leadership_score > 30 or random.random() < 0.3:  # Form group
+                group = self.social_manager.create_group(
+                    founder.aid, 
+                    suggestion["type"], 
+                    suggestion["purpose"], 
+                    self.trinity.turn
+                )
+                founder.group_id = group.group_id
+                
+                # Add some partners to the group
+                for partner in suggestion["partners"][:2]:  # Max 2 initial partners
+                    if random.random() < 0.7:  # 70% chance each partner joins
+                        group.add_member(partner.aid)
+                        partner.group_id = group.group_id
+                        founder.add_social_connection(partner.aid, "group_member", 3)
+                        partner.add_social_connection(partner.aid, "group_member", 3)
+                
+                turn_log.append(f"{founder.name}组建了{group.group_type}: {group.name}")
+        
+        # Process economic activities
+        self.economic_system.process_economic_activity(self, self.trinity.turn)
+        
+        # Process political activities
+        self.political_system.process_political_activities(self, self.trinity.turn)
+        
         # Let Trinity adjudicate
         await self.trinity.adjudicate(turn_log, session)
         await self.trinity.execute_actions(self, session)
         
+        # Collect conversations for this turn
+        conversations = self.get_conversations()
+        
+        # Save turn data for web export
+        events = []
+        for agent in self.agents:
+            if agent.log:
+                events.append(f"{agent.name}({agent.aid}): {agent.log[-1]}")
+        
+        save_turn_for_web(
+            turn_num=self.trinity.turn,
+            agents=self.agents,
+            conversations=conversations,
+            events=events,
+            turn_log=turn_log
+        )
+        
+        # Export incremental data every few turns
+        exported_file = export_incremental_web_data(self.trinity.turn)
+        if exported_file:
+            logger.info(f"Web data exported to: {exported_file}")
+        
+        # Create feedback loops and emergent behavior reports
+        emergent_report = self._generate_emergent_behavior_report()
+        if emergent_report:
+            turn_log.extend(emergent_report)
+        
         # Log turn events
         logger.info("\n" + "="*40)
         logger.info(f"TURN SUMMARY - {len(self.agents)} agents alive")
+        logger.info(f"Groups: {len(self.social_manager.groups)}, Technologies: {len(self.tech_system.discovered_techs)}")
+        logger.info(f"Markets: {len(self.economic_system.markets)}, Political Entities: {len(self.political_system.political_entities)}")
+        logger.info(f"Era: {self.tech_system.eras[self.tech_system.current_era].name}")
         for entry in turn_log:
             logger.info(entry)
         logger.info("="*40 + "\n")
@@ -557,3 +741,54 @@ class World:
                     else:
                         conversations.append(f"{agent.name}({agent.aid}): {log_entry}")
         return conversations
+    
+    def _generate_emergent_behavior_report(self) -> List[str]:
+        """Generate report on emergent behaviors and feedback loops"""
+        report = []
+        
+        # Analyze population dynamics
+        if len(self.agents) > self.num_agents * 1.5:
+            report.append("人口快速增长，社会承受压力增加")
+        elif len(self.agents) < self.num_agents * 0.5:
+            report.append("人口下降，社会面临生存挑战")
+        
+        # Analyze skill diversity
+        all_skills = set()
+        for agent in self.agents:
+            all_skills.update(agent.skills.keys())
+        
+        if len(all_skills) > 15:
+            report.append("技能多样化发展，社会分工出现")
+        elif len(all_skills) < 5:
+            report.append("技能单一，社会发展受限")
+        
+        # Analyze social complexity
+        total_connections = sum(len(agent.social_connections) for agent in self.agents)
+        avg_connections = total_connections / len(self.agents) if self.agents else 0
+        
+        if avg_connections > 8:
+            report.append("社会网络复杂化，信息传播加速")
+        elif avg_connections < 2:
+            report.append("社会孤立现象严重，合作困难")
+        
+        # Analyze economic development
+        if self.economic_system.economy.economic_health > 0.7:
+            report.append("经济繁荣，贸易活跃")
+        elif self.economic_system.economy.economic_health < 0.3:
+            report.append("经济困难，资源分配不均")
+        
+        # Analyze technological progress
+        tech_progress = self.tech_system.get_era_progress()
+        if tech_progress.get("can_advance", False):
+            report.append("科技发展迅速，即将进入新时代")
+        
+        # Analyze political development
+        if len(self.political_system.political_entities) > 1:
+            report.append("政治组织形成，治理结构出现")
+        
+        # Analyze cultural development
+        total_knowledge = sum(len(knowledge) for knowledge in self.cultural_memory.agent_knowledge.values())
+        if total_knowledge > len(self.agents) * 3:
+            report.append("知识积累丰富，文化传承活跃")
+        
+        return report

@@ -73,7 +73,8 @@ def main(cfg: DictConfig) -> None:
     set_config(config)
     
     # Initialize prompt manager and enhanced LLM service
-    prompts_config_path = "conf/prompts.yaml"
+    # Use English templates from config file
+    prompts_config_path = "sociology_simulation/conf/prompts.yaml"
     prompt_manager = init_prompt_manager(prompts_config_path)
     llm_service = init_llm_service(prompt_manager)
     
@@ -89,11 +90,11 @@ def main(cfg: DictConfig) -> None:
         async with aiohttp.ClientSession() as session:
             world = World(cfg.world.size, cfg.simulation.era_prompt, cfg.world.num_agents)
             
+            await world.initialize(session)
+            
             # Show initial map if requested
             if cfg.runtime.show_map_every > 0:
                 world.show_map()
-            
-            await world.initialize(session)
             
             # Initialize agent goals
             tasks = [agent.decide_goal(cfg.simulation.era_prompt, session) for agent in world.agents]
@@ -114,6 +115,11 @@ def main(cfg: DictConfig) -> None:
                         print("\n=== AGENT CONVERSATIONS ===")
                         for conv in conversations:
                             print(conv)
+            
+            # Export final web data
+            from .web_export import export_web_data
+            final_export_file = export_web_data("final_simulation_data.json")
+            logger.success(f"Final simulation data exported to: {final_export_file}")
 
     asyncio.run(run_simulation())
 

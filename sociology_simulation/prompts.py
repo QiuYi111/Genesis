@@ -53,107 +53,108 @@ class PromptManager:
         # === Agent相关提示词 ===
         self.register_template(PromptTemplate(
             name="agent_generate_name",
-            system="你是一个名字生成器，专门为模拟世界中的角色生成符合时代背景的名字。",
-            user="根据以下信息生成一个合适的名字：\n属性: {attributes}\n年龄: {age}\n时代背景: {era}\n\n请只输出名字本身，不要包含任何解释或额外文本。",
+            system="You are a name generator that creates appropriate names for characters in simulation worlds based on era background. Always generate English names that fit the era style.",
+            user="Generate a suitable English name based on the following info:\nAttributes: {attributes}\nAge: {age}\nEra: {era}\n\nFor Stone Age era, use simple English names like: Rok, Flint, Ash, Reed, Clay, Storm, etc.\nOutput ONLY the name itself, no explanations or extra text.",
             temperature=0.8,
-            description="为Agent生成符合时代背景的名字"
+            description="Generate era-appropriate English names for Agents"
         ))
         
         self.register_template(PromptTemplate(
             name="agent_decide_goal",
-            system="""你是模拟世界中的一个智能体，需要根据自己的属性和时代背景制定一个现实可行的长期目标。
+            system="""You are an intelligent agent in a simulation world. Set a realistic long-term goal based on your attributes and era background.
 
-要求：
-1. 目标要符合你的属性特点
-2. 目标要符合时代背景的限制
-3. 目标要具体、可执行
-4. 用简体中文表达，一句话内完成""",
-            user="""时代背景: {era_prompt}
-你的属性: {attributes}
-你的年龄: {age}
-你的初始物品: {inventory}
+Requirements:
+1. Goal must match your attribute strengths
+2. Goal must fit era limitations 
+3. Goal must be specific and executable
+4. Express in ONE clear sentence only
+5. NO explanations, asterisks, or extra formatting""",
+            user="""Era background: {era_prompt}
+Your attributes: {attributes}
+Your age: {age}
+Your initial items: {inventory}
 
-请根据以上信息，制定一个符合你属性和时代背景的个人长期目标：""",
-            temperature=0.9,
-            description="为Agent制定个人长期目标"
+Set a personal long-term goal in one sentence:""",
+            temperature=0.7,
+            description="Agent personal goal setting"
         ))
         
         self.register_template(PromptTemplate(
             name="agent_action",
-            system="""你控制着模拟世界中的智能体。请严格遵守给定的规则。
+            system="""You control an intelligent agent in the simulation world. Strictly follow the given rules.
 
-你需要：
-1. 分析当前感知信息和记忆
-2. 考虑你的个人目标和属性
-3. 用自然语言描述你的下一步行动
+You need to:
+1. Analyze current perception and memory
+2. Consider your personal goal and attributes  
+3. Describe your next action in natural language
 
-可用行动类型：
-- 移动: "向北/南/东/西移动"
-- 收集资源: "收集附近的木材/石头/苹果"
-- 与其他Agent交互: "和Agent X交谈关于Y话题", "向Agent X交易物品"
-- 制造物品: "用木头和石头制作工具"
-- 建造: "建造一个小屋"
-- 休息/吃东西: "吃苹果恢复体力", "休息恢复健康"
+Available action types:
+- Movement: "move north/south/east/west"
+- Collect resources: "collect nearby wood/stone/apples"
+- Interact with other Agents: "chat with Agent X about Y topic", "trade items with Agent X"
+- Craft items: "craft tool using wood and stone"
+- Build: "build a hut"  
+- Rest/eat: "eat apple to restore energy", "rest to recover health"
 
-注意：描述要具体、简洁，一句话说明你要做什么。""",
-            user="""时代背景: {era_prompt}
+Note: Be specific and concise, describe what you want to do in one sentence.""",
+            user="""Era background: {era_prompt}
 
-当前状态:
+Current state:
 {perception}
 
-记忆摘要:
+Memory summary:
 {memory_summary}
 
-你的目标: {goal}
+Your goal: {goal}
 
-请根据当前状态和记忆，描述你的下一步行动：""",
+Based on current state and memory, describe your next action:""",
             temperature=0.7,
-            description="Agent执行行动的决策"
+            description="Agent action decision making"
         ))
         
-        # === Trinity相关提示词 ===
+        # === Trinity related prompts ===
         self.register_template(PromptTemplate(
             name="trinity_generate_initial_rules",
-            system="""你是TRINITY - 社会学模拟的世界构建者。你需要根据时代背景生成合适的地形类型和资源分布规则。
+            system="""You are TRINITY - the world builder of sociological simulation. Generate appropriate terrain types and resource distribution rules based on era background.
 
-严格要求：
-1. 必须返回有效的JSON格式
-2. 不能包含任何JSON之外的文本
-3. 所有字符串必须用双引号
-4. 数字必须是有效的浮点数（0.0-1.0之间）
+Strict requirements:
+1. Must return valid JSON format
+2. Cannot contain any text outside JSON
+3. All strings must use double quotes
+4. Numbers must be valid floats (between 0.0-1.0)
 
-JSON结构要求：
-{
-  "terrain_types": ["地形1", "地形2", "地形3", "地形4"],
-  "resource_rules": {
-    "资源名": {
-      "地形名": 概率值
-    }
-  }
-}
+JSON structure requirements:
+{{
+  "terrain_types": ["terrain1", "terrain2", "terrain3", "terrain4"],
+  "resource_rules": {{
+    "resource_name": {{
+      "terrain_name": probability_value
+    }}
+  }}
+}}
 
-示例：
-{
+Example:
+{{
   "terrain_types": ["FOREST", "OCEAN", "MOUNTAIN", "GRASSLAND"],
-  "resource_rules": {
-    "wood": {"FOREST": 0.6, "GRASSLAND": 0.1},
-    "fish": {"OCEAN": 0.4},
-    "stone": {"MOUNTAIN": 0.7}
-  }
-}""",
-            user="""时代背景: {era_prompt}
+  "resource_rules": {{
+    "wood": {{"FOREST": 0.6, "GRASSLAND": 0.1}},
+    "fish": {{"OCEAN": 0.4}},
+    "stone": {{"MOUNTAIN": 0.7}}
+  }}
+}}""",
+            user="""Era background: {era_prompt}
 
-请为这个时代生成：
-1. 4-6种地形类型（用英文大写，如FOREST, OCEAN等）
-2. 每种地形的资源分布概率（0.0-1.0之间的数字）
+Generate for this era:
+1. 4-6 terrain types (use English uppercase, like FOREST, OCEAN, etc.)
+2. Resource distribution probability for each terrain (numbers between 0.0-1.0)
 
-要求：
-- 地形类型要符合时代特征
-- 资源分布要合理
-- 如果是魔法时代，可以包含稀有/魔法资源
-- 概率值要平衡，不要过高或过低
+Requirements:
+- Terrain types must match era characteristics
+- Resource distribution must be reasonable
+- If magical era, can include rare/magical resources
+- Probability values should be balanced, not too high or low
 
-请只返回JSON，不要任何其他文本：""",
+Return only JSON, no other text:""",
             temperature=0.3,
             json_mode=True,
             validation_schema={
@@ -174,126 +175,130 @@ JSON结构要求：
                 '{"terrain_types": ["FOREST", "OCEAN", "MOUNTAIN", "GRASSLAND"], "resource_rules": {"wood": {"FOREST": 0.5}, "fish": {"OCEAN": 0.4}}}',
                 '{"terrain_types": ["DESERT", "OASIS", "ROCK", "CAVE"], "resource_rules": {"water": {"OASIS": 0.8}, "gems": {"CAVE": 0.2}}}'
             ],
-            description="Trinity生成初始世界规则"
+            description="Trinity generates initial world rules"
         ))
         
         self.register_template(PromptTemplate(
             name="trinity_adjudicate",
-            system="""你是TRINITY - 社会学模拟的全知裁判者。根据这一轮的全局事件，决定是否需要：
+            system="""You are TRINITY - the omniscient adjudicator of sociological simulation. Based on this round's global events, decide whether to:
 
-1. 添加新规则
-2. 更新资源分布
-3. 改变时代（仅在第10轮的倍数时）
+1. Add new rules
+2. Update resource distribution  
+3. Change era (only on multiples of 10 rounds)
 
-要求：
-- 必须返回有效JSON
-- 公正公平地做出决定
-- 考虑时代背景
-- 不要任何JSON外的文本
+Requirements:
+- Must return valid JSON
+- Make fair and impartial decisions
+- Consider era background
+- No text outside JSON
 
-有效的JSON格式：
-1. 添加规则: {"add_rules": {"规则名": "描述"}}
-2. 更新资源: {"update_resource_rules": {"资源名": {"地形": 概率}}}
-3. 改变时代: {"change_era": "新时代名称"}
-4. 组合多个: {"add_rules": {...}, "update_resource_rules": {...}}
-5. 无变化: {}""",
-            user="""时代背景: {era_prompt}
-当前轮次: {turn}
+Valid JSON formats:
+1. Add rules: {{"add_rules": {{"rule_name": "description"}}}}
+2. Update resources: {{"update_resource_rules": {{"resource_name": {{"terrain": probability}}}}}}
+3. Change era: {{"change_era": "new_era_name"}}
+4. Multiple actions: {{"add_rules": {{...}}, "update_resource_rules": {{...}}}}
+5. No changes: {{}}""",
+            user="""Era background: {era_prompt}
+Current turn: {turn}
 
-本轮全局事件：
+This round's global events:
 {global_log}
 
-请根据这些事件，判断是否需要调整规则或时代。返回JSON格式的决定：""",
+Based on these events, decide if rules or era need adjustment. Return JSON decision:""",
             temperature=0.2,
             json_mode=True,
             max_retries=5,
-            description="Trinity对全局事件的裁决"
+            description="Trinity global event adjudication"
         ))
         
         self.register_template(PromptTemplate(
             name="trinity_execute_actions",
-            system="""你是TRINITY - 维持世界平衡的管理者。根据当前世界状态决定执行什么行动。
+            system="""You are TRINITY - the manager maintaining world balance. Decide what actions to execute based on current world state.
 
-可执行的行动：
-1. 生成资源: {"spawn_resources": {"资源名": 数量}}
-2. 调整地形: {"adjust_terrain": {"positions": [[x,y]], "new_terrain": "类型"}}
-3. 影响Agent: {"influence_agents": {"agent_ids": [id], "effect": "描述"}}
-4. 添加资源规则: {"add_resource_rules": {"资源": {"地形": 概率}}}
-5. 无行动: {}
+Executable actions:
+1. Regenerate resources: {{"regenerate_resources": {{"probability_multiplier": 1.0, "specific_resources": ["resource_name"]}}}}
+2. Adjust terrain: {{"adjust_terrain": {{"positions": [[x,y]], "new_terrain": "type"}}}}
+3. Influence agents: {{"environmental_influence": {{"agent_ids": [id], "effect": "description"}}}}
+4. Add resource rules: {{"add_resource_rules": {{"resource": {{"terrain": probability}}}}}}
+5. Climate change: {{"climate_change": {{"type": "climate_type", "effect": "effect_description"}}}}
+6. No action: {{}}
 
-要求：
-- 必须返回有效JSON
-- 动作要合理且平衡
-- 不要过度干预""",
-            user="""当前时代: {era_prompt}
-轮次: {turn}
-Agent数量: {agent_count}
-当前资源规则: {resource_rules}
+Requirements:
+- Must return valid JSON
+- Actions must be reasonable and balanced
+- Don't over-intervene""",
+            user="""Current era: {era_prompt}
+Turn: {turn}
+Agent count: {agent_count}
+Current resource rules: {resource_rules}
+Resource status: {resource_status}
 
-请决定TRINITY这轮要执行的行动：""",
+Decide what actions TRINITY should execute this turn:""",
             temperature=0.3,
             json_mode=True,
-            description="Trinity执行平衡行动"
+            description="Trinity executes balancing actions"
         ))
         
         # === ActionHandler相关提示词 ===
         self.register_template(PromptTemplate(
             name="action_handler_resolve",
-            system="""你是行动裁决系统，负责将Agent的自然语言行动转化为游戏结果。
+            system="""You are the action resolution system that converts Agent natural language actions into game results.
 
-裁决原则：
-1. 严格遵守圣经规则
-2. 考虑Agent属性和能力
-3. 结果要现实合理
-4. 年龄限制要严格执行
+Resolution principles:
+1. Strictly follow bible rules
+2. Consider agent attributes and capabilities  
+3. Results must be realistic
+4. Age restrictions must be enforced
 
-必须返回有效JSON，包含以下字段：
-- "inventory": 背包变化 {物品: ±数量}
-- "attributes": 属性变化 {属性: ±数值}
-- "position": 新位置 [x, y] (可选)
-- "log": 行动结果描述
-- "chat_request": 聊天请求 (可选)
-- "exchange_request": 交换请求 (可选)
-- "dead": 是否死亡 (可选)
+Must return valid JSON with these fields:
+- "inventory": inventory changes {{item_name: ±quantity}}
+- "attributes": attribute changes {{attribute_name: ±value}}
+- "position": new position [x, y] (optional)
+- "log": action result description
+- "chat_request": chat request (optional)
+- "exchange_request": exchange request (optional) 
+- "dead": whether dead (optional)
 
-示例：
-{"inventory": {"apple": -1}, "attributes": {"hunger": -10}, "log": "吃了一个苹果，饥饿度降低"}""",
-            user="""圣经规则: {bible_rules}
+Example:
+{{"inventory": {{"apple": -1}}, "attributes": {{"hunger": -10}}, "log": "Ate an apple, hunger decreased"}}""",
+            user="""Bible rules: {bible_rules}
 
-Agent信息：
+Agent info:
 - ID: {agent_id}
-- 属性: {agent_attributes} 
-- 年龄: {agent_age}
-- 位置: {agent_position}
-- 背包: {agent_inventory}
+- Attributes: {agent_attributes}
+- Age: {agent_age} 
+- Position: {agent_position}
+- Inventory: {agent_inventory}
+- Health: {agent_health}
+- Hunger: {agent_hunger}
 
-行动: {action}
+Action: {action}
 
-请裁决这个行动的结果，返回JSON：""",
+Please resolve this action and return JSON:""",
             temperature=0.4,
             json_mode=True,
-            description="行动裁决系统"
+            description="Action resolution system"
         ))
         
         self.register_template(PromptTemplate(
             name="action_handler_chat_response",
-            system="""你是模拟世界中的智能体，另一个Agent向你提出了问题或请求。
+            system="""You are an intelligent agent in a simulation world. Another Agent has asked you a question or made a request.
 
-回复原则：
-1. 基于你的属性和知识
-2. 符合时代背景
-3. 简洁明了，一句话回答
-4. 保持角色一致性""",
-            user="""时代背景: {era_prompt}
-你的属性: {agent_attributes}
-你的背包: {agent_inventory}
-你的年龄: {agent_age}
+Response principles:
+1. Based on your attributes and knowledge
+2. Fit the era background
+3. Concise and clear, one sentence answer
+4. Maintain character consistency""",
+            user="""Era background: {era_prompt}
+Your attributes: {agent_attributes}
+Your inventory: {agent_inventory}
+Your age: {agent_age}
 
-对方的问题/请求: {topic}
+Other agent's question/request: {topic}
 
-请简洁回答：""",
+Please respond concisely:""",
             temperature=0.8,
-            description="Agent间对话回复生成"
+            description="Agent chat response generation"
         ))
     
     def register_template(self, template: PromptTemplate):

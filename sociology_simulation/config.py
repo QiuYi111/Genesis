@@ -10,7 +10,19 @@ TERRAIN_COLORS = {
     "FOREST": (0.298, 0.686, 0.314),   # green
     "GRASSLAND": (0.667, 0.867, 0.467),# light green
     "MOUNTAIN": (0.5, 0.5, 0.5),       # gray
-    "DESERT": (0.94, 0.82, 0.57)       # sand
+    "DESERT": (0.94, 0.82, 0.57),      # sand
+    "RIVER": (0.176, 0.698, 0.902),    # light blue
+    "CAVE": (0.3, 0.3, 0.3),           # dark gray
+    "SWAMP": (0.4, 0.6, 0.4),          # dark green
+    "TUNDRA": (0.8, 0.9, 0.9),         # light gray
+    "JUNGLE": (0.2, 0.5, 0.2),         # dark green
+    "PLATEAU": (0.7, 0.6, 0.5),        # brown
+    "VALLEY": (0.6, 0.8, 0.3),         # yellowish green
+    "VOLCANIC": (0.6, 0.2, 0.2),       # dark red
+    "OASIS": (0.3, 0.8, 0.6),          # turquoise
+    "RUINS": (0.6, 0.6, 0.5),          # brownish gray
+    "CRYSTAL_CAVE": (0.8, 0.4, 0.9),   # purple
+    "LAVA_FIELD": (0.8, 0.3, 0.1)      # red-orange
 }
 
 @dataclass

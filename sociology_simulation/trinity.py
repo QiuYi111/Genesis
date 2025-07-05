@@ -21,6 +21,8 @@ class Trinity:
         resource_rules: Resource distribution rules
         turn: Current turn number
         system_prompt: System prompt for Trinity
+        available_skills: All possible skills in the world
+        skill_unlock_conditions: Conditions for unlocking skills
     """
     def __init__(self, bible: Bible, era_prompt: str):
         self.bible = bible
@@ -28,8 +30,11 @@ class Trinity:
         self.terrain_types = DEFAULT_TERRAIN
         self.resource_rules = DEFAULT_RESOURCE_RULES
         self.turn = 0
+        self.available_skills = {}  # skill_name -> skill_definition
+        self.skill_unlock_conditions = {}  # skill_name -> unlock_conditions
         self.system_prompt = (
             "You are TRINITY – the omniscient adjudicator of a sociological simulation.\n"
+            "You control the skill system, creating new skills and unlocking them for agents.\n"
             "Always respect the era context, be fair & impartial (公正公平)."
         )
 
@@ -40,6 +45,7 @@ class Trinity:
         
         self.terrain_types = rules.get("terrain_types", DEFAULT_TERRAIN)
         self.resource_rules = rules.get("resource_rules", DEFAULT_RESOURCE_RULES)
+        self.terrain_colors = rules.get("terrain_colors", {})
         logger.success(f"[Trinity] Generated rules for era: {self.era_prompt}")
 
     async def adjudicate(self, global_log: List[str], session: aiohttp.ClientSession):
@@ -58,12 +64,19 @@ class Trinity:
             self.era_prompt = data["change_era"]
             logger.success(f"[Trinity] Era changed to: {self.era_prompt}")
         
+        # Handle skill system updates
+        if "skill_updates" in data:
+            self._process_skill_updates(data["skill_updates"])
+        
         self.turn += 1
 
     async def execute_actions(self, world, session: aiohttp.ClientSession):
         """Execute Trinity's ecological management actions using enhanced LLM"""
         # Calculate resource status for Trinity's decision making
         resource_status = self._calculate_resource_status(world)
+        
+        # First, analyze agent behaviors and update skills
+        await self.analyze_agent_behaviors(world, session)
         
         llm_service = get_llm_service()
         data = await llm_service.trinity_execute_actions(
@@ -190,3 +203,64 @@ class Trinity:
         # Broadcast climate change to all agents
         for agent in world.agents:
             agent.log.append(f"气候变化: {effect}")
+    
+    def _process_skill_updates(self, skill_updates: Dict):
+        """Process skill system updates from Trinity"""
+        if "new_skills" in skill_updates:
+            for skill_name, skill_data in skill_updates["new_skills"].items():
+                self.available_skills[skill_name] = skill_data
+                logger.success(f"[Trinity] Created new skill: {skill_name}")
+        
+        if "update_unlock_conditions" in skill_updates:
+            for skill_name, conditions in skill_updates["update_unlock_conditions"].items():
+                self.skill_unlock_conditions[skill_name] = conditions
+                logger.info(f"[Trinity] Updated unlock conditions for {skill_name}")
+    
+    async def analyze_agent_behaviors(self, world, session: aiohttp.ClientSession):
+        """Analyze agent behaviors and unlock skills accordingly"""
+        # Collect behavior data from all agents
+        agent_behaviors = {}
+        for agent in world.agents:
+            agent_behaviors[agent.aid] = agent.get_behavior_data()
+        
+        # Ask Trinity to analyze behaviors and determine skill changes
+        llm_service = get_llm_service()
+        skill_analysis = await llm_service.trinity_analyze_behaviors(
+            era_prompt=self.era_prompt,
+            turn=self.turn,
+            agent_behaviors=agent_behaviors,
+            available_skills=self.available_skills,
+            unlock_conditions=self.skill_unlock_conditions,
+            session=session
+        )
+        
+        # Apply skill changes to agents
+        if skill_analysis and "agent_skill_changes" in skill_analysis:
+            for agent_id, skill_changes in skill_analysis["agent_skill_changes"].items():
+                agent = next((a for a in world.agents if a.aid == int(agent_id)), None)
+                if agent:
+                    self._apply_skill_changes_to_agent(agent, skill_changes)
+        
+        # Update global skill system
+        if skill_analysis and "global_skill_updates" in skill_analysis:
+            self._process_skill_updates(skill_analysis["global_skill_updates"])
+        
+        return skill_analysis
+    
+    def _apply_skill_changes_to_agent(self, agent, skill_changes: Dict):
+        """Apply skill changes to a specific agent"""
+        for skill_name, changes in skill_changes.items():
+            if "unlock" in changes:
+                if skill_name not in agent.skills:
+                    agent.add_skill(skill_name, changes["unlock"].get("level", 1), 
+                                   changes["unlock"].get("description", ""))
+                    logger.info(f"[Trinity] Agent {agent.aid} unlocked skill: {skill_name}")
+            
+            if "modify" in changes:
+                agent.modify_skill(skill_name, 
+                                 changes["modify"].get("level_change", 0),
+                                 changes["modify"].get("exp_change", 0))
+            
+            if "remove" in changes:
+                agent.remove_skill(skill_name, changes["remove"].get("reason", ""))
+                logger.info(f"[Trinity] Agent {agent.aid} lost skill: {skill_name}")
