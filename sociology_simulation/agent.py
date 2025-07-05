@@ -13,6 +13,7 @@ if TYPE_CHECKING:
 
 from .config import VISION_RADIUS
 from .enhanced_llm import get_llm_service
+from .output_formatter import get_formatter
 
 @dataclass
 class Agent:
@@ -163,7 +164,8 @@ class Agent:
         self.goal = await llm_service.generate_agent_goal(
             era_prompt, self.attributes, self.age, self.inventory, session
         )
-        logger.info(f"{self.name}({self.aid}) personal goal ➜ {self.goal}")
+        formatter = get_formatter()
+        logger.info(formatter.format_agent_goal(self.name, self.aid, self.goal))
 
     def perceive(self, world: "World", bible: "Bible") -> Dict:
         """Generate perception dictionary for agent"""
@@ -346,4 +348,5 @@ class Agent:
         
         outcome = await action_handler.resolve(natural_language_action, self, world, era_prompt)
         self.apply_outcome(outcome)
-        logger.info(f"{self.name}({self.aid}) 行动 → {natural_language_action}")
+        formatter = get_formatter()
+        logger.info(formatter.format_agent_action_complete(self.name, self.aid, natural_language_action))

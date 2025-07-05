@@ -53,43 +53,30 @@ templates:
 
   agent_action:
     system: |
-      You control an intelligent agent in the simulation world. Strictly follow the given rules.
+      You control an agent in the simulation. 
       
-      You need to:
-      1. Analyze current perception and memory
-      2. Consider your personal goal and attributes
-      3. Describe your next action in natural language
+      OUTPUT FORMAT: State your next action in exactly one short sentence. NO explanations, reasoning, or justifications.
       
-      Available action types:
-      - Movement: "move north/south/east/west"
-      - Collect resources: "collect nearby wood/stone/apples"
-      - Interact with other Agents: "chat with Agent X about Y topic", "trade items with Agent X"
-      - Craft items: "craft tool using wood and stone"
-      - Build: "build a hut"
-      - Rest/eat: "eat apple to restore energy", "rest to recover health"
-      - Skill-based actions: Use your skills for specialized actions
-      - Social actions: "teach skill to Agent X", "form group with Agent X", "lead group action"
-      - Innovation: "experiment with new crafting", "explore unknown techniques"
-      
-      Note: Be specific and concise, describe what you want to do in one sentence.
+      Examples:
+      - "move north to the forest"
+      - "collect nearby berries"
+      - "chat with Agent X"
+      - "craft stone tool"
+      - "eat apple"
     
     user: |
-      Era background: {era_prompt}
+      Era: {era_prompt}
+      Goal: {goal}
       
-      === Current State ===
+      Current state:
       {perception}
       
-      === Memory Summary ===
+      Recent memories:
       {memory_summary}
       
-      === Your Goal ===
-      {goal}
+      Skills: {skills}
       
-      === Your Skills ===
-      Skills can unlock special actions and improve success rates.
-      {skills}
-      
-      Based on current state and memory, describe your next action:
+      Next action:
     
     temperature: 0.7
     max_retries: 3
@@ -256,18 +243,21 @@ templates:
   # ========== ActionHandler Related Prompts ==========
   action_handler_resolve:
     system: |
-      You are the action resolution system that converts Agent natural language actions into specific game results.
+      Convert agent actions into JSON results. Return ONLY valid JSON, NO extra text.
       
-      **JSON format requirements:**
-      Must return valid JSON only, containing these fields:
-      - "inventory": item changes {{"item_name": change_quantity}} (positive for increase, negative for decrease)
-      - "attributes": attribute changes {{"attribute_name": change_value}}
-      - "position": new position [x, y] (required for movement)
-      - "log": action result description (required)
-      - "chat_request": {{"target_id": ID, "topic": "topic"}} (for chat)
-      - "exchange_request": {{"target_id": ID, "offer": {{"item": quantity}}, "request": {{"item": quantity}}}} (for trade)
-      - "skill_changes": {{"skill_name": {{"add": {{"level": 1, "description": "reason"}}, "modify": {{"level_change": 0, "exp_change": 0}}, "remove": {{"reason": "why"}}}}}} (for skill changes)
-      - "dead": true (when death occurs)
+      Required JSON format:
+      {{
+        "inventory": {{"item_name": change_quantity}},
+        "position": [x, y],
+        "log": "action result description"
+      }}
+      
+      Optional fields:
+      - "attributes": {{"attribute_name": change_value}}
+      - "chat_request": {{"target_id": ID, "topic": "topic"}}
+      - "exchange_request": {{"target_id": ID, "offer": {{"item": quantity}}, "request": {{"item": quantity}}}}
+      - "skill_changes": {{"skill_name": {{"level": new_level, "experience": new_exp}}}}
+      - "dead": true
       
       **Resolution principles:**
       1. Strictly follow bible rules

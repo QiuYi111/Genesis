@@ -298,20 +298,28 @@ class EnhancedLLMService:
         # 尝试多种JSON提取策略
         json_candidates = []
         
-        # 策略1: 查找完整的JSON对象
-        json_match = re.search(r'\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}', content, re.DOTALL)
+        # 策略1: 查找完整的JSON对象 (improved pattern)
+        json_match = re.search(r'\{(?:[^{}]|{[^{}]*})*\}', content, re.DOTALL)
         if json_match:
             json_candidates.append(json_match.group())
         
-        # 策略2: 查找数组
-        array_match = re.search(r'\[[^\[\]]*(?:\[[^\[\]]*\][^\[\]]*)*\]', content, re.DOTALL)
-        if array_match:
-            json_candidates.append(array_match.group())
+        # 策略2: 查找最后一个完整的JSON对象
+        json_matches = re.findall(r'\{(?:[^{}]|{[^{}]*})*\}', content, re.DOTALL)
+        if json_matches:
+            json_candidates.extend(json_matches[-2:])  # Take last 2 matches
         
-        # 策略3: 简单提取大括号内容
+        # 策略3: 查找JSON代码块
+        code_block_match = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', content, re.DOTALL | re.IGNORECASE)
+        if code_block_match:
+            json_candidates.append(code_block_match.group(1))
+        
+        # 策略4: 简单提取大括号内容（最后的备选）
         simple_match = re.search(r'\{.*\}', content, re.DOTALL)
         if simple_match:
             json_candidates.append(simple_match.group())
+        
+        # 优先处理较短的JSON候选，通常更准确
+        json_candidates.sort(key=len)
         
         if not json_candidates:
             logger.warning("未找到JSON结构")
@@ -702,7 +710,23 @@ IF YOU CANNOT GENERATE VALID JSON, RETURN: {}
             action=action
         )
         if response.success:
-            return response.parsed_data
+            # Handle case where LLM returns a list instead of dict
+            if isinstance(response.parsed_data, list):
+                # If it's a list, merge all dictionaries in the list
+                merged_data = {}
+                for item in response.parsed_data:
+                    if isinstance(item, dict):
+                        merged_data.update(item)
+                return merged_data if merged_data else self._resolve_action_fallback(
+                    action, agent_attributes, agent_position, agent_inventory, agent_health, agent_hunger
+                )
+            elif isinstance(response.parsed_data, dict):
+                return response.parsed_data
+            else:
+                # If it's neither dict nor list, use fallback
+                return self._resolve_action_fallback(
+                    action, agent_attributes, agent_position, agent_inventory, agent_health, agent_hunger
+                )
         else:
             # 提供更智能的行动解析fallback
             return self._resolve_action_fallback(

@@ -83,6 +83,9 @@ class OutputConfig:
     log_rotation: str = "10 MB"
     log_retention: str = "30 days"
     log_compression: str = "zip"
+    use_colors: bool = True
+    verbose: bool = True
+    show_agent_status: bool = True
 
 @dataclass
 class Config:

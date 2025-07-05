@@ -10,6 +10,7 @@ from loguru import logger
 
 from .config import VISION_RADIUS, DEFAULT_TERRAIN, TERRAIN_COLORS, DEFAULT_RESOURCE_RULES
 from .enhanced_llm import get_llm_service
+from .output_formatter import get_formatter
 from .bible import Bible
 from .agent import Agent
 from .trinity import Trinity
@@ -248,7 +249,9 @@ class World:
 
         async def resolve(self, action: str, agent: Agent, world: World, era_prompt: str) -> Dict:
             """Resolve natural language actions using enhanced LLM service"""
-            logger.info(f"{agent.name}({agent.aid}) (age {agent.age}) attempting action: {action}")
+            formatter = get_formatter()
+            attempt_text = f"(age {agent.age}) attempting: {action}"
+            logger.info(formatter.format_agent_action(agent.name, agent.aid, attempt_text, None))
             
             # Age-based restrictions
             if "courtship" in action.lower() and agent.age < 18:
@@ -322,6 +325,19 @@ class World:
             """Process and record special events from action outcome"""
             logger.info(f"Processing outcome for {agent.name}({agent.aid}):")
             logger.debug(f"Outcome content: {outcome}")
+            
+            # Safety check: ensure outcome is a dictionary
+            if not isinstance(outcome, dict):
+                logger.error(f"Outcome is not a dictionary: {type(outcome)} - {outcome}")
+                # Convert to dict if possible, otherwise return empty dict
+                if isinstance(outcome, list):
+                    merged_outcome = {}
+                    for item in outcome:
+                        if isinstance(item, dict):
+                            merged_outcome.update(item)
+                    outcome = merged_outcome
+                else:
+                    outcome = {}
             
             if "courtship_target" in outcome:
                 self.courtship_events.append((agent.aid, outcome["courtship_target"]))

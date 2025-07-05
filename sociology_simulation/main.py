@@ -15,6 +15,7 @@ try:
     )
     from .prompts import init_prompt_manager
     from .enhanced_llm import init_llm_service
+    from .output_formatter import get_formatter, set_formatter_options
 except ImportError:
     # Handle running as script
     from world import World
@@ -24,6 +25,7 @@ except ImportError:
     )
     from prompts import init_prompt_manager
     from enhanced_llm import init_llm_service
+    from output_formatter import get_formatter, set_formatter_options
 
 def configure_logging(cfg: DictConfig):
     """Configure logging based on Hydra configuration"""
@@ -87,6 +89,21 @@ def main(cfg: DictConfig) -> None:
     logger.info(f"Turns: {cfg.runtime.turns}")
     
     async def run_simulation():
+        # Initialize formatter
+        formatter = get_formatter()
+        set_formatter_options(
+            use_colors=cfg.output.get('use_colors', True),
+            verbose=cfg.output.get('verbose', True)
+        )
+        
+        # Print simulation start
+        formatter.print_simulation_start(
+            era=cfg.simulation.era_prompt,
+            world_size=cfg.world.size,
+            num_agents=cfg.world.num_agents,
+            total_turns=cfg.runtime.turns
+        )
+        
         async with aiohttp.ClientSession() as session:
             world = World(cfg.world.size, cfg.simulation.era_prompt, cfg.world.num_agents)
             
@@ -100,26 +117,88 @@ def main(cfg: DictConfig) -> None:
             tasks = [agent.decide_goal(cfg.simulation.era_prompt, session) for agent in world.agents]
             await asyncio.gather(*tasks)
             
+            # Display agent goals
+            print(formatter.format_header("AGENT GOALS", 2))
+            for agent in world.agents:
+                goal = getattr(agent, 'goal', 'No goal set')
+                print(f"  {formatter.format_world_event(f'{agent.name}(aid={agent.aid}): {goal}', 'info')}")
+            
             for t in range(cfg.runtime.turns):
-                logger.info(f"===== TURN {t} =====")
+                formatter.print_turn_start(t + 1)
+                
+                # Track turn statistics
+                turn_stats = {
+                    'actions_completed': 0,
+                    'actions_failed': 0,
+                    'social_interactions': 0,
+                    'resource_gathered': 0,
+                    'discoveries': [],
+                    'deaths': []
+                }
+                
+                # Store initial agent count
+                initial_agent_count = len([a for a in world.agents if a.health > 0])
+                
                 await world.step(session)
+                
+                # Calculate turn statistics
+                final_agent_count = len([a for a in world.agents if a.health > 0])
+                turn_stats['deaths'] = initial_agent_count - final_agent_count
+                
+                # Update formatter stats
+                formatter.update_stats(
+                    active_agents=final_agent_count,
+                    actions_completed=formatter.stats.actions_completed + turn_stats['actions_completed'],
+                    actions_failed=formatter.stats.actions_failed + turn_stats['actions_failed'],
+                    social_interactions=formatter.stats.social_interactions + turn_stats['social_interactions'],
+                    resource_gathered=formatter.stats.resource_gathered + turn_stats['resource_gathered'],
+                    agent_deaths=formatter.stats.agent_deaths + turn_stats['deaths']
+                )
                 
                 # Show map periodically
                 if cfg.runtime.show_map_every > 0 and (t+1) % cfg.runtime.show_map_every == 0:
                     world.show_map()
                 
+                # Show agent status table every few turns
+                if cfg.output.get('show_agent_status', True) and (t+1) % 5 == 0:
+                    print(formatter.format_header("AGENT STATUS", 3))
+                    agent_data = []
+                    for agent in world.agents:
+                        agent_data.append({
+                            'name': agent.name,
+                            'age': agent.age,
+                            'health': agent.health,
+                            'x': agent.pos[0],
+                            'y': agent.pos[1],
+                            'current_action': getattr(agent, 'current_action', 'idle')
+                        })
+                    print(formatter.format_agent_status_table(agent_data))
+                
                 # Show conversations if requested
                 if cfg.runtime.show_conversations:
                     conversations = world.get_conversations()
                     if conversations:
-                        print("\n=== AGENT CONVERSATIONS ===")
+                        print(formatter.format_header("AGENT CONVERSATIONS", 3))
                         for conv in conversations:
-                            print(conv)
+                            print(f"  {formatter.format_world_event(conv, 'info')}")
+                
+                # Print turn summary
+                formatter.print_turn_summary(turn_stats)
+                
+                # Show statistics summary every 10 turns
+                if (t+1) % 10 == 0:
+                    print(formatter.format_statistics_summary())
+            
+            # Print simulation end
+            formatter.print_simulation_end()
             
             # Export final web data
-            from .web_export import export_web_data
-            final_export_file = export_web_data("final_simulation_data.json")
-            logger.success(f"Final simulation data exported to: {final_export_file}")
+            try:
+                from .web_export import export_web_data
+                final_export_file = export_web_data("final_simulation_data.json")
+                print(formatter.format_world_event(f"Final simulation data exported to: {final_export_file}", 'success'))
+            except Exception as e:
+                print(formatter.format_world_event(f"Failed to export web data: {e}", 'error'))
 
     asyncio.run(run_simulation())
 
