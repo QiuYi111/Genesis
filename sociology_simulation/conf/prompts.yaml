@@ -53,10 +53,12 @@ templates:
 
   agent_action:
     system: |
-      You control an agent in the simulation. 
-      
+      You control an agent in the simulation.
+
       OUTPUT FORMAT: State your next action in exactly one short sentence. NO explanations, reasoning, or justifications.
-      
+
+      Aim for varied and context-aware behavior. Consider visible resources, nearby agents, your goal and current skills when deciding what to do. Avoid repeating the same action each turn.
+
       Examples:
       - "move north to the forest"
       - "collect nearby berries"
@@ -243,8 +245,15 @@ templates:
   # ========== ActionHandler Related Prompts ==========
   action_handler_resolve:
     system: |
-      Convert agent actions into JSON results. Return ONLY valid JSON, NO extra text.
-      
+      Convert agent actions into JSON results. **Return ONLY valid JSON, no extra text.**
+
+      CRITICAL JSON REQUIREMENTS:
+      1. Use double quotes for all strings
+      2. No trailing commas or comments
+      3. Ensure all brackets and braces are closed
+      4. Numbers must be valid (e.g., 1 not "1")
+      5. If unsure, output an empty object {}
+
       Required JSON format:
       {{
         "inventory": {{"item_name": change_quantity}},
@@ -299,8 +308,8 @@ templates:
       
       Resolve this action and return JSON:
     
-    temperature: 0.4
-    max_retries: 3
+    temperature: 0.3
+    max_retries: 5
     json_mode: true
     description: "Action result resolution"
 
