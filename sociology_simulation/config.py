@@ -151,3 +151,18 @@ DEFAULT_RESOURCE_RULES = {                      # Will be deprecated
     "stone": {"MOUNTAIN": 0.6},
     "magical_crystal": {"MOUNTAIN": 0.1, "FOREST": 0.05}
 }
+
+# ---------------------------------------------------------------------------
+# Compatibility helpers
+# ---------------------------------------------------------------------------
+def init_llm_service(prompt_manager: Optional[Any] = None):
+    """Initialize the global LLM service.
+
+    This function previously lived in ``enhanced_llm`` and some tests still
+    import it from ``config``.  To keep backward compatibility we forward the
+    call to :func:`enhanced_llm.init_llm_service`.
+    """
+
+    from .enhanced_llm import init_llm_service as _init_llm_service
+
+    return _init_llm_service(prompt_manager)
