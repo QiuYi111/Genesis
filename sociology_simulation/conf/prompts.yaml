@@ -252,7 +252,7 @@ templates:
       2. No trailing commas or comments
       3. Ensure all brackets and braces are closed
       4. Numbers must be valid (e.g., 1 not "1")
-      5. If unsure, output an empty object {}
+      5. If unsure, output an empty object {{}}
 
       Required JSON format:
       {{
@@ -364,7 +364,7 @@ templates:
       **Requirements:**
       - Only return repaired JSON
       - No explanations or extra text
-      - If unrepairable, return {}
+      - If unrepairable, return {{}}
     
     user: |
       Please repair the following JSON:
