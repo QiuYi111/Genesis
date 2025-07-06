@@ -80,6 +80,13 @@ def main(cfg: DictConfig) -> None:
     prompt_manager = init_prompt_manager(prompts_config_path)
     llm_service = init_llm_service(prompt_manager)
     
+    # Apply MCP integration to eliminate JSON parsing failures
+    logger.info("Applying MCP integration to replace JSON generation with structured tool calls...")
+    from .mcp_integration_patch import apply_mcp_integration, set_global_mcp_service
+    mcp_service = apply_mcp_integration()
+    set_global_mcp_service(mcp_service)
+    logger.info("MCP integration applied - LLM will now use structured tools instead of JSON")
+    
     logger.info("Starting sociology simulation with Hydra configuration")
     logger.info(f"Initialized {len(prompt_manager.list_templates())} prompt templates")
     logger.info(f"Prompt statistics: {prompt_manager.get_statistics()}")
@@ -106,6 +113,11 @@ def main(cfg: DictConfig) -> None:
         
         async with aiohttp.ClientSession() as session:
             world = World(cfg.world.size, cfg.simulation.era_prompt, cfg.world.num_agents)
+            
+            # Update MCP integration with world reference
+            if mcp_service and hasattr(mcp_service, 'mcp_client'):
+                mcp_service.mcp_client.world_reference = world
+                logger.info("MCP client connected to world instance")
             
             await world.initialize(session)
             
