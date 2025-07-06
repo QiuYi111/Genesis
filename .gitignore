@@ -10,3 +10,4 @@ wheels/
 .venv
 logs/*
 outputs/*
+web_data/*
