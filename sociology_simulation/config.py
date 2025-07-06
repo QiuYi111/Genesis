@@ -152,6 +152,4 @@ DEFAULT_RESOURCE_RULES = {                      # Will be deprecated
     "magical_crystal": {"MOUNTAIN": 0.1, "FOREST": 0.05}
 }
 
-# Legacy alias
-from .enhanced_llm import init_llm_service
 
