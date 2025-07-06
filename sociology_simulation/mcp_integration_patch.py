@@ -424,7 +424,7 @@ def _patch_agent_actions(mcp_llm_service):
                 # Remove None values
                 outcome = {k: v for k, v in outcome.items() if v is not None}
                 
-                logger.info(f"MCP action executed directly for agent {self.aid}: {natural_language_action}")
+                logger.debug(f"MCP action executed directly for agent {self.aid}: {natural_language_action}")
                 
             else:
                 # MCP didn't provide structured outcome - this indicates an MCP failure
@@ -510,7 +510,7 @@ def _patch_trinity_rules(mcp_llm_service):
                         # Social activities detected
                         logger.info("[Trinity MCP] Detected social activities - enhancing cooperation")
                     
-                    logger.info(f"[Trinity MCP] Adjudicated turn {self.turn} with {len(global_log)} events")
+                    logger.debug(f"[Trinity MCP] Adjudicated turn {self.turn} with {len(global_log)} events")
                 else:
                     # No MCP client available - this is a critical failure
                     raise RuntimeError("[Trinity MCP] No MCP client available. This simulation requires MCP integration to function properly.")
@@ -550,7 +550,7 @@ def _patch_trinity_rules(mcp_llm_service):
                         )
                         logger.info(f"[Trinity MCP] Created new terrain evolution at turn {self.turn}")
                     
-                    logger.info(f"[Trinity MCP] Executed world management for turn {self.turn}")
+                    logger.debug(f"[Trinity MCP] Executed world management for turn {self.turn}")
                 else:
                     # No MCP client available - this is a critical failure
                     raise RuntimeError("[Trinity MCP] No MCP client available for action execution. This simulation requires MCP integration to function properly.")

@@ -154,16 +154,33 @@ class OutputFormatter:
     def format_agent_goal(self, agent_name: str, agent_id: int, goal: str) -> str:
         """Format agent personal goal with special styling."""
         # Truncate very long goals
-        if len(goal) > 100:
-            goal = goal[:97] + "..."
+        if len(goal) > 60:
+            goal = goal[:57] + "..."
         
-        return f"{Colors.BRIGHT_MAGENTA}🎯{Colors.RESET} {Colors.BOLD}{agent_name}({agent_id}){Colors.RESET} {Colors.BRIGHT_BLUE}personal goal ➜{Colors.RESET} {Colors.ITALIC}{goal}{Colors.RESET}"
+        return f"{Colors.BRIGHT_MAGENTA}🎯{Colors.RESET} {Colors.BOLD}{agent_name}({agent_id}){Colors.RESET} {Colors.BRIGHT_BLUE}goal ➜{Colors.RESET} {Colors.ITALIC}{goal}{Colors.RESET}"
     
     def format_agent_action_complete(self, agent_name: str, agent_id: int, action: str) -> str:
         """Format completed agent action with special styling."""
-        # Truncate very long actions
-        if len(action) > 120:
-            action = action[:117] + "..."
+        # Handle tuple/complex action results by extracting clean description
+        if isinstance(action, tuple):
+            # Extract the first string element which is the description
+            if len(action) >= 1 and isinstance(action[0], str):
+                action = action[0]
+            else:
+                action = str(action)
+        elif isinstance(action, dict):
+            # Extract description from dict if available
+            action = action.get('description', str(action))
+        else:
+            action = str(action)
+        
+        # Clean up common messy patterns
+        if action.startswith("('") and action.endswith("')"):
+            action = action[2:-2]
+        
+        # Truncate very long actions to one sentence
+        if len(action) > 60:
+            action = action[:57] + "..."
         
         return f"{Colors.BRIGHT_GREEN}⚡{Colors.RESET} {Colors.BOLD}{agent_name}({agent_id}){Colors.RESET} {Colors.BRIGHT_YELLOW}行动 →{Colors.RESET} {Colors.CYAN}{action}{Colors.RESET}"
     

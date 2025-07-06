@@ -80,7 +80,7 @@ class World:
         for res, rules in self.trinity.resource_rules.items():
             logger.info(f"  {res.upper()}:")
             for terrain, prob in rules.items():
-                logger.info(f"    - {terrain}: {prob*100}% chance")
+                logger.info(f"    - {terrain}: {prob*100:.0f}% chance")
         logger.info("="*40 + "\n")
         
         self.map = self.generate_realistic_terrain()
@@ -119,13 +119,18 @@ class World:
                 "charm": random.randint(1,10)
             }
             inv = {
-                "wood": random.randint(0,2), 
-                "shell": random.randint(0,1),
-                "apple": random.randint(0,2),  # Some starting food
-                "fish": random.randint(0,1)    # Occasional fish
+                "wood": random.randint(2,4), 
+                "shell": random.randint(1,3),
+                "apple": random.randint(3,6),  # Much more starting food
+                "fish": random.randint(2,4),   # More reliable fish
+                "berries": random.randint(2,5), # Additional food variety
+                "flint": random.randint(1,2)   # Basic tool material
             }
             age = random.randint(17, 70)
             agent = Agent(aid, pos, attr, inv, age=age)
+            # Start with very low hunger and good health
+            agent.hunger = random.randint(5, 15)  # Even lower starting hunger
+            agent.health = random.randint(90, 100)  # Start with good health
             self.agents.append(agent)
 
     def generate_realistic_terrain(self):
@@ -642,24 +647,22 @@ class World:
         for agent in self.agents:
             agent.age += 1
             
-            # Try to consume food if hungry
-            if agent.hunger > 50:
+            # Try to consume food if hungry (more generous threshold)
+            if agent.hunger > 60:
                 food_consumed = self._try_consume_food(agent)
                 if food_consumed:
                     turn_log.append(f"{agent.name}({agent.aid}) ate {food_consumed} to reduce hunger")
             
-            # More gradual hunger increase based on activity
-            base_hunger_increase = 3  # Reduced from 8
-            activity_bonus = 1 if hasattr(agent, 'current_action') and agent.current_action else 0
+            # Very gradual hunger increase - survival focused
+            base_hunger_increase = 0.5  # Extremely slow hunger increase
+            activity_bonus = 0.3 if hasattr(agent, 'current_action') and agent.current_action else 0
             agent.hunger = min(100, agent.hunger + base_hunger_increase + activity_bonus)
             
-            # More forgiving health decrease
-            if agent.hunger > 85:  # Only at very high hunger
-                agent.health = max(0, agent.health - 8)  # Higher damage but later
-            elif agent.hunger > 70:
-                agent.health = max(0, agent.health - 3)  # Gradual damage
-            elif agent.hunger < 30:  # Bonus for well-fed agents
-                agent.health = min(100, agent.health + 1)
+            # Health only decreases when truly starving (hunger > 95)
+            if agent.hunger > 95:  # Only when completely starving
+                agent.health = max(0, agent.health - 3)  # Reduced damage
+            elif agent.hunger < 50:  # Bonus for well-fed agents
+                agent.health = min(100, agent.health + 1)  # Slow healing when fed
             
             # Death handling
             if agent.health == 0:
@@ -761,7 +764,7 @@ class World:
             logger.info(f"Web data exported to: {exported_file}")
         
         # Create feedback loops and emergent behavior reports
-        emergent_report = self._generate_emergent_behavior_report()
+        emergent_report = await self._generate_emergent_behavior_report(session)
         if emergent_report:
             turn_log.extend(emergent_report)
         
@@ -799,56 +802,92 @@ class World:
                         conversations.append(f"{agent.name}({agent.aid}): {log_entry}")
         return conversations
     
-    def _generate_emergent_behavior_report(self) -> List[str]:
-        """Generate report on emergent behaviors and feedback loops"""
-        report = []
-        
-        # Analyze population dynamics
-        if len(self.agents) > self.num_agents * 1.5:
-            report.append("人口快速增长，社会承受压力增加")
-        elif len(self.agents) < self.num_agents * 0.5:
-            report.append("人口下降，社会面临生存挑战")
-        
-        # Analyze skill diversity
-        all_skills = set()
-        for agent in self.agents:
-            all_skills.update(agent.skills.keys())
-        
-        if len(all_skills) > 15:
-            report.append("技能多样化发展，社会分工出现")
-        elif len(all_skills) < 5:
-            report.append("技能单一，社会发展受限")
-        
-        # Analyze social complexity
-        total_connections = sum(len(agent.social_connections) for agent in self.agents)
-        avg_connections = total_connections / len(self.agents) if self.agents else 0
-        
-        if avg_connections > 8:
-            report.append("社会网络复杂化，信息传播加速")
-        elif avg_connections < 2:
-            report.append("社会孤立现象严重，合作困难")
-        
-        # Analyze economic development
-        if self.economic_system.economy.economic_health > 0.7:
-            report.append("经济繁荣，贸易活跃")
-        elif self.economic_system.economy.economic_health < 0.3:
-            report.append("经济困难，资源分配不均")
-        
-        # Analyze technological progress
-        tech_progress = self.tech_system.get_era_progress()
-        if tech_progress.get("can_advance", False):
-            report.append("科技发展迅速，即将进入新时代")
-        
-        # Analyze political development
-        if len(self.political_system.political_entities) > 1:
-            report.append("政治组织形成，治理结构出现")
-        
-        # Analyze cultural development
-        total_knowledge = sum(len(knowledge) for knowledge in self.cultural_memory.agent_knowledge.values())
-        if total_knowledge > len(self.agents) * 3:
-            report.append("知识积累丰富，文化传承活跃")
-        
-        return report
+    async def _generate_emergent_behavior_report(self, session: aiohttp.ClientSession) -> List[str]:
+        """Generate LLM-driven report on emergent behaviors and social dynamics"""
+        try:
+            # Collect data about current state
+            population_data = {
+                "total_agents": len(self.agents),
+                "original_count": self.num_agents,
+                "avg_age": sum(agent.age for agent in self.agents) / len(self.agents) if self.agents else 0,
+                "avg_health": sum(agent.health for agent in self.agents) / len(self.agents) if self.agents else 0,
+                "avg_hunger": sum(agent.hunger for agent in self.agents) / len(self.agents) if self.agents else 0
+            }
+            
+            skill_data = {
+                "total_skills": sum(len(agent.skills) for agent in self.agents),
+                "unique_skills": len(set().union(*(agent.skills.keys() for agent in self.agents))),
+                "skill_diversity": len(set().union(*(agent.skills.keys() for agent in self.agents))) / max(len(self.agents), 1)
+            }
+            
+            social_data = {
+                "total_connections": sum(len(agent.social_connections) for agent in self.agents),
+                "avg_connections": sum(len(agent.social_connections) for agent in self.agents) / len(self.agents) if self.agents else 0,
+                "groups": len(self.social_manager.groups),
+                "technologies": len(self.tech_system.discovered_techs)
+            }
+            
+            economic_data = {
+                "markets": len(self.economic_system.markets),
+                "economic_health": getattr(self.economic_system.economy, 'economic_health', 0.5),
+                "political_entities": len(self.political_system.political_entities)
+            }
+            
+            # Recent activities from turn log
+            recent_activities = []
+            for agent in self.agents:
+                if agent.log:
+                    recent_activities.append(agent.log[-1] if agent.log else "No recent activity")
+            
+            # Create prompt for LLM analysis
+            analysis_prompt = f"""You are analyzing a Stone Age tribe simulation at turn {self.trinity.turn}. 
+
+CURRENT STATE:
+Population: {population_data['total_agents']} agents (started with {population_data['original_count']})
+Average Age: {population_data['avg_age']:.1f} years
+Average Health: {population_data['avg_health']:.1f}% 
+Average Hunger: {population_data['avg_hunger']:.1f}%
+
+Social Development:
+Skills: {skill_data['total_skills']} total, {skill_data['unique_skills']} unique types
+Social Connections: {social_data['avg_connections']:.1f} per agent
+Groups: {social_data['groups']}, Technologies: {social_data['technologies']}
+
+Economic & Political:
+Markets: {economic_data['markets']}, Political Entities: {economic_data['political_entities']}
+Economic Health: {economic_data['economic_health']:.2f}
+
+Recent Activities: {recent_activities[:5]}
+
+Generate 1-2 brief, specific observations about this tribe's current situation. Each observation should be one sentence only. Focus on the most important pattern you notice."""
+
+            # Get LLM analysis
+            llm_service = get_llm_service()
+            response = await llm_service._generate_text_response(
+                system="You are an expert anthropologist analyzing primitive societies.",
+                user=analysis_prompt,
+                temperature=0.7,
+                session=session,
+                config={"max_retries": 1, "timeout": 15}
+            )
+            
+            if response.success:
+                # Split response into bullet points and clean up
+                analysis_lines = [line.strip() for line in response.content.split('\n') if line.strip() and not line.strip().startswith('**')]
+                # Take only first 2 lines and make them concise
+                cleaned_lines = []
+                for line in analysis_lines[:2]:
+                    if len(line) > 80:
+                        line = line[:77] + "..."
+                    cleaned_lines.append(line)
+                return cleaned_lines
+            else:
+                # Fallback to basic analysis
+                return [f"Turn {self.trinity.turn}: {len(self.agents)} agents surviving with {skill_data['unique_skills']} skill types"]
+                
+        except Exception as e:
+            logger.warning(f"LLM behavior analysis failed: {e}")
+            return [f"Turn {self.trinity.turn}: Basic survival continues with {len(self.agents)} tribal members"]
     
     def _try_consume_food(self, agent) -> Optional[str]:
         """Try to consume food from agent's inventory to reduce hunger"""

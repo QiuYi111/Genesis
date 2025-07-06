@@ -1,5 +1,5 @@
 defaults:
-  - simulation: stone_age
+  - simulation: magical_age
   - model: deepseek
   - logging: default
   - _self_

@@ -121,13 +121,15 @@ MEMORY:
 AVAILABLE ACTIONS:
 Based on your situation, you can choose from these action types:
 
-1. MOVEMENT: If you need to go somewhere
+1. MOVEMENT: If you need to explore or find resources
    - Format: "MOVE [direction] because [reasoning]"
-   - Example: "MOVE north because I see wood resources there and need materials for crafting"
+   - Example: "MOVE north because I need to explore for resources since none are here"
+   - IMPORTANT: If no resources are at your current position, you MUST move to explore!
 
-2. RESOURCE COLLECTION: If there are resources at your location
+2. RESOURCE COLLECTION: Only if resources are visible at your exact position
    - Format: "COLLECT [resource_type] [amount] with [efficiency_focus] because [reasoning]"
    - Example: "COLLECT wood 3 with quality because I need good materials for tool crafting"
+   - ONLY collect if you can see resources at your current position!
 
 3. CRAFTING: If you have materials and want to make something
    - Format: "CRAFT [item_name] using [materials] with [method] because [reasoning]"
@@ -148,6 +150,8 @@ Based on your situation, you can choose from these action types:
 7. CREATIVE ACTION: If you want to try something innovative
    - Format: "CREATIVE [description] with [creativity_level] inspired by [inspiration] because [reasoning]"
    - Example: "CREATIVE combine stones to make fire with 0.8 inspired by sparks when stones hit because need warmth"
+
+SURVIVAL PRIORITY: If you have no food and no resources nearby, MOVE to explore! Don't try to collect from empty ground.
 
 Choose the best action for your current situation. Consider your goal, needs, and opportunities.
 Be specific about your reasoning - this helps with learning and skill development.
@@ -663,8 +667,8 @@ Your world creation decisions:"""
         try:
             lines = trinity_response.split('\n')
             
-            logger.info(f"Trinity response content:\n{trinity_response}")
-            logger.info(f"Parsing {len(lines)} lines from Trinity response")
+            logger.debug(f"Trinity response content:\n{trinity_response}")
+            logger.debug(f"Parsing {len(lines)} lines from Trinity response")
             
             for line in lines:
                 line = line.strip()
@@ -680,7 +684,7 @@ Your world creation decisions:"""
                         results['terrain_types'].append(result)
                         logger.debug(f"Added terrain: {result}")
                     else:
-                        logger.warning(f"Failed to parse terrain line: {terrain_part}")
+                        logger.debug(f"Failed to parse terrain line: {terrain_part}")
                 
                 elif '. RESOURCE ' in line:
                     # Extract just the RESOURCE part after the number
@@ -691,7 +695,7 @@ Your world creation decisions:"""
                         results['resource_rules'].update(result)
                         logger.debug(f"Added resource: {result}")
                     else:
-                        logger.warning(f"Failed to parse resource line: {resource_part}")
+                        logger.debug(f"Failed to parse resource line: {resource_part}")
                 
                 elif '. RULE ' in line:
                     # Extract just the RULE part after the number
@@ -702,7 +706,7 @@ Your world creation decisions:"""
                         results['world_rules'].append(result)
                         logger.debug(f"Added rule: {result}")
                     else:
-                        logger.warning(f"Failed to parse rule line: {rule_part}")
+                        logger.debug(f"Failed to parse rule line: {rule_part}")
                 
                 # Also handle non-numbered format for backwards compatibility
                 elif line.startswith("TERRAIN"):
