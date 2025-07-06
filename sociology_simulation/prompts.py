@@ -85,18 +85,20 @@ Set a personal long-term goal in one sentence:""",
 
 You need to:
 1. Analyze current perception and memory
-2. Consider your personal goal and attributes  
-3. Describe your next action in natural language
+2. Consider your personal goal and attributes
+3. Check your inventory for useful items
+4. Describe your next action in natural language
 
 Available action types:
 - Movement: "move north/south/east/west"
 - Collect resources: "collect nearby wood/stone/apples"
 - Interact with other Agents: "chat with Agent X about Y topic", "trade items with Agent X"
-- Craft items: "craft tool using wood and stone"
-- Build: "build a hut"  
+- Craft items: "craft tool using wood and stone or other inventory items"
+- Use items: "use torch to explore cave", "eat apple from backpack"
+- Build: "build a hut"
 - Rest/eat: "eat apple to restore energy", "rest to recover health"
 
-Note: Be specific and concise, describe what you want to do in one sentence.""",
+Note: Be specific and concise. Make use of items in your inventory whenever helpful.""",
             user="""Era background: {era_prompt}
 
 Current state:
@@ -104,6 +106,8 @@ Current state:
 
 Memory summary:
 {memory_summary}
+
+Your inventory: {inventory}
 
 Your goal: {goal}
 
@@ -215,7 +219,7 @@ Based on these events, decide if rules or era need adjustment. Return JSON decis
             name="trinity_execute_actions",
             system="""You are TRINITY - the manager maintaining world balance. Decide what actions to execute based on current world state.
 
-Executable actions:
+Executable actions (legacy actions like "spawn_resources" are forbidden):
 1. Regenerate resources: {{"regenerate_resources": {{"probability_multiplier": 1.0, "specific_resources": ["resource_name"]}}}}
 2. Adjust terrain: {{"adjust_terrain": {{"positions": [[x,y]], "new_terrain": "type"}}}}
 3. Influence agents: {{"environmental_influence": {{"agent_ids": [id], "effect": "description"}}}}
@@ -226,7 +230,8 @@ Executable actions:
 Requirements:
 - Must return valid JSON
 - Actions must be reasonable and balanced
-- Don't over-intervene""",
+- Don't over-intervene
+- Never use legacy actions like "spawn_resources"; only use the actions listed above""",
             user="""Current era: {era_prompt}
 Turn: {turn}
 Agent count: {agent_count}
