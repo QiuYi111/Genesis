@@ -89,6 +89,10 @@ class MCPEnhancedLLMService(EnhancedLLMService):
             
         except Exception as e:
             logger.error(f"MCP action generation error for agent {agent_id}: {str(e)}")
+            logger.error(f"Context was: {context}")
+            logger.error(f"LLM response was: {response.content if 'response' in locals() and hasattr(response, 'content') else 'No response generated'}")
+            import traceback
+            logger.error(f"Full traceback: {traceback.format_exc()}")
             return await self._fallback_action_selection(context)
     
     def _create_mcp_action_prompt(self, context: Dict[str, Any]) -> str:
@@ -127,7 +131,7 @@ Based on your situation, you can choose from these action types:
 
 3. CRAFTING: If you have materials and want to make something
    - Format: "CRAFT [item_name] using [materials] with [method] because [reasoning]"
-   - Example: "CRAFT stone_axe using {{wood: 2, stone: 1}} with careful because I need better tools"
+   - Example: "CRAFT stone_axe using {{{{wood: 2, stone: 1}}}} with careful because I need better tools"
 
 4. SOCIAL INTERACTION: If other agents are nearby
    - Format: "SOCIAL [target_agent_id] [interaction_type] '[message]' with [intent] because [reasoning]"
@@ -135,11 +139,11 @@ Based on your situation, you can choose from these action types:
 
 5. BUILD STRUCTURE: If you have materials and want to create permanent buildings
    - Format: "BUILD [structure_type] using [materials] at [location] because [reasoning]"
-   - Example: "BUILD shelter using {wood: 5, stone: 3} at current because need protection from weather"
+   - Example: "BUILD shelter using {{{{wood: 5, stone: 3}}}} at current because need protection from weather"
 
 6. MODIFY TERRAIN: If you want to permanently change the landscape
    - Format: "MODIFY [modification_type] using [tools] because [reasoning]"
-   - Example: "MODIFY dig_well using {stone_axe: 1} because need reliable water source"
+   - Example: "MODIFY dig_well using {{{{stone_axe: 1}}}} because need reliable water source"
 
 7. CREATIVE ACTION: If you want to try something innovative
    - Format: "CREATIVE [description] with [creativity_level] inspired by [inspiration] because [reasoning]"
@@ -174,6 +178,9 @@ Your action decision:"""
         try:
             response_text = llm_response.strip()
             agent_id = context['agent_id']
+            
+            logger.debug(f"Agent {agent_id} LLM response: {response_text}")
+            logger.debug(f"Agent {agent_id} context: {context}")
             
             # Parse the action type and parameters from LLM response
             if response_text.startswith("MOVE"):
@@ -562,7 +569,7 @@ Your action decision:"""
                         break
                 
                 reasoning = response[:50] + "..." if len(response) > 50 else response
-                return await self._handle_craft_action(f"CRAFT {item} using {{wood: 1, stone: 1}} with standard because {reasoning}", agent_id)
+                return await self._handle_craft_action(f"CRAFT {item} using {{{{wood: 1, stone: 1}}}} with standard because {reasoning}", agent_id)
             
             # Look for social keywords
             elif any(word in response_lower for word in ["talk", "speak", "chat", "interact"]):
@@ -582,22 +589,9 @@ Your action decision:"""
             return f"Free-form action parsing error: {str(e)}"
     
     async def _fallback_action_selection(self, context: Dict[str, Any]) -> str:
-        """Fallback action selection when LLM generation fails"""
+        """Raise error when MCP action generation fails - no fallback allowed"""
         agent_id = context['agent_id']
-        
-        # Simple heuristic-based action selection
-        health = context.get('health', 100)
-        energy = context.get('energy', 100)
-        inventory = context.get('inventory', {})
-        
-        if health < 30:
-            return f"Agent {agent_id} rests to recover health (fallback action)"
-        elif energy < 20:
-            return f"Agent {agent_id} rests to recover energy (fallback action)"
-        elif sum(inventory.values()) < 5:
-            return f"Agent {agent_id} searches for resources (fallback action)"
-        else:
-            return f"Agent {agent_id} explores the area (fallback action)"
+        raise RuntimeError(f"MCP action generation failed for agent {agent_id}. This simulation requires MCP integration to function properly. Check MCP client connection and LLM service configuration.")
     
     async def generate_trinity_rules_with_mcp(
         self,
@@ -618,12 +612,12 @@ WORLD CONTEXT:
 TASK: Analyze this era and create appropriate world elements using these tools:
 
 1. CREATE TERRAIN TYPES that fit the era:
-   - Use: "TERRAIN [name] '[description]' cost=[movement_cost] resources={{resource: probability}} color=[color]"
-   - Example: "TERRAIN FOREST 'Dense woodlands with tall trees' cost=1.3 resources={{wood: 0.8, apple: 0.3}} color=green"
+   - Use: "TERRAIN [name] '[description]' cost=[movement_cost] resources={{{{resource: probability}}}} color=[color]"
+   - Example: "TERRAIN FOREST 'Dense woodlands with tall trees' cost=1.3 resources={{{{wood: 0.8, apple: 0.3}}}} color=green"
 
 2. SET RESOURCE DISTRIBUTIONS for this era:
-   - Use: "RESOURCE [resource_name] distribution={{terrain: probability}} depletion=[rate] regen=[rate]"
-   - Example: "RESOURCE wood distribution={{FOREST: 0.8, GRASSLAND: 0.2}} depletion=0.1 regen=0.05"
+   - Use: "RESOURCE [resource_name] distribution={{{{terrain: probability}}}} depletion=[rate] regen=[rate]"
+   - Example: "RESOURCE wood distribution={{{{FOREST: 0.8, GRASSLAND: 0.2}}}} depletion=0.1 regen=0.05"
 
 3. CREATE WORLD RULES that govern this era:
    - Use: "RULE [name] '[description]' conditions=[list] effects=[list] priority=[number]"
@@ -646,8 +640,7 @@ Your world creation decisions:"""
             )
             
             if not response.success:
-                logger.warning("Trinity rule generation failed, using fallback")
-                return self._fallback_trinity_rules(era_prompt)
+                raise RuntimeError(f"Trinity rule generation failed for era '{era_prompt}'. This simulation requires MCP integration to function properly. LLM service failed to generate world rules.")
             
             # Parse Trinity's response and execute via MCP tools
             rules_result = await self._execute_trinity_decisions(response.content, era_prompt, world_size)
@@ -656,7 +649,7 @@ Your world creation decisions:"""
             
         except Exception as e:
             logger.error(f"Trinity MCP rule generation error: {str(e)}")
-            return self._fallback_trinity_rules(era_prompt)
+            raise RuntimeError(f"Trinity MCP rule generation failed for era '{era_prompt}': {str(e)}. This simulation requires MCP integration to function properly.")
     
     async def _execute_trinity_decisions(self, trinity_response: str, era_prompt: str, world_size: int) -> Dict[str, Any]:
         """Execute Trinity's decisions via MCP tools"""
@@ -670,23 +663,77 @@ Your world creation decisions:"""
         try:
             lines = trinity_response.split('\n')
             
+            logger.info(f"Trinity response content:\n{trinity_response}")
+            logger.info(f"Parsing {len(lines)} lines from Trinity response")
+            
             for line in lines:
                 line = line.strip()
+                logger.debug(f"Processing line: '{line}'")
                 
-                if line.startswith("TERRAIN"):
+                # Handle numbered lists (e.g., "1. TERRAIN ..." or "2. RESOURCE ...")
+                if '. TERRAIN ' in line:
+                    # Extract just the TERRAIN part after the number
+                    terrain_part = line[line.find('TERRAIN '):]
+                    logger.debug(f"Found numbered TERRAIN line: {terrain_part}")
+                    result = await self._handle_trinity_terrain(terrain_part)
+                    if result:
+                        results['terrain_types'].append(result)
+                        logger.debug(f"Added terrain: {result}")
+                    else:
+                        logger.warning(f"Failed to parse terrain line: {terrain_part}")
+                
+                elif '. RESOURCE ' in line:
+                    # Extract just the RESOURCE part after the number
+                    resource_part = line[line.find('RESOURCE '):]
+                    logger.debug(f"Found numbered RESOURCE line: {resource_part}")
+                    result = await self._handle_trinity_resource(resource_part)
+                    if result:
+                        results['resource_rules'].update(result)
+                        logger.debug(f"Added resource: {result}")
+                    else:
+                        logger.warning(f"Failed to parse resource line: {resource_part}")
+                
+                elif '. RULE ' in line:
+                    # Extract just the RULE part after the number
+                    rule_part = line[line.find('RULE '):]
+                    logger.debug(f"Found numbered RULE line: {rule_part}")
+                    result = await self._handle_trinity_rule(rule_part)
+                    if result:
+                        results['world_rules'].append(result)
+                        logger.debug(f"Added rule: {result}")
+                    else:
+                        logger.warning(f"Failed to parse rule line: {rule_part}")
+                
+                # Also handle non-numbered format for backwards compatibility
+                elif line.startswith("TERRAIN"):
+                    logger.debug(f"Found direct TERRAIN line: {line}")
                     result = await self._handle_trinity_terrain(line)
                     if result:
                         results['terrain_types'].append(result)
+                        logger.debug(f"Added terrain: {result}")
+                    else:
+                        logger.warning(f"Failed to parse terrain line: {line}")
                 
                 elif line.startswith("RESOURCE"):
+                    logger.debug(f"Found direct RESOURCE line: {line}")
                     result = await self._handle_trinity_resource(line)
                     if result:
                         results['resource_rules'].update(result)
+                        logger.debug(f"Added resource: {result}")
+                    else:
+                        logger.warning(f"Failed to parse resource line: {line}")
                 
                 elif line.startswith("RULE"):
+                    logger.debug(f"Found direct RULE line: {line}")
                     result = await self._handle_trinity_rule(line)
                     if result:
                         results['world_rules'].append(result)
+                        logger.debug(f"Added rule: {result}")
+                    else:
+                        logger.warning(f"Failed to parse rule line: {line}")
+                else:
+                    if line and not line.startswith('#') and not line.endswith(':'):  # Skip empty lines, comments, and headers
+                        logger.debug(f"Unrecognized line format: '{line}'")
             
             logger.info(f"Trinity created {len(results['terrain_types'])} terrains, {len(results['resource_rules'])} resources, {len(results['world_rules'])} rules")
             
@@ -829,19 +876,7 @@ Your world creation decisions:"""
             logger.error(f"Trinity rule creation error: {str(e)}")
             return None
     
-    def _fallback_trinity_rules(self, era_prompt: str) -> Dict[str, Any]:
-        """Fallback Trinity rules when MCP generation fails"""
-        return {
-            'terrain_types': ['FOREST', 'GRASSLAND', 'MOUNTAIN', 'WATER'],
-            'resource_rules': {
-                'wood': {'FOREST': 0.8, 'GRASSLAND': 0.2},
-                'stone': {'MOUNTAIN': 0.9, 'GRASSLAND': 0.1},
-                'fish': {'WATER': 0.7},
-                'apple': {'FOREST': 0.4}
-            },
-            'world_rules': [],
-            'era_prompt': era_prompt
-        }
+    # Removed _fallback_trinity_rules method - this simulation requires MCP integration
 
 
 # Global instance for easy access

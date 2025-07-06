@@ -387,8 +387,7 @@ def _patch_agent_actions(mcp_llm_service):
     """Patch agent actions to use MCP-enhanced LLM"""
     from . import agent
     
-    # Store original method
-    original_act = agent.Agent.act
+    # No longer storing original method since we don't fallback
     
     async def mcp_enhanced_act(self, world, bible, era_prompt, session, action_handler):
         """MCP-enhanced agent action method"""
@@ -428,10 +427,8 @@ def _patch_agent_actions(mcp_llm_service):
                 logger.info(f"MCP action executed directly for agent {self.aid}: {natural_language_action}")
                 
             else:
-                # Fallback to traditional action handler
-                natural_language_action = action_result if isinstance(action_result, str) else str(action_result)
-                outcome = await action_handler.resolve(natural_language_action, self, world, era_prompt)
-                logger.info(f"Fallback action handler used for agent {self.aid}")
+                # MCP didn't provide structured outcome - this indicates an MCP failure
+                raise RuntimeError(f"MCP action generation failed for agent {self.aid}. Expected structured MCP outcome but got: {type(action_result)}. This simulation requires MCP integration to function properly.")
             
             self.apply_outcome(outcome)
             
@@ -441,8 +438,7 @@ def _patch_agent_actions(mcp_llm_service):
             
         except Exception as e:
             logger.error(f"MCP-enhanced action failed for agent {self.aid}: {str(e)}")
-            # Fallback to original method
-            await original_act(self, world, bible, era_prompt, session, action_handler)
+            raise RuntimeError(f"MCP-enhanced action failed for agent {self.aid}: {str(e)}. This simulation requires MCP integration to function properly.")
     
     # Replace the method
     agent.Agent.act = mcp_enhanced_act
@@ -454,10 +450,7 @@ def _patch_trinity_rules(mcp_llm_service):
     try:
         from . import trinity
         
-        # Store original methods
-        original_generate_rules = trinity.Trinity._generate_initial_rules
-        original_adjudicate = trinity.Trinity.adjudicate
-        original_execute_actions = trinity.Trinity.execute_actions
+        # No longer storing original methods since we don't fallback
         
         async def mcp_enhanced_generate_rules(self, session):
             """MCP-enhanced Trinity rule generation"""
@@ -471,33 +464,18 @@ def _patch_trinity_rules(mcp_llm_service):
                 if 'terrain_types' in rules_result and rules_result['terrain_types']:
                     self.terrain_types = rules_result['terrain_types']
                 else:
-                    # Ensure we have default terrain types
-                    self.terrain_types = ['FOREST', 'GRASSLAND', 'MOUNTAIN', 'WATER']
+                    raise RuntimeError(f"MCP failed to generate terrain types for era '{self.era_prompt}'. This simulation requires MCP integration to function properly.")
                     
                 if 'resource_rules' in rules_result and rules_result['resource_rules']:
                     self.resource_rules = rules_result['resource_rules']
                 else:
-                    # Ensure we have default resource rules
-                    self.resource_rules = {
-                        'wood': {'FOREST': 0.8, 'GRASSLAND': 0.2},
-                        'stone': {'MOUNTAIN': 0.9, 'GRASSLAND': 0.1},
-                        'fish': {'WATER': 0.7},
-                        'apple': {'FOREST': 0.4}
-                    }
+                    raise RuntimeError(f"MCP failed to generate resource rules for era '{self.era_prompt}'. This simulation requires MCP integration to function properly.")
                 
                 logger.info(f"Trinity rules generated via MCP: {len(self.terrain_types)} terrains, {len(self.resource_rules)} resources")
                 
             except Exception as e:
                 logger.error(f"MCP Trinity rule generation failed: {str(e)}")
-                # Ensure we have default values even if MCP fails
-                self.terrain_types = ['FOREST', 'GRASSLAND', 'MOUNTAIN', 'WATER']
-                self.resource_rules = {
-                    'wood': {'FOREST': 0.8, 'GRASSLAND': 0.2},
-                    'stone': {'MOUNTAIN': 0.9, 'GRASSLAND': 0.1},
-                    'fish': {'WATER': 0.7},
-                    'apple': {'FOREST': 0.4}
-                }
-                logger.info("Using fallback Trinity rules")
+                raise RuntimeError(f"MCP Trinity rule generation failed for era '{self.era_prompt}': {str(e)}. This simulation requires MCP integration to function properly.")
         
         async def mcp_enhanced_adjudicate(self, global_log: List[str], session):
             """MCP-enhanced Trinity adjudication"""
@@ -534,16 +512,14 @@ def _patch_trinity_rules(mcp_llm_service):
                     
                     logger.info(f"[Trinity MCP] Adjudicated turn {self.turn} with {len(global_log)} events")
                 else:
-                    # Fallback to original adjudication
-                    logger.warning("[Trinity MCP] No MCP client available, using fallback")
-                    await original_adjudicate(self, global_log, session)
+                    # No MCP client available - this is a critical failure
+                    raise RuntimeError("[Trinity MCP] No MCP client available. This simulation requires MCP integration to function properly.")
                 
                 self.turn += 1
                 
             except Exception as e:
                 logger.error(f"[Trinity MCP] Adjudication error: {str(e)}")
-                await original_adjudicate(self, global_log, session)
-                self.turn += 1
+                raise RuntimeError(f"[Trinity MCP] Adjudication failed: {str(e)}. This simulation requires MCP integration to function properly.")
         
         async def mcp_enhanced_execute_actions(self, world, session):
             """MCP-enhanced Trinity action execution"""
@@ -576,12 +552,12 @@ def _patch_trinity_rules(mcp_llm_service):
                     
                     logger.info(f"[Trinity MCP] Executed world management for turn {self.turn}")
                 else:
-                    # Fallback to original execution
-                    await original_execute_actions(self, world, session)
+                    # No MCP client available - this is a critical failure
+                    raise RuntimeError("[Trinity MCP] No MCP client available for action execution. This simulation requires MCP integration to function properly.")
                 
             except Exception as e:
                 logger.error(f"[Trinity MCP] Action execution error: {str(e)}")
-                await original_execute_actions(self, world, session)
+                raise RuntimeError(f"[Trinity MCP] Action execution failed: {str(e)}. This simulation requires MCP integration to function properly.")
         
         # Replace the methods
         trinity.Trinity._generate_initial_rules = mcp_enhanced_generate_rules
