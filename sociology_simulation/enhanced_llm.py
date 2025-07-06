@@ -473,14 +473,22 @@ IF YOU CANNOT GENERATE VALID JSON, RETURN: {}
     
     # === 便捷方法 ===
     
-    async def generate_agent_name(self, era: str, attributes: Dict, age: int, session: aiohttp.ClientSession) -> str:
+    async def generate_agent_name(
+        self,
+        era: str,
+        attributes: Dict,
+        age: int,
+        session: aiohttp.ClientSession,
+        goal: str = "",
+    ) -> str:
         """生成Agent名字"""
         response = await self.generate(
             "agent_generate_name",
             session,
             era=era,
             attributes=attributes,
-            age=age
+            age=age,
+            goal=goal,
         )
         return response.content if response.success else f"Agent{age}"
     

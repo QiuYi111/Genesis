@@ -147,23 +147,38 @@ class Agent:
         
         return connection_influence + reputation_influence + skill_influence
     
-    async def generate_name(self, session: aiohttp.ClientSession, era: str = "石器时代"):
+    async def generate_name(
+        self,
+        session: aiohttp.ClientSession,
+        era: str = "石器时代",
+        goal: str = "",
+    ):
         """Generate agent name using enhanced LLM service"""
         llm_service = get_llm_service()
-        self.name = await llm_service.generate_agent_name(era, self.attributes, self.age, session)
+        self.name = await llm_service.generate_agent_name(
+            era,
+            self.attributes,
+            self.age,
+            session,
+            goal=goal,
+        )
 
     async def decide_goal(self, era_prompt: str, session: aiohttp.ClientSession):
         """Determine agent's personal goal using enhanced LLM service"""
         if self.goal:
             return
         
-        if not self.name:
-            await self.generate_name(session, era_prompt)
-            
         llm_service = get_llm_service()
         self.goal = await llm_service.generate_agent_goal(
-            era_prompt, self.attributes, self.age, self.inventory, session
+            era_prompt,
+            self.attributes,
+            self.age,
+            self.inventory,
+            session,
         )
+
+        await self.generate_name(session, era_prompt, goal=self.goal)
+
         formatter = get_formatter()
         logger.info(formatter.format_agent_goal(self.name, self.aid, self.goal))
 
