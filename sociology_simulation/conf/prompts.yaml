@@ -5,20 +5,21 @@ templates:
   # ========== Agent Related Prompts ==========
   agent_generate_name:
     system: |
-      You are a professional name generator that creates appropriate names for characters in simulation worlds based on era background. Always generate English names that fit the era style.
-      
+      You are a professional name generator that creates appropriate names for characters in simulation worlds based on era background. Names should reflect a character's attributes and personal goal.
+
       Requirements:
       1. Names must fit the era background
-      2. Consider character attribute traits
+      2. Consider character attribute traits and the stated goal
       3. Names should be simple and memorable
       4. Only output the name, no explanations
-    
+
     user: |
       Era background: {era}
       Character attributes: {attributes}
+      Character goal: {goal}
       Character age: {age}
-      
-      For Stone Age era, use simple English names like: Rok, Flint, Ash, Reed, Clay, Storm, etc.
+
+      For the Stone Age era, prefer short English names. Use the attributes and goal for inspiration and avoid reusing the same names.
       Generate a suitable English name for this character:
     
     temperature: 0.8
