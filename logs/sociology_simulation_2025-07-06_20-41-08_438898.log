@@ -1,0 +1,121 @@
+2025-07-06 20:41:08.447 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 20:41:08.447 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 20:41:08.447 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:361 - Applying MCP integration...
+2025-07-06 20:41:08.447 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:445 - Agent actions patched for MCP
+2025-07-06 20:41:08.447 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:566 - Trinity rule generation, adjudication, and action execution patched for MCP
+2025-07-06 20:41:08.447 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:378 - MCP integration applied successfully
+2025-07-06 20:41:08.447 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 20:41:08.447 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 20:41:08.447 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 20:41:08.447 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 20:41:08.447 | INFO     | __main__:main:93 - Era: 石器时代
+2025-07-06 20:41:08.447 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 20:41:08.447 | INFO     | __main__:main:95 - Number of agents: 10
+2025-07-06 20:41:08.448 | INFO     | __main__:main:96 - Turns: 1000
+2025-07-06 20:41:08.448 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 20:41:48.312 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:659 - Trinity response content:
+Here are my world creation decisions for the 石器时代 simulation, designed to reflect the Paleolithic era's environmental conditions and human subsistence patterns:
+
+TERRAIN TYPES:
+1. TERRAIN RIVER_VALLEY 'Fertile valleys with fresh water sources' cost=1.1 resources={fresh_water: 0.9, fish: 0.7, flint: 0.4} color=light_blue
+2. TERRAIN FOREST 'Dense woodlands with mixed vegetation' cost=1.4 resources={wood: 0.8, berries: 0.5, game: 0.6} color=dark_green
+3. TERRAIN GRASSLAND 'Open plains with grazing animals' cost=1.0 resources={game: 0.7, edible_roots: 0.4, flint: 0.3} color=yellow_green
+4. TERRAIN MOUNTAIN 'Rocky highlands with mineral deposits' cost=2.0 resources={flint: 0.9, obsidian: 0.2, herbs: 0.3} color=gray
+5. TERRAIN SWAMP 'Wetlands with abundant aquatic life' cost=1.7 resources={fish: 0.6, reeds: 0.8, medicinal_plants: 0.4} color=dark_blue
+
+RESOURCE DISTRIBUTIONS:
+1. RESOURCE flint distribution={MOUNTAIN: 0.9, RIVER_VALLEY: 0.4, GRASSLAND: 0.3} depletion=0.15 regen=0.02
+2. RESOURCE game distribution={GRASSLAND: 0.7, FOREST: 0.6, SWAMP: 0.3} depletion=0.2 regen=0.1
+3. RESOURCE fish distribution={RIVER_VALLEY: 0.7, SWAMP: 0.6} depletion=0.25 regen=0.15
+4. RESOURCE berries distribution={FOREST: 0.5, RIVER_VALLEY: 0.3} depletion=0.3 regen=0.2
+5. RESOURCE edible_roots distribution={GRASSLAND: 0.4, FOREST: 0.3} depletion=0.2 regen=0.15
+6. RESOURCE fresh_water distribution={RIVER_VALLEY: 0.9, SWAMP: 0.7} depletion=0.1 regen=0.3
+
+WORLD RULES:
+1. RULE seasonal_migration 'Animal herds migrate with seasons' conditions=['turn_mod_12=0'] effects=['game_movement'] priority=1
+2. RULE tool_breakage 'Primitive tools degrade with use' conditions=['resource_harvest'] effects=['tool_degradation:0.05'] priority=2
+3. RULE population_pressure 'Groups must split when resources are scarce' conditions=['resource_scarcity>0.7','population>15'] effects=['group_division'] priority=3
+
+These elements reflect:
+- Hunter-gatherer subsistence patterns
+- Dependence on stone tools and natural resources
+- Seasonal environmental changes
+- Small group dynamics and migration needs
+- Limited technology affecting resource gathering efficiency
+
+The terrain types emphasize water sources and stone deposits critical for Paleolithic survival, while the resources focus on wild foods and raw materials. The rules simulate key challenges of this era including tool maintenance and group splitting when carrying capacity is exceeded.
+2025-07-06 20:41:48.313 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:660 - Parsing 30 lines from Trinity response
+2025-07-06 20:41:48.313 | WARNING  | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:708 - Failed to parse terrain line: TERRAIN TYPES:
+2025-07-06 20:41:48.314 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:731 - Trinity created 5 terrains, 7 resources, 3 rules
+2025-07-06 20:41:48.314 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:474 - Trinity rules generated via MCP: 5 terrains, 7 resources
+2025-07-06 20:41:48.314 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 20:41:48.314 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 20:41:48.315 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: RIVER_VALLEY, FOREST, GRASSLAND, MOUNTAIN, SWAMP
+2025-07-06 20:41:48.315 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 20:41:48.315 | INFO     | sociology_simulation.world:initialize:81 -   DISTRIBUTIONS::
+2025-07-06 20:41:48.315 | INFO     | sociology_simulation.world:initialize:81 -   FLINT:
+2025-07-06 20:41:48.315 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 90.0% chance
+2025-07-06 20:41:48.315 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER_VALLEY: 40.0% chance
+2025-07-06 20:41:48.316 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 30.0% chance
+2025-07-06 20:41:48.316 | INFO     | sociology_simulation.world:initialize:81 -   GAME:
+2025-07-06 20:41:48.316 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 70.0% chance
+2025-07-06 20:41:48.316 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 60.0% chance
+2025-07-06 20:41:48.316 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 30.0% chance
+2025-07-06 20:41:48.316 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 20:41:48.317 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER_VALLEY: 70.0% chance
+2025-07-06 20:41:48.317 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 60.0% chance
+2025-07-06 20:41:48.317 | INFO     | sociology_simulation.world:initialize:81 -   BERRIES:
+2025-07-06 20:41:48.317 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 50.0% chance
+2025-07-06 20:41:48.317 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER_VALLEY: 30.0% chance
+2025-07-06 20:41:48.317 | INFO     | sociology_simulation.world:initialize:81 -   EDIBLE_ROOTS:
+2025-07-06 20:41:48.317 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 40.0% chance
+2025-07-06 20:41:48.317 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 30.0% chance
+2025-07-06 20:41:48.318 | INFO     | sociology_simulation.world:initialize:81 -   FRESH_WATER:
+2025-07-06 20:41:48.318 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER_VALLEY: 90.0% chance
+2025-07-06 20:41:48.318 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 70.0% chance
+2025-07-06 20:41:48.318 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 20:41:48.318 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 966875
+2025-07-06 20:41:48.434 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 20:41:48.438 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 20:41:48.438 | INFO     | sociology_simulation.world:initialize:96 -   BERRIES: 88 units
+2025-07-06 20:41:48.438 | INFO     | sociology_simulation.world:initialize:96 -   EDIBLE_ROOTS: 1201 units
+2025-07-06 20:41:48.438 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 189 units
+2025-07-06 20:41:48.438 | INFO     | sociology_simulation.world:initialize:96 -   FLINT: 1736 units
+2025-07-06 20:41:48.438 | INFO     | sociology_simulation.world:initialize:96 -   FRESH_WATER: 228 units
+2025-07-06 20:41:48.438 | INFO     | sociology_simulation.world:initialize:96 -   GAME: 2116 units
+2025-07-06 20:41:48.438 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 20:41:55.607 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rok(0) personal goal ➜ Become the strongest hunter in the tribe by consistently bringing back the largest game.
+2025-07-06 20:41:55.818 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Gor(1) personal goal ➜ Become the strongest hunter in the tribe by consistently providing the largest game catches.
+2025-07-06 20:41:55.923 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Gorak(8) personal goal ➜ Become the strongest hunter in the tribe by catching the largest wild boar ever seen.
+2025-07-06 20:41:56.196 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rook(5) personal goal ➜ Create a detailed map of the surrounding lands and document all edible plants and animal behavior...
+2025-07-06 20:41:56.277 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rok(4) personal goal ➜ Become the strongest hunter in the tribe by consistently bringing back the largest game and train...
+2025-07-06 20:41:56.299 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rok(7) personal goal ➜ Become the strongest hunter in the tribe by crafting superior stone tools and leading successful ...
+2025-07-06 20:41:56.388 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rook(2) personal goal ➜ Become the most skilled and knowledgeable hunter-gatherer in the tribe by discovering new food so...
+2025-07-06 20:41:56.576 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rok(6) personal goal ➜ Become the strongest hunter and explorer of the tribe by crafting superior stone tools and discov...
+2025-07-06 20:41:56.719 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Riv(3) personal goal ➜ Become the most skilled fisherman in the tribe by crafting better tools and teaching others my te...
+2025-07-06 20:41:57.791 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Thorn(9) personal goal ➜ Discover and document all edible plants and medicinal herbs within a three-day walking distance o...
+2025-07-06 20:41:57.792 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 20:41:57.795 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 0: name 'wood' is not defined
+2025-07-06 20:41:57.795 | ERROR    | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:440 - MCP-enhanced action failed for agent 0: MCP action generation failed for agent 0. This simulation requires MCP integration to function properly. Check MCP client connection and LLM service configuration.
+2025-07-06 20:41:57.797 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 1: name 'wood' is not defined
+2025-07-06 20:41:57.797 | ERROR    | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:440 - MCP-enhanced action failed for agent 1: MCP action generation failed for agent 1. This simulation requires MCP integration to function properly. Check MCP client connection and LLM service configuration.
+2025-07-06 20:41:57.798 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 2: name 'wood' is not defined
+2025-07-06 20:41:57.798 | ERROR    | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:440 - MCP-enhanced action failed for agent 2: MCP action generation failed for agent 2. This simulation requires MCP integration to function properly. Check MCP client connection and LLM service configuration.
+2025-07-06 20:41:57.799 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 3: name 'wood' is not defined
+2025-07-06 20:41:57.799 | ERROR    | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:440 - MCP-enhanced action failed for agent 3: MCP action generation failed for agent 3. This simulation requires MCP integration to function properly. Check MCP client connection and LLM service configuration.
+2025-07-06 20:41:57.800 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 4: name 'wood' is not defined
+2025-07-06 20:41:57.800 | ERROR    | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:440 - MCP-enhanced action failed for agent 4: MCP action generation failed for agent 4. This simulation requires MCP integration to function properly. Check MCP client connection and LLM service configuration.
+2025-07-06 20:41:57.800 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 5: name 'wood' is not defined
+2025-07-06 20:41:57.800 | ERROR    | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:440 - MCP-enhanced action failed for agent 5: MCP action generation failed for agent 5. This simulation requires MCP integration to function properly. Check MCP client connection and LLM service configuration.
+2025-07-06 20:41:57.801 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 6: name 'wood' is not defined
+2025-07-06 20:41:57.801 | ERROR    | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:440 - MCP-enhanced action failed for agent 6: MCP action generation failed for agent 6. This simulation requires MCP integration to function properly. Check MCP client connection and LLM service configuration.
+2025-07-06 20:41:57.802 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 7: name 'wood' is not defined
+2025-07-06 20:41:57.802 | ERROR    | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:440 - MCP-enhanced action failed for agent 7: MCP action generation failed for agent 7. This simulation requires MCP integration to function properly. Check MCP client connection and LLM service configuration.
+2025-07-06 20:41:57.802 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 8: name 'wood' is not defined
+2025-07-06 20:41:57.802 | ERROR    | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:440 - MCP-enhanced action failed for agent 8: MCP action generation failed for agent 8. This simulation requires MCP integration to function properly. Check MCP client connection and LLM service configuration.
+2025-07-06 20:41:57.803 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 9: name 'wood' is not defined
+2025-07-06 20:41:57.803 | ERROR    | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:440 - MCP-enhanced action failed for agent 9: MCP action generation failed for agent 9. This simulation requires MCP integration to function properly. Check MCP client connection and LLM service configuration.

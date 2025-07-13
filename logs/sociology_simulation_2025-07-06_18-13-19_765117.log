@@ -1,0 +1,116 @@
+2025-07-06 18:13:19.775 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 18:13:19.775 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 18:13:19.776 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:220 - Applying MCP integration...
+2025-07-06 18:13:19.776 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:308 - Agent actions patched for MCP
+2025-07-06 18:13:19.776 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:449 - Trinity rule generation, adjudication, and action execution patched for MCP
+2025-07-06 18:13:19.776 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:237 - MCP integration applied successfully
+2025-07-06 18:13:19.776 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 18:13:19.776 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 18:13:19.776 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 18:13:19.776 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 18:13:19.776 | INFO     | __main__:main:93 - Era: 石器时代
+2025-07-06 18:13:19.776 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 18:13:19.776 | INFO     | __main__:main:95 - Number of agents: 5
+2025-07-06 18:13:19.776 | INFO     | __main__:main:96 - Turns: 3
+2025-07-06 18:13:19.777 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 18:13:50.085 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:566 - Trinity created 0 terrains, 1 resources, 0 rules
+2025-07-06 18:13:50.086 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:347 - Trinity rules generated via MCP: 4 terrains, 1 resources
+2025-07-06 18:13:50.087 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 18:13:50.087 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 18:13:50.087 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, GRASSLAND, MOUNTAIN, WATER
+2025-07-06 18:13:50.087 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 18:13:50.087 | INFO     | sociology_simulation.world:initialize:81 -   DISTRIBUTIONS::
+2025-07-06 18:13:50.087 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 18:13:50.087 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 841278
+2025-07-06 18:13:50.199 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 18:13:50.199 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 18:13:50.199 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 18:13:57.297 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rok(3) personal goal ➜ Become the strongest hunter in the tribe by crafting superior stone tools and leading successful ...
+2025-07-06 18:13:57.591 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rook(0) personal goal ➜ Discover and document all edible plants and medicinal herbs within a three-day walking radius of ...
+2025-07-06 18:13:57.605 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Brom(4) personal goal ➜ Become the respected elder who peacefully resolves conflicts and unites neighboring tribes throug...
+2025-07-06 18:13:58.654 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Lorn(2) personal goal ➜ Become the most respected elder in the tribe by sharing wisdom and mediating disputes using my ch...
+2025-07-06 18:14:00.502 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Luma(1) personal goal ➜ Become the most respected storyteller and wisdom-keeper of the tribe by collecting and sharing kn...
+2025-07-06 18:14:00.503 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 18:14:10.428 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 4: ("Moved north: Since I'm currently in a vast grassland with no im.... Moved north to (21, 33). Since I'm currently in a vast grassland with no im...", {'success': True, 'description': "Moved north to (21, 33). Since I'm currently in a vast grassland with no im...", 'position_change': (21, 33)})
+2025-07-06 18:14:10.429 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Brom(4) 行动 → ("Moved north: Since I'm currently in a vast grassland with no im.... Moved north to (21, 33). Since I'm currently in a vast grassland with no im...", {'success': True, 'description': "Moved north to (21, 33). Since I'm currently in a vast grassland with no im...", 'position_change': (21, 33)})
+2025-07-06 18:14:11.533 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 1: ('Moved east: Given my goal to become a respected storyteller an.... Moved east to (29, 58). Given my goal to become a respected storyteller an...', {'success': True, 'description': 'Moved east to (29, 58). Given my goal to become a respected storyteller an...', 'position_change': (29, 58)})
+2025-07-06 18:14:11.533 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Luma(1) 行动 → ('Moved east: Given my goal to become a respected storyteller an.... Moved east to (29, 58). Given my goal to become a respected storyteller an...', {'success': True, 'description': 'Moved east to (29, 58). Given my goal to become a respected storyteller an...', 'position_change': (29, 58)})
+2025-07-06 18:14:12.128 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 0: ('Moved east: Given the current situation of being in a grasslan.... Moved east to (26, 8). Given the current situation of being in a grasslan...', {'success': True, 'description': 'Moved east to (26, 8). Given the current situation of being in a grasslan...', 'position_change': (26, 8)})
+2025-07-06 18:14:12.128 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Rook(0) 行动 → ('Moved east: Given the current situation of being in a grasslan.... Moved east to (26, 8). Given the current situation of being in a grasslan...', {'success': True, 'description': 'Moved east to (26, 8). Given the current situation of being in a grasslan...', 'position_change': (26, 8)})
+2025-07-06 18:14:13.005 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 2: ('Moved north: Given my current situation and goal of becoming a .... Moved north to (35, 45). Given my current situation and goal of becoming a ...', {'success': True, 'description': 'Moved north to (35, 45). Given my current situation and goal of becoming a ...', 'position_change': (35, 45)})
+2025-07-06 18:14:13.006 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Lorn(2) 行动 → ('Moved north: Given my current situation and goal of becoming a .... Moved north to (35, 45). Given my current situation and goal of becoming a ...', {'success': True, 'description': 'Moved north to (35, 45). Given my current situation and goal of becoming a ...', 'position_change': (35, 45)})
+2025-07-06 18:14:13.762 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 3: ('Moved east: Given my current situation and goal to become the .... Moved east to (63, 23). Given my current situation and goal to become the ...', {'success': True, 'description': 'Moved east to (63, 23). Given my current situation and goal to become the ...', 'position_change': (63, 23)})
+2025-07-06 18:14:13.762 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Rok(3) 行动 → ('Moved east: Given my current situation and goal to become the .... Moved east to (63, 23). Given my current situation and goal to become the ...', {'success': True, 'description': 'Moved east to (63, 23). Given my current situation and goal to become the ...', 'position_change': (63, 23)})
+2025-07-06 18:14:13.762 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:394 - [Trinity MCP] Adjudicated turn 0 with 5 events
+2025-07-06 18:14:13.763 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:436 - [Trinity MCP] Executed world management for turn 1
+2025-07-06 18:14:13.763 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 18:14:13.763 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 5 agents alive
+2025-07-06 18:14:13.763 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 18:14:13.763 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 18:14:13.763 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 18:14:13.763 | INFO     | sociology_simulation.world:step:775 - Rook(0) is in critical health!
+2025-07-06 18:14:13.763 | INFO     | sociology_simulation.world:step:775 - Luma(1) is in critical health!
+2025-07-06 18:14:13.763 | INFO     | sociology_simulation.world:step:775 - Lorn(2) is in critical health!
+2025-07-06 18:14:13.763 | INFO     | sociology_simulation.world:step:775 - Rok(3) is in critical health!
+2025-07-06 18:14:13.763 | INFO     | sociology_simulation.world:step:775 - Brom(4) is in critical health!
+2025-07-06 18:14:13.763 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 18:14:13.763 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 18:14:13.763 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 18:14:13.763 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 18:14:13.764 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 2 START ===
+2025-07-06 18:14:20.688 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 1: Moved east: I see forests in that direction which are likely to contain valuable plants and potential animal sightings that I can observe and learn about to expand my knowledge as a future storyteller and wisdom-keeper. The grasslands around me offer little immediate opportunity for gathering new knowledge. Forests typically contain medicinal plants, edible berries, and animal tracks that will help me build the foundational knowledge I need to become respected for my wisdom.. Moved east to (30, 58). I see forests in that direction which are likely to contain valuable plants and potential animal sightings that I can observe and learn about to expand my knowledge as a future storyteller and wisdom-keeper. The grasslands around me offer little immediate opportunity for gathering new knowledge. Forests typically contain medicinal plants, edible berries, and animal tracks that will help me build the foundational knowledge I need to become respected for my wisdom.
+2025-07-06 18:14:20.688 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Luma(1) 行动 → Moved east: I see forests in that direction which are likely to contain valuable plants and potential animal sighting...
+2025-07-06 18:14:24.638 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 0: ('Moved north: Given my current situation and goal of discovering.... Moved north to (26, 7). Given my current situation and goal of discovering...', {'success': True, 'description': 'Moved north to (26, 7). Given my current situation and goal of discovering...', 'position_change': (26, 7)})
+2025-07-06 18:14:24.639 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Rook(0) 行动 → ('Moved north: Given my current situation and goal of discovering.... Moved north to (26, 7). Given my current situation and goal of discovering...', {'success': True, 'description': 'Moved north to (26, 7). Given my current situation and goal of discovering...', 'position_change': (26, 7)})
+2025-07-06 18:14:24.835 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 4: ("Moved north: Given that I'm in a vast grassland with no immedia.... Moved north to (21, 32). Given that I'm in a vast grassland with no immedia...", {'success': True, 'description': "Moved north to (21, 32). Given that I'm in a vast grassland with no immedia...", 'position_change': (21, 32)})
+2025-07-06 18:14:24.835 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Brom(4) 行动 → ("Moved north: Given that I'm in a vast grassland with no immedia.... Moved north to (21, 32). Given that I'm in a vast grassland with no immedia...", {'success': True, 'description': "Moved north to (21, 32). Given that I'm in a vast grassland with no immedia...", 'position_change': (21, 32)})
+2025-07-06 18:14:25.653 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 2: ('Moved east: Given my current situation and long-term goal of b.... Moved east to (36, 45). Given my current situation and long-term goal of b...', {'success': True, 'description': 'Moved east to (36, 45). Given my current situation and long-term goal of b...', 'position_change': (36, 45)})
+2025-07-06 18:14:25.653 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Lorn(2) 行动 → ('Moved east: Given my current situation and long-term goal of b.... Moved east to (36, 45). Given my current situation and long-term goal of b...', {'success': True, 'description': 'Moved east to (36, 45). Given my current situation and long-term goal of b...', 'position_change': (36, 45)})
+2025-07-06 18:14:26.990 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 3: ('Moved north: Given my current situation and goal to become the .... Moved north to (63, 22). Given my current situation and goal to become the ...', {'success': True, 'description': 'Moved north to (63, 22). Given my current situation and goal to become the ...', 'position_change': (63, 22)})
+2025-07-06 18:14:26.990 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Rok(3) 行动 → ('Moved north: Given my current situation and goal to become the .... Moved north to (63, 22). Given my current situation and goal to become the ...', {'success': True, 'description': 'Moved north to (63, 22). Given my current situation and goal to become the ...', 'position_change': (63, 22)})
+2025-07-06 18:14:26.991 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:394 - [Trinity MCP] Adjudicated turn 2 with 0 events
+2025-07-06 18:14:26.991 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:436 - [Trinity MCP] Executed world management for turn 3
+2025-07-06 18:14:26.991 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 18:14:26.991 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 5 agents alive
+2025-07-06 18:14:26.991 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 18:14:26.991 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 18:14:26.991 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 18:14:26.991 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 18:14:26.991 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 18:14:26.991 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 18:14:26.991 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 18:14:26.992 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 4 START ===
+2025-07-06 18:14:37.177 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 2: ('Moved north: Given my current situation and goal of becoming a .... Moved north to (36, 44). Given my current situation and goal of becoming a ...', {'success': True, 'description': 'Moved north to (36, 44). Given my current situation and goal of becoming a ...', 'position_change': (36, 44)})
+2025-07-06 18:14:37.177 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Lorn(2) 行动 → ('Moved north: Given my current situation and goal of becoming a .... Moved north to (36, 44). Given my current situation and goal of becoming a ...', {'success': True, 'description': 'Moved north to (36, 44). Given my current situation and goal of becoming a ...', 'position_change': (36, 44)})
+2025-07-06 18:14:39.404 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 4: ('Moved east: Given my current situation of being in an open gra.... Moved east to (22, 32). Given my current situation of being in an open gra...', {'success': True, 'description': 'Moved east to (22, 32). Given my current situation of being in an open gra...', 'position_change': (22, 32)})
+2025-07-06 18:14:39.404 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Brom(4) 行动 → ('Moved east: Given my current situation of being in an open gra.... Moved east to (22, 32). Given my current situation of being in an open gra...', {'success': True, 'description': 'Moved east to (22, 32). Given my current situation of being in an open gra...', 'position_change': (22, 32)})
+2025-07-06 18:14:39.851 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 3: ('Moved north: Given my current situation and goal to become the .... Moved north to (63, 21). Given my current situation and goal to become the ...', {'success': True, 'description': 'Moved north to (63, 21). Given my current situation and goal to become the ...', 'position_change': (63, 21)})
+2025-07-06 18:14:39.851 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Rok(3) 行动 → ('Moved north: Given my current situation and goal to become the .... Moved north to (63, 21). Given my current situation and goal to become the ...', {'success': True, 'description': 'Moved north to (63, 21). Given my current situation and goal to become the ...', 'position_change': (63, 21)})
+2025-07-06 18:14:40.276 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 1: ('Moved north: Given my goal to become a respected storyteller an.... Moved north to (30, 57). Given my goal to become a respected storyteller an...', {'success': True, 'description': 'Moved north to (30, 57). Given my goal to become a respected storyteller an...', 'position_change': (30, 57)})
+2025-07-06 18:14:40.277 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Luma(1) 行动 → ('Moved north: Given my goal to become a respected storyteller an.... Moved north to (30, 57). Given my goal to become a respected storyteller an...', {'success': True, 'description': 'Moved north to (30, 57). Given my goal to become a respected storyteller an...', 'position_change': (30, 57)})
+2025-07-06 18:14:42.622 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 0: ('Moved north: Given my current goal of discovering edible plants.... Moved north to (26, 6). Given my current goal of discovering edible plants...', {'success': True, 'description': 'Moved north to (26, 6). Given my current goal of discovering edible plants...', 'position_change': (26, 6)})
+2025-07-06 18:14:42.622 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Rook(0) 行动 → ('Moved north: Given my current goal of discovering edible plants.... Moved north to (26, 6). Given my current goal of discovering edible plants...', {'success': True, 'description': 'Moved north to (26, 6). Given my current goal of discovering edible plants...', 'position_change': (26, 6)})
+2025-07-06 18:14:42.622 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:394 - [Trinity MCP] Adjudicated turn 4 with 0 events
+2025-07-06 18:14:42.622 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:436 - [Trinity MCP] Executed world management for turn 5
+2025-07-06 18:14:42.628 | INFO     | sociology_simulation.world:step:761 - Web data exported to: web_data/simulation_turn_005.json
+2025-07-06 18:14:42.628 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 18:14:42.628 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 5 agents alive
+2025-07-06 18:14:42.628 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 18:14:42.628 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 18:14:42.628 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 18:14:42.628 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 18:14:42.628 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 18:14:42.628 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 18:14:42.628 | INFO     | sociology_simulation.world:step:776 - ========================================
+

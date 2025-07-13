@@ -1,0 +1,168 @@
+2025-07-06 17:53:51.317 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 17:53:51.317 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 17:53:51.321 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:207 - Applying MCP integration...
+2025-07-06 17:53:51.321 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:272 - Agent actions patched for MCP
+2025-07-06 17:53:51.321 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:306 - Trinity rule generation patched for MCP
+2025-07-06 17:53:51.321 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:224 - MCP integration applied successfully
+2025-07-06 17:53:51.321 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 17:53:51.321 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 17:53:51.321 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 17:53:51.321 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 17:53:51.321 | INFO     | __main__:main:93 - Era: 石器时代
+2025-07-06 17:53:51.321 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 17:53:51.321 | INFO     | __main__:main:95 - Number of agents: 3
+2025-07-06 17:53:51.321 | INFO     | __main__:main:96 - Turns: 2
+2025-07-06 17:53:51.322 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 17:53:51.322 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_trinity_rules_with_mcp:523 - Trinity MCP rule generation error: 'Config' object has no attribute 'get'
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:297 - Trinity rules generated via MCP
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, GRASSLAND, MOUNTAIN, WATER
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.world:initialize:81 -   WOOD:
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 80.0% chance
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 20.0% chance
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.world:initialize:81 -   STONE:
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 90.0% chance
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 10.0% chance
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.world:initialize:83 -     - WATER: 70.0% chance
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.world:initialize:81 -   APPLE:
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 40.0% chance
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 17:53:51.322 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 735499
+2025-07-06 17:53:51.429 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 17:53:51.430 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 17:53:51.431 | INFO     | sociology_simulation.world:initialize:96 -   APPLE: 92 units
+2025-07-06 17:53:51.431 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 284 units
+2025-07-06 17:53:51.431 | INFO     | sociology_simulation.world:initialize:96 -   STONE: 701 units
+2025-07-06 17:53:51.431 | INFO     | sociology_simulation.world:initialize:96 -   WOOD: 759 units
+2025-07-06 17:53:51.431 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 17:53:58.758 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rok(2) personal goal ➜ Become the strongest hunter in the tribe by consistently bringing back large game.
+2025-07-06 17:53:58.831 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Gor(1) personal goal ➜ Become the strongest hunter in the tribe by consistently bringing back the largest game.
+2025-07-06 17:54:00.791 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Flint(0) personal goal ➜ Become the most skilled toolmaker in the tribe by crafting superior stone axes and spearheads for...
+2025-07-06 17:54:00.791 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 17:54:00.794 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:87 - MCP action generation error for agent 0: 'Config' object has no attribute 'get'
+2025-07-06 17:54:00.794 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 30) attempting: Agent 0 searches for resources (fallback action)
+2025-07-06 17:54:00.795 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:87 - MCP action generation error for agent 1: 'Config' object has no attribute 'get'
+2025-07-06 17:54:00.795 | INFO     | sociology_simulation.world:resolve:254 - → Gor(1): (age 37) attempting: Agent 1 searches for resources (fallback action)
+2025-07-06 17:54:00.796 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:87 - MCP action generation error for agent 2: 'Config' object has no attribute 'get'
+2025-07-06 17:54:00.796 | INFO     | sociology_simulation.world:resolve:254 - → Rok(2): (age 18) attempting: Agent 2 searches for resources (fallback action)
+2025-07-06 17:54:05.622 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"wood": 1, "shell": 1, "fish": 1},
+  "position": [48, 24],
+  "log": "searc...
+2025-07-06 17:54:05.624 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 17:54:05.624 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 17:54:05.624 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:263 - ⚡ Flint(0) 行动 → Agent 0 searches for resources (fallback action)
+2025-07-06 17:54:09.955 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"wood": 1},
+  "position": [13, 24],
+  "log": "Found 1 wood while searching...
+2025-07-06 17:54:09.955 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 17:54:09.955 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Gor(1):
+2025-07-06 17:54:09.956 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:263 - ⚡ Gor(1) 行动 → Agent 1 searches for resources (fallback action)
+2025-07-06 17:54:15.371 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"wood": 1, "shell": 1},
+  "position": [18, 2],
+  "log": "Found 1 wood and ...
+2025-07-06 17:54:15.371 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 17:54:15.372 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Rok(2):
+2025-07-06 17:54:15.372 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:263 - ⚡ Rok(2) 行动 → Agent 2 searches for resources (fallback action)
+2025-07-06 17:54:23.980 | SUCCESS  | sociology_simulation.bible:add_rule:204 - [Bible] Added rule: basic_hunting (legacy_basic_hunting) to default
+2025-07-06 17:54:23.981 | SUCCESS  | sociology_simulation.bible:add_rule:204 - [Bible] Added rule: tool_crafting (legacy_tool_crafting) to default
+2025-07-06 17:54:23.981 | SUCCESS  | sociology_simulation.bible:add_rule:204 - [Bible] Added rule: tribal_social (legacy_tribal_social) to default
+2025-07-06 17:54:23.981 | SUCCESS  | sociology_simulation.bible:update:440 - [Bible] Added 3 legacy rules
+2025-07-06 17:54:23.981 | SUCCESS  | sociology_simulation.trinity:adjudicate:62 - [Trinity] Updated resource rules: {'flint': {'terrain': 0.15}, 'wood': {'terrain': 0.25}, 'berries': {'terrain': 0.2}}
+2025-07-06 17:54:23.981 | SUCCESS  | sociology_simulation.trinity:adjudicate:65 - [Trinity] Era changed to: 石器时代
+2025-07-06 17:54:31.142 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "agent_skill_changes": {},
+  "global_skill_updates": {
+    "new_skills": {
+      "resour...
+2025-07-06 17:54:31.142 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 17:54:36.035 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "regenerate_resources": {
+    "probability_multiplier": 1.5,
+    "specific_resources": [...
+2025-07-06 17:54:36.035 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 17:54:36.036 | SUCCESS  | sociology_simulation.trinity:execute_actions:101 - [Trinity] Regenerated resources with multiplier 1.5
+2025-07-06 17:54:36.036 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 17:54:36.037 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 3 agents alive
+2025-07-06 17:54:36.037 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 17:54:36.037 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 17:54:36.037 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 17:54:36.037 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 17:54:36.037 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 17:54:36.037 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 17:54:36.037 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 17:54:36.038 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 2 START ===
+2025-07-06 17:54:36.039 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:87 - MCP action generation error for agent 0: 'Config' object has no attribute 'get'
+2025-07-06 17:54:36.039 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 31) attempting: Agent 0 searches for resources (fallback action)
+2025-07-06 17:54:36.041 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:87 - MCP action generation error for agent 1: 'Config' object has no attribute 'get'
+2025-07-06 17:54:36.041 | INFO     | sociology_simulation.world:resolve:254 - → Gor(1): (age 38) attempting: Agent 1 searches for resources (fallback action)
+2025-07-06 17:54:36.041 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:87 - MCP action generation error for agent 2: 'Config' object has no attribute 'get'
+2025-07-06 17:54:36.042 | INFO     | sociology_simulation.world:resolve:254 - → Rok(2): (age 19) attempting: Agent 2 searches for resources (fallback action)
+2025-07-06 17:54:41.576 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"wood": 1, "shell": 1},
+  "position": [48, 24],
+  "log": "Found some wood ...
+2025-07-06 17:54:41.577 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 17:54:41.577 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 17:54:41.578 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:263 - ⚡ Flint(0) 行动 → Agent 0 searches for resources (fallback action)
+2025-07-06 17:54:48.535 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"wood": 1, "shell": 1},
+  "position": [13, 24],
+  "log": "Found 1 shell wh...
+2025-07-06 17:54:48.535 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 17:54:48.535 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Gor(1):
+2025-07-06 17:54:48.536 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:263 - ⚡ Gor(1) 行动 → Agent 1 searches for resources (fallback action)
+2025-07-06 17:54:53.684 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"wood": 1},
+  "position": [18, 2],
+  "log": "Found 1 wood while searching ...
+2025-07-06 17:54:53.684 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 17:54:53.684 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Rok(2):
+2025-07-06 17:54:53.685 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:263 - ⚡ Rok(2) 行动 → Agent 2 searches for resources (fallback action)
+2025-07-06 17:55:12.178 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "agent_skill_changes": {
+    "0": {
+      "resource_gathering": {
+        "unlock": {
+  ...
+2025-07-06 17:55:12.179 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 17:55:17.958 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "add_resource_rules": {
+    "flint": {
+      "MOUNTAIN": 0.3,
+      "GRASSLAND": 0.1
+   ...
+2025-07-06 17:55:17.959 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 17:55:17.959 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 17:55:17.959 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 3 agents alive
+2025-07-06 17:55:17.959 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 17:55:17.959 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 17:55:17.959 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 17:55:17.959 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 17:55:17.960 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 17:55:17.960 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 17:55:17.960 | INFO     | sociology_simulation.world:step:776 - ========================================
+

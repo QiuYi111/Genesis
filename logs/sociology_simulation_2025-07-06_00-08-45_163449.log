@@ -1,0 +1,112 @@
+2025-07-06 00:08:45.172 | SUCCESS  | sociology_simulation.prompts:load_from_config:394 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 00:08:45.172 | INFO     | __main__:main:81 - Starting sociology simulation with Hydra configuration
+2025-07-06 00:08:45.172 | INFO     | __main__:main:82 - Initialized 12 prompt templates
+2025-07-06 00:08:45.172 | INFO     | __main__:main:83 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 00:08:45.172 | INFO     | __main__:main:84 - Era: 石器时代
+2025-07-06 00:08:45.172 | INFO     | __main__:main:85 - World size: 64x64
+2025-07-06 00:08:45.172 | INFO     | __main__:main:86 - Number of agents: 10
+2025-07-06 00:08:45.172 | INFO     | __main__:main:87 - Turns: 1000
+2025-07-06 00:09:00.697 | SUCCESS  | sociology_simulation.trinity:_generate_initial_rules:49 - [Trinity] Generated rules for era: 石器时代
+2025-07-06 00:09:00.698 | INFO     | sociology_simulation.world:initialize:75 - 
+========================================
+2025-07-06 00:09:00.698 | INFO     | sociology_simulation.world:initialize:76 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 00:09:00.698 | INFO     | sociology_simulation.world:initialize:77 - TERRAIN TYPES: FOREST, GRASSLAND, RIVER, MOUNTAIN, SWAMP
+2025-07-06 00:09:00.699 | INFO     | sociology_simulation.world:initialize:78 - RESOURCE RULES:
+2025-07-06 00:09:00.699 | INFO     | sociology_simulation.world:initialize:80 -   WOOD:
+2025-07-06 00:09:00.700 | INFO     | sociology_simulation.world:initialize:82 -     - FOREST: 60.0% chance
+2025-07-06 00:09:00.700 | INFO     | sociology_simulation.world:initialize:82 -     - GRASSLAND: 20.0% chance
+2025-07-06 00:09:00.700 | INFO     | sociology_simulation.world:initialize:82 -     - SWAMP: 30.0% chance
+2025-07-06 00:09:00.700 | INFO     | sociology_simulation.world:initialize:80 -   FISH:
+2025-07-06 00:09:00.700 | INFO     | sociology_simulation.world:initialize:82 -     - RIVER: 50.0% chance
+2025-07-06 00:09:00.701 | INFO     | sociology_simulation.world:initialize:82 -     - SWAMP: 40.0% chance
+2025-07-06 00:09:00.701 | INFO     | sociology_simulation.world:initialize:80 -   FLINT:
+2025-07-06 00:09:00.701 | INFO     | sociology_simulation.world:initialize:82 -     - MOUNTAIN: 70.0% chance
+2025-07-06 00:09:00.701 | INFO     | sociology_simulation.world:initialize:82 -     - GRASSLAND: 30.0% chance
+2025-07-06 00:09:00.701 | INFO     | sociology_simulation.world:initialize:80 -   BERRIES:
+2025-07-06 00:09:00.702 | INFO     | sociology_simulation.world:initialize:82 -     - FOREST: 40.0% chance
+2025-07-06 00:09:00.702 | INFO     | sociology_simulation.world:initialize:82 -     - GRASSLAND: 30.0% chance
+2025-07-06 00:09:00.703 | INFO     | sociology_simulation.world:initialize:80 -   CLAY:
+2025-07-06 00:09:00.703 | INFO     | sociology_simulation.world:initialize:82 -     - RIVER: 40.0% chance
+2025-07-06 00:09:00.703 | INFO     | sociology_simulation.world:initialize:82 -     - SWAMP: 50.0% chance
+2025-07-06 00:09:00.704 | INFO     | sociology_simulation.world:initialize:83 - ========================================
+
+2025-07-06 00:09:00.704 | INFO     | sociology_simulation.world:generate_realistic_terrain:142 - Generating terrain using 'mixed' algorithm with seed 664561
+2025-07-06 00:09:00.855 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:152 - Generated realistic 64x64 terrain map
+2025-07-06 00:09:00.858 | INFO     | sociology_simulation.world:initialize:93 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 00:09:00.858 | INFO     | sociology_simulation.world:initialize:95 -   BERRIES: 1044 units
+2025-07-06 00:09:00.858 | INFO     | sociology_simulation.world:initialize:95 -   CLAY: 386 units
+2025-07-06 00:09:00.858 | INFO     | sociology_simulation.world:initialize:95 -   FISH: 454 units
+2025-07-06 00:09:00.858 | INFO     | sociology_simulation.world:initialize:95 -   FLINT: 767 units
+2025-07-06 00:09:00.858 | INFO     | sociology_simulation.world:initialize:95 -   WOOD: 870 units
+2025-07-06 00:09:00.858 | INFO     | sociology_simulation.world:initialize:96 - ========================================
+
+2025-07-06 00:09:07.577 | INFO     | sociology_simulation.agent:decide_goal:166 - Ember(9) personal goal ➜ Become the most respected storyteller and peacemaker among neighboring tribes by sharing wisdom and mediating conflicts.
+2025-07-06 00:09:07.652 | INFO     | sociology_simulation.agent:decide_goal:166 - Flint(6) personal goal ➜ Become the most respected elder by leading my tribe to discover new hunting grounds and teaching younger generations survival skills through storytelling.
+2025-07-06 00:09:07.661 | INFO     | sociology_simulation.agent:decide_goal:166 - Flint(4) personal goal ➜ Become the strongest hunter in the tribe by consistently bringing back the largest game and earning respect through physical prowess.
+2025-07-06 00:09:08.049 | INFO     | sociology_simulation.agent:decide_goal:166 - Flare(3) personal goal ➜ Become the most respected storyteller and peacemaker among neighboring tribes by sharing wisdom and resolving conflicts.
+2025-07-06 00:09:08.307 | INFO     | sociology_simulation.agent:decide_goal:166 - Flint(8) personal goal ➜ Become the tribe's chief explorer by discovering and mapping three new hunting grounds and edible plant sources within two years.
+2025-07-06 00:09:08.343 | INFO     | sociology_simulation.agent:decide_goal:166 - Storm(7) personal goal ➜ Become the most skilled and respected toolmaker in the tribe by crafting superior stone tools and teaching others the craft.
+2025-07-06 00:09:08.354 | INFO     | sociology_simulation.agent:decide_goal:166 - Storm(5) personal goal ➜ Become the most respected elder in the tribe by sharing wisdom through storytelling and mediating conflicts.
+2025-07-06 00:09:08.727 | INFO     | sociology_simulation.agent:decide_goal:166 - Ember(0) personal goal ➜ Become the most respected elder in the tribe by sharing wisdom and mediating conflicts using my charm and experience.
+2025-07-06 00:09:09.496 | INFO     | sociology_simulation.agent:decide_goal:166 - Flint(1) personal goal ➜ Discover and map all edible plants and medicinal herbs within a three-day walking radius of my village.
+2025-07-06 00:09:09.573 | INFO     | sociology_simulation.agent:decide_goal:166 - Ember(2) personal goal ➜ Become the most skilled storyteller and peacemaker in the tribe by collecting and sharing ancient tales from neighboring clans.
+2025-07-06 00:09:09.574 | INFO     | __main__:run_simulation:104 - ===== TURN 0 =====
+2025-07-06 00:09:09.574 | INFO     | sociology_simulation.world:step:541 - 
+=== TURN 0 START ===
+2025-07-06 00:09:16.662 | INFO     | sociology_simulation.world:resolve:251 - Flint(1) (age 56) attempting action: Given my goal to discover edible plants and medicinal herbs, and noticing berries at position [26,36] (GRASSLAND with FLINT and BERRIES), I will move north to collect and study these berries for potential food or medicinal value. 
+
+Action: "move north to collect and examine berries at position [26,36]"
+2025-07-06 00:09:16.758 | INFO     | sociology_simulation.world:resolve:251 - Flint(4) (age 21) attempting action: move north to the river at [28,57] to catch more fish and demonstrate my hunting prowess.
+2025-07-06 00:09:16.956 | INFO     | sociology_simulation.world:resolve:251 - Ember(9) (age 48) attempting action: Given my high charm attribute and goal to become a respected storyteller, I'll move to the nearby riverbank (position [52,56] to [55,56]) to collect clay that can be used to craft storytelling tokens or trade items to build social connections. 
+
+"Move east towards the river to collect clay for crafting storytelling aids."
+2025-07-06 00:09:16.972 | INFO     | sociology_simulation.world:resolve:251 - Flare(3) (age 19) attempting action: Given my goal to become a respected storyteller and peacemaker, and noticing Agent Storm (an older, charming individual) nearby at the river, I will: 
+
+"Move to position [8,48] to chat with Storm about tribal stories and wisdom." 
+
+This leverages my high charm attribute to build social connections with an elder who likely has valuable knowledge to share.
+2025-07-06 00:09:17.099 | INFO     | sociology_simulation.world:resolve:251 - Ember(0) (age 60) attempting action: Given my goal to become a respected elder and my high charm attribute, I should focus on building social connections first. Since there are no other agents visible currently, I'll move towards the river at [27,24] to collect fish - a valuable resource that can be used to establish goodwill through sharing later. 
+
+Action: "move east to [27,24] to collect fish for future social exchanges"
+2025-07-06 00:09:17.201 | INFO     | sociology_simulation.world:resolve:251 - Ember(2) (age 48) attempting action: Given my high charm attribute and goal to become a storyteller and peacemaker, I should start by gathering resources that could help me trade for stories or create storytelling tools. I see flint and berries nearby at position [63,23], which could be useful for crafting or trading.
+
+Action: "Collect flint and berries at position [63,23] to gather materials for future storytelling tools or trade."
+2025-07-06 00:09:17.974 | INFO     | sociology_simulation.world:resolve:251 - Storm(7) (age 27) attempting action: Given my goal to become a skilled toolmaker and the presence of flint resources nearby, I will move to position (26,32) to collect flint for crafting tools. 
+
+"move north to collect flint at position (26,32)"
+2025-07-06 00:09:18.562 | INFO     | sociology_simulation.world:resolve:251 - Storm(5) (age 67) attempting action: Given my goal to become a respected elder through storytelling and mediation, and noticing the young agent Flare nearby (who has high charm but low strength and curiosity), I should initiate a social interaction to share wisdom and build my reputation.
+
+"Chat with Agent Flare about river fishing techniques and the importance of patience in life." 
+
+This leverages:
+1. My position by the river (natural teaching environment)
+2. Flare's likely need for guidance (low strength/curiosity)
+3. My high charm for effective communication
+4. Building "wise" reputation through practical wisdom sharing
+2025-07-06 00:09:19.322 | INFO     | sociology_simulation.world:resolve:251 - Flint(6) (age 68) attempting action: As an elder seeking to build respect through wisdom and leadership, I will move to the nearby river at [51,4] to collect clay, which can be used to create pottery for storytelling symbols and practical tribe use. This demonstrates both practical skills and cultural knowledge to share with younger generations. 
+
+Action: "move east to [51,4] to collect clay"
+2025-07-06 00:09:20.459 | INFO     | sociology_simulation.world:resolve:251 - Flint(8) (age 28) attempting action: Given my goal to become the tribe's chief explorer by discovering new hunting grounds and edible plant sources, and noticing that Agent Storm (aid 7) is nearby at [26,35] with high curiosity and charm attributes similar to mine, I should:
+
+"chat with Agent Storm about forming an exploration team to discover new hunting grounds together" 
+
+This action aligns with my goal by potentially increasing my social connections and leadership score while pooling resources/knowledge for exploration. Storm's high curiosity makes them a good candidate for joint exploration.
+2025-07-06 00:09:23.777 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"berries": 3},
+  "attributes": {"curiosity": 1},
+  "position": [26, 36],
+ ...
+2025-07-06 00:09:23.781 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 00:09:23.782 | INFO     | sociology_simulation.world:_process_outcome:323 - Processing outcome for Flint(1):
+2025-07-06 00:09:23.783 | INFO     | sociology_simulation.agent:act:349 - Flint(1) 行动 → Given my goal to discover edible plants and medicinal herbs, and noticing berries at position [26,36] (GRASSLAND with FLINT and BERRIES), I will move north to collect and study these berries for potential food or medicinal value. 
+
+Action: "move north to collect and examine berries at position [26,36]"
+2025-07-06 00:09:30.086 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "attributes": {},
+  "position": [28, 57],
+  "log": "You successfully ...
+2025-07-06 00:09:30.087 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 00:09:30.087 | INFO     | sociology_simulation.world:_process_outcome:323 - Processing outcome for Flint(4):

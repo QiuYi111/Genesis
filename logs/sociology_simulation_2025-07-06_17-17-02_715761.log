@@ -1,0 +1,25 @@
+2025-07-06 17:17:02.725 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 17:17:02.725 | INFO     | __main__:main:88 - Applying MCP integration...
+2025-07-06 17:17:02.725 | INFO     | sociology_simulation.mcp_integration:apply_mcp_integration:428 - Applying MCP integration patches...
+2025-07-06 17:17:02.725 | SUCCESS  | sociology_simulation.mcp_integration:apply_mcp_integration:432 - Agent class patched for MCP
+2025-07-06 17:17:02.725 | SUCCESS  | sociology_simulation.mcp_integration:apply_mcp_integration:438 - Trinity class patched for MCP
+2025-07-06 17:17:02.725 | SUCCESS  | sociology_simulation.mcp_integration:apply_mcp_integration:444 - World class patched for MCP
+2025-07-06 17:17:02.725 | SUCCESS  | sociology_simulation.mcp_integration:apply_mcp_integration:448 - MCP integration patches applied successfully
+2025-07-06 17:17:02.725 | INFO     | __main__:main:90 - MCP integration applied successfully
+2025-07-06 17:17:02.725 | INFO     | __main__:main:92 - Starting sociology simulation with Hydra configuration
+2025-07-06 17:17:02.725 | INFO     | __main__:main:93 - Initialized 12 prompt templates
+2025-07-06 17:17:02.725 | INFO     | __main__:main:94 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 17:17:02.725 | INFO     | __main__:main:95 - Era: 石器时代
+2025-07-06 17:17:02.725 | INFO     | __main__:main:96 - World size: 64x64
+2025-07-06 17:17:02.725 | INFO     | __main__:main:97 - Number of agents: 3
+2025-07-06 17:17:02.725 | INFO     | __main__:main:98 - Turns: 2
+2025-07-06 17:17:02.726 | INFO     | __main__:run_simulation:120 - Initializing MCP client for world...
+2025-07-06 17:17:02.726 | WARNING  | sociology_simulation.mcp_client:initialize:85 - Failed to connect to agent_actions server: ClientSession.__init__() missing 2 required positional arguments: 'read_stream' and 'write_stream'
+2025-07-06 17:17:02.726 | WARNING  | sociology_simulation.mcp_client:initialize:85 - Failed to connect to social_interactions server: ClientSession.__init__() missing 2 required positional arguments: 'read_stream' and 'write_stream'
+2025-07-06 17:17:02.726 | WARNING  | sociology_simulation.mcp_client:initialize:85 - Failed to connect to world_management server: ClientSession.__init__() missing 2 required positional arguments: 'read_stream' and 'write_stream'
+2025-07-06 17:17:02.726 | WARNING  | sociology_simulation.mcp_client:initialize:85 - Failed to connect to skills server: ClientSession.__init__() missing 2 required positional arguments: 'read_stream' and 'write_stream'
+2025-07-06 17:17:02.726 | WARNING  | sociology_simulation.mcp_client:initialize:85 - Failed to connect to decision server: ClientSession.__init__() missing 2 required positional arguments: 'read_stream' and 'write_stream'
+2025-07-06 17:17:02.726 | WARNING  | sociology_simulation.mcp_client:initialize:89 - No MCP servers available, using fallback mode
+2025-07-06 17:17:02.726 | SUCCESS  | sociology_simulation.mcp_integration:initialize_mcp:310 - MCP integration initialized
+2025-07-06 17:17:02.726 | INFO     | __main__:run_simulation:122 - MCP client initialized successfully
+2025-07-06 17:17:02.726 | ERROR    | sociology_simulation.mcp_integration:mcp_generate_initial_rules:243 - [Trinity MCP] Error generating rules: 'session'

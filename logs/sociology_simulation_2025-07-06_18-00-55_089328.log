@@ -1,0 +1,60 @@
+2025-07-06 18:00:55.098 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 18:00:55.098 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 18:00:55.099 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:220 - Applying MCP integration...
+2025-07-06 18:00:55.099 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:285 - Agent actions patched for MCP
+2025-07-06 18:00:55.099 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:338 - Trinity rule generation patched for MCP
+2025-07-06 18:00:55.099 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:237 - MCP integration applied successfully
+2025-07-06 18:00:55.099 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 18:00:55.099 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 18:00:55.099 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 18:00:55.099 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 18:00:55.099 | INFO     | __main__:main:93 - Era: 石器时代
+2025-07-06 18:00:55.099 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 18:00:55.099 | INFO     | __main__:main:95 - Number of agents: 10
+2025-07-06 18:00:55.100 | INFO     | __main__:main:96 - Turns: 1000
+2025-07-06 18:00:55.100 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 18:01:25.355 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:556 - Trinity created 0 terrains, 1 resources, 0 rules
+2025-07-06 18:01:25.355 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:322 - Trinity rules generated via MCP: 4 terrains, 1 resources
+2025-07-06 18:01:25.355 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 18:01:25.356 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 18:01:25.356 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, GRASSLAND, MOUNTAIN, WATER
+2025-07-06 18:01:25.356 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 18:01:25.356 | INFO     | sociology_simulation.world:initialize:81 -   DISTRIBUTIONS::
+2025-07-06 18:01:25.356 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 18:01:25.356 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 292743
+2025-07-06 18:01:25.469 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 18:01:25.469 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 18:01:25.470 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 18:01:32.376 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mGor(9)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by consistently bringing back the largest game.[0m
+2025-07-06 18:01:32.664 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(0)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by crafting superior stone tools and leading successful ...[0m
+2025-07-06 18:01:33.444 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mThorn(7)[0m [94mpersonal goal ➜[0m [3mDiscover and map all edible plants and medicinal herbs within a three-day walking radius of our v...[0m
+2025-07-06 18:01:33.517 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mGorak(6)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by crafting superior stone tools and leading successful ...[0m
+2025-07-06 18:01:33.595 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mElda(5)[0m [94mpersonal goal ➜[0m [3mBecome the tribe's storyteller by collecting and preserving ancient legends and survival knowledg...[0m
+2025-07-06 18:01:33.617 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(3)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by consistently bringing back the largest game and earni...[0m
+2025-07-06 18:01:33.846 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRook(2)[0m [94mpersonal goal ➜[0m [3mBecome the most knowledgeable explorer of distant lands by discovering and documenting new plants...[0m
+2025-07-06 18:01:33.922 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLuma(4)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled storyteller and mediator in the tribe by collecting and sharing knowledge...[0m
+2025-07-06 18:01:34.816 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(8)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled hunter and toolmaker in the tribe by crafting superior stone weapons and ...[0m
+2025-07-06 18:01:36.207 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mHerb(1)[0m [94mpersonal goal ➜[0m [3mBecome the tribe's foremost expert on identifying and cataloging edible plants and medicinal herb...[0m
+2025-07-06 18:01:36.207 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 18:01:45.408 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mGorak(6)[0m: (age 45) attempting: Moved east: Since I'm currently in a vast grassland with...
+2025-07-06 18:01:45.411 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mRok(0)[0m: (age 22) attempting: Moved east: Given my current situation and goal to becom...
+2025-07-06 18:01:45.952 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mRook(2)[0m: (age 19) attempting: Moved east: Given that I'm surrounded by endless grassla...
+2025-07-06 18:01:46.096 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mRok(3)[0m: (age 27) attempting: Moved east: Given my goal to become the strongest hunter...
+2025-07-06 18:01:46.555 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mHerb(1)[0m: (age 36) attempting: Moved east: Given that I'm surrounded by endless grassla...
+2025-07-06 18:01:46.709 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mGor(9)[0m: (age 69) attempting: Moved east: Given the current situation where I'm surrou...
+2025-07-06 18:01:47.243 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mLuma(4)[0m: (age 41) attempting: Moved north: Given my current situation and long-term go...
+2025-07-06 18:01:48.005 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mThorn(7)[0m: (age 50) attempting: Moved north: Given the current situation, I should begin...
+2025-07-06 18:01:50.023 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mRok(8)[0m: (age 38) attempting: Moved east: Given my current situation and goals, the be...
+2025-07-06 18:01:50.303 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "position": [43, 63],
+  "log": "Moved east to position [43, 63] in the vast grassland"
+}...
+2025-07-06 18:01:50.305 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 18:01:50.305 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Gorak(6):
+2025-07-06 18:01:50.305 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:276 - [92m⚡[0m [1mGorak(6)[0m [93m行动 →[0m [36mMoved east: Since I'm currently in a vast grassland with no vi.... Moved east to (42, 63). Since I'm currently in a v...[0m
+2025-07-06 18:01:50.639 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mElda(5)[0m: (age 65) attempting: Moved east: Given my goal to become the tribe's storytel...

@@ -1,0 +1,230 @@
+2025-07-06 21:05:48.008 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 21:05:48.008 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 21:05:48.009 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:361 - Applying MCP integration...
+2025-07-06 21:05:48.009 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:445 - Agent actions patched for MCP
+2025-07-06 21:05:48.009 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:566 - Trinity rule generation, adjudication, and action execution patched for MCP
+2025-07-06 21:05:48.009 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:378 - MCP integration applied successfully
+2025-07-06 21:05:48.009 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 21:05:48.009 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 21:05:48.009 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 21:05:48.009 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 21:05:48.009 | INFO     | __main__:main:93 - Era: 石器时代
+2025-07-06 21:05:48.009 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 21:05:48.009 | INFO     | __main__:main:95 - Number of agents: 10
+2025-07-06 21:05:48.009 | INFO     | __main__:main:96 - Turns: 1000
+2025-07-06 21:05:48.010 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 21:06:26.823 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:666 - Trinity response content:
+Here are my world creation decisions for the 石器时代 simulation:
+
+TERRAIN TYPES:
+1. TERRAIN RIVER_VALLEY 'Fertile land near freshwater sources' cost=1.0 resources={{clay: 0.7, fish: 0.6, reeds: 0.5}} color=teal
+2. TERRAIN FOREST 'Dense woodlands with mixed vegetation' cost=1.4 resources={{wood: 0.9, berries: 0.4, game: 0.3}} color=dark_green
+3. TERRAIN GRASSLAND 'Open plains with scattered vegetation' cost=1.0 resources={{game: 0.5, berries: 0.3, flint: 0.2}} color=yellow_green
+4. TERRAIN MOUNTAIN 'Rocky highland areas with caves' cost=1.8 resources={{flint: 0.8, stone: 0.7, copper_ore: 0.1}} color=gray
+5. TERRAIN SWAMP 'Wetlands with poor drainage' cost=1.6 resources={{reeds: 0.6, clay: 0.4, medicinal_plants: 0.2}} color=dark_teal
+
+RESOURCE DISTRIBUTIONS:
+1. RESOURCE flint distribution={{MOUNTAIN: 0.8, GRASSLAND: 0.2}} depletion=0.05 regen=0.02
+2. RESOURCE wood distribution={{FOREST: 0.9, RIVER_VALLEY: 0.3}} depletion=0.1 regen=0.07
+3. RESOURCE game distribution={{FOREST: 0.3, GRASSLAND: 0.5}} depletion=0.15 regen=0.1
+4. RESOURCE clay distribution={{RIVER_VALLEY: 0.7, SWAMP: 0.4}} depletion=0.08 regen=0.05
+5. RESOURCE fish distribution={{RIVER_VALLEY: 0.6}} depletion=0.12 regen=0.15
+6. RESOURCE berries distribution={{FOREST: 0.4, GRASSLAND: 0.3}} depletion=0.2 regen=0.25
+
+WORLD RULES:
+1. RULE seasonal_migration 'Animal herds migrate with seasons' conditions=['turn_mod_12=6'] effects=['game_distribution_shift'] priority=1
+2. RULE tool_innovation 'Chance for new tool discovery' conditions=['population>50', 'flint_abundance>0.7'] effects=['tech_progress'] priority=2
+3. RULE river_flooding 'Periodic flooding renews river valleys' conditions=['turn_mod_24=0'] effects=['clay_replenish', 'fish_boost'] priority=1
+
+These elements reflect:
+- Hunter-gatherer lifestyle with stone tool technology
+- Dependence on natural resources and seasonal patterns
+- Early human settlement patterns near water sources
+- Limited resource processing capabilities
+- Environmental factors shaping early human development
+2025-07-06 21:06:26.824 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:667 - Parsing 28 lines from Trinity response
+2025-07-06 21:06:26.825 | WARNING  | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:715 - Failed to parse terrain line: TERRAIN TYPES:
+2025-07-06 21:06:26.825 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:738 - Trinity created 5 terrains, 7 resources, 3 rules
+2025-07-06 21:06:26.826 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:474 - Trinity rules generated via MCP: 5 terrains, 7 resources
+2025-07-06 21:06:26.826 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 21:06:26.826 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 21:06:26.826 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: RIVER_VALLEY, FOREST, GRASSLAND, MOUNTAIN, SWAMP
+2025-07-06 21:06:26.827 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 21:06:26.827 | INFO     | sociology_simulation.world:initialize:81 -   DISTRIBUTIONS::
+2025-07-06 21:06:26.827 | INFO     | sociology_simulation.world:initialize:81 -   FLINT:
+2025-07-06 21:06:26.827 | INFO     | sociology_simulation.world:initialize:83 -     - {MOUNTAIN: 80.0% chance
+2025-07-06 21:06:26.827 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 20.0% chance
+2025-07-06 21:06:26.828 | INFO     | sociology_simulation.world:initialize:81 -   WOOD:
+2025-07-06 21:06:26.828 | INFO     | sociology_simulation.world:initialize:83 -     - {FOREST: 90.0% chance
+2025-07-06 21:06:26.828 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER_VALLEY: 30.0% chance
+2025-07-06 21:06:26.828 | INFO     | sociology_simulation.world:initialize:81 -   GAME:
+2025-07-06 21:06:26.828 | INFO     | sociology_simulation.world:initialize:83 -     - {FOREST: 30.0% chance
+2025-07-06 21:06:26.828 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 50.0% chance
+2025-07-06 21:06:26.828 | INFO     | sociology_simulation.world:initialize:81 -   CLAY:
+2025-07-06 21:06:26.829 | INFO     | sociology_simulation.world:initialize:83 -     - {RIVER_VALLEY: 70.0% chance
+2025-07-06 21:06:26.829 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 40.0% chance
+2025-07-06 21:06:26.829 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 21:06:26.829 | INFO     | sociology_simulation.world:initialize:83 -     - {RIVER_VALLEY: 60.0% chance
+2025-07-06 21:06:26.829 | INFO     | sociology_simulation.world:initialize:81 -   BERRIES:
+2025-07-06 21:06:26.829 | INFO     | sociology_simulation.world:initialize:83 -     - {FOREST: 40.0% chance
+2025-07-06 21:06:26.829 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 30.0% chance
+2025-07-06 21:06:26.829 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 21:06:26.830 | INFO     | sociology_simulation.world:generate_realistic_terrain:147 - Generating terrain using 'mixed' algorithm with seed 956182
+2025-07-06 21:06:26.946 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:157 - Generated realistic 64x64 terrain map
+2025-07-06 21:06:26.948 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 21:06:26.948 | INFO     | sociology_simulation.world:initialize:96 -   BERRIES: 961 units
+2025-07-06 21:06:26.948 | INFO     | sociology_simulation.world:initialize:96 -   FLINT: 646 units
+2025-07-06 21:06:26.949 | INFO     | sociology_simulation.world:initialize:96 -   GAME: 1581 units
+2025-07-06 21:06:26.949 | INFO     | sociology_simulation.world:initialize:96 -   WOOD: 188 units
+2025-07-06 21:06:26.949 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 21:06:33.440 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(7)[0m [94mpersonal goal ➜[0m [3mTrain the strongest young hunters in the tribe to ensure our people's survival through winter.[0m
+2025-07-06 21:06:33.537 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mThorn(2)[0m [94mpersonal goal ➜[0m [3mDiscover and map all edible plants and medicinal herbs within a three-day walking radius of my vi...[0m
+2025-07-06 21:06:34.004 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mGor(1)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by catching the largest mammoth before winter arrives.[0m
+2025-07-06 21:06:34.029 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLira(4)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled storyteller and peacemaker in the tribe by learning and sharing tales fro...[0m
+2025-07-06 21:06:34.314 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mFlint(3)[0m [94mpersonal goal ➜[0m [3mBecome the tribe's expert toolmaker by crafting and improving stone tools to help our people hunt...[0m
+2025-07-06 21:06:34.449 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(5)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by crafting better stone tools and bringing back the mos...[0m
+2025-07-06 21:06:34.501 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mThorn(6)[0m [94mpersonal goal ➜[0m [3mBecome the tribe's foremost expert on edible plants and medicinal herbs by exploring the surround...[0m
+2025-07-06 21:06:34.656 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRocko(0)[0m [94mpersonal goal ➜[0m [3mBuild a sturdy wooden shelter near the river to protect my family from predators and bad weather.[0m
+2025-07-06 21:06:35.905 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mFlintok(9)[0m [94mpersonal goal ➜[0m [3mBecome the respected elder who teaches younger tribe members how to craft durable tools from flin...[0m
+2025-07-06 21:06:38.408 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLuma(8)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled storyteller and knowledge-keeper of the tribe by collecting and sharing w...[0m
+2025-07-06 21:06:38.410 | INFO     | sociology_simulation.world:step:561 - 
+=== TURN 0 START ===
+2025-07-06 21:06:47.572 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 3: ('Failed to collect stone: No resources at position (43, 8)', {'success': False, 'error': 'No resources at position (43, 8)'})
+2025-07-06 21:06:47.573 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mFlint(3)[0m [93m行动 →[0m [36mFailed to collect stone: No resources at position (43, 8)[0m
+2025-07-06 21:06:49.673 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 7: ("Moved east: Given my current goal to train the strongest young hunters in the tribe, and considering I'm in a gr.... Moved east to (5, 18). Given my current goal to train the strongest young hunters in the tribe, and considering I'm in a gr...", {'success': True, 'description': "Moved east to (5, 18). Given my current goal to train the strongest young hunters in the tribe, and considering I'm in a gr...", 'position_change': (5, 18)})
+2025-07-06 21:06:49.673 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mRok(7)[0m [93m行动 →[0m [36mMoved east: Given my current goal to train the strongest young hunters in the tribe, and consider...[0m
+2025-07-06 21:06:50.607 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 4: ("Moved east: Given my goal to become a skilled storyteller and peacemaker, and considering I'm currently in an op.... Moved east to (9, 41). Given my goal to become a skilled storyteller and peacemaker, and considering I'm currently in an op...", {'success': True, 'description': "Moved east to (9, 41). Given my goal to become a skilled storyteller and peacemaker, and considering I'm currently in an op...", 'position_change': (9, 41)})
+2025-07-06 21:06:50.607 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mLira(4)[0m [93m行动 →[0m [36mMoved east: Given my goal to become a skilled storyteller and peacemaker, and considering I'm cur...[0m
+2025-07-06 21:06:50.610 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 8: ('Failed to collect resource: No resources at position (15, 14)', {'success': False, 'error': 'No resources at position (15, 14)'})
+2025-07-06 21:06:50.610 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mLuma(8)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (15, 14)[0m
+2025-07-06 21:06:51.109 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 0: ("Collected wood: Since I'm currently in a grassland area with no visible resources nearby and my goal is to build a s.... Collected 1 flint. Since I'm currently in a grassland area with no visible resources nearby and my goal is to build a s...", {'success': True, 'description': "Collected 1 flint. Since I'm currently in a grassland area with no visible resources nearby and my goal is to build a s...", 'inventory_changes': {'flint': 1}})
+2025-07-06 21:06:51.109 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mRocko(0)[0m [93m行动 →[0m [36mCollected wood: Since I'm currently in a grassland area with no visible resources nearby and my g...[0m
+2025-07-06 21:06:51.111 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 6: ("Collected resource: Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid.... Collected 1 game. Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", {'success': True, 'description': "Collected 1 game. Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", 'inventory_changes': {'game': 1}})
+2025-07-06 21:06:51.111 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mThorn(6)[0m [93m行动 →[0m [36mCollected resource: Given my goal to become the tribe's foremost expert on edible plants and medi...[0m
+2025-07-06 21:06:51.310 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 2: ('Moved east: Given my current situation and goal of discovering edible plants and medicinal herbs, I notice that .... Moved east to (21, 37). Given my current situation and goal of discovering edible plants and medicinal herbs, I notice that ...', {'success': True, 'description': 'Moved east to (21, 37). Given my current situation and goal of discovering edible plants and medicinal herbs, I notice that ...', 'position_change': (21, 37)})
+2025-07-06 21:06:51.311 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mThorn(2)[0m [93m行动 →[0m [36mMoved east: Given my current situation and goal of discovering edible plants and medicinal herbs,...[0m
+2025-07-06 21:06:51.458 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 1: ("Collected resource: Given that I'm currently in a vast grassland with no immediate resources or other agents visible, an.... Collected 1 game. Given that I'm currently in a vast grassland with no immediate resources or other agents visible, an...", {'success': True, 'description': "Collected 1 game. Given that I'm currently in a vast grassland with no immediate resources or other agents visible, an...", 'inventory_changes': {'game': 1}})
+2025-07-06 21:06:51.458 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mGor(1)[0m [93m行动 →[0m [36mCollected resource: Given that I'm currently in a vast grassland with no immediate resources or o...[0m
+2025-07-06 21:06:52.373 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 9: ('Failed to collect wood: No resources at position (57, 11)', {'success': False, 'error': 'No resources at position (57, 11)'})
+2025-07-06 21:06:52.374 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mFlintok(9)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (57, 11)[0m
+2025-07-06 21:06:53.255 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 5: ('Collected stone: Given my current situation with an empty inventory and the goal to become the strongest hunter by cr.... Collected 1 flint. Given my current situation with an empty inventory and the goal to become the strongest hunter by cr...', {'success': True, 'description': 'Collected 1 flint. Given my current situation with an empty inventory and the goal to become the strongest hunter by cr...', 'inventory_changes': {'flint': 1}})
+2025-07-06 21:06:53.256 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mRok(5)[0m [93m行动 →[0m [36mCollected stone: Given my current situation with an empty inventory and the goal to become the st...[0m
+2025-07-06 21:06:53.268 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:513 - [Trinity MCP] Adjudicated turn 0 with 10 events
+2025-07-06 21:06:53.268 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:553 - [Trinity MCP] Executed world management for turn 1
+2025-07-06 21:07:16.399 | INFO     | sociology_simulation.world:step:773 - 
+========================================
+2025-07-06 21:07:16.399 | INFO     | sociology_simulation.world:step:774 - TURN SUMMARY - 3 agents alive
+2025-07-06 21:07:16.400 | INFO     | sociology_simulation.world:step:775 - Groups: 0, Technologies: 0
+2025-07-06 21:07:16.400 | INFO     | sociology_simulation.world:step:776 - Markets: 0, Political Entities: 0
+2025-07-06 21:07:16.400 | INFO     | sociology_simulation.world:step:777 - Era: 石器时代
+2025-07-06 21:07:16.401 | INFO     | sociology_simulation.world:step:779 - Rocko(0) starved to death at age 36!
+2025-07-06 21:07:16.401 | INFO     | sociology_simulation.world:step:779 - Gor(1) starved to death at age 69!
+2025-07-06 21:07:16.401 | INFO     | sociology_simulation.world:step:779 - Flint(3) starved to death at age 54!
+2025-07-06 21:07:16.401 | INFO     | sociology_simulation.world:step:779 - Lira(4) starved to death at age 34!
+2025-07-06 21:07:16.401 | INFO     | sociology_simulation.world:step:779 - Rok(5) starved to death at age 18!
+2025-07-06 21:07:16.401 | INFO     | sociology_simulation.world:step:779 - Thorn(6) starved to death at age 22!
+2025-07-06 21:07:16.401 | INFO     | sociology_simulation.world:step:779 - Flintok(9) starved to death at age 69!
+2025-07-06 21:07:16.401 | INFO     | sociology_simulation.world:step:779 - Thorn(2) is in critical health!
+2025-07-06 21:07:16.401 | INFO     | sociology_simulation.world:step:779 - Rok(7) is in critical health!
+2025-07-06 21:07:16.401 | INFO     | sociology_simulation.world:step:779 - Luma(8) is in critical health!
+2025-07-06 21:07:16.401 | INFO     | sociology_simulation.world:step:779 - Here are three specific observations based on the current state of this Stone Age tribe simulation:
+2025-07-06 21:07:16.401 | INFO     | sociology_simulation.world:step:779 - 1. **Fragmented Social Dynamics with Isolated Goal Pursuit**
+2025-07-06 21:07:16.402 | INFO     | sociology_simulation.world:step:779 - The complete lack of social connections (0.0 per agent) and groups suggests agents are acting as lone individuals rather than a cohesive tribe. This is reinforced by their recent activities: one agent seeks medicinal herbs, another focuses on hunter training, and a third fails to collect resources—all with no evidence of coordination. The 70% population decline (from 10 to 3) may be a consequence of this lack of cooperation, as isolated survival is unsustainable in harsh conditions.
+2025-07-06 21:07:16.402 | INFO     | sociology_simulation.world:step:780 - ========================================
+
+2025-07-06 21:07:16.403 | INFO     | sociology_simulation.world:step:561 - 
+=== TURN 2 START ===
+2025-07-06 21:07:28.249 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 2: ("Moved east: Given my current goal of discovering edible plants and medicinal herbs, and observing that I'm surro.... Moved east to (22, 37). Given my current goal of discovering edible plants and medicinal herbs, and observing that I'm surro...", {'success': True, 'description': "Moved east to (22, 37). Given my current goal of discovering edible plants and medicinal herbs, and observing that I'm surro...", 'position_change': (22, 37)})
+2025-07-06 21:07:28.249 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mThorn(2)[0m [93m行动 →[0m [36mMoved east: Given my current goal of discovering edible plants and medicinal herbs, and observing...[0m
+2025-07-06 21:07:30.835 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 8: ('Failed to collect resource: No resources at position (15, 14)', {'success': False, 'error': 'No resources at position (15, 14)'})
+2025-07-06 21:07:30.836 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mLuma(8)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (15, 14)[0m
+2025-07-06 21:07:30.855 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 7: ('Collected wood: Given my current position and goal to train the strongest young hunters, I should first locate poten.... Collected 1 game. Given my current position and goal to train the strongest young hunters, I should first locate poten...', {'success': True, 'description': 'Collected 1 game. Given my current position and goal to train the strongest young hunters, I should first locate poten...', 'inventory_changes': {'game': 1}})
+2025-07-06 21:07:30.856 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mRok(7)[0m [93m行动 →[0m [36mCollected wood: Given my current position and goal to train the strongest young hunters, I should...[0m
+2025-07-06 21:07:30.856 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:513 - [Trinity MCP] Adjudicated turn 2 with 2 events
+2025-07-06 21:07:30.856 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:553 - [Trinity MCP] Executed world management for turn 3
+2025-07-06 21:07:53.877 | INFO     | sociology_simulation.world:step:773 - 
+========================================
+2025-07-06 21:07:53.878 | INFO     | sociology_simulation.world:step:774 - TURN SUMMARY - 1 agents alive
+2025-07-06 21:07:53.878 | INFO     | sociology_simulation.world:step:775 - Groups: 0, Technologies: 0
+2025-07-06 21:07:53.879 | INFO     | sociology_simulation.world:step:776 - Markets: 0, Political Entities: 0
+2025-07-06 21:07:53.879 | INFO     | sociology_simulation.world:step:777 - Era: 石器时代
+2025-07-06 21:07:53.879 | INFO     | sociology_simulation.world:step:779 - Thorn(2) starved to death at age 38!
+2025-07-06 21:07:53.880 | INFO     | sociology_simulation.world:step:779 - Luma(8) starved to death at age 57!
+2025-07-06 21:07:53.880 | INFO     | sociology_simulation.world:step:779 - Here are 3 specific observations based on this simulation's unique trajectory:
+2025-07-06 21:07:53.880 | INFO     | sociology_simulation.world:step:779 - 1. **Collapse of Social Structure**: The tribe has dissolved from 10 agents to 1, with zero social connections or groups remaining. The lone survivor (age 69, critically low health) is likely the last elder—yet their recent activity ("train the strongest young hunters") suggests delusion or ritualized behavior, as there are no hunters left to train. This hints at a breakdown where cultural memory persists despite societal collapse.
+2025-07-06 21:07:53.880 | INFO     | sociology_simulation.world:step:779 - 2. **Resource Scarcity Driving Irrational Actions**: Despite near-starvation (26% hunger) and inability to hunt effectively (only 1 game collected), the agent prioritizes "training hunters" over immediate survival. This could reflect:
+2025-07-06 21:07:53.880 | INFO     | sociology_simulation.world:step:780 - ========================================
+
+2025-07-06 21:07:53.881 | INFO     | sociology_simulation.world:step:561 - 
+=== TURN 4 START ===
+2025-07-06 21:08:05.092 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 7: ('Moved east: Given my current position and goal of training young hunters, I should first locate a suitable train.... Moved east to (6, 18). Given my current position and goal of training young hunters, I should first locate a suitable train...', {'success': True, 'description': 'Moved east to (6, 18). Given my current position and goal of training young hunters, I should first locate a suitable train...', 'position_change': (6, 18)})
+2025-07-06 21:08:05.092 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mRok(7)[0m [93m行动 →[0m [36mMoved east: Given my current position and goal of training young hunters, I should first locate a...[0m
+2025-07-06 21:08:05.093 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:513 - [Trinity MCP] Adjudicated turn 4 with 0 events
+2025-07-06 21:08:05.093 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:553 - [Trinity MCP] Executed world management for turn 5
+2025-07-06 21:08:05.109 | INFO     | sociology_simulation.world:step:765 - Web data exported to: web_data/simulation_turn_005.json
+2025-07-06 21:08:24.699 | INFO     | sociology_simulation.world:step:773 - 
+========================================
+2025-07-06 21:08:24.699 | INFO     | sociology_simulation.world:step:774 - TURN SUMMARY - 1 agents alive
+2025-07-06 21:08:24.699 | INFO     | sociology_simulation.world:step:775 - Groups: 0, Technologies: 0
+2025-07-06 21:08:24.699 | INFO     | sociology_simulation.world:step:776 - Markets: 0, Political Entities: 0
+2025-07-06 21:08:24.700 | INFO     | sociology_simulation.world:step:777 - Era: 石器时代
+2025-07-06 21:08:24.700 | INFO     | sociology_simulation.world:step:779 - Here are three specific observations based on the current state of this simulation:
+2025-07-06 21:08:24.700 | INFO     | sociology_simulation.world:step:779 - 1. **Collapse of Social Structure**: With only 1 agent remaining (from an initial 10) and zero social connections, groups, or skills, this tribe has effectively lost all cooperative capacity. The lone survivor's advanced age (70) and critically low health (1%) suggest a breakdown in intergenerational knowledge transfer—there are no "young hunters" to train, despite the agent's stated goal. This is a terminal state for collective survival.
+2025-07-06 21:08:24.700 | INFO     | sociology_simulation.world:step:779 - 2. **Resource Scarcity Overrides Mobility**: Despite moving east (likely searching for resources or training grounds), the agent's hunger (28%) remains unresolved, and health is catastrophically low. This implies either the environment is too barren or the agent lacks the physical capacity (due to age/health) to exploit resources. Movement isn't translating into survival gains—a sign of failed adaptation.
+2025-07-06 21:08:24.700 | INFO     | sociology_simulation.world:step:780 - ========================================
+
+2025-07-06 21:08:24.700 | INFO     | sociology_simulation.world:step:561 - 
+=== TURN 6 START ===
+2025-07-06 21:08:39.468 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 7: ('Moved east: Given my current position and goal to train the strongest young hunters, I should first locate an ar.... Moved east to (7, 18). Given my current position and goal to train the strongest young hunters, I should first locate an ar...', {'success': True, 'description': 'Moved east to (7, 18). Given my current position and goal to train the strongest young hunters, I should first locate an ar...', 'position_change': (7, 18)})
+2025-07-06 21:08:39.469 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mRok(7)[0m [93m行动 →[0m [36mMoved east: Given my current position and goal to train the strongest young hunters, I should fir...[0m
+2025-07-06 21:08:39.470 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:513 - [Trinity MCP] Adjudicated turn 6 with 1 events
+2025-07-06 21:08:39.470 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:553 - [Trinity MCP] Executed world management for turn 7
+2025-07-06 21:09:00.042 | INFO     | sociology_simulation.world:step:773 - 
+========================================
+2025-07-06 21:09:00.043 | INFO     | sociology_simulation.world:step:774 - TURN SUMMARY - 0 agents alive
+2025-07-06 21:09:00.044 | INFO     | sociology_simulation.world:step:775 - Groups: 0, Technologies: 0
+2025-07-06 21:09:00.044 | INFO     | sociology_simulation.world:step:776 - Markets: 0, Political Entities: 0
+2025-07-06 21:09:00.044 | INFO     | sociology_simulation.world:step:777 - Era: 石器时代
+2025-07-06 21:09:00.044 | INFO     | sociology_simulation.world:step:779 - Rok(7) starved to death at age 71!
+2025-07-06 21:09:00.045 | INFO     | sociology_simulation.world:step:779 - Here are three specific observations based on the simulation's current state at turn 7:
+2025-07-06 21:09:00.045 | INFO     | sociology_simulation.world:step:779 - 1. **Complete Societal Collapse with No Recovery Mechanisms**
+2025-07-06 21:09:00.045 | INFO     | sociology_simulation.world:step:779 - The tribe has gone extinct (0 agents remaining), indicating a catastrophic failure of social cooperation or resource management. The absence of any skills, social connections, or groups suggests that agents either failed to develop collaborative survival strategies (e.g., sharing food, childcare) or were overwhelmed by environmental pressures before rudimentary social structures could form.
+2025-07-06 21:09:00.045 | INFO     | sociology_simulation.world:step:780 - ========================================
+
+2025-07-06 21:09:00.047 | INFO     | sociology_simulation.world:step:561 - 
+=== TURN 8 START ===
+2025-07-06 21:09:00.047 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:513 - [Trinity MCP] Adjudicated turn 8 with 0 events
+2025-07-06 21:09:00.047 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:553 - [Trinity MCP] Executed world management for turn 9
+2025-07-06 21:09:21.537 | INFO     | sociology_simulation.world:step:773 - 
+========================================
+2025-07-06 21:09:21.537 | INFO     | sociology_simulation.world:step:774 - TURN SUMMARY - 0 agents alive
+2025-07-06 21:09:21.537 | INFO     | sociology_simulation.world:step:775 - Groups: 0, Technologies: 0
+2025-07-06 21:09:21.538 | INFO     | sociology_simulation.world:step:776 - Markets: 0, Political Entities: 0
+2025-07-06 21:09:21.538 | INFO     | sociology_simulation.world:step:777 - Era: 石器时代
+2025-07-06 21:09:21.538 | INFO     | sociology_simulation.world:step:779 - Here are three specific observations based on the simulation's current state at turn 9:
+2025-07-06 21:09:21.538 | INFO     | sociology_simulation.world:step:779 - 1. **Complete Societal Collapse with No Recovery Mechanisms**
+2025-07-06 21:09:21.538 | INFO     | sociology_simulation.world:step:779 - The tribe started with 10 agents but now has 0, indicating a total extinction event. The absence of any social connections, skills, or groups suggests that cooperation either never developed or failed catastrophically early on. Unlike simulations where small groups might persist, here there was no residual survival—no lone survivors or fragmented bands attempting to rebuild.
+2025-07-06 21:09:21.538 | INFO     | sociology_simulation.world:step:780 - ========================================
+
+2025-07-06 21:09:21.538 | INFO     | sociology_simulation.world:step:561 - 
+=== TURN 10 START ===
+2025-07-06 21:09:21.544 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:513 - [Trinity MCP] Adjudicated turn 10 with 0 events
+2025-07-06 21:09:21.544 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:553 - [Trinity MCP] Executed world management for turn 11
+2025-07-06 21:09:41.505 | INFO     | sociology_simulation.world:step:773 - 
+========================================
+2025-07-06 21:09:41.506 | INFO     | sociology_simulation.world:step:774 - TURN SUMMARY - 0 agents alive
+2025-07-06 21:09:41.506 | INFO     | sociology_simulation.world:step:775 - Groups: 0, Technologies: 0
+2025-07-06 21:09:41.507 | INFO     | sociology_simulation.world:step:776 - Markets: 0, Political Entities: 0
+2025-07-06 21:09:41.507 | INFO     | sociology_simulation.world:step:777 - Era: 石器时代
+2025-07-06 21:09:41.507 | INFO     | sociology_simulation.world:step:779 - Here are three specific observations based on the simulation's current state at turn 11:
+2025-07-06 21:09:41.507 | INFO     | sociology_simulation.world:step:779 - 1. **Complete Societal Collapse**
+2025-07-06 21:09:41.508 | INFO     | sociology_simulation.world:step:779 - The tribe has gone from 10 agents to 0, indicating a catastrophic failure of social dynamics and cooperation. The absence of any surviving agents, skills, or social connections suggests that either:
+2025-07-06 21:09:41.508 | INFO     | sociology_simulation.world:step:780 - ========================================
+
+2025-07-06 21:09:41.509 | INFO     | sociology_simulation.world:step:561 - 
+=== TURN 12 START ===
+2025-07-06 21:09:41.509 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:513 - [Trinity MCP] Adjudicated turn 12 with 0 events
+2025-07-06 21:09:41.509 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:553 - [Trinity MCP] Executed world management for turn 13

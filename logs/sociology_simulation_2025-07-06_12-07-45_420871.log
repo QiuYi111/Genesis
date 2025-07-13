@@ -1,0 +1,714 @@
+2025-07-06 12:07:45.429 | SUCCESS  | sociology_simulation.prompts:load_from_config:394 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 12:07:45.429 | INFO     | __main__:main:83 - Starting sociology simulation with Hydra configuration
+2025-07-06 12:07:45.429 | INFO     | __main__:main:84 - Initialized 12 prompt templates
+2025-07-06 12:07:45.429 | INFO     | __main__:main:85 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 12:07:45.429 | INFO     | __main__:main:86 - Era: 石器时代
+2025-07-06 12:07:45.429 | INFO     | __main__:main:87 - World size: 64x64
+2025-07-06 12:07:45.429 | INFO     | __main__:main:88 - Number of agents: 10
+2025-07-06 12:07:45.429 | INFO     | __main__:main:89 - Turns: 1000
+2025-07-06 12:08:02.847 | SUCCESS  | sociology_simulation.trinity:_generate_initial_rules:49 - [Trinity] Generated rules for era: 石器时代
+2025-07-06 12:08:02.848 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 12:08:02.848 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 12:08:02.848 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, GRASSLAND, RIVER, MOUNTAIN, SWAMP
+2025-07-06 12:08:02.848 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 12:08:02.848 | INFO     | sociology_simulation.world:initialize:81 -   WOOD:
+2025-07-06 12:08:02.849 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 60.0% chance
+2025-07-06 12:08:02.849 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 20.0% chance
+2025-07-06 12:08:02.850 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 10.0% chance
+2025-07-06 12:08:02.850 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 5.0% chance
+2025-07-06 12:08:02.850 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 30.0% chance
+2025-07-06 12:08:02.850 | INFO     | sociology_simulation.world:initialize:81 -   STONE:
+2025-07-06 12:08:02.853 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 10.0% chance
+2025-07-06 12:08:02.854 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 30.0% chance
+2025-07-06 12:08:02.854 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 20.0% chance
+2025-07-06 12:08:02.854 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 70.0% chance
+2025-07-06 12:08:02.854 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 10.0% chance
+2025-07-06 12:08:02.854 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 12:08:02.854 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 5.0% chance
+2025-07-06 12:08:02.855 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 0.0% chance
+2025-07-06 12:08:02.855 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 50.0% chance
+2025-07-06 12:08:02.855 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 0.0% chance
+2025-07-06 12:08:02.855 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 40.0% chance
+2025-07-06 12:08:02.855 | INFO     | sociology_simulation.world:initialize:81 -   BERRIES:
+2025-07-06 12:08:02.856 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 40.0% chance
+2025-07-06 12:08:02.856 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 30.0% chance
+2025-07-06 12:08:02.856 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 10.0% chance
+2025-07-06 12:08:02.856 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 5.0% chance
+2025-07-06 12:08:02.856 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 20.0% chance
+2025-07-06 12:08:02.856 | INFO     | sociology_simulation.world:initialize:81 -   FLINT:
+2025-07-06 12:08:02.856 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 10.0% chance
+2025-07-06 12:08:02.856 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 40.0% chance
+2025-07-06 12:08:02.856 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 30.0% chance
+2025-07-06 12:08:02.856 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 20.0% chance
+2025-07-06 12:08:02.856 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 5.0% chance
+2025-07-06 12:08:02.857 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 12:08:02.857 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 337689
+2025-07-06 12:08:02.986 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 12:08:02.991 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 12:08:02.991 | INFO     | sociology_simulation.world:initialize:96 -   BERRIES: 930 units
+2025-07-06 12:08:02.991 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 740 units
+2025-07-06 12:08:02.991 | INFO     | sociology_simulation.world:initialize:96 -   FLINT: 1200 units
+2025-07-06 12:08:02.991 | INFO     | sociology_simulation.world:initialize:96 -   STONE: 1045 units
+2025-07-06 12:08:02.991 | INFO     | sociology_simulation.world:initialize:96 -   WOOD: 921 units
+2025-07-06 12:08:02.991 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 12:08:09.699 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(0)[0m [94mpersonal goal ➜[0m [3mBecome the tribe's chief explorer by discovering and mapping all edible plants and safe hunting g...[0m
+2025-07-06 12:08:09.747 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mStorm(4)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled storyteller and peacemaker in the tribe by collecting and sharing ancient...[0m
+2025-07-06 12:08:09.761 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(1)[0m [94mpersonal goal ➜[0m [3mDiscover and document all edible plants and medicinal herbs within a day's walk from our village.[0m
+2025-07-06 12:08:09.896 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mBrak(7)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by consistently bringing back the largest game.[0m
+2025-07-06 12:08:09.987 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlare(5)[0m [94mpersonal goal ➜[0m [3mBecome the most respected storyteller and mediator in the tribe by collecting and sharing ancient...[0m
+2025-07-06 12:08:10.296 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(8)[0m [94mpersonal goal ➜[0m [3mCreate a detailed map of the surrounding area by exploring and documenting all nearby caves, rive...[0m
+2025-07-06 12:08:10.298 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mStorm(9)[0m [94mpersonal goal ➜[0m [3mBecome the most respected storyteller and mediator in the tribe by collecting and sharing ancient...[0m
+2025-07-06 12:08:10.300 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mBoulder(3)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by crafting superior stone tools and leading successful ...[0m
+2025-07-06 12:08:11.042 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mEmber(6)[0m [94mpersonal goal ➜[0m [3mBecome the tribe's storyteller by collecting and sharing tales of our ancestors and the natural w...[0m
+2025-07-06 12:08:11.057 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mEmber(2)[0m [94mpersonal goal ➜[0m [3mBecome the most respected storyteller in the tribe by collecting and sharing ancient legends and ...[0m
+2025-07-06 12:08:11.058 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 12:08:13.519 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlare(5)[0m: (age 49) attempting: "collect berries at current position"
+2025-07-06 12:08:14.589 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mBrak(7)[0m: (age 40) attempting: "move north to the mountain to hunt for large game"
+2025-07-06 12:08:14.641 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mEmber(6)[0m: (age 43) attempting: "collect berries at current position"
+2025-07-06 12:08:14.662 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mBoulder(3)[0m: (age 45) attempting: "collect flint at current position"
+2025-07-06 12:08:14.840 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(4)[0m: (age 45) attempting: "move north to the grassland at [21,50] to collect berri...
+2025-07-06 12:08:14.901 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(0)[0m: (age 23) attempting: "move north to [28,42] to collect berries and flint"
+2025-07-06 12:08:15.141 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(8)[0m: (age 50) attempting: "move north to the river at [0,45]"
+2025-07-06 12:08:15.256 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(1)[0m: (age 43) attempting: "move to position [0,42] to collect berries"
+2025-07-06 12:08:15.448 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mEmber(2)[0m: (age 52) attempting: "collect berries at current position"
+2025-07-06 12:08:17.282 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(9)[0m: (age 42) attempting: "approach Flint to share stories and build social connec...
+2025-07-06 12:08:18.318 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1},
+  "position": [32, 52],
+  "log": "Collected 1 apple from curr...
+2025-07-06 12:08:18.320 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:08:18.321 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:08:18.323 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlare(5)[0m [93m行动 →[0m [36m"collect berries at current position"[0m
+2025-07-06 12:08:23.410 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "position": [35, 37],
+  "log": "Moved north towards the mountain. Hun...
+2025-07-06 12:08:23.410 | WARNING  | sociology_simulation.enhanced_llm:_repair_json:357 - 使用空JSON对象作为回退
+2025-07-06 12:08:23.411 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:08:23.411 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Brak(7):
+2025-07-06 12:08:23.412 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mBrak(7)[0m [93m行动 →[0m [36m"move north to the mountain to hunt for large game"[0m
+2025-07-06 12:08:27.492 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1},
+  "position": [52, 39],
+  "log": "Collected berries (represen...
+2025-07-06 12:08:27.493 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:08:27.493 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Ember(6):
+2025-07-06 12:08:27.494 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mEmber(6)[0m [93m行动 →[0m [36m"collect berries at current position"[0m
+2025-07-06 12:08:32.222 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"flint": 1},
+  "position": [3, 30],
+  "log": "Collected 1 flint at current...
+2025-07-06 12:08:32.223 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:08:32.223 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Boulder(3):
+2025-07-06 12:08:32.225 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mBoulder(3)[0m [93m行动 →[0m [36m"collect flint at current position"[0m
+2025-07-06 12:08:37.884 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "position": [21, 50],
+  "log": "Moved north to grassland at [21, 50]....
+2025-07-06 12:08:37.886 | WARNING  | sociology_simulation.enhanced_llm:_repair_json:357 - 使用空JSON对象作为回退
+2025-07-06 12:08:37.888 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:08:37.889 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(4):
+2025-07-06 12:08:37.891 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mStorm(4)[0m [93m行动 →[0m [36m"move north to the grassland at [21,50] to collect berries and flint"[0m
+2025-07-06 12:08:42.761 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "position": [28, 42],
+  "log": "Moved north to [28, 42]. No berries o...
+2025-07-06 12:08:42.762 | WARNING  | sociology_simulation.enhanced_llm:_repair_json:357 - 使用空JSON对象作为回退
+2025-07-06 12:08:42.763 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:08:42.763 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:08:42.764 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(0)[0m [93m行动 →[0m [36m"move north to [28,42] to collect berries and flint"[0m
+2025-07-06 12:08:47.111 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "position": [0, 45],
+  "log": "Moved north to the river"
+}
+```...
+2025-07-06 12:08:47.112 | WARNING  | sociology_simulation.enhanced_llm:_repair_json:357 - 使用空JSON对象作为回退
+2025-07-06 12:08:47.113 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:08:47.114 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:08:47.115 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(8)[0m [93m行动 →[0m [36m"move north to the river at [0,45]"[0m
+2025-07-06 12:08:55.258 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "position": [0, 42],
+  "log": "Moved to position [0, 42] to collect b...
+2025-07-06 12:08:55.260 | WARNING  | sociology_simulation.enhanced_llm:_repair_json:357 - 使用空JSON对象作为回退
+2025-07-06 12:08:55.264 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:08:55.264 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:08:55.266 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(1)[0m [93m行动 →[0m [36m"move to position [0,42] to collect berries"[0m
+2025-07-06 12:08:59.862 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1},
+  "position": [37, 19],
+  "log": "Collected berries (represen...
+2025-07-06 12:08:59.863 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:08:59.864 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Ember(2):
+2025-07-06 12:08:59.865 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mEmber(2)[0m [93m行动 →[0m [36m"collect berries at current position"[0m
+2025-07-06 12:09:03.899 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "position": [24, 39],
+  "log": "Approached Flint to share stories. Social connection str...
+2025-07-06 12:09:03.900 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:09:03.900 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(9):
+2025-07-06 12:09:03.901 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mStorm(9)[0m [93m行动 →[0m [36m"approach Flint to share stories and build social connections"[0m
+2025-07-06 12:09:11.842 | SUCCESS  | sociology_simulation.bible:add_rule:204 - [Bible] Added rule: basic_hunting (legacy_basic_hunting) to default
+2025-07-06 12:09:11.843 | SUCCESS  | sociology_simulation.bible:add_rule:204 - [Bible] Added rule: stone_tool_crafting (legacy_stone_tool_crafting) to default
+2025-07-06 12:09:11.843 | SUCCESS  | sociology_simulation.bible:add_rule:204 - [Bible] Added rule: tribal_shelter (legacy_tribal_shelter) to default
+2025-07-06 12:09:11.844 | SUCCESS  | sociology_simulation.bible:update:440 - [Bible] Added 3 legacy rules
+2025-07-06 12:09:11.844 | SUCCESS  | sociology_simulation.trinity:adjudicate:62 - [Trinity] Updated resource rules: {'forest': {'terrain': 0.3}, 'mountain': {'terrain': 0.2}, 'plain': {'terrain': 0.5}}
+2025-07-06 12:09:11.844 | SUCCESS  | sociology_simulation.trinity:adjudicate:65 - [Trinity] Era changed to: 石器时代
+2025-07-06 12:09:25.989 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "agent_skill_changes": {
+    "2": {
+      "foraging": {
+        "unlock": {
+          "l...
+2025-07-06 12:09:25.991 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:09:29.682 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{}
+```...
+2025-07-06 12:09:29.683 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:09:29.684 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:09:29.685 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:09:29.685 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:09:29.686 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:09:29.686 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:09:29.686 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:09:29.686 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:09:29.686 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:09:29.687 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:09:29.688 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 2 START ===
+2025-07-06 12:09:33.206 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mEmber(2)[0m: (age 53) attempting: "collect berries at current position"
+2025-07-06 12:09:33.227 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(9)[0m: (age 43) attempting: "move west to chat with Flint"
+2025-07-06 12:09:33.578 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(0)[0m: (age 24) attempting: "move north to the grassland at [27,41] to collect berries"
+2025-07-06 12:09:33.629 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mEmber(6)[0m: (age 44) attempting: "collect berries at current position"
+2025-07-06 12:09:33.697 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mBoulder(3)[0m: (age 46) attempting: "collect flint at current position"
+2025-07-06 12:09:33.945 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mBrak(7)[0m: (age 41) attempting: "move north to the forest at [35,35] to hunt for large g...
+2025-07-06 12:09:34.158 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(8)[0m: (age 51) attempting: "move north to the river at (0,45)"
+2025-07-06 12:09:34.551 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(1)[0m: (age 44) attempting: "move north to collect berries at position [2,41]"
+2025-07-06 12:09:35.852 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlare(5)[0m: (age 50) attempting: "collect berries at current position"
+2025-07-06 12:09:36.462 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(4)[0m: (age 46) attempting: "move north to the grassland at [21,50] to collect berries"
+2025-07-06 12:09:39.595 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1},
+  "position": [37, 19],
+  "log": "Collected berries (represen...
+2025-07-06 12:09:39.597 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:09:39.597 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Ember(2):
+2025-07-06 12:09:39.599 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mEmber(2)[0m [93m行动 →[0m [36m"collect berries at current position"[0m
+2025-07-06 12:09:44.232 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "position": [23, 39],
+  "log": "Moved west to position [23, 39] to chat with Flint"
+}
+``...
+2025-07-06 12:09:44.234 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:09:44.235 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(9):
+2025-07-06 12:09:44.238 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mStorm(9)[0m [93m行动 →[0m [36m"move west to chat with Flint"[0m
+2025-07-06 12:09:48.781 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1},
+  "position": [27, 41],
+  "log": "Moved north to grassland an...
+2025-07-06 12:09:48.782 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:09:48.783 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:09:48.786 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(0)[0m [93m行动 →[0m [36m"move north to the grassland at [27,41] to collect berries"[0m
+2025-07-06 12:09:54.234 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1},
+  "position": [52, 39],
+  "log": "Collected berries (apples) ...
+2025-07-06 12:09:54.236 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:09:54.236 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Ember(6):
+2025-07-06 12:09:54.238 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mEmber(6)[0m [93m行动 →[0m [36m"collect berries at current position"[0m
+2025-07-06 12:09:58.330 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"flint": 1},
+  "position": [3, 30],
+  "log": "Collected 1 flint from curre...
+2025-07-06 12:09:58.332 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:09:58.332 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Boulder(3):
+2025-07-06 12:09:58.334 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mBoulder(3)[0m [93m行动 →[0m [36m"collect flint at current position"[0m
+2025-07-06 12:10:03.436 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"fish": -1},
+  "position": [35, 35],
+  "log": "Moved to forest and consume...
+2025-07-06 12:10:03.437 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:10:03.437 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Brak(7):
+2025-07-06 12:10:03.438 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mBrak(7)[0m [93m行动 →[0m [36m"move north to the forest at [35,35] to hunt for large game"[0m
+2025-07-06 12:10:08.057 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "position": [0, 45],
+  "log": "Moved north to the river at (0,45)"
+}
+```...
+2025-07-06 12:10:08.057 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:10:08.057 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:10:08.058 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(8)[0m [93m行动 →[0m [36m"move north to the river at (0,45)"[0m
+2025-07-06 12:10:13.903 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1},
+  "position": [2, 41],
+  "log": "Moved north and collected be...
+2025-07-06 12:10:13.905 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:10:13.906 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:10:13.907 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(1)[0m [93m行动 →[0m [36m"move north to collect berries at position [2,41]"[0m
+2025-07-06 12:10:20.223 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": -1, "berry": 1},
+  "position": [32, 52],
+  "log": "Collected berr...
+2025-07-06 12:10:20.227 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:10:20.227 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:10:20.228 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlare(5)[0m [93m行动 →[0m [36m"collect berries at current position"[0m
+2025-07-06 12:10:24.906 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": -1},
+  "position": [21, 50],
+  "log": "Moved north to grassland a...
+2025-07-06 12:10:24.907 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:10:24.907 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(4):
+2025-07-06 12:10:24.908 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mStorm(4)[0m [93m行动 →[0m [36m"move north to the grassland at [21,50] to collect berries"[0m
+2025-07-06 12:10:47.641 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "agent_skill_changes": {
+    "0": {
+      "foraging": {
+        "unlock": {
+          "l...
+2025-07-06 12:10:47.644 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:10:50.839 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{}
+```...
+2025-07-06 12:10:50.840 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:10:50.842 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:10:50.842 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:10:50.842 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:10:50.843 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:10:50.843 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:10:50.843 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:10:50.843 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:10:50.843 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:10:50.844 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:10:50.847 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 4 START ===
+2025-07-06 12:10:54.966 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mBrak(7)[0m: (age 42) attempting: "move north to the river at [30,35] to fish"
+2025-07-06 12:10:55.234 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mEmber(2)[0m: (age 54) attempting: "eat apple to reduce hunger"
+2025-07-06 12:10:55.242 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mBoulder(3)[0m: (age 47) attempting: "craft stone tool with flint and wood"
+2025-07-06 12:10:55.281 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(0)[0m: (age 25) attempting: "move north to the forest at [28,36] to explore for edib...
+2025-07-06 12:10:55.310 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(8)[0m: (age 52) attempting: "move north to explore the forest at (0,50)"
+2025-07-06 12:10:55.364 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(1)[0m: (age 45) attempting: "collect berries at current position"
+2025-07-06 12:10:55.751 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(4)[0m: (age 47) attempting: "move north to the river at [21,46] to collect flint and...
+2025-07-06 12:10:56.589 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlare(5)[0m: (age 51) attempting: "collect berries at current position"
+2025-07-06 12:10:57.116 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(9)[0m: (age 44) attempting: "move west to the grassland at (22,39) to collect berries"
+2025-07-06 12:10:57.294 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mEmber(6)[0m: (age 45) attempting: "collect berries at current position"
+2025-07-06 12:10:58.091 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "position": [30, 35],
+  "log": "Moved north to the river at [30,35] t...
+2025-07-06 12:10:58.092 | WARNING  | sociology_simulation.enhanced_llm:_repair_json:357 - 使用空JSON对象作为回退
+2025-07-06 12:10:58.092 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:10:58.093 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Brak(7):
+2025-07-06 12:10:58.094 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mBrak(7)[0m [93m行动 →[0m [36m"move north to the river at [30,35] to fish"[0m
+2025-07-06 12:11:03.047 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": -1},
+  "position": [37, 19],
+  "log": "Ate an apple to reduce hun...
+2025-07-06 12:11:03.048 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:11:03.048 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Ember(2):
+2025-07-06 12:11:03.050 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mEmber(2)[0m [93m行动 →[0m [36m"eat apple to reduce hunger"[0m
+2025-07-06 12:11:08.299 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"flint": -1, "wood": -1, "stone_tool": 1},
+  "position": [3, 30],
+  "log":...
+2025-07-06 12:11:08.300 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:11:08.300 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Boulder(3):
+2025-07-06 12:11:08.301 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mBoulder(3)[0m [93m行动 →[0m [36m"craft stone tool with flint and wood"[0m
+2025-07-06 12:11:12.820 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "position": [28, 36],
+  "log": "Moved north to forest at [28, 36] for...
+2025-07-06 12:11:12.822 | WARNING  | sociology_simulation.enhanced_llm:_repair_json:357 - 使用空JSON对象作为回退
+2025-07-06 12:11:12.823 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:11:12.823 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:11:12.825 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(0)[0m [93m行动 →[0m [36m"move north to the forest at [28,36] to explore for edible plants and hunting grounds"[0m
+2025-07-06 12:11:17.904 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "position": [0, 50],
+  "log": "Moved north to explore the forest at (...
+2025-07-06 12:11:17.906 | WARNING  | sociology_simulation.enhanced_llm:_repair_json:357 - 使用空JSON对象作为回退
+2025-07-06 12:11:17.906 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:11:17.907 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:11:17.908 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(8)[0m [93m行动 →[0m [36m"move north to explore the forest at (0,50)"[0m
+2025-07-06 12:11:22.690 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1},
+  "position": [2, 41],
+  "log": "Collected berries (added as ...
+2025-07-06 12:11:22.692 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:11:22.693 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:11:22.694 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(1)[0m [93m行动 →[0m [36m"collect berries at current position"[0m
+2025-07-06 12:11:27.943 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"fish": 1},
+  "position": [21, 46],
+  "log": "Moved to river and caught 1 ...
+2025-07-06 12:11:27.943 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:11:27.944 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(4):
+2025-07-06 12:11:27.944 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mStorm(4)[0m [93m行动 →[0m [36m"move north to the river at [21,46] to collect flint and fish"[0m
+2025-07-06 12:11:32.856 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"berry": 1},
+  "position": [32, 52],
+  "log": "Collected 1 berry from curr...
+2025-07-06 12:11:32.857 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:11:32.857 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:11:32.858 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlare(5)[0m [93m行动 →[0m [36m"collect berries at current position"[0m
+2025-07-06 12:11:38.251 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": -1},
+  "position": [22, 39],
+  "log": "Moved west to grassland (2...
+2025-07-06 12:11:38.252 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:11:38.252 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(9):
+2025-07-06 12:11:38.254 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mStorm(9)[0m [93m行动 →[0m [36m"move west to the grassland at (22,39) to collect berries"[0m
+2025-07-06 12:11:42.866 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1},
+  "position": [52, 39],
+  "log": "Collected berries (represen...
+2025-07-06 12:11:42.867 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:11:42.868 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Ember(6):
+2025-07-06 12:11:42.869 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mEmber(6)[0m [93m行动 →[0m [36m"collect berries at current position"[0m
+2025-07-06 12:12:02.687 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "agent_skill_changes": {
+    "3": {
+      "stone_tool_crafting": {
+        "unlock": {
+ ...
+2025-07-06 12:12:02.689 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:12:06.515 | SUCCESS  | sociology_simulation.trinity:execute_actions:101 - [Trinity] Regenerated resources with multiplier 0.8
+2025-07-06 12:12:06.537 | INFO     | sociology_simulation.world:step:761 - Web data exported to: web_data/simulation_turn_005.json
+2025-07-06 12:12:06.537 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:12:06.537 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:12:06.537 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:12:06.537 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:12:06.537 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:12:06.537 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:12:06.537 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:12:06.538 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:12:06.538 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:12:06.538 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 6 START ===
+2025-07-06 12:12:10.012 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(0)[0m: (age 26) attempting: "move north to the forest at [28,36] to explore and coll...
+2025-07-06 12:12:11.975 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mBrak(7)[0m: (age 43) attempting: "eat apple to reduce hunger"
+2025-07-06 12:12:11.976 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlare(5)[0m: (age 52) attempting: "eat berries to reduce hunger"
+2025-07-06 12:12:11.989 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mEmber(6)[0m: (age 46) attempting: "collect berries at current position"
+2025-07-06 12:12:12.283 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mBoulder(3)[0m: (age 48) attempting: "collect flint at current position"
+2025-07-06 12:12:12.285 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(1)[0m: (age 46) attempting: "collect berries at current position"
+2025-07-06 12:12:12.301 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mEmber(2)[0m: (age 55) attempting: "move north to the forest at [37,20] to collect berries ...
+2025-07-06 12:12:12.521 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(8)[0m: (age 53) attempting: "move north to the forest at (0,49) to document the berr...
+2025-07-06 12:12:13.172 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(4)[0m: (age 48) attempting: "eat apple to reduce hunger"
+2025-07-06 12:12:13.511 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(9)[0m: (age 45) attempting: "move to position [22,40] to collect berries and reduce ...
+2025-07-06 12:12:15.147 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "position": [28, 36],
+  "log": "Moved north to forest at [28, 36] to ...
+2025-07-06 12:12:15.148 | WARNING  | sociology_simulation.enhanced_llm:_repair_json:357 - 使用空JSON对象作为回退
+2025-07-06 12:12:15.148 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:12:15.148 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:12:15.149 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(0)[0m [93m行动 →[0m [36m"move north to the forest at [28,36] to explore and collect resources"[0m
+2025-07-06 12:12:18.326 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": -1},
+  "position": [35, 35],
+  "log": "ate an apple to reduce hun...
+2025-07-06 12:12:18.327 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:12:18.327 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Brak(7):
+2025-07-06 12:12:18.328 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mBrak(7)[0m [93m行动 →[0m [36m"eat apple to reduce hunger"[0m
+2025-07-06 12:12:24.123 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"berry": -1},
+  "position": [32, 52],
+  "log": "Ate berries to reduce hung...
+2025-07-06 12:12:24.124 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:12:24.125 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:12:24.127 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlare(5)[0m [93m行动 →[0m [36m"eat berries to reduce hunger"[0m
+2025-07-06 12:12:28.150 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1},
+  "position": [52, 39],
+  "log": "Collected berries (represen...
+2025-07-06 12:12:28.151 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:12:28.152 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Ember(6):
+2025-07-06 12:12:28.154 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mEmber(6)[0m [93m行动 →[0m [36m"collect berries at current position"[0m
+2025-07-06 12:12:33.193 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"flint": 1},
+  "position": [3, 30],
+  "log": "Successfully collected flint...
+2025-07-06 12:12:33.195 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:12:33.195 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Boulder(3):
+2025-07-06 12:12:33.197 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mBoulder(3)[0m [93m行动 →[0m [36m"collect flint at current position"[0m
+2025-07-06 12:12:38.296 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1},
+  "position": [2, 41],
+  "log": "Collected berries (represent...
+2025-07-06 12:12:38.297 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:12:38.298 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:12:38.300 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(1)[0m [93m行动 →[0m [36m"collect berries at current position"[0m
+2025-07-06 12:12:43.257 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1, "wood": 1},
+  "position": [37, 20],
+  "log": "Moved to forest ...
+2025-07-06 12:12:43.258 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:12:43.259 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Ember(2):
+2025-07-06 12:12:43.260 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mEmber(2)[0m [93m行动 →[0m [36m"move north to the forest at [37,20] to collect berries and wood"[0m
+2025-07-06 12:12:47.895 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "position": [0, 49],
+  "log": "Moved north to forest at (0,49) to doc...
+2025-07-06 12:12:47.896 | WARNING  | sociology_simulation.enhanced_llm:_repair_json:357 - 使用空JSON对象作为回退
+2025-07-06 12:12:47.896 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:12:47.896 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:12:47.897 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(8)[0m [93m行动 →[0m [36m"move north to the forest at (0,49) to document the berry patch"[0m
+2025-07-06 12:12:52.795 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": -1},
+  "position": [21, 46],
+  "log": "ate an apple to reduce hun...
+2025-07-06 12:12:52.797 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:12:52.797 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(4):
+2025-07-06 12:12:52.799 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mStorm(4)[0m [93m行动 →[0m [36m"eat apple to reduce hunger"[0m
+2025-07-06 12:12:58.568 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1},
+  "position": [22, 40],
+  "log": "Moved to new position and c...
+2025-07-06 12:12:58.569 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:12:58.569 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(9):
+2025-07-06 12:12:58.571 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mStorm(9)[0m [93m行动 →[0m [36m"move to position [22,40] to collect berries and reduce hunger"[0m
+2025-07-06 12:13:15.876 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "agent_skill_changes": {
+    "3": {
+      "stone_tool_crafting": {
+        "unlock": {
+ ...
+2025-07-06 12:13:15.878 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:13:18.945 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{}
+```...
+2025-07-06 12:13:18.946 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:13:18.947 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:13:18.947 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:13:18.947 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:13:18.947 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:13:18.948 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:13:18.948 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:13:18.948 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:13:18.948 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:13:18.948 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:13:18.949 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 8 START ===
+2025-07-06 12:13:22.428 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(0)[0m: (age 27) attempting: "move north to the forest at [28,36] to explore for edib...
+2025-07-06 12:13:22.825 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(8)[0m: (age 54) attempting: "explore north to document the forest at [0,49]"
+2025-07-06 12:13:23.123 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlare(5)[0m: (age 53) attempting: "collect berries at current position"
+2025-07-06 12:13:23.253 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mEmber(2)[0m: (age 56) attempting: "collect berries from the forest at [37,20]"
+2025-07-06 12:13:23.276 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(1)[0m: (age 47) attempting: "move north to collect berries at [2,40]"
+2025-07-06 12:13:23.378 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mBrak(7)[0m: (age 44) attempting: "hunt for large game in the forest at position [33,30]"
+2025-07-06 12:13:23.927 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(4)[0m: (age 49) attempting: "move north to the grassland at [21,45] to gather berries"
+2025-07-06 12:13:24.790 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mEmber(6)[0m: (age 47) attempting: "collect berries at current position"
+2025-07-06 12:13:25.110 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(9)[0m: (age 46) attempting: "move west to collect berries at [22,40]"
+2025-07-06 12:13:25.369 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mBoulder(3)[0m: (age 49) attempting: "craft stone tool using flint and wood"
+2025-07-06 12:13:28.847 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "position": [28, 36],
+  "log": "Moved north to forest at [28, 36] to ...
+2025-07-06 12:13:28.849 | WARNING  | sociology_simulation.enhanced_llm:_repair_json:357 - 使用空JSON对象作为回退
+2025-07-06 12:13:28.850 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:13:28.850 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:13:28.852 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(0)[0m [93m行动 →[0m [36m"move north to the forest at [28,36] to explore for edible plants and hunting grounds"[0m
+2025-07-06 12:13:33.354 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "position": [0, 49],
+  "log": "Explored north to document the forest ...
+2025-07-06 12:13:33.355 | WARNING  | sociology_simulation.enhanced_llm:_repair_json:357 - 使用空JSON对象作为回退
+2025-07-06 12:13:33.355 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:13:33.355 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:13:33.357 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(8)[0m [93m行动 →[0m [36m"explore north to document the forest at [0,49]"[0m
+2025-07-06 12:13:38.402 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"berry": 1},
+  "position": [32, 52],
+  "log": "Collected berries from curr...
+2025-07-06 12:13:38.403 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:13:38.403 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:13:38.405 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlare(5)[0m [93m行动 →[0m [36m"collect berries at current position"[0m
+2025-07-06 12:13:43.106 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1},
+  "position": [37, 20],
+  "log": "Collected berries (counted ...
+2025-07-06 12:13:43.107 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:13:43.108 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Ember(2):
+2025-07-06 12:13:43.109 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mEmber(2)[0m [93m行动 →[0m [36m"collect berries from the forest at [37,20]"[0m
+2025-07-06 12:13:47.926 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1},
+  "position": [2, 40],
+  "log": "Moved north and collected be...
+2025-07-06 12:13:47.927 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:13:47.927 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:13:47.929 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(1)[0m [93m行动 →[0m [36m"move north to collect berries at [2,40]"[0m
+2025-07-06 12:13:52.606 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"fish": 1},
+  "position": [33, 30],
+  "log": "Successfully hunted large ga...
+2025-07-06 12:13:52.607 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:13:52.608 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Brak(7):
+2025-07-06 12:13:52.610 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mBrak(7)[0m [93m行动 →[0m [36m"hunt for large game in the forest at position [33,30]"[0m
+2025-07-06 12:13:57.005 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1},
+  "position": [21, 45],
+  "log": "Moved to grassland and gath...
+2025-07-06 12:13:57.007 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:13:57.007 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(4):
+2025-07-06 12:13:57.009 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mStorm(4)[0m [93m行动 →[0m [36m"move north to the grassland at [21,45] to gather berries"[0m
+2025-07-06 12:14:01.034 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 1},
+  "position": [52, 39],
+  "log": "Collected berries (represen...
+2025-07-06 12:14:01.036 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:14:01.036 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Ember(6):
+2025-07-06 12:14:01.038 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mEmber(6)[0m [93m行动 →[0m [36m"collect berries at current position"[0m
+2025-07-06 12:14:06.504 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "position": [22, 40],
+  "log": "Agent remains at current position [22...
+2025-07-06 12:14:06.506 | WARNING  | sociology_simulation.enhanced_llm:_repair_json:357 - 使用空JSON对象作为回退
+2025-07-06 12:14:06.506 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:14:06.507 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(9):
+2025-07-06 12:14:06.508 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mStorm(9)[0m [93m行动 →[0m [36m"move west to collect berries at [22,40]"[0m
+2025-07-06 12:14:11.277 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"flint": -1, "wood": -1, "stone_tool": 1},
+  "position": [3, 30],
+  "log":...
+2025-07-06 12:14:11.279 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:14:11.279 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Boulder(3):
+2025-07-06 12:14:11.281 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mBoulder(3)[0m [93m行动 →[0m [36m"craft stone tool using flint and wood"[0m
+2025-07-06 12:14:29.462 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "agent_skill_changes": {
+    "3": {
+      "stone_tool_crafting": {
+        "unlock": {
+ ...
+2025-07-06 12:14:29.464 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:14:32.091 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{}
+```...
+2025-07-06 12:14:32.092 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:14:32.092 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:14:32.092 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:14:32.092 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:14:32.092 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:14:32.093 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:14:32.093 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:14:32.093 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:14:32.093 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:14:32.093 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:14:32.094 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 10 START ===
+2025-07-06 12:14:35.576 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(0)[0m: (age 28) attempting: "move north to the forest at [28,36] to explore for edib...
+2025-07-06 12:14:35.925 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mBoulder(3)[0m: (age 50) attempting: "collect flint at [3,30]"
+2025-07-06 12:14:35.995 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mEmber(6)[0m: (age 48) attempting: "collect berries at current position"
+2025-07-06 12:14:36.174 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlare(5)[0m: (age 54) attempting: "collect berries at current position"
+2025-07-06 12:14:36.296 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mEmber(2)[0m: (age 57) attempting: "gather berries at the current forest location"
+2025-07-06 12:14:37.004 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(1)[0m: (age 48) attempting: "collect berries at current position"
+2025-07-06 12:14:37.590 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(9)[0m: (age 47) attempting: "eat apple to reduce hunger"
+2025-07-06 12:14:37.601 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(8)[0m: (age 55) attempting: "move north to explore the forest at (0,49)"
+2025-07-06 12:14:37.794 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mBrak(7)[0m: (age 45) attempting: "hunt for large game in the forest at [33,30]"
+2025-07-06 12:14:37.806 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(4)[0m: (age 50) attempting: "chat with Storm to exchange stories"
+2025-07-06 12:14:40.663 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "position": [28, 36],
+  "log": "Moved north to forest at [28, 36] to ...
+2025-07-06 12:14:40.664 | WARNING  | sociology_simulation.enhanced_llm:_repair_json:357 - 使用空JSON对象作为回退
+2025-07-06 12:14:40.665 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:14:40.666 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:14:40.667 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(0)[0m [93m行动 →[0m [36m"move north to the forest at [28,36] to explore for edible plants and resources"[0m
+2025-07-06 12:14:45.902 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"flint": 1},
+  "position": [3, 30],
+  "log": "Successfully collected flint...
+2025-07-06 12:14:45.904 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:14:45.905 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Boulder(3):
+2025-07-06 12:14:45.910 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mBoulder(3)[0m [93m行动 →[0m [36m"collect flint at [3,30]"[0m
+2025-07-06 12:14:50.863 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 2},
+  "position": [52, 39],
+  "log": "Collected 2 apples from ber...
+2025-07-06 12:14:50.864 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:14:50.864 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Ember(6):
+2025-07-06 12:14:50.864 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mEmber(6)[0m [93m行动 →[0m [36m"collect berries at current position"[0m
+2025-07-06 12:14:54.835 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"berry": 1},
+  "position": [32, 52],
+  "log": "Collected berries from curr...
+2025-07-06 12:14:54.836 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:14:54.836 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:14:54.838 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlare(5)[0m [93m行动 →[0m [36m"collect berries at current position"[0m
+2025-07-06 12:14:59.656 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": 2},
+  "position": [37, 20],
+  "log": "Successfully gathered 2 app...
+2025-07-06 12:14:59.656 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:14:59.656 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Ember(2):
+2025-07-06 12:14:59.657 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mEmber(2)[0m [93m行动 →[0m [36m"gather berries at the current forest location"[0m

@@ -1,0 +1,80 @@
+2025-07-06 18:11:35.796 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 18:11:35.796 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 18:11:35.799 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:220 - Applying MCP integration...
+2025-07-06 18:11:35.799 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:308 - Agent actions patched for MCP
+2025-07-06 18:11:35.799 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:449 - Trinity rule generation, adjudication, and action execution patched for MCP
+2025-07-06 18:11:35.799 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:237 - MCP integration applied successfully
+2025-07-06 18:11:35.799 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 18:11:35.799 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 18:11:35.799 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 18:11:35.799 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 18:11:35.799 | INFO     | __main__:main:93 - Era: 石器时代
+2025-07-06 18:11:35.799 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 18:11:35.799 | INFO     | __main__:main:95 - Number of agents: 3
+2025-07-06 18:11:35.800 | INFO     | __main__:main:96 - Turns: 2
+2025-07-06 18:11:35.800 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 18:12:06.149 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:566 - Trinity created 0 terrains, 1 resources, 0 rules
+2025-07-06 18:12:06.149 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:347 - Trinity rules generated via MCP: 4 terrains, 1 resources
+2025-07-06 18:12:06.149 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 18:12:06.149 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 18:12:06.149 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, GRASSLAND, MOUNTAIN, WATER
+2025-07-06 18:12:06.149 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 18:12:06.149 | INFO     | sociology_simulation.world:initialize:81 -   DISTRIBUTIONS::
+2025-07-06 18:12:06.149 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 18:12:06.149 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 668648
+2025-07-06 18:12:06.251 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 18:12:06.251 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 18:12:06.251 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 18:12:13.265 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Thorn(2) personal goal ➜ Become the tribe's foremost expert on edible plants and medicinal herbs by exploring and document...
+2025-07-06 18:12:13.523 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Gorruk(0) personal goal ➜ Become the strongest hunter in the tribe by consistently bringing back the largest game.
+2025-07-06 18:12:18.361 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Lira(1) personal goal ➜ Become the most respected storyteller and peacemaker in the tribe by sharing wisdom and resolving...
+2025-07-06 18:12:18.361 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 18:12:29.344 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 1: ('Moved east: Given my goal to become a respected storyteller an.... Moved east to (62, 16). Given my goal to become a respected storyteller an...', {'success': True, 'description': 'Moved east to (62, 16). Given my goal to become a respected storyteller an...', 'position_change': (62, 16)})
+2025-07-06 18:12:29.345 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Lira(1) 行动 → ('Moved east: Given my goal to become a respected storyteller an.... Moved east to (62, 16). Given my goal to become a respected storyteller an...', {'success': True, 'description': 'Moved east to (62, 16). Given my goal to become a respected storyteller an...', 'position_change': (62, 16)})
+2025-07-06 18:12:29.643 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 2: ("Moved east: Given my goal to become the tribe's foremost exper.... Moved east to (47, 7). Given my goal to become the tribe's foremost exper...", {'success': True, 'description': "Moved east to (47, 7). Given my goal to become the tribe's foremost exper...", 'position_change': (47, 7)})
+2025-07-06 18:12:29.643 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Thorn(2) 行动 → ("Moved east: Given my goal to become the tribe's foremost exper.... Moved east to (47, 7). Given my goal to become the tribe's foremost exper...", {'success': True, 'description': "Moved east to (47, 7). Given my goal to become the tribe's foremost exper...", 'position_change': (47, 7)})
+2025-07-06 18:12:30.638 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 0: ('Moved east: Given my goal to become the strongest hunter in th.... Moved east to (39, 40). Given my goal to become the strongest hunter in th...', {'success': True, 'description': 'Moved east to (39, 40). Given my goal to become the strongest hunter in th...', 'position_change': (39, 40)})
+2025-07-06 18:12:30.638 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Gorruk(0) 行动 → ('Moved east: Given my goal to become the strongest hunter in th.... Moved east to (39, 40). Given my goal to become the strongest hunter in th...', {'success': True, 'description': 'Moved east to (39, 40). Given my goal to become the strongest hunter in th...', 'position_change': (39, 40)})
+2025-07-06 18:12:30.638 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:394 - [Trinity MCP] Adjudicated turn 0 with 3 events
+2025-07-06 18:12:30.638 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:423 - [Trinity MCP] Added emergency resources due to low population
+2025-07-06 18:12:30.639 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:436 - [Trinity MCP] Executed world management for turn 1
+2025-07-06 18:12:30.639 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 18:12:30.639 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 3 agents alive
+2025-07-06 18:12:30.639 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 18:12:30.639 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 18:12:30.639 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 18:12:30.639 | INFO     | sociology_simulation.world:step:775 - Gorruk(0) is in critical health!
+2025-07-06 18:12:30.639 | INFO     | sociology_simulation.world:step:775 - Lira(1) is in critical health!
+2025-07-06 18:12:30.639 | INFO     | sociology_simulation.world:step:775 - Thorn(2) is in critical health!
+2025-07-06 18:12:30.639 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 18:12:30.639 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 18:12:30.639 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 18:12:30.639 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 18:12:30.640 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 2 START ===
+2025-07-06 18:12:40.900 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 2: ("Moved north: Given my goal to become the tribe's foremost exper.... Moved north to (47, 6). Given my goal to become the tribe's foremost exper...", {'success': True, 'description': "Moved north to (47, 6). Given my goal to become the tribe's foremost exper...", 'position_change': (47, 6)})
+2025-07-06 18:12:40.901 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Thorn(2) 行动 → ("Moved north: Given my goal to become the tribe's foremost exper.... Moved north to (47, 6). Given my goal to become the tribe's foremost exper...", {'success': True, 'description': "Moved north to (47, 6). Given my goal to become the tribe's foremost exper...", 'position_change': (47, 6)})
+2025-07-06 18:12:42.423 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 1: ('Moved east: Given my goal to become a respected storyteller an.... Moved east to (63, 16). Given my goal to become a respected storyteller an...', {'success': True, 'description': 'Moved east to (63, 16). Given my goal to become a respected storyteller an...', 'position_change': (63, 16)})
+2025-07-06 18:12:42.423 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Lira(1) 行动 → ('Moved east: Given my goal to become a respected storyteller an.... Moved east to (63, 16). Given my goal to become a respected storyteller an...', {'success': True, 'description': 'Moved east to (63, 16). Given my goal to become a respected storyteller an...', 'position_change': (63, 16)})
+2025-07-06 18:12:44.123 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 0: ("Moved north: Since I'm currently in a grassland area with no im.... Moved north to (39, 39). Since I'm currently in a grassland area with no im...", {'success': True, 'description': "Moved north to (39, 39). Since I'm currently in a grassland area with no im...", 'position_change': (39, 39)})
+2025-07-06 18:12:44.124 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Gorruk(0) 行动 → ("Moved north: Since I'm currently in a grassland area with no im.... Moved north to (39, 39). Since I'm currently in a grassland area with no im...", {'success': True, 'description': "Moved north to (39, 39). Since I'm currently in a grassland area with no im...", 'position_change': (39, 39)})
+2025-07-06 18:12:44.124 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:394 - [Trinity MCP] Adjudicated turn 2 with 0 events
+2025-07-06 18:12:44.124 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:423 - [Trinity MCP] Added emergency resources due to low population
+2025-07-06 18:12:44.124 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:436 - [Trinity MCP] Executed world management for turn 3
+2025-07-06 18:12:44.124 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 18:12:44.125 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 3 agents alive
+2025-07-06 18:12:44.125 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 18:12:44.125 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 18:12:44.125 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 18:12:44.125 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 18:12:44.125 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 18:12:44.125 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 18:12:44.125 | INFO     | sociology_simulation.world:step:776 - ========================================
+

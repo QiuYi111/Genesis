@@ -1,0 +1,111 @@
+2025-07-06 12:39:10.487 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 12:39:10.487 | INFO     | __main__:main:83 - Starting sociology simulation with Hydra configuration
+2025-07-06 12:39:10.487 | INFO     | __main__:main:84 - Initialized 12 prompt templates
+2025-07-06 12:39:10.487 | INFO     | __main__:main:85 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 12:39:10.487 | INFO     | __main__:main:86 - Era: 石器时代
+2025-07-06 12:39:10.487 | INFO     | __main__:main:87 - World size: 64x64
+2025-07-06 12:39:10.487 | INFO     | __main__:main:88 - Number of agents: 10
+2025-07-06 12:39:10.487 | INFO     | __main__:main:89 - Turns: 1000
+2025-07-06 12:39:27.183 | SUCCESS  | sociology_simulation.trinity:_generate_initial_rules:49 - [Trinity] Generated rules for era: 石器时代
+2025-07-06 12:39:27.185 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 12:39:27.185 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 12:39:27.186 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, GRASSLAND, RIVER, MOUNTAIN, SWAMP
+2025-07-06 12:39:27.186 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 12:39:27.187 | INFO     | sociology_simulation.world:initialize:81 -   WOOD:
+2025-07-06 12:39:27.187 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 70.0% chance
+2025-07-06 12:39:27.187 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 20.0% chance
+2025-07-06 12:39:27.187 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 10.0% chance
+2025-07-06 12:39:27.187 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 5.0% chance
+2025-07-06 12:39:27.188 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 30.0% chance
+2025-07-06 12:39:27.188 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 12:39:27.189 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 60.0% chance
+2025-07-06 12:39:27.189 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 40.0% chance
+2025-07-06 12:39:27.189 | INFO     | sociology_simulation.world:initialize:81 -   FLINT:
+2025-07-06 12:39:27.189 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 80.0% chance
+2025-07-06 12:39:27.189 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 30.0% chance
+2025-07-06 12:39:27.189 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 10.0% chance
+2025-07-06 12:39:27.189 | INFO     | sociology_simulation.world:initialize:81 -   BERRIES:
+2025-07-06 12:39:27.189 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 50.0% chance
+2025-07-06 12:39:27.189 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 40.0% chance
+2025-07-06 12:39:27.189 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 20.0% chance
+2025-07-06 12:39:27.189 | INFO     | sociology_simulation.world:initialize:81 -   CLAY:
+2025-07-06 12:39:27.189 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 50.0% chance
+2025-07-06 12:39:27.189 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 70.0% chance
+2025-07-06 12:39:27.189 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 12:39:27.190 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 840520
+2025-07-06 12:39:27.309 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 12:39:27.313 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 12:39:27.313 | INFO     | sociology_simulation.world:initialize:96 -   BERRIES: 1193 units
+2025-07-06 12:39:27.313 | INFO     | sociology_simulation.world:initialize:96 -   CLAY: 701 units
+2025-07-06 12:39:27.313 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 648 units
+2025-07-06 12:39:27.313 | INFO     | sociology_simulation.world:initialize:96 -   FLINT: 824 units
+2025-07-06 12:39:27.313 | INFO     | sociology_simulation.world:initialize:96 -   WOOD: 814 units
+2025-07-06 12:39:27.313 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 12:40:27.835 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: Response payload is not completed: <TransferEncodingError: 400, message='Not enough data to satisfy transfer length header.'>
+2025-07-06 12:40:28.345 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: Response payload is not completed: <TransferEncodingError: 400, message='Not enough data to satisfy transfer length header.'>
+2025-07-06 12:40:28.345 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: Response payload is not completed: <TransferEncodingError: 400, message='Not enough data to satisfy transfer length header.'>
+2025-07-06 12:40:28.363 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: Response payload is not completed: <TransferEncodingError: 400, message='Not enough data to satisfy transfer length header.'>
+2025-07-06 12:40:28.368 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: Response payload is not completed: <TransferEncodingError: 400, message='Not enough data to satisfy transfer length header.'>
+2025-07-06 12:40:28.373 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: Response payload is not completed: <TransferEncodingError: 400, message='Not enough data to satisfy transfer length header.'>
+2025-07-06 12:40:33.725 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mStorm(7)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled and respected toolmaker in the tribe by crafting superior stone axes and ...[0m
+2025-07-06 12:40:36.109 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(6)[0m [94mpersonal goal ➜[0m [3mBecome the respected elder who leads my tribe's rituals and mediates conflicts using my wisdom an...[0m
+2025-07-06 12:40:36.745 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mEmber(3)[0m [94mpersonal goal ➜[0m [3mBecome the most respected elder in the tribe by using my charm to mediate conflicts and teach you...[0m
+2025-07-06 12:40:37.235 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mEmber(8)[0m [94mpersonal goal ➜[0m [3mBecome the most influential storyteller and peacemaker among neighboring tribes by crafting compe...[0m
+2025-07-06 12:40:37.862 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mBoulder(0)[0m [94mpersonal goal ➜[0m [3mBecome the most respected elder in the tribe by leading successful hunting expeditions and settli...[0m
+2025-07-06 12:40:38.314 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(1)[0m [94mpersonal goal ➜[0m [3mBecome the respected elder who teaches younger tribe members how to craft durable tools and weapo...[0m
+2025-07-06 12:40:39.534 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mStorm(2)[0m [94mpersonal goal ➜[0m [3mBecome the tribe's storyteller by collecting and sharing the most captivating tales from neighbor...[0m
+2025-07-06 12:40:43.451 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: Response payload is not completed: <TransferEncodingError: 400, message='Not enough data to satisfy transfer length header.'>
+2025-07-06 12:40:43.475 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: Response payload is not completed: <TransferEncodingError: 400, message='Not enough data to satisfy transfer length header.'>
+2025-07-06 12:40:51.894 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(9)[0m [94mpersonal goal ➜[0m [3mBecome the most respected storyteller and mediator in the tribe by crafting compelling tales from...[0m
+2025-07-06 12:40:52.084 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mRok(4)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by consistently bringing back the largest game.[0m
+2025-07-06 12:41:19.772 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: Response payload is not completed: <TransferEncodingError: 400, message='Not enough data to satisfy transfer length header.'>
+2025-07-06 12:41:28.315 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(5)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by crafting superior stone tools and leading successful ...[0m
+2025-07-06 12:41:28.316 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 12:41:31.843 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mBoulder(0)[0m: (age 56) attempting: "move west to the forest to gather more wood and flint."
+2025-07-06 12:41:32.082 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mEmber(8)[0m: (age 28) attempting: "move west to the river to collect more shells for story...
+2025-07-06 12:41:32.402 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(1)[0m: (age 66) attempting: "Gather flint from the nearby grassland to start craftin...
+2025-07-06 12:41:32.505 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(2)[0m: (age 40) attempting: "move west to the river to look for neighboring groups t...
+2025-07-06 12:41:32.557 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(5)[0m: (age 29) attempting: "move to [13,1] to collect flint and wood for crafting t...
+2025-07-06 12:41:32.636 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(9)[0m: (age 43) attempting: "Move to the river at [37, 15] to collect shells for sto...
+2025-07-06 12:41:32.724 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mRok(4)[0m: (age 19) attempting: "craft a spear using flint and wood from nearby tiles"
+2025-07-06 12:41:32.810 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(6)[0m: (age 46) attempting: "Gather flint from the grassland at [3,63] to craft ritu...
+2025-07-06 12:41:32.916 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(7)[0m: (age 37) attempting: "Collect flint from the grassland at position [19,40] to...
+2025-07-06 12:41:33.398 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mEmber(3)[0m: (age 44) attempting: "Move to the grassland at (32,33) to collect berries."
+2025-07-06 12:41:36.703 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "position": [28, 0],
+  "log": "Moved west towards the forest. Movemen...
+2025-07-06 12:41:36.704 | WARNING  | sociology_simulation.enhanced_llm:_repair_json:357 - 使用空JSON对象作为回退
+2025-07-06 12:41:36.704 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:41:36.704 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Boulder(0):
+2025-07-06 12:41:36.705 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mBoulder(0)[0m [93m行动 →[0m [36m"move west to the forest to gather more wood and flint."[0m
+2025-07-06 12:41:41.440 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"shell": 1},
+  "position": [50, 36],
+  "log": "Moved west to the river and...
+2025-07-06 12:41:41.441 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:41:41.441 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Ember(8):
+2025-07-06 12:41:41.443 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mEmber(8)[0m [93m行动 →[0m [36m"move west to the river to collect more shells for storytelling"[0m
+2025-07-06 12:41:46.328 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"flint": 1},
+  "position": [62, 39],
+  "log": "Successfully gathered flint...
+2025-07-06 12:41:46.330 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:41:46.331 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:41:46.333 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(1)[0m [93m行动 →[0m [36m"Gather flint from the nearby grassland to start crafting tools."[0m
+2025-07-06 12:41:51.382 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {},
+  "position": [2, 20],
+  "log": "Moved west towards the river to look f...
+2025-07-06 12:41:51.383 | WARNING  | sociology_simulation.enhanced_llm:_repair_json:357 - 使用空JSON对象作为回退
+2025-07-06 12:41:51.384 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 12:41:51.385 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(2):
+2025-07-06 12:41:51.386 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mStorm(2)[0m [93m行动 →[0m [36m"move west to the river to look for neighboring groups to exchange stories with"[0m

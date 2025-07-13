@@ -1,0 +1,145 @@
+2025-07-06 20:56:05.258 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 20:56:05.258 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 20:56:05.258 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:361 - Applying MCP integration...
+2025-07-06 20:56:05.258 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:445 - Agent actions patched for MCP
+2025-07-06 20:56:05.258 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:566 - Trinity rule generation, adjudication, and action execution patched for MCP
+2025-07-06 20:56:05.258 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:378 - MCP integration applied successfully
+2025-07-06 20:56:05.259 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 20:56:05.259 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 20:56:05.259 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 20:56:05.259 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 20:56:05.259 | INFO     | __main__:main:93 - Era: 石器时代
+2025-07-06 20:56:05.259 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 20:56:05.259 | INFO     | __main__:main:95 - Number of agents: 10
+2025-07-06 20:56:05.259 | INFO     | __main__:main:96 - Turns: 1000
+2025-07-06 20:56:05.259 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 20:56:42.884 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:666 - Trinity response content:
+Here are my world creation decisions for the 石器时代 (Stone Age) simulation:
+
+TERRAIN TYPES:
+1. TERRAIN RIVERBANK 'Fertile land near water sources' cost=1.1 resources={{clay: 0.7, fish: 0.6, flint: 0.3}} color=teal
+2. TERRAIN FOREST 'Dense woodlands with mixed vegetation' cost=1.4 resources={{wood: 0.9, berries: 0.5, game: 0.4}} color=dark_green
+3. TERRAIN PLAINS 'Open grasslands with scattered trees' cost=1.0 resources={{game: 0.6, wild_grains: 0.4, flint: 0.2}} color=yellow_green
+4. TERRAIN MOUNTAIN 'Rocky elevated areas with caves' cost=1.8 resources={{flint: 0.8, stone: 0.9, copper_ore: 0.1}} color=grey
+5. TERRAIN SWAMP 'Wetlands with abundant reeds' cost=1.6 resources={{reeds: 0.7, fish: 0.4, clay: 0.5}} color=dark_teal
+
+RESOURCE DISTRIBUTIONS:
+1. RESOURCE flint distribution={{RIVERBANK: 0.3, MOUNTAIN: 0.8, PLAINS: 0.2}} depletion=0.15 regen=0.02
+2. RESOURCE wood distribution={{FOREST: 0.9, PLAINS: 0.3}} depletion=0.1 regen=0.07
+3. RESOURCE game distribution={{FOREST: 0.4, PLAINS: 0.6, SWAMP: 0.2}} depletion=0.2 regen=0.15
+4. RESOURCE clay distribution={{RIVERBANK: 0.7, SWAMP: 0.5}} depletion=0.05 regen=0.1
+5. RESOURCE fish distribution={{RIVERBANK: 0.6, SWAMP: 0.4}} depletion=0.25 regen=0.2
+6. RESOURCE berries distribution={{FOREST: 0.5, PLAINS: 0.2}} depletion=0.3 regen=0.25
+
+WORLD RULES:
+1. RULE seasonal_migration 'Animal herds migrate seasonally' conditions=['turn_mod_50=0'] effects=['redistribute_game_resources'] priority=1
+2. RULE tool_breakage 'Primitive tools break frequently' conditions=['action_harvest'] effects=['random_tool_loss:0.1'] priority=2
+3. RULE population_pressure 'Tribes expand when resources are abundant' conditions=['resource_abundance>0.8'] effects=['population_growth:0.05'] priority=3
+
+These elements reflect the Stone Age environment where:
+- Survival depends on basic natural resources
+- Movement is constrained by primitive technology
+- Resources are tied closely to specific terrain types
+- Seasonal patterns significantly impact availability
+- Population dynamics are directly tied to resource availability
+- Technology is limited to stone tools and basic materials
+2025-07-06 20:56:42.886 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:667 - Parsing 29 lines from Trinity response
+2025-07-06 20:56:42.886 | WARNING  | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:715 - Failed to parse terrain line: TERRAIN TYPES:
+2025-07-06 20:56:42.886 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:738 - Trinity created 5 terrains, 7 resources, 3 rules
+2025-07-06 20:56:42.887 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:474 - Trinity rules generated via MCP: 5 terrains, 7 resources
+2025-07-06 20:56:42.887 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 20:56:42.887 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 20:56:42.887 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: RIVERBANK, FOREST, PLAINS, MOUNTAIN, SWAMP
+2025-07-06 20:56:42.887 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 20:56:42.887 | INFO     | sociology_simulation.world:initialize:81 -   DISTRIBUTIONS::
+2025-07-06 20:56:42.887 | INFO     | sociology_simulation.world:initialize:81 -   FLINT:
+2025-07-06 20:56:42.888 | INFO     | sociology_simulation.world:initialize:83 -     - {RIVERBANK: 30.0% chance
+2025-07-06 20:56:42.888 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 80.0% chance
+2025-07-06 20:56:42.888 | INFO     | sociology_simulation.world:initialize:83 -     - PLAINS: 20.0% chance
+2025-07-06 20:56:42.888 | INFO     | sociology_simulation.world:initialize:81 -   WOOD:
+2025-07-06 20:56:42.888 | INFO     | sociology_simulation.world:initialize:83 -     - {FOREST: 90.0% chance
+2025-07-06 20:56:42.888 | INFO     | sociology_simulation.world:initialize:83 -     - PLAINS: 30.0% chance
+2025-07-06 20:56:42.888 | INFO     | sociology_simulation.world:initialize:81 -   GAME:
+2025-07-06 20:56:42.888 | INFO     | sociology_simulation.world:initialize:83 -     - {FOREST: 40.0% chance
+2025-07-06 20:56:42.888 | INFO     | sociology_simulation.world:initialize:83 -     - PLAINS: 60.0% chance
+2025-07-06 20:56:42.888 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 20.0% chance
+2025-07-06 20:56:42.889 | INFO     | sociology_simulation.world:initialize:81 -   CLAY:
+2025-07-06 20:56:42.889 | INFO     | sociology_simulation.world:initialize:83 -     - {RIVERBANK: 70.0% chance
+2025-07-06 20:56:42.889 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 50.0% chance
+2025-07-06 20:56:42.889 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 20:56:42.889 | INFO     | sociology_simulation.world:initialize:83 -     - {RIVERBANK: 60.0% chance
+2025-07-06 20:56:42.889 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 40.0% chance
+2025-07-06 20:56:42.889 | INFO     | sociology_simulation.world:initialize:81 -   BERRIES:
+2025-07-06 20:56:42.889 | INFO     | sociology_simulation.world:initialize:83 -     - {FOREST: 50.0% chance
+2025-07-06 20:56:42.889 | INFO     | sociology_simulation.world:initialize:83 -     - PLAINS: 20.0% chance
+2025-07-06 20:56:42.889 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 20:56:42.889 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 751285
+2025-07-06 20:56:43.006 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 20:56:43.008 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 20:56:43.008 | INFO     | sociology_simulation.world:initialize:96 -   BERRIES: 80 units
+2025-07-06 20:56:43.008 | INFO     | sociology_simulation.world:initialize:96 -   CLAY: 119 units
+2025-07-06 20:56:43.008 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 89 units
+2025-07-06 20:56:43.008 | INFO     | sociology_simulation.world:initialize:96 -   FLINT: 477 units
+2025-07-06 20:56:43.008 | INFO     | sociology_simulation.world:initialize:96 -   GAME: 349 units
+2025-07-06 20:56:43.008 | INFO     | sociology_simulation.world:initialize:96 -   WOOD: 140 units
+2025-07-06 20:56:43.008 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 20:56:49.783 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(5)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled storyteller and trader in the tribe by collecting and sharing knowledge f...[0m
+2025-07-06 20:56:49.792 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mShellmark(8)[0m [94mpersonal goal ➜[0m [3mCreate a detailed map of all nearby caves and their resources using shell carvings.[0m
+2025-07-06 20:56:49.798 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mThorn(9)[0m [94mpersonal goal ➜[0m [3mDiscover and map all edible plants and medicinal herbs within a three-day walking radius of my vi...[0m
+2025-07-06 20:56:49.972 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(6)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by consistently bringing back the largest game.[0m
+2025-07-06 20:56:50.105 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mGor(7)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by consistently bringing back the largest game.[0m
+2025-07-06 20:56:50.208 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mThorn(3)[0m [94mpersonal goal ➜[0m [3mBecome the most respected elder in the tribe by crafting sturdy wooden tools and sharing wisdom w...[0m
+2025-07-06 20:56:50.805 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(4)[0m [94mpersonal goal ➜[0m [3mBecome the tribe's most skilled toolmaker by crafting superior stone axes and spearheads to impro...[0m
+2025-07-06 20:56:50.807 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLuma(0)[0m [94mpersonal goal ➜[0m [3mBecome the most respected storyteller and knowledge-keeper of the tribe by collecting and sharing...[0m
+2025-07-06 20:56:50.884 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRivak(2)[0m [94mpersonal goal ➜[0m [3mI will explore and map all the nearby river systems to discover new fishing spots and gather uniq...[0m
+2025-07-06 20:56:52.857 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLira(1)[0m [94mpersonal goal ➜[0m [3mBecome the most respected storyteller and mediator in the tribe by collecting and sharing ancient...[0m
+2025-07-06 20:56:52.861 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 20:56:59.408 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 3: Moved east: I need to explore the area to find wood resources for crafting sturdy tools, which is essential for becoming a respected elder. The riverbank terrain might transition into forested areas where wood can be found, and moving east will help me cover new ground efficiently.. Moved east to (2, 9). I need to explore the area to find wood resources for crafting sturdy tools, which is essential for becoming a respected elder. The riverbank terrain might transition into forested areas where wood can be found, and moving east will help me cover new ground efficiently.
+2025-07-06 20:56:59.409 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mThorn(3)[0m [93m行动 →[0m [36mMoved east: I need to explore the area to find wood resources for crafting sturdy tools, which is essential for becom...[0m
+2025-07-06 20:57:05.026 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 9: ('Moved east: Given my current position and goal of discovering edible plants and medicinal herbs, I notice that m.... Moved east to (19, 51). Given my current position and goal of discovering edible plants and medicinal herbs, I notice that m...', {'success': True, 'description': 'Moved east to (19, 51). Given my current position and goal of discovering edible plants and medicinal herbs, I notice that m...', 'position_change': (19, 51)})
+2025-07-06 20:57:05.026 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mThorn(9)[0m [93m行动 →[0m [36m('Moved east: Given my current position and goal of discovering edible plants and medicinal herbs, I notice that m.... Moved east to (19, 51). Given my current position and goal of discovering edible plants and medicinal herbs, I notice that m...', {'success': True, 'description': 'Moved east to (19, 51). Given my current position and goal of discovering edible plants and medicinal herbs, I notice that m...', 'position_change': (19, 51)})[0m
+2025-07-06 20:57:05.079 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 2: ('Failed to collect fish: No resources at position (30, 22)', {'success': False, 'error': 'No resources at position (30, 22)'})
+2025-07-06 20:57:05.079 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mRivak(2)[0m [93m行动 →[0m [36m('Failed to collect fish: No resources at position (30, 22)', {'success': False, 'error': 'No resources at position (30, 22)'})[0m
+2025-07-06 20:57:05.147 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 6: ('Moved north: Given my current situation at the riverbank with swamps nearby, and my goal to become the strongest .... Moved north to (53, 33). Given my current situation at the riverbank with swamps nearby, and my goal to become the strongest ...', {'success': True, 'description': 'Moved north to (53, 33). Given my current situation at the riverbank with swamps nearby, and my goal to become the strongest ...', 'position_change': (53, 33)})
+2025-07-06 20:57:05.147 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mRok(6)[0m [93m行动 →[0m [36m('Moved north: Given my current situation at the riverbank with swamps nearby, and my goal to become the strongest .... Moved north to (53, 33). Given my current situation at the riverbank with swamps nearby, and my goal to become the strongest ...', {'success': True, 'description': 'Moved north to (53, 33). Given my current situation at the riverbank with swamps nearby, and my goal to become the strongest ...', 'position_change': (53, 33)})[0m
+2025-07-06 20:57:05.393 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 7: ("Moved north: Given that I'm currently at a riverbank with no immediate resources or other agents visible, and my .... Moved north to (57, 15). Given that I'm currently at a riverbank with no immediate resources or other agents visible, and my ...", {'success': True, 'description': "Moved north to (57, 15). Given that I'm currently at a riverbank with no immediate resources or other agents visible, and my ...", 'position_change': (57, 15)})
+2025-07-06 20:57:05.394 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mGor(7)[0m [93m行动 →[0m [36m("Moved north: Given that I'm currently at a riverbank with no immediate resources or other agents visible, and my .... Moved north to (57, 15). Given that I'm currently at a riverbank with no immediate resources or other agents visible, and my ...", {'success': True, 'description': "Moved north to (57, 15). Given that I'm currently at a riverbank with no immediate resources or other agents visible, and my ...", 'position_change': (57, 15)})[0m
+2025-07-06 20:57:05.862 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 5: ('Failed to collect resource: No resources at position (60, 2)', {'success': False, 'error': 'No resources at position (60, 2)'})
+2025-07-06 20:57:05.862 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mRok(5)[0m [93m行动 →[0m [36m('Failed to collect resource: No resources at position (60, 2)', {'success': False, 'error': 'No resources at position (60, 2)'})[0m
+2025-07-06 20:57:06.387 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 4: ('Failed to collect stone: No resources at position (6, 22)', {'success': False, 'error': 'No resources at position (6, 22)'})
+2025-07-06 20:57:06.388 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mRok(4)[0m [93m行动 →[0m [36m('Failed to collect stone: No resources at position (6, 22)', {'success': False, 'error': 'No resources at position (6, 22)'})[0m
+2025-07-06 20:57:07.413 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 8: ('Moved north: Given my current goal to map nearby caves and their resources, and considering the visible terrain s.... Moved north to (12, 17). Given my current goal to map nearby caves and their resources, and considering the visible terrain s...', {'success': True, 'description': 'Moved north to (12, 17). Given my current goal to map nearby caves and their resources, and considering the visible terrain s...', 'position_change': (12, 17)})
+2025-07-06 20:57:07.414 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mShellmark(8)[0m [93m行动 →[0m [36m('Moved north: Given my current goal to map nearby caves and their resources, and considering the visible terrain s.... Moved north to (12, 17). Given my current goal to map nearby caves and their resources, and considering the visible terrain s...', {'success': True, 'description': 'Moved north to (12, 17). Given my current goal to map nearby caves and their resources, and considering the visible terrain s...', 'position_change': (12, 17)})[0m
+2025-07-06 20:57:09.431 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 1: ('Collected resource: Given my goal to become a respected storyteller and mediator, and considering the current situation .... Collected 1 flint. Given my goal to become a respected storyteller and mediator, and considering the current situation ...', {'success': True, 'description': 'Collected 1 flint. Given my goal to become a respected storyteller and mediator, and considering the current situation ...', 'inventory_changes': {'flint': 1}})
+2025-07-06 20:57:09.432 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mLira(1)[0m [93m行动 →[0m [36m('Collected resource: Given my goal to become a respected storyteller and mediator, and considering the current situation .... Collected 1 flint. Given my goal to become a respected storyteller and mediator, and considering the current situation ...', {'success': True, 'description': 'Collected 1 flint. Given my goal to become a respected storyteller and mediator, and considering the current situation ...', 'inventory_changes': {'flint': 1}})[0m
+2025-07-06 20:57:09.787 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 0: ('Failed to collect stone: No resources at position (47, 4)', {'success': False, 'error': 'No resources at position (47, 4)'})
+2025-07-06 20:57:09.787 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mLuma(0)[0m [93m行动 →[0m [36m('Failed to collect stone: No resources at position (47, 4)', {'success': False, 'error': 'No resources at position (47, 4)'})[0m
+2025-07-06 20:57:09.795 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:513 - [Trinity MCP] Adjudicated turn 0 with 10 events
+2025-07-06 20:57:09.795 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:553 - [Trinity MCP] Executed world management for turn 1
+2025-07-06 20:57:09.795 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 20:57:09.795 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 20:57:09.795 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 20:57:09.795 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 20:57:09.795 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 20:57:09.795 | INFO     | sociology_simulation.world:step:775 - Luma(0) is in critical health!
+2025-07-06 20:57:09.796 | INFO     | sociology_simulation.world:step:775 - Lira(1) is in critical health!
+2025-07-06 20:57:09.796 | INFO     | sociology_simulation.world:step:775 - Rivak(2) is in critical health!
+2025-07-06 20:57:09.796 | INFO     | sociology_simulation.world:step:775 - Thorn(3) is in critical health!
+2025-07-06 20:57:09.796 | INFO     | sociology_simulation.world:step:775 - Rok(4) is in critical health!
+2025-07-06 20:57:09.796 | INFO     | sociology_simulation.world:step:775 - Rok(5) is in critical health!
+2025-07-06 20:57:09.796 | INFO     | sociology_simulation.world:step:775 - Rok(6) is in critical health!
+2025-07-06 20:57:09.796 | INFO     | sociology_simulation.world:step:775 - Gor(7) is in critical health!
+2025-07-06 20:57:09.796 | INFO     | sociology_simulation.world:step:775 - Shellmark(8) is in critical health!
+2025-07-06 20:57:09.796 | INFO     | sociology_simulation.world:step:775 - Thorn(9) is in critical health!
+2025-07-06 20:57:09.796 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 20:57:09.796 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 20:57:09.796 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 20:57:09.796 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 20:57:09.797 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 2 START ===

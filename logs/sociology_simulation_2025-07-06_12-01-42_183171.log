@@ -1,0 +1,1117 @@
+2025-07-06 12:01:42.192 | SUCCESS  | sociology_simulation.prompts:load_from_config:421 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 12:01:42.192 | INFO     | __main__:main:83 - Starting sociology simulation with Hydra configuration
+2025-07-06 12:01:42.192 | INFO     | __main__:main:84 - Initialized 12 prompt templates
+2025-07-06 12:01:42.192 | INFO     | __main__:main:85 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 12:01:42.192 | INFO     | __main__:main:86 - Era: 石器时代
+2025-07-06 12:01:42.192 | INFO     | __main__:main:87 - World size: 64x64
+2025-07-06 12:01:42.192 | INFO     | __main__:main:88 - Number of agents: 10
+2025-07-06 12:01:42.192 | INFO     | __main__:main:89 - Turns: 1000
+2025-07-06 12:01:42.193 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_generate_initial_rules, 错误: 提示词模板 trinity_generate_initial_rules 缺少参数: '"key"'
+2025-07-06 12:01:42.193 | SUCCESS  | sociology_simulation.trinity:_generate_initial_rules:49 - [Trinity] Generated rules for era: 石器时代
+2025-07-06 12:01:42.193 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 12:01:42.193 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 12:01:42.193 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, OCEAN, MOUNTAIN, GRASSLAND
+2025-07-06 12:01:42.193 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 12:01:42.193 | INFO     | sociology_simulation.world:initialize:81 -   WOOD:
+2025-07-06 12:01:42.193 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 50.0% chance
+2025-07-06 12:01:42.193 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 12:01:42.193 | INFO     | sociology_simulation.world:initialize:83 -     - OCEAN: 40.0% chance
+2025-07-06 12:01:42.193 | INFO     | sociology_simulation.world:initialize:81 -   STONE:
+2025-07-06 12:01:42.193 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 60.0% chance
+2025-07-06 12:01:42.193 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 12:01:42.193 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 575206
+2025-07-06 12:01:42.290 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 12:01:42.291 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 12:01:42.291 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 24 units
+2025-07-06 12:01:42.291 | INFO     | sociology_simulation.world:initialize:96 -   STONE: 133 units
+2025-07-06 12:01:42.291 | INFO     | sociology_simulation.world:initialize:96 -   WOOD: 215 units
+2025-07-06 12:01:42.291 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 12:01:48.939 | INFO     | sociology_simulation.agent:decide_goal:168 - 🎯 Flint(6) personal goal ➜ Become the strongest hunter and wisest elder by mastering all hunting techniques and discovering ...
+2025-07-06 12:01:49.069 | INFO     | sociology_simulation.agent:decide_goal:168 - 🎯 Storm(7) personal goal ➜ Become the respected leader of my tribe by using my charm to unite neighboring clans and my stren...
+2025-07-06 12:01:49.481 | INFO     | sociology_simulation.agent:decide_goal:168 - 🎯 Flint(2) personal goal ➜ Discover and document all edible plants and medicinal herbs within a three-day walking distance o...
+2025-07-06 12:01:49.628 | INFO     | sociology_simulation.agent:decide_goal:168 - 🎯 Flint(4) personal goal ➜ Discover and map all edible plants and medicinal herbs within a three-day walking radius of my vi...
+2025-07-06 12:01:49.685 | INFO     | sociology_simulation.agent:decide_goal:168 - 🎯 Flint(0) personal goal ➜ Become the tribe's master toolmaker by developing new stone tool designs and teaching others to c...
+2025-07-06 12:01:49.735 | INFO     | sociology_simulation.agent:decide_goal:168 - 🎯 Flint(3) personal goal ➜ Become the respected leader of my tribe by organizing successful hunts and mediating conflicts us...
+2025-07-06 12:01:49.802 | INFO     | sociology_simulation.agent:decide_goal:168 - 🎯 Flint(1) personal goal ➜ Become the most knowledgeable elder by discovering and documenting all medicinal plants and natur...
+2025-07-06 12:01:49.885 | INFO     | sociology_simulation.agent:decide_goal:168 - 🎯 Flare(5) personal goal ➜ Become the most knowledgeable explorer and storyteller of distant lands by discovering new territ...
+2025-07-06 12:01:49.972 | INFO     | sociology_simulation.agent:decide_goal:168 - 🎯 Flint(9) personal goal ➜ Become the most skilled toolmaker in the tribe by crafting superior stone axes and spears for hun...
+2025-07-06 12:01:50.267 | INFO     | sociology_simulation.agent:decide_goal:168 - 🎯 Flint(8) personal goal ➜ Become the tribe's foremost expert on identifying and cataloging all edible plants and medicinal ...
+2025-07-06 12:01:50.267 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 12:01:53.755 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 31) attempting: "move east to the forest to collect wood"
+2025-07-06 12:01:53.755 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:53.756 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:01:53.756 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest to collect wood"
+2025-07-06 12:01:54.063 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 35) attempting: "move north to explore the mountain terrain"
+2025-07-06 12:01:54.063 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:54.063 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:01:54.064 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "move north to explore the mountain terrain"
+2025-07-06 12:01:54.138 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 32) attempting: "explore the nearby forest for edible plants and medicin...
+2025-07-06 12:01:54.139 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:54.139 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:01:54.139 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and medicinal herbs"
+2025-07-06 12:01:54.234 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 45) attempting: "move east to chat with Flint"
+2025-07-06 12:01:54.235 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:54.235 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:01:54.235 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move east to chat with Flint"
+2025-07-06 12:01:54.397 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 65) attempting: "move east towards Flint to share hunting knowledge"
+2025-07-06 12:01:54.398 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:54.398 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:01:54.398 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move east towards Flint to share hunting knowledge"
+2025-07-06 12:01:54.637 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 43) attempting: "move east to the ocean to fish"
+2025-07-06 12:01:54.638 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:54.638 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:01:54.639 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:01:54.650 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 66) attempting: "explore the nearby forest for medicinal plants"
+2025-07-06 12:01:54.650 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:54.651 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:01:54.651 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "explore the nearby forest for medicinal plants"
+2025-07-06 12:01:55.467 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 33) attempting: "move north to explore new territories"
+2025-07-06 12:01:55.468 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:55.468 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:01:55.468 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move north to explore new territories"
+2025-07-06 12:01:55.540 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 46) attempting: "move north to the forest to collect wood"
+2025-07-06 12:01:55.541 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:55.542 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:01:55.542 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest to collect wood"
+2025-07-06 12:01:55.768 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 65) attempting: "move north to explore the grassland for edible plants a...
+2025-07-06 12:01:55.768 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:55.769 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:01:55.769 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move north to explore the grassland for edible plants and medicinal herbs"
+2025-07-06 12:01:55.772 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:01:55.774 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:01:55.774 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:01:55.774 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:01:55.774 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:01:55.774 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:01:55.774 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:01:55.774 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:01:55.774 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:01:55.774 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:01:55.774 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:01:55.774 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:01:55.775 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 2 START ===
+2025-07-06 12:01:58.652 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 46) attempting: "move east to chat with Flint"
+2025-07-06 12:01:58.653 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:58.653 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:01:58.654 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move east to chat with Flint"
+2025-07-06 12:01:59.071 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 47) attempting: "move north to the forest at (27,24)"
+2025-07-06 12:01:59.072 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:59.072 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:01:59.072 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest at (27,24)"
+2025-07-06 12:01:59.201 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 66) attempting: "move towards Flint at position [52,18]"
+2025-07-06 12:01:59.202 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:59.202 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:01:59.203 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move towards Flint at position [52,18]"
+2025-07-06 12:01:59.211 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 34) attempting: "move east to explore new territories"
+2025-07-06 12:01:59.212 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:59.212 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:01:59.212 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move east to explore new territories"
+2025-07-06 12:01:59.312 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 67) attempting: "explore the nearby forest for medicinal plants"
+2025-07-06 12:01:59.313 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:59.314 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:01:59.314 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "explore the nearby forest for medicinal plants"
+2025-07-06 12:01:59.379 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 44) attempting: "move east to the ocean to fish"
+2025-07-06 12:01:59.380 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:59.381 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:01:59.381 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:01:59.489 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 32) attempting: "move east to the forest to collect wood"
+2025-07-06 12:01:59.490 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:59.490 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:01:59.491 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest to collect wood"
+2025-07-06 12:01:59.492 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 66) attempting: "move north to explore new grassland areas"
+2025-07-06 12:01:59.493 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:59.493 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:01:59.493 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move north to explore new grassland areas"
+2025-07-06 12:01:59.644 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 33) attempting: "move north to the forest at [28,23] to search for edibl...
+2025-07-06 12:01:59.645 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:01:59.645 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:01:59.646 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "move north to the forest at [28,23] to search for edible plants and herbs"
+2025-07-06 12:02:00.663 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 36) attempting: "move north to explore new grassland areas"
+2025-07-06 12:02:00.664 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:00.664 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:02:00.664 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "move north to explore new grassland areas"
+2025-07-06 12:02:00.665 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:02:00.667 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:02:00.667 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:02:00.667 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:02:00.667 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:02:00.667 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:02:00.668 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:02:00.668 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:02:00.668 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:02:00.668 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:02:00.668 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:02:00.668 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:02:00.668 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 4 START ===
+2025-07-06 12:02:03.969 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 47) attempting: "move north to the mountain to collect stone"
+2025-07-06 12:02:03.970 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:03.970 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:02:03.970 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move north to the mountain to collect stone"
+2025-07-06 12:02:04.307 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 35) attempting: "move north to explore new territories"
+2025-07-06 12:02:04.308 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:04.308 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:02:04.308 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 67) attempting: "move east to explore new grassland areas"
+2025-07-06 12:02:04.308 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move north to explore new territories"
+2025-07-06 12:02:04.308 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:04.308 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:02:04.308 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move east to explore new grassland areas"
+2025-07-06 12:02:04.405 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 68) attempting: "move north to the forest to search for medicinal plants"
+2025-07-06 12:02:04.406 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:04.406 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:02:04.406 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "move north to the forest to search for medicinal plants"
+2025-07-06 12:02:04.688 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 45) attempting: "move east to the ocean to fish"
+2025-07-06 12:02:04.689 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:04.689 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:02:04.690 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:02:04.740 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 34) attempting: "explore the nearby forest for edible plants and medicin...
+2025-07-06 12:02:04.741 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:04.741 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:02:04.742 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and medicinal herbs"
+2025-07-06 12:02:04.841 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 33) attempting: "move east to the forest at [19,21] to collect wood"
+2025-07-06 12:02:04.842 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:04.842 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:02:04.842 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest at [19,21] to collect wood"
+2025-07-06 12:02:05.243 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 48) attempting: "move north to the forest to collect more wood"
+2025-07-06 12:02:05.244 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:05.244 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:02:05.244 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest to collect more wood"
+2025-07-06 12:02:06.209 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 37) attempting: "move east to explore new grassland areas"
+2025-07-06 12:02:06.209 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:06.209 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:02:06.209 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "move east to explore new grassland areas"
+2025-07-06 12:02:06.386 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 67) attempting: "move towards Flint at position [52,18]"
+2025-07-06 12:02:06.387 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:06.387 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:02:06.388 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move towards Flint at position [52,18]"
+2025-07-06 12:02:06.389 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:02:06.391 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:02:06.391 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:02:06.398 | INFO     | sociology_simulation.world:step:761 - Web data exported to: web_data/simulation_turn_005.json
+2025-07-06 12:02:06.398 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:02:06.398 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:02:06.398 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:02:06.398 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:02:06.398 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:02:06.399 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:02:06.399 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:02:06.399 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:02:06.399 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:02:06.399 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 6 START ===
+2025-07-06 12:02:09.681 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 48) attempting: "move north to the mountains to collect stone"
+2025-07-06 12:02:09.682 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:09.682 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:02:09.682 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move north to the mountains to collect stone"
+2025-07-06 12:02:10.092 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 36) attempting: "move north to explore new territories"
+2025-07-06 12:02:10.094 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:10.094 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:02:10.094 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move north to explore new territories"
+2025-07-06 12:02:10.154 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 68) attempting: "eat fish to reduce hunger"
+2025-07-06 12:02:10.155 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:10.155 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:02:10.157 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "eat fish to reduce hunger"
+2025-07-06 12:02:10.217 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 68) attempting: "eat apple to reduce hunger"
+2025-07-06 12:02:10.218 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:10.218 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:02:10.218 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "eat apple to reduce hunger"
+2025-07-06 12:02:10.238 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 38) attempting: "eat apple to reduce hunger"
+2025-07-06 12:02:10.238 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:10.238 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:02:10.239 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "eat apple to reduce hunger"
+2025-07-06 12:02:10.300 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 46) attempting: "move east to the ocean to fish"
+2025-07-06 12:02:10.301 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:10.301 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:02:10.301 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:02:10.336 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 34) attempting: "move east to the forest to collect wood"
+2025-07-06 12:02:10.337 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:10.337 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:02:10.338 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest to collect wood"
+2025-07-06 12:02:10.467 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 69) attempting: "move north to the forest to search for medicinal plants"
+2025-07-06 12:02:10.468 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:10.468 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:02:10.468 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "move north to the forest to search for medicinal plants"
+2025-07-06 12:02:12.397 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 49) attempting: "move north to the forest to gather more wood"
+2025-07-06 12:02:12.398 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:12.398 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:02:12.398 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest to gather more wood"
+2025-07-06 12:02:12.443 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 35) attempting: "move north to the forest at [28,23] to search for edibl...
+2025-07-06 12:02:12.444 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:12.445 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:02:12.445 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "move north to the forest at [28,23] to search for edible plants"
+2025-07-06 12:02:12.446 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:02:12.448 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:02:12.448 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:02:12.449 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:02:12.449 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:02:12.449 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:02:12.449 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:02:12.449 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:02:12.449 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:02:12.449 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:02:12.449 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:02:12.449 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:02:12.450 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 8 START ===
+2025-07-06 12:02:16.267 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 69) attempting: "move east towards Flint"
+2025-07-06 12:02:16.268 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:16.269 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:02:16.269 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move east towards Flint"
+2025-07-06 12:02:16.696 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 35) attempting: "move east to the forest to collect wood"
+2025-07-06 12:02:16.696 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:16.696 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:02:16.697 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest to collect wood"
+2025-07-06 12:02:16.723 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 37) attempting: "move east to explore new grasslands"
+2025-07-06 12:02:16.723 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:16.723 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:02:16.723 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move east to explore new grasslands"
+2025-07-06 12:02:16.744 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 39) attempting: "move north to explore the grassland for edible plants"
+2025-07-06 12:02:16.745 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:16.745 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:02:16.745 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "move north to explore the grassland for edible plants"
+2025-07-06 12:02:16.828 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 50) attempting: "move north to the forest at (27,24)"
+2025-07-06 12:02:16.829 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:16.830 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:02:16.830 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest at (27,24)"
+2025-07-06 12:02:16.948 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 36) attempting: "explore the nearby forest for edible plants and medicin...
+2025-07-06 12:02:16.949 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:16.949 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:02:16.949 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and medicinal herbs"
+2025-07-06 12:02:17.002 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 70) attempting: "move north to the forest at [52,14] to search for medic...
+2025-07-06 12:02:17.003 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:17.003 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:02:17.004 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "move north to the forest at [52,14] to search for medicinal plants"
+2025-07-06 12:02:17.793 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 49) attempting: "move east to the mountains to collect stone"
+2025-07-06 12:02:17.793 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:17.794 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:02:17.794 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move east to the mountains to collect stone"
+2025-07-06 12:02:18.549 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 47) attempting: "move east to the ocean to fish"
+2025-07-06 12:02:18.550 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:18.550 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:02:18.550 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:02:18.771 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 69) attempting: "move north to explore new areas for edible plants"
+2025-07-06 12:02:18.772 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:18.773 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:02:18.773 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move north to explore new areas for edible plants"
+2025-07-06 12:02:18.774 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:02:18.776 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:02:18.776 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:02:18.776 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:02:18.776 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:02:18.777 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:02:18.777 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:02:18.777 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:02:18.777 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:02:18.777 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:02:18.777 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:02:18.777 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:02:18.777 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 10 START ===
+2025-07-06 12:02:22.843 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 71) attempting: "explore the nearby forest for medicinal plants"
+2025-07-06 12:02:22.844 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:22.845 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:02:22.847 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "explore the nearby forest for medicinal plants"
+2025-07-06 12:02:22.847 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 70) attempting: "move north to chat with Flint"
+2025-07-06 12:02:22.848 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:22.848 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:02:22.849 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 48) attempting: "move east to the ocean to fish"
+2025-07-06 12:02:22.849 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 50) attempting: "move east to chat with Flint"
+2025-07-06 12:02:22.849 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 36) attempting: "move east to the forest to collect wood"
+2025-07-06 12:02:22.850 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move north to chat with Flint"
+2025-07-06 12:02:22.850 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:22.850 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:02:22.850 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:02:22.850 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:22.851 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:02:22.851 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move east to chat with Flint"
+2025-07-06 12:02:22.851 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:22.851 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:02:22.851 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest to collect wood"
+2025-07-06 12:02:22.891 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 51) attempting: "move north to the forest at [27,24]"
+2025-07-06 12:02:22.892 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:22.892 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:02:22.892 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest at [27,24]"
+2025-07-06 12:02:22.910 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 37) attempting: "explore the nearby forest for edible plants and medicin...
+2025-07-06 12:02:22.910 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:22.910 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:02:22.910 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and medicinal herbs"
+2025-07-06 12:02:22.939 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 40) attempting: "move north to explore the grasslands for edible plants"
+2025-07-06 12:02:22.939 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:22.939 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:02:22.939 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "move north to explore the grasslands for edible plants"
+2025-07-06 12:02:24.090 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 38) attempting: "move north to explore new territories"
+2025-07-06 12:02:24.091 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:24.091 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:02:24.091 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move north to explore new territories"
+2025-07-06 12:02:24.519 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 70) attempting: "move north to explore new areas for edible plants and h...
+2025-07-06 12:02:24.520 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:24.521 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:02:24.521 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move north to explore new areas for edible plants and herbs"
+2025-07-06 12:02:24.523 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:02:24.524 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:02:24.524 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:02:24.525 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:02:24.525 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:02:24.525 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:02:24.525 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:02:24.525 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:02:24.525 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:02:24.525 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:02:24.525 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:02:24.525 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:02:24.525 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 12 START ===
+2025-07-06 12:02:27.110 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 71) attempting: "eat apple to reduce hunger"
+2025-07-06 12:02:27.111 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:27.112 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:02:27.112 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "eat apple to reduce hunger"
+2025-07-06 12:02:27.759 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 49) attempting: "move east to the ocean to fish"
+2025-07-06 12:02:27.760 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:27.760 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:02:27.760 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:02:28.064 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 41) attempting: "eat one apple to reduce hunger"
+2025-07-06 12:02:28.065 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:28.065 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:02:28.066 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "eat one apple to reduce hunger"
+2025-07-06 12:02:28.174 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 52) attempting: "move north to the forest at [27, 24] to collect wood"
+2025-07-06 12:02:28.176 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:28.176 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:02:28.176 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest at [27, 24] to collect wood"
+2025-07-06 12:02:28.177 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 72) attempting: "explore the nearby forest for medicinal plants"
+2025-07-06 12:02:28.178 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:28.178 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:02:28.178 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "explore the nearby forest for medicinal plants"
+2025-07-06 12:02:28.186 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 38) attempting: "explore the nearby forest for edible plants and herbs"
+2025-07-06 12:02:28.186 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:28.186 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:02:28.187 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and herbs"
+2025-07-06 12:02:28.208 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 51) attempting: "move east to the mountains to gather stone"
+2025-07-06 12:02:28.209 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:28.209 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:02:28.209 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move east to the mountains to gather stone"
+2025-07-06 12:02:28.239 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 39) attempting: "move north to explore new territories"
+2025-07-06 12:02:28.240 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:28.240 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:02:28.241 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move north to explore new territories"
+2025-07-06 12:02:28.680 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 37) attempting: "move east to the forest to collect wood"
+2025-07-06 12:02:28.681 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:28.681 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:02:28.681 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest to collect wood"
+2025-07-06 12:02:29.907 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 71) attempting: "eat apple"
+2025-07-06 12:02:29.907 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:29.907 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:02:29.907 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "eat apple"
+2025-07-06 12:02:29.908 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:02:29.909 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:02:29.909 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:02:29.909 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:02:29.909 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:02:29.910 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:02:29.910 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:02:29.910 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:02:29.910 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:02:29.910 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:02:29.910 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:02:29.910 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:02:29.910 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 14 START ===
+2025-07-06 12:02:34.086 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 40) attempting: "move east to explore new territories"
+2025-07-06 12:02:34.087 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:34.087 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:02:34.087 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move east to explore new territories"
+2025-07-06 12:02:34.136 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 50) attempting: "move east to the ocean to fish"
+2025-07-06 12:02:34.136 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:34.136 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:02:34.137 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:02:34.145 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 72) attempting: "move north to explore the grassland"
+2025-07-06 12:02:34.145 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:34.146 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:02:34.146 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move north to explore the grassland"
+2025-07-06 12:02:34.184 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 73) attempting: "explore the nearby forest for medicinal plants"
+2025-07-06 12:02:34.185 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:34.185 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:02:34.185 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "explore the nearby forest for medicinal plants"
+2025-07-06 12:02:34.199 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 52) attempting: "move north to the ocean to fish"
+2025-07-06 12:02:34.200 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:34.200 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:02:34.200 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move north to the ocean to fish"
+2025-07-06 12:02:34.244 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 42) attempting: "move north to explore the grasslands for edible plants"
+2025-07-06 12:02:34.245 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:34.245 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:02:34.246 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "move north to explore the grasslands for edible plants"
+2025-07-06 12:02:34.284 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 39) attempting: "explore the nearby forest for edible plants and herbs"
+2025-07-06 12:02:34.284 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:34.284 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:02:34.284 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and herbs"
+2025-07-06 12:02:34.446 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 38) attempting: "move east to the forest at [20,21] to collect wood"
+2025-07-06 12:02:34.447 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:34.448 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:02:34.448 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest at [20,21] to collect wood"
+2025-07-06 12:02:34.449 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 53) attempting: "move north to the forest at [27,24] to collect wood"
+2025-07-06 12:02:34.449 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:34.449 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:02:34.450 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest at [27,24] to collect wood"
+2025-07-06 12:02:35.438 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 72) attempting: "move north to explore new grassland areas"
+2025-07-06 12:02:35.439 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:35.439 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:02:35.439 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move north to explore new grassland areas"
+2025-07-06 12:02:35.440 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:02:35.444 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:02:35.444 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:02:35.454 | INFO     | sociology_simulation.world:step:761 - Web data exported to: web_data/simulation_turn_015.json
+2025-07-06 12:02:35.454 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:02:35.454 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:02:35.454 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:02:35.454 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:02:35.454 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:02:35.454 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:02:35.454 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:02:35.454 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:02:35.454 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:02:35.455 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 16 START ===
+2025-07-06 12:02:39.479 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 43) attempting: "eat apple to reduce hunger"
+2025-07-06 12:02:39.480 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:39.480 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:02:39.480 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "eat apple to reduce hunger"
+2025-07-06 12:02:39.548 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 74) attempting: "explore the nearby forest for medicinal plants"
+2025-07-06 12:02:39.548 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:39.548 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:02:39.548 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "explore the nearby forest for medicinal plants"
+2025-07-06 12:02:39.634 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 41) attempting: "move north to explore new territories"
+2025-07-06 12:02:39.635 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:39.635 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:02:39.635 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move north to explore new territories"
+2025-07-06 12:02:39.703 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 40) attempting: "explore the nearby forest for edible plants and medicin...
+2025-07-06 12:02:39.704 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:39.704 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:02:39.705 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and medicinal herbs"
+2025-07-06 12:02:39.754 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 39) attempting: "move east to the forest to collect wood"
+2025-07-06 12:02:39.755 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:39.756 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:02:39.756 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest to collect wood"
+2025-07-06 12:02:39.963 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 54) attempting: "move north to the forest at [27,24] to collect wood"
+2025-07-06 12:02:39.964 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:39.964 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:02:39.965 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest at [27,24] to collect wood"
+2025-07-06 12:02:41.173 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 51) attempting: "move east to the ocean to fish"
+2025-07-06 12:02:41.175 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:41.176 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:02:41.176 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:02:41.177 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 73) attempting: "move north to explore the grassland"
+2025-07-06 12:02:41.177 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:41.178 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:02:41.178 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move north to explore the grassland"
+2025-07-06 12:02:41.786 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 73) attempting: "move north to explore for edible plants"
+2025-07-06 12:02:41.786 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:41.786 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:02:41.787 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move north to explore for edible plants"
+2025-07-06 12:02:41.787 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 53) attempting: "move north to the mountains to collect stone"
+2025-07-06 12:02:41.788 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:41.788 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:02:41.788 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move north to the mountains to collect stone"
+2025-07-06 12:02:41.789 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:02:41.790 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:02:41.790 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:02:41.790 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:02:41.790 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:02:41.790 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:02:41.790 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:02:41.790 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:02:41.790 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:02:41.790 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:02:41.790 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:02:41.790 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:02:41.791 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 18 START ===
+2025-07-06 12:02:45.336 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 41) attempting: "explore the nearby forest for edible plants and medicin...
+2025-07-06 12:02:45.336 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:45.336 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:02:45.336 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and medicinal herbs"
+2025-07-06 12:02:45.456 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 44) attempting: "move north to explore the grasslands for edible plants"
+2025-07-06 12:02:45.456 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:45.456 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:02:45.456 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "move north to explore the grasslands for edible plants"
+2025-07-06 12:02:45.544 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 42) attempting: "move east to explore new territories"
+2025-07-06 12:02:45.544 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:45.544 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:02:45.544 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move east to explore new territories"
+2025-07-06 12:02:45.559 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 75) attempting: "move north to the forest to search for medicinal plants"
+2025-07-06 12:02:45.560 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:45.560 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:02:45.560 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "move north to the forest to search for medicinal plants"
+2025-07-06 12:02:45.849 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 40) attempting: "move east to the forest at (19,21) to collect wood"
+2025-07-06 12:02:45.850 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:45.850 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:02:45.850 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest at (19,21) to collect wood"
+2025-07-06 12:02:45.852 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 52) attempting: "move east to the ocean to fish"
+2025-07-06 12:02:45.853 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:45.853 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:02:45.853 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:02:47.229 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 74) attempting: "move north to explore new areas for edible plants"
+2025-07-06 12:02:47.230 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:47.230 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:02:47.230 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move north to explore new areas for edible plants"
+2025-07-06 12:02:47.435 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 74) attempting: "move north to explore for edible plants"
+2025-07-06 12:02:47.436 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:47.436 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:02:47.436 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move north to explore for edible plants"
+2025-07-06 12:02:47.457 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 55) attempting: "move east to the forest at (27,29)"
+2025-07-06 12:02:47.458 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:47.458 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:02:47.458 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move east to the forest at (27,29)"
+2025-07-06 12:02:47.725 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 54) attempting: "move north to the mountains to gather stone"
+2025-07-06 12:02:47.725 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:47.725 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:02:47.725 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move north to the mountains to gather stone"
+2025-07-06 12:02:47.726 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:02:47.727 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:02:47.727 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:02:47.727 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:02:47.727 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:02:47.727 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:02:47.727 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:02:47.727 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:02:47.727 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:02:47.727 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:02:47.727 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:02:47.727 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:02:47.727 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 20 START ===
+2025-07-06 12:02:49.751 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 53) attempting: "move east to the ocean to fish"
+2025-07-06 12:02:49.752 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:49.752 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:02:49.753 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:02:49.754 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 43) attempting: "move north to explore new territories"
+2025-07-06 12:02:49.754 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:49.754 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:02:49.755 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move north to explore new territories"
+2025-07-06 12:02:51.602 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 75) attempting: "move north towards Flint to share knowledge"
+2025-07-06 12:02:51.602 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:51.602 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:02:51.603 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move north towards Flint to share knowledge"
+2025-07-06 12:02:51.603 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 55) attempting: "move north to the mountains to gather stone"
+2025-07-06 12:02:51.603 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:51.603 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:02:51.603 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 45) attempting: "move west to explore the grassland"
+2025-07-06 12:02:51.603 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move north to the mountains to gather stone"
+2025-07-06 12:02:51.603 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:51.604 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:02:51.604 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "move west to explore the grassland"
+2025-07-06 12:02:51.624 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 76) attempting: "move north to the forest to search for medicinal plants"
+2025-07-06 12:02:51.625 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:51.625 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:02:51.625 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "move north to the forest to search for medicinal plants"
+2025-07-06 12:02:51.682 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 75) attempting: "move north to explore the grassland for edible plants a...
+2025-07-06 12:02:51.682 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:51.682 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:02:51.683 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move north to explore the grassland for edible plants and herbs"
+2025-07-06 12:02:51.684 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 42) attempting: "explore the nearby forest for edible plants and medicin...
+2025-07-06 12:02:51.685 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:51.685 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:02:51.686 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and medicinal herbs"
+2025-07-06 12:02:51.816 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 56) attempting: "move north to the forest at [27, 24] to collect wood"
+2025-07-06 12:02:51.817 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:51.817 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:02:51.817 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest at [27, 24] to collect wood"
+2025-07-06 12:02:53.332 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 41) attempting: "move east to the forest at [19,21] to collect wood"
+2025-07-06 12:02:53.332 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:53.333 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:02:53.333 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest at [19,21] to collect wood"
+2025-07-06 12:02:53.334 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:02:53.335 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:02:53.335 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:02:53.335 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:02:53.335 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:02:53.335 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:02:53.335 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:02:53.335 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:02:53.335 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:02:53.335 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:02:53.335 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:02:53.335 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:02:53.335 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 22 START ===
+2025-07-06 12:02:56.532 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 54) attempting: "move east to the ocean to fish"
+2025-07-06 12:02:56.533 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:56.533 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:02:56.533 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:02:56.724 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 42) attempting: "move east to the forest at [19,21] to collect wood"
+2025-07-06 12:02:56.725 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:56.725 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:02:56.725 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest at [19,21] to collect wood"
+2025-07-06 12:02:56.865 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 57) attempting: "move north to the forest at (27, 24) to collect wood"
+2025-07-06 12:02:56.866 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:56.866 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:02:56.866 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest at (27, 24) to collect wood"
+2025-07-06 12:02:56.960 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 44) attempting: "move north to explore new territories"
+2025-07-06 12:02:56.960 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:56.960 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:02:56.960 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move north to explore new territories"
+2025-07-06 12:02:57.025 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 56) attempting: "move north to the mountain to collect stone"
+2025-07-06 12:02:57.026 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:57.026 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:02:57.027 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move north to the mountain to collect stone"
+2025-07-06 12:02:57.094 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 46) attempting: "move north to explore the grasslands for edible plants"
+2025-07-06 12:02:57.095 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:57.096 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:02:57.096 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "move north to explore the grasslands for edible plants"
+2025-07-06 12:02:57.105 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 77) attempting: "move north to the forest at [52,15]"
+2025-07-06 12:02:57.105 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:57.105 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:02:57.105 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "move north to the forest at [52,15]"
+2025-07-06 12:02:57.168 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 76) attempting: "move north to explore the grassland for edible plants a...
+2025-07-06 12:02:57.168 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:57.168 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:02:57.169 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move north to explore the grassland for edible plants and herbs"
+2025-07-06 12:02:58.992 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 76) attempting: "move north to explore for edible plants"
+2025-07-06 12:02:58.993 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:58.993 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:02:58.994 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move north to explore for edible plants"
+2025-07-06 12:02:59.013 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 43) attempting: "explore the nearby forest for edible plants and herbs"
+2025-07-06 12:02:59.013 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:02:59.013 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:02:59.013 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and herbs"
+2025-07-06 12:02:59.014 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:02:59.015 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:02:59.016 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:02:59.016 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:02:59.016 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:02:59.016 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:02:59.016 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:02:59.016 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:02:59.016 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:02:59.016 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:02:59.016 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:02:59.016 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:02:59.017 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 24 START ===
+2025-07-06 12:03:02.472 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 55) attempting: "move east to the ocean to fish"
+2025-07-06 12:03:02.473 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:02.474 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:03:02.475 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:03:02.475 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 45) attempting: "move north to explore new territories"
+2025-07-06 12:03:02.475 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:02.476 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:03:02.476 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move north to explore new territories"
+2025-07-06 12:03:02.544 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 57) attempting: "move north to the ocean to fish"
+2025-07-06 12:03:02.545 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:02.545 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:03:02.546 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move north to the ocean to fish"
+2025-07-06 12:03:02.641 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 77) attempting: "move east to explore new grassland areas"
+2025-07-06 12:03:02.642 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:02.643 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:03:02.643 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move east to explore new grassland areas"
+2025-07-06 12:03:02.770 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 44) attempting: "explore the nearby forest for edible plants and medicin...
+2025-07-06 12:03:02.771 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:02.771 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:03:02.772 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and medicinal herbs"
+2025-07-06 12:03:02.773 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 58) attempting: "move north to the forest at [27,24] to collect wood"
+2025-07-06 12:03:02.773 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:02.773 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:03:02.774 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest at [27,24] to collect wood"
+2025-07-06 12:03:02.785 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 43) attempting: "move east to the forest to collect wood"
+2025-07-06 12:03:02.785 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:02.785 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:03:02.786 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest to collect wood"
+2025-07-06 12:03:02.786 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 77) attempting: "move towards Flint at position [52,18]"
+2025-07-06 12:03:02.787 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:02.787 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:03:02.787 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move towards Flint at position [52,18]"
+2025-07-06 12:03:02.871 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 47) attempting: "move north to explore the grassland for edible plants a...
+2025-07-06 12:03:02.872 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:02.872 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:03:02.872 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "move north to explore the grassland for edible plants and herbs"
+2025-07-06 12:03:02.936 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 78) attempting: "move north to the forest to search for medicinal plants"
+2025-07-06 12:03:02.937 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:02.937 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:03:02.937 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "move north to the forest to search for medicinal plants"
+2025-07-06 12:03:02.937 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:03:02.938 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:03:02.938 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:03:02.945 | INFO     | sociology_simulation.world:step:761 - Web data exported to: web_data/simulation_turn_025.json
+2025-07-06 12:03:02.945 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:03:02.945 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:03:02.945 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:03:02.945 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:03:02.945 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:03:02.945 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:03:02.945 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:03:02.945 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:03:02.945 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:03:02.946 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 26 START ===
+2025-07-06 12:03:06.507 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 79) attempting: "explore the nearby forest for medicinal plants"
+2025-07-06 12:03:06.507 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:06.507 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:03:06.507 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "explore the nearby forest for medicinal plants"
+2025-07-06 12:03:06.561 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 78) attempting: "move north to explore new grassland areas"
+2025-07-06 12:03:06.561 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:06.562 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:03:06.562 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move north to explore new grassland areas"
+2025-07-06 12:03:06.568 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 46) attempting: "move east to explore new territories"
+2025-07-06 12:03:06.568 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:06.568 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:03:06.568 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move east to explore new territories"
+2025-07-06 12:03:06.586 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 78) attempting: "move north to explore the grassland"
+2025-07-06 12:03:06.587 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:06.587 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:03:06.587 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move north to explore the grassland"
+2025-07-06 12:03:06.624 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 56) attempting: "move east to the ocean to fish"
+2025-07-06 12:03:06.625 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:06.625 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:03:06.625 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:03:06.626 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 58) attempting: "move north to the mountain to collect stone"
+2025-07-06 12:03:06.626 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:06.626 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:03:06.626 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move north to the mountain to collect stone"
+2025-07-06 12:03:06.757 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 44) attempting: "move east to the forest at [19,21] to collect wood"
+2025-07-06 12:03:06.757 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:06.758 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:03:06.758 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest at [19,21] to collect wood"
+2025-07-06 12:03:06.858 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 59) attempting: "move north to the forest at [27, 24] to collect wood"
+2025-07-06 12:03:06.859 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:06.859 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:03:06.859 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest at [27, 24] to collect wood"
+2025-07-06 12:03:07.886 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 45) attempting: "explore the nearby forest for edible plants and medicin...
+2025-07-06 12:03:07.887 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:07.887 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:03:07.887 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and medicinal herbs"
+2025-07-06 12:03:08.267 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 48) attempting: "explore north to search for edible plants and medicinal...
+2025-07-06 12:03:08.267 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:08.267 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:03:08.267 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "explore north to search for edible plants and medicinal herbs"
+2025-07-06 12:03:08.268 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:03:08.269 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:03:08.269 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:03:08.269 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:03:08.269 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:03:08.269 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:03:08.269 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:03:08.269 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:03:08.269 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:03:08.269 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:03:08.269 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:03:08.269 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:03:08.270 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 28 START ===
+2025-07-06 12:03:11.687 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 49) attempting: "move north to explore the mountain terrain"
+2025-07-06 12:03:11.689 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:11.689 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:03:11.689 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "move north to explore the mountain terrain"
+2025-07-06 12:03:11.997 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 57) attempting: "move east to the ocean to fish"
+2025-07-06 12:03:11.998 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:11.998 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:03:11.998 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 79) attempting: "move towards Flint at position [52, 18]"
+2025-07-06 12:03:11.998 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:03:11.999 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 46) attempting: "explore the nearby forest for edible plants and herbs"
+2025-07-06 12:03:11.999 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 79) attempting: "move north to explore the grassland for edible plants"
+2025-07-06 12:03:11.999 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 59) attempting: "move north to the ocean to fish"
+2025-07-06 12:03:11.999 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:11.999 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:03:11.999 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move towards Flint at position [52, 18]"
+2025-07-06 12:03:12.000 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:12.000 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:03:12.000 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and herbs"
+2025-07-06 12:03:12.000 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:12.000 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:03:12.000 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move north to explore the grassland for edible plants"
+2025-07-06 12:03:12.000 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:12.000 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:03:12.001 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move north to the ocean to fish"
+2025-07-06 12:03:12.126 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 60) attempting: "move north to the forest at [27, 24] to collect wood"
+2025-07-06 12:03:12.127 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:12.127 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:03:12.128 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest at [27, 24] to collect wood"
+2025-07-06 12:03:12.130 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 45) attempting: "move east to the forest at [19,21] to collect wood"
+2025-07-06 12:03:12.131 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:12.131 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:03:12.131 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest at [19,21] to collect wood"
+2025-07-06 12:03:12.405 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 47) attempting: "move north to explore new territories"
+2025-07-06 12:03:12.406 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:12.406 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:03:12.406 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move north to explore new territories"
+2025-07-06 12:03:13.382 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 80) attempting: "move north to the forest at [52,15] to search for medic...
+2025-07-06 12:03:13.383 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:13.383 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:03:13.383 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "move north to the forest at [52,15] to search for medicinal plants"
+2025-07-06 12:03:13.383 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:03:13.385 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:03:13.385 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:03:13.385 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:03:13.385 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:03:13.385 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:03:13.385 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:03:13.385 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:03:13.385 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:03:13.385 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:03:13.385 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:03:13.385 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:03:13.386 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 30 START ===
+2025-07-06 12:03:17.116 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 48) attempting: "move east to explore new grasslands"
+2025-07-06 12:03:17.116 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:17.116 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:03:17.116 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move east to explore new grasslands"
+2025-07-06 12:03:17.127 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 58) attempting: "move east to the ocean to fish"
+2025-07-06 12:03:17.127 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:17.127 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:03:17.127 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:03:17.128 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 80) attempting: "move east towards Flint to share knowledge"
+2025-07-06 12:03:17.128 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:17.128 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:03:17.128 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move east towards Flint to share knowledge"
+2025-07-06 12:03:17.140 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 60) attempting: "move north to the mountain to gather stone"
+2025-07-06 12:03:17.141 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:17.141 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:03:17.141 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move north to the mountain to gather stone"
+2025-07-06 12:03:17.159 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 46) attempting: "move east to the forest to collect wood"
+2025-07-06 12:03:17.159 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:17.160 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:03:17.160 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest to collect wood"
+2025-07-06 12:03:17.246 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 80) attempting: "move east to explore new grassland areas"
+2025-07-06 12:03:17.246 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:17.246 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:03:17.247 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move east to explore new grassland areas"
+2025-07-06 12:03:17.348 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 47) attempting: "explore the nearby forest for edible plants and herbs"
+2025-07-06 12:03:17.348 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:17.348 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:03:17.348 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and herbs"
+2025-07-06 12:03:17.400 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 81) attempting: "move north to the forest to search for medicinal plants"
+2025-07-06 12:03:17.401 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:17.401 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:03:17.401 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "move north to the forest to search for medicinal plants"
+2025-07-06 12:03:18.707 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 50) attempting: "move west to explore the grassland for edible plants"
+2025-07-06 12:03:18.708 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:18.708 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:03:18.708 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "move west to explore the grassland for edible plants"
+2025-07-06 12:03:19.012 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 61) attempting: "move north to the forest at position [27, 24] to collec...
+2025-07-06 12:03:19.013 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:19.013 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:03:19.013 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest at position [27, 24] to collect wood"
+2025-07-06 12:03:19.016 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:03:19.017 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:03:19.017 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:03:19.018 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:03:19.018 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:03:19.018 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:03:19.018 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:03:19.018 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:03:19.018 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:03:19.018 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:03:19.018 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:03:19.018 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:03:19.018 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 32 START ===
+2025-07-06 12:03:22.096 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 81) attempting: "move north to explore new grassland areas"
+2025-07-06 12:03:22.097 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:22.097 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:03:22.097 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move north to explore new grassland areas"
+2025-07-06 12:03:22.950 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 82) attempting: "move north to the forest to search for medicinal plants"
+2025-07-06 12:03:22.951 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:22.951 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:03:22.951 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "move north to the forest to search for medicinal plants"
+2025-07-06 12:03:24.811 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 49) attempting: "move east to explore new territories"
+2025-07-06 12:03:24.812 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:24.812 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:03:24.813 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move east to explore new territories"
+2025-07-06 12:03:24.869 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 59) attempting: "move east to the ocean to fish"
+2025-07-06 12:03:24.870 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:24.870 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:03:24.871 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:03:24.905 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 81) attempting: "move east towards Flint to share knowledge"
+2025-07-06 12:03:24.906 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:24.906 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:03:24.906 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move east towards Flint to share knowledge"
+2025-07-06 12:03:24.927 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 51) attempting: "move east to explore new grassland areas"
+2025-07-06 12:03:24.927 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:24.927 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:03:24.927 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "move east to explore new grassland areas"
+2025-07-06 12:03:24.929 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 47) attempting: "move east to the forest to collect wood"
+2025-07-06 12:03:24.929 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:24.929 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:03:24.930 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest to collect wood"
+2025-07-06 12:03:24.972 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 48) attempting: "explore the nearby forest for edible plants and herbs"
+2025-07-06 12:03:24.972 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:24.972 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:03:24.972 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and herbs"
+2025-07-06 12:03:25.082 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 62) attempting: "move north to the forest at (27,24) to collect wood"
+2025-07-06 12:03:25.082 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:25.082 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:03:25.082 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest at (27,24) to collect wood"
+2025-07-06 12:03:26.093 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 61) attempting: "move east to the ocean to fish"
+2025-07-06 12:03:26.093 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:26.093 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:03:26.093 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move east to the ocean to fish"
+2025-07-06 12:03:26.094 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:03:26.095 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:03:26.095 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:03:26.095 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:03:26.095 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:03:26.095 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:03:26.095 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:03:26.095 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:03:26.095 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:03:26.095 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:03:26.095 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:03:26.095 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:03:26.095 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 34 START ===
+2025-07-06 12:03:29.813 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 62) attempting: "move east to chat with Flint"
+2025-07-06 12:03:29.814 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:29.814 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:03:29.814 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move east to chat with Flint"
+2025-07-06 12:03:29.814 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 60) attempting: "move east to the ocean to fish"
+2025-07-06 12:03:29.814 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:29.814 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:03:29.815 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:03:29.824 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 82) attempting: "move north to explore the grassland"
+2025-07-06 12:03:29.825 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:29.825 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:03:29.825 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move north to explore the grassland"
+2025-07-06 12:03:29.869 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 49) attempting: "explore the nearby forest for edible plants and herbs"
+2025-07-06 12:03:29.869 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:29.869 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:03:29.869 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and herbs"
+2025-07-06 12:03:29.883 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 48) attempting: "move east to the forest at [20,20] to collect wood"
+2025-07-06 12:03:29.883 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:29.883 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:03:29.883 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest at [20,20] to collect wood"
+2025-07-06 12:03:29.890 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 52) attempting: "move north to explore the grasslands for edible plants"
+2025-07-06 12:03:29.890 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:29.890 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:03:29.891 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "move north to explore the grasslands for edible plants"
+2025-07-06 12:03:29.931 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 82) attempting: "move north to explore the grassland for edible plants"
+2025-07-06 12:03:29.931 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:29.931 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:03:29.931 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move north to explore the grassland for edible plants"
+2025-07-06 12:03:29.948 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 50) attempting: "move north to explore new territories"
+2025-07-06 12:03:29.948 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:29.948 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:03:29.948 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "move north to explore new territories"
+2025-07-06 12:03:30.103 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 63) attempting: "move north to the forest at [27,24] to collect wood"
+2025-07-06 12:03:30.103 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:30.103 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:03:30.103 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest at [27,24] to collect wood"
+2025-07-06 12:03:31.516 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 83) attempting: "move north to the forest to search for medicinal plants"
+2025-07-06 12:03:31.517 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:31.517 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:03:31.517 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "move north to the forest to search for medicinal plants"
+2025-07-06 12:03:31.517 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:03:31.518 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:03:31.519 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:03:31.529 | INFO     | sociology_simulation.world:step:761 - Web data exported to: web_data/simulation_turn_035.json
+2025-07-06 12:03:31.529 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:03:31.529 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:03:31.529 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:03:31.529 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:03:31.529 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:03:31.529 | INFO     | sociology_simulation.world:step:775 - Flint(0) ate fish to reduce hunger
+2025-07-06 12:03:31.529 | INFO     | sociology_simulation.world:step:775 - Flint(3) ate apple to reduce hunger
+2025-07-06 12:03:31.529 | INFO     | sociology_simulation.world:step:775 - Flare(5) ate apple to reduce hunger
+2025-07-06 12:03:31.529 | INFO     | sociology_simulation.world:step:775 - Storm(7) ate fish to reduce hunger
+2025-07-06 12:03:31.529 | INFO     | sociology_simulation.world:step:775 - Flint(8) ate fish to reduce hunger
+2025-07-06 12:03:31.529 | INFO     | sociology_simulation.world:step:775 - Flint(9) ate apple to reduce hunger
+2025-07-06 12:03:31.529 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:03:31.529 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:03:31.529 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:03:31.529 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:03:31.530 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 36 START ===
+2025-07-06 12:03:34.563 | INFO     | sociology_simulation.world:resolve:254 - → Flint(6): (age 83) attempting: "move north to explore the grassland"
+2025-07-06 12:03:34.563 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:34.563 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:03:34.563 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(6) 行动 → "move north to explore the grassland"
+2025-07-06 12:03:34.650 | INFO     | sociology_simulation.world:resolve:254 - → Flint(2): (age 83) attempting: "move north to explore new grassland areas"
+2025-07-06 12:03:34.650 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:34.650 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:03:34.650 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(2) 行动 → "move north to explore new grassland areas"
+2025-07-06 12:03:34.934 | INFO     | sociology_simulation.world:resolve:254 - → Flare(5): (age 51) attempting: "explore east to discover new territories"
+2025-07-06 12:03:34.934 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:34.935 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(5):
+2025-07-06 12:03:34.935 | INFO     | sociology_simulation.world:resolve:254 - → Flint(3): (age 63) attempting: "move north to the ocean to fish"
+2025-07-06 12:03:34.935 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flare(5) 行动 → "explore east to discover new territories"
+2025-07-06 12:03:34.935 | INFO     | sociology_simulation.world:resolve:254 - → Storm(7): (age 61) attempting: "move east to the ocean to fish"
+2025-07-06 12:03:34.935 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:34.935 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:03:34.935 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(3) 行动 → "move north to the ocean to fish"
+2025-07-06 12:03:34.935 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:34.935 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(7):
+2025-07-06 12:03:34.935 | INFO     | sociology_simulation.agent:act:362 - ⚡ Storm(7) 行动 → "move east to the ocean to fish"
+2025-07-06 12:03:34.947 | INFO     | sociology_simulation.world:resolve:254 - → Flint(4): (age 53) attempting: "move north to explore the grasslands for edible plants"
+2025-07-06 12:03:34.947 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:34.947 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:03:34.947 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(4) 行动 → "move north to explore the grasslands for edible plants"
+2025-07-06 12:03:35.013 | INFO     | sociology_simulation.world:resolve:254 - → Flint(9): (age 49) attempting: "move east to the forest at [19,20] to collect wood"
+2025-07-06 12:03:35.014 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:35.014 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 12:03:35.014 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(9) 行动 → "move east to the forest at [19,20] to collect wood"
+2025-07-06 12:03:35.097 | INFO     | sociology_simulation.world:resolve:254 - → Flint(8): (age 50) attempting: "explore the nearby forest for edible plants and medicin...
+2025-07-06 12:03:35.097 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:35.097 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:03:35.097 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(8) 行动 → "explore the nearby forest for edible plants and medicinal herbs"
+2025-07-06 12:03:35.220 | INFO     | sociology_simulation.world:resolve:254 - → Flint(1): (age 84) attempting: "move north to the forest at [52,15] to search for medic...
+2025-07-06 12:03:35.221 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:35.221 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:03:35.221 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(1) 行动 → "move north to the forest at [52,15] to search for medicinal plants"
+2025-07-06 12:03:35.987 | INFO     | sociology_simulation.world:resolve:254 - → Flint(0): (age 64) attempting: "move north to the forest at (27,24) to collect wood"
+2025-07-06 12:03:35.987 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 12:03:35.987 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:03:35.987 | INFO     | sociology_simulation.agent:act:362 - ⚡ Flint(0) 行动 → "move north to the forest at (27,24) to collect wood"
+2025-07-06 12:03:35.987 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 12:03:35.988 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 12:03:35.988 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 12:03:35.988 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 12:03:35.988 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 12:03:35.988 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 12:03:35.988 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 12:03:35.988 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 12:03:35.988 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 12:03:35.988 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 12:03:35.988 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 12:03:35.988 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 12:03:35.988 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 38 START ===

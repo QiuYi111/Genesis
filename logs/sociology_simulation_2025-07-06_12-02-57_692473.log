@@ -1,0 +1,40 @@
+2025-07-06 12:02:57.701 | SUCCESS  | sociology_simulation.prompts:load_from_config:421 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 12:02:57.701 | INFO     | __main__:main:83 - Starting sociology simulation with Hydra configuration
+2025-07-06 12:02:57.701 | INFO     | __main__:main:84 - Initialized 12 prompt templates
+2025-07-06 12:02:57.701 | INFO     | __main__:main:85 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 12:02:57.701 | INFO     | __main__:main:86 - Era: 石器时代
+2025-07-06 12:02:57.701 | INFO     | __main__:main:87 - World size: 64x64
+2025-07-06 12:02:57.701 | INFO     | __main__:main:88 - Number of agents: 10
+2025-07-06 12:02:57.701 | INFO     | __main__:main:89 - Turns: 1000
+2025-07-06 12:02:57.701 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_generate_initial_rules, 错误: 提示词模板 trinity_generate_initial_rules 缺少参数: '"key"'
+2025-07-06 12:02:57.702 | SUCCESS  | sociology_simulation.trinity:_generate_initial_rules:49 - [Trinity] Generated rules for era: 石器时代
+2025-07-06 12:02:57.702 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 12:02:57.702 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 12:02:57.702 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, OCEAN, MOUNTAIN, GRASSLAND
+2025-07-06 12:02:57.702 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 12:02:57.702 | INFO     | sociology_simulation.world:initialize:81 -   WOOD:
+2025-07-06 12:02:57.702 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 50.0% chance
+2025-07-06 12:02:57.702 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 12:02:57.702 | INFO     | sociology_simulation.world:initialize:83 -     - OCEAN: 40.0% chance
+2025-07-06 12:02:57.702 | INFO     | sociology_simulation.world:initialize:81 -   STONE:
+2025-07-06 12:02:57.702 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 60.0% chance
+2025-07-06 12:02:57.702 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 12:02:57.702 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 413862
+2025-07-06 12:02:57.792 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 12:02:57.793 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 12:02:57.793 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 238 units
+2025-07-06 12:02:57.793 | INFO     | sociology_simulation.world:initialize:96 -   STONE: 3 units
+2025-07-06 12:02:57.793 | INFO     | sociology_simulation.world:initialize:96 -   WOOD: 486 units
+2025-07-06 12:02:57.793 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 12:03:02.848 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(3)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by crafting superior stone tools and leading successful ...[0m
+2025-07-06 12:03:02.928 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(5)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by crafting superior stone tools and leading successful ...[0m
+2025-07-06 12:03:03.873 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mStorm(9)[0m [94mpersonal goal ➜[0m [3mDiscover and document all medicinal plants within a three-day walking distance of my village to h...[0m
+2025-07-06 12:03:04.417 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(8)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by crafting superior stone tools and leading successful ...[0m
+2025-07-06 12:03:04.433 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(0)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by crafting superior stone tools and leading successful ...[0m
+2025-07-06 12:03:04.563 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(7)[0m [94mpersonal goal ➜[0m [3mBecome the tribe's best hunter and explorer by crafting superior stone tools and discovering new ...[0m
+2025-07-06 12:03:04.696 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(6)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled and respected toolmaker in the tribe by crafting superior stone axes and ...[0m
+2025-07-06 12:03:04.743 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mStorm(2)[0m [94mpersonal goal ➜[0m [3mBecome the most respected leader of my tribe by organizing successful hunting expeditions and med...[0m
+2025-07-06 12:03:05.028 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mEmber(4)[0m [94mpersonal goal ➜[0m [3mBecome the most knowledgeable storyteller and trader in the tribe by collecting and sharing stori...[0m

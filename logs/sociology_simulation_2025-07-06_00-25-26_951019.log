@@ -1,0 +1,158 @@
+2025-07-06 00:25:26.959 | SUCCESS  | sociology_simulation.prompts:load_from_config:394 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 00:25:26.959 | INFO     | __main__:main:83 - Starting sociology simulation with Hydra configuration
+2025-07-06 00:25:26.959 | INFO     | __main__:main:84 - Initialized 12 prompt templates
+2025-07-06 00:25:26.959 | INFO     | __main__:main:85 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 00:25:26.959 | INFO     | __main__:main:86 - Era: 石器时代
+2025-07-06 00:25:26.959 | INFO     | __main__:main:87 - World size: 64x64
+2025-07-06 00:25:26.959 | INFO     | __main__:main:88 - Number of agents: 3
+2025-07-06 00:25:26.959 | INFO     | __main__:main:89 - Turns: 2
+2025-07-06 00:25:26.960 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 1/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:27.461 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 2/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:28.463 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 3/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:29.965 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 4/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:31.967 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 5/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:31.968 | SUCCESS  | sociology_simulation.trinity:_generate_initial_rules:49 - [Trinity] Generated rules for era: 石器时代
+2025-07-06 00:25:31.968 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 00:25:31.969 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 00:25:31.969 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, OCEAN, MOUNTAIN, GRASSLAND
+2025-07-06 00:25:31.969 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 00:25:31.969 | INFO     | sociology_simulation.world:initialize:81 -   WOOD:
+2025-07-06 00:25:31.969 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 50.0% chance
+2025-07-06 00:25:31.969 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 00:25:31.969 | INFO     | sociology_simulation.world:initialize:83 -     - OCEAN: 40.0% chance
+2025-07-06 00:25:31.970 | INFO     | sociology_simulation.world:initialize:81 -   STONE:
+2025-07-06 00:25:31.970 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 60.0% chance
+2025-07-06 00:25:31.970 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 00:25:31.970 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 213607
+2025-07-06 00:25:32.063 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 00:25:32.064 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 00:25:32.064 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 8 units
+2025-07-06 00:25:32.064 | INFO     | sociology_simulation.world:initialize:96 -   STONE: 267 units
+2025-07-06 00:25:32.064 | INFO     | sociology_simulation.world:initialize:96 -   WOOD: 102 units
+2025-07-06 00:25:32.064 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 00:25:32.064 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:32.064 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:32.064 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:32.566 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:32.566 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:32.567 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:33.567 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:33.567 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:33.568 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:33.568 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:33.568 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:33.568 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:34.069 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:34.069 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:34.069 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:35.070 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:35.071 | INFO     | sociology_simulation.agent:decide_goal:168 - 🎯 Agent56(0) personal goal ➜ 在这个世界中生存下去
+2025-07-06 00:25:35.071 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:35.072 | INFO     | sociology_simulation.agent:decide_goal:168 - 🎯 Agent44(1) personal goal ➜ 在这个世界中生存下去
+2025-07-06 00:25:35.072 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:35.072 | INFO     | sociology_simulation.agent:decide_goal:168 - 🎯 Agent34(2) personal goal ➜ 在这个世界中生存下去
+2025-07-06 00:25:35.073 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 00:25:35.076 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:35.079 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:35.081 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:35.577 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:35.579 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:35.582 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:36.578 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:36.579 | INFO     | sociology_simulation.world:resolve:254 - → Agent56(0): (age 56) attempting: 移动到(8,41)砍伐木材
+2025-07-06 00:25:36.582 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:36.582 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:36.582 | INFO     | sociology_simulation.world:resolve:254 - → Agent44(1): (age 44) attempting: 研究周围环境
+2025-07-06 00:25:36.583 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:36.583 | INFO     | sociology_simulation.world:resolve:254 - → Agent34(2): (age 34) attempting: 移动到(44,25)采集石头
+2025-07-06 00:25:37.083 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:38.085 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:38.086 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Agent56(0):
+2025-07-06 00:25:38.086 | INFO     | sociology_simulation.agent:act:352 - ⚡ Agent56(0) 行动 → 移动到(8,41)砍伐木材
+2025-07-06 00:25:38.087 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:38.587 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:39.589 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:39.589 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Agent44(1):
+2025-07-06 00:25:39.589 | INFO     | sociology_simulation.agent:act:352 - ⚡ Agent44(1) 行动 → 研究周围环境
+2025-07-06 00:25:39.590 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:40.091 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:41.092 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:41.092 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Agent34(2):
+2025-07-06 00:25:41.093 | INFO     | sociology_simulation.agent:act:352 - ⚡ Agent34(2) 行动 → 移动到(44,25)采集石头
+2025-07-06 00:25:41.094 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 1/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:41.595 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 2/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:42.597 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 3/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:44.099 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 4/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:46.099 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 5/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:46.101 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:46.603 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:47.605 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:47.605 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:48.106 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:49.107 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:49.108 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 00:25:49.108 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 3 agents alive
+2025-07-06 00:25:49.108 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 00:25:49.108 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 00:25:49.108 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 00:25:49.108 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 00:25:49.108 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 00:25:49.108 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 00:25:49.108 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 00:25:49.109 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 2 START ===
+2025-07-06 00:25:49.112 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:49.113 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:49.116 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:49.613 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:49.614 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:49.616 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:50.615 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:50.615 | INFO     | sociology_simulation.world:resolve:254 - → Agent56(0): (age 57) attempting: 移动到(8,38)捕鱼
+2025-07-06 00:25:50.616 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:50.616 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:50.616 | INFO     | sociology_simulation.world:resolve:254 - → Agent44(1): (age 45) attempting: 寻找新的资源点
+2025-07-06 00:25:50.617 | WARNING  | sociology_simulation.enhanced_llm:_generate_text_response:187 - LLM调用失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:50.617 | INFO     | sociology_simulation.world:resolve:254 - → Agent34(2): (age 35) attempting: 移动到(42,24)采集石头
+2025-07-06 00:25:51.117 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:52.118 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:52.119 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Agent56(0):
+2025-07-06 00:25:52.120 | INFO     | sociology_simulation.agent:act:352 - ⚡ Agent56(0) 行动 → 移动到(8,38)捕鱼
+2025-07-06 00:25:52.121 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:52.622 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:53.624 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:53.624 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Agent44(1):
+2025-07-06 00:25:53.624 | INFO     | sociology_simulation.agent:act:352 - ⚡ Agent44(1) 行动 → 寻找新的资源点
+2025-07-06 00:25:53.624 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:54.125 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:55.127 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:55.128 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Agent34(2):
+2025-07-06 00:25:55.128 | INFO     | sociology_simulation.agent:act:352 - ⚡ Agent34(2) 行动 → 移动到(42,24)采集石头
+2025-07-06 00:25:55.129 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 1/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:55.631 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 2/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:56.632 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 3/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:25:58.134 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 4/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:26:00.135 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 5/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:26:00.136 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:26:00.638 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:26:01.640 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:26:01.641 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 1/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:26:02.142 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 2/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:26:03.144 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 3/3: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 00:26:03.145 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 00:26:03.145 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 3 agents alive
+2025-07-06 00:26:03.145 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 00:26:03.145 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 00:26:03.145 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 00:26:03.145 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 00:26:03.145 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 00:26:03.145 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 00:26:03.145 | INFO     | sociology_simulation.world:step:776 - ========================================
+

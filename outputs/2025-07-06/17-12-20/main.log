@@ -1,0 +1,65 @@
+[2025-07-06 17:13:47,165][asyncio][ERROR] - _GatheringFuture exception was never retrieved
+future: <_GatheringFuture finished exception=CancelledError()>
+Traceback (most recent call last):
+  File "/Users/qiujingyi.7/.local/share/uv/python/cpython-3.10.6-macos-aarch64-none/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/Users/qiujingyi.7/.local/share/uv/python/cpython-3.10.6-macos-aarch64-none/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/Users/qiujingyi.7/Documents/Genesis/sociology_simulation/main.py", line 206, in <module>
+    main()
+  File "/Users/qiujingyi.7/Documents/Genesis/.venv/lib/python3.10/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/Users/qiujingyi.7/Documents/Genesis/.venv/lib/python3.10/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/Users/qiujingyi.7/Documents/Genesis/.venv/lib/python3.10/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/Users/qiujingyi.7/Documents/Genesis/.venv/lib/python3.10/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+  File "/Users/qiujingyi.7/Documents/Genesis/.venv/lib/python3.10/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+  File "/Users/qiujingyi.7/Documents/Genesis/.venv/lib/python3.10/site-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+  File "/Users/qiujingyi.7/Documents/Genesis/.venv/lib/python3.10/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+  File "/Users/qiujingyi.7/Documents/Genesis/sociology_simulation/main.py", line 203, in main
+    asyncio.run(run_simulation())
+  File "/Users/qiujingyi.7/.local/share/uv/python/cpython-3.10.6-macos-aarch64-none/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/Users/qiujingyi.7/.local/share/uv/python/cpython-3.10.6-macos-aarch64-none/lib/python3.10/asyncio/base_events.py", line 633, in run_until_complete
+    self.run_forever()
+  File "/Users/qiujingyi.7/.local/share/uv/python/cpython-3.10.6-macos-aarch64-none/lib/python3.10/asyncio/base_events.py", line 600, in run_forever
+    self._run_once()
+  File "/Users/qiujingyi.7/.local/share/uv/python/cpython-3.10.6-macos-aarch64-none/lib/python3.10/asyncio/base_events.py", line 1860, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/Users/qiujingyi.7/.local/share/uv/python/cpython-3.10.6-macos-aarch64-none/lib/python3.10/selectors.py", line 562, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/qiujingyi.7/Documents/Genesis/sociology_simulation/world.py", line 267, in resolve
+    outcome = await llm_service.resolve_action(
+  File "/Users/qiujingyi.7/Documents/Genesis/sociology_simulation/enhanced_llm.py", line 730, in resolve_action
+    response = await self.generate(
+  File "/Users/qiujingyi.7/Documents/Genesis/sociology_simulation/enhanced_llm.py", line 127, in generate
+    response = await self._generate_json_response(
+  File "/Users/qiujingyi.7/Documents/Genesis/sociology_simulation/enhanced_llm.py", line 213, in _generate_json_response
+    content = await self._call_llm(system, user, temperature, session)
+  File "/Users/qiujingyi.7/Documents/Genesis/sociology_simulation/enhanced_llm.py", line 467, in _call_llm
+    data = await response.json()
+  File "/Users/qiujingyi.7/Documents/Genesis/.venv/lib/python3.10/site-packages/aiohttp/client_reqrep.py", line 744, in json
+    await self.read()
+  File "/Users/qiujingyi.7/Documents/Genesis/.venv/lib/python3.10/site-packages/aiohttp/client_reqrep.py", line 686, in read
+    self._body = await self.content.read()
+  File "/Users/qiujingyi.7/Documents/Genesis/.venv/lib/python3.10/site-packages/aiohttp/streams.py", line 418, in read
+    block = await self.readany()
+  File "/Users/qiujingyi.7/Documents/Genesis/.venv/lib/python3.10/site-packages/aiohttp/streams.py", line 440, in readany
+    await self._wait("readany")
+  File "/Users/qiujingyi.7/Documents/Genesis/.venv/lib/python3.10/site-packages/aiohttp/streams.py", line 347, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+asyncio.exceptions.CancelledError

@@ -1,0 +1,62 @@
+2025-07-06 17:20:24.239 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 17:20:24.239 | INFO     | __main__:main:88 - Applying MCP integration...
+2025-07-06 17:20:24.239 | INFO     | sociology_simulation.mcp_integration:apply_mcp_integration:480 - Applying MCP integration patches...
+2025-07-06 17:20:24.239 | SUCCESS  | sociology_simulation.mcp_integration:apply_mcp_integration:484 - Agent class patched for MCP
+2025-07-06 17:20:24.239 | SUCCESS  | sociology_simulation.mcp_integration:apply_mcp_integration:490 - Trinity class patched for MCP
+2025-07-06 17:20:24.239 | SUCCESS  | sociology_simulation.mcp_integration:apply_mcp_integration:496 - World class patched for MCP
+2025-07-06 17:20:24.239 | SUCCESS  | sociology_simulation.mcp_integration:apply_mcp_integration:500 - MCP integration patches applied successfully
+2025-07-06 17:20:24.239 | INFO     | __main__:main:90 - MCP integration applied successfully
+2025-07-06 17:20:24.239 | INFO     | __main__:main:92 - Starting sociology simulation with Hydra configuration
+2025-07-06 17:20:24.239 | INFO     | __main__:main:93 - Initialized 12 prompt templates
+2025-07-06 17:20:24.239 | INFO     | __main__:main:94 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 17:20:24.239 | INFO     | __main__:main:95 - Era: 石器时代
+2025-07-06 17:20:24.239 | INFO     | __main__:main:96 - World size: 64x64
+2025-07-06 17:20:24.239 | INFO     | __main__:main:97 - Number of agents: 2
+2025-07-06 17:20:24.239 | INFO     | __main__:main:98 - Turns: 1
+2025-07-06 17:20:24.240 | INFO     | __main__:run_simulation:120 - Initializing MCP client for world...
+2025-07-06 17:20:24.240 | WARNING  | sociology_simulation.mcp_client:initialize:85 - Failed to connect to agent_actions server: ClientSession.__init__() missing 2 required positional arguments: 'read_stream' and 'write_stream'
+2025-07-06 17:20:24.240 | WARNING  | sociology_simulation.mcp_client:initialize:85 - Failed to connect to social_interactions server: ClientSession.__init__() missing 2 required positional arguments: 'read_stream' and 'write_stream'
+2025-07-06 17:20:24.240 | WARNING  | sociology_simulation.mcp_client:initialize:85 - Failed to connect to world_management server: ClientSession.__init__() missing 2 required positional arguments: 'read_stream' and 'write_stream'
+2025-07-06 17:20:24.240 | WARNING  | sociology_simulation.mcp_client:initialize:85 - Failed to connect to skills server: ClientSession.__init__() missing 2 required positional arguments: 'read_stream' and 'write_stream'
+2025-07-06 17:20:24.240 | WARNING  | sociology_simulation.mcp_client:initialize:85 - Failed to connect to decision server: ClientSession.__init__() missing 2 required positional arguments: 'read_stream' and 'write_stream'
+2025-07-06 17:20:24.240 | WARNING  | sociology_simulation.mcp_client:initialize:89 - No MCP servers available, using fallback mode
+2025-07-06 17:20:24.240 | SUCCESS  | sociology_simulation.mcp_integration:initialize_mcp:356 - MCP integration initialized
+2025-07-06 17:20:24.240 | INFO     | __main__:run_simulation:122 - MCP client initialized successfully
+2025-07-06 17:20:24.240 | WARNING  | sociology_simulation.mcp_integration:mcp_generate_initial_rules:244 - [Trinity MCP] Using fallback rule generation
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.mcp_integration:_setup_default_rules:273 - Setup default rules for Trinity
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: OCEAN, FOREST, GRASSLAND, MOUNTAIN
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:81 -   WOOD:
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 50.0% chance
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:83 -     - OCEAN: 0% chance
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:81 -   APPLE:
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 30.0% chance
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 20.0% chance
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:83 -     - OCEAN: 40.0% chance
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:81 -   STONE:
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 60.0% chance
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:81 -   MAGICAL_CRYSTAL:
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 10.0% chance
+2025-07-06 17:20:24.240 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 5.0% chance
+2025-07-06 17:20:24.241 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 17:20:24.241 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 219287
+2025-07-06 17:20:24.340 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 17:20:24.342 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 17:20:24.342 | INFO     | sociology_simulation.world:initialize:96 -   APPLE: 755 units
+2025-07-06 17:20:24.342 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 288 units
+2025-07-06 17:20:24.342 | INFO     | sociology_simulation.world:initialize:96 -   MAGICAL_CRYSTAL: 32 units
+2025-07-06 17:20:24.342 | INFO     | sociology_simulation.world:initialize:96 -   STONE: 2 units
+2025-07-06 17:20:24.342 | INFO     | sociology_simulation.world:initialize:96 -   WOOD: 390 units
+2025-07-06 17:20:24.342 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 17:20:31.089 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Wise(0) personal goal ➜ Become the most knowledgeable elder in the tribe by discovering and documenting all edible plants...
+2025-07-06 17:20:31.205 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rok(1) personal goal ➜ Become the tribe's chief explorer by discovering and mapping all edible plants and safe hunting g...
+2025-07-06 17:20:31.206 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 17:20:31.206 | ERROR    | sociology_simulation.mcp_integration:mcp_act:95 - MCP action execution failed for agent 0: 'MCPAgentMixin' object has no attribute 'perceive'
+2025-07-06 17:20:31.206 | ERROR    | sociology_simulation.mcp_integration:mcp_act:95 - MCP action execution failed for agent 1: 'MCPAgentMixin' object has no attribute 'perceive'

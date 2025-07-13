@@ -1,0 +1,397 @@
+2025-07-06 18:16:32.609 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 18:16:32.610 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 18:16:32.613 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:220 - Applying MCP integration...
+2025-07-06 18:16:32.614 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:308 - Agent actions patched for MCP
+2025-07-06 18:16:32.614 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:449 - Trinity rule generation, adjudication, and action execution patched for MCP
+2025-07-06 18:16:32.614 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:237 - MCP integration applied successfully
+2025-07-06 18:16:32.614 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 18:16:32.614 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 18:16:32.614 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 18:16:32.614 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 18:16:32.614 | INFO     | __main__:main:93 - Era: 石器时代
+2025-07-06 18:16:32.614 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 18:16:32.614 | INFO     | __main__:main:95 - Number of agents: 10
+2025-07-06 18:16:32.614 | INFO     | __main__:main:96 - Turns: 1000
+2025-07-06 18:16:32.614 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 18:17:04.033 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:577 - Trinity created 0 terrains, 1 resources, 0 rules
+2025-07-06 18:17:04.033 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:347 - Trinity rules generated via MCP: 4 terrains, 1 resources
+2025-07-06 18:17:04.033 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 18:17:04.033 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 18:17:04.034 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, GRASSLAND, MOUNTAIN, WATER
+2025-07-06 18:17:04.034 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 18:17:04.034 | INFO     | sociology_simulation.world:initialize:81 -   DISTRIBUTIONS::
+2025-07-06 18:17:04.034 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 18:17:04.034 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 694309
+2025-07-06 18:17:04.143 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 18:17:04.143 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 18:17:04.143 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 18:17:11.766 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLeaf(9)[0m [94mpersonal goal ➜[0m [3mBecome the tribe's foremost expert on identifying and cataloging all edible plants and medicinal ...[0m
+2025-07-06 18:17:11.872 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mThorn(4)[0m [94mpersonal goal ➜[0m [3mBecome the tribe's foremost expert in identifying and collecting edible plants and medicinal herb...[0m
+2025-07-06 18:17:12.099 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mGorruk(8)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by consistently bringing back the largest game.[0m
+2025-07-06 18:17:12.107 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLira(0)[0m [94mpersonal goal ➜[0m [3mBecome the most respected storyteller and peacemaker among neighboring tribes by sharing wisdom a...[0m
+2025-07-06 18:17:12.175 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(5)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by crafting superior stone tools and leading successful ...[0m
+2025-07-06 18:17:12.179 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mShello(2)[0m [94mpersonal goal ➜[0m [3mBecome the most respected storyteller and mediator in the tribe by crafting compelling tales from...[0m
+2025-07-06 18:17:12.185 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(1)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by crafting superior stone tools and leading successful ...[0m
+2025-07-06 18:17:12.484 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(6)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter and explorer of the tribe by crafting superior stone tools and discov...[0m
+2025-07-06 18:17:12.776 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(3)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter and leader of my tribe by mastering spear-making and gathering enough...[0m
+2025-07-06 18:17:13.110 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(7)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter and most knowledgeable explorer of the tribe by crafting superior sto...[0m
+2025-07-06 18:17:13.111 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 18:17:23.264 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 8: ("Moved east: Since I'm currently at position (0,0) with no resources or other agents nearby, and my goal is to be.... Moved east to (53, 49). Since I'm currently at position (0,0) with no resources or other agents nearby, and my goal is to be...", {'success': True, 'description': "Moved east to (53, 49). Since I'm currently at position (0,0) with no resources or other agents nearby, and my goal is to be...", 'position_change': (53, 49)})
+2025-07-06 18:17:23.264 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mGorruk(8)[0m [93m行动 →[0m [36m("Moved east: Since I'm currently at position (0,0) with no resources or other agents nearby, and my goal is to be.... Moved east to (53, 49). Since I'm currently at position (0,0) with no resources or other agents nearby, and my goal is to be...", {'success': True, 'description': "Moved east to (53, 49). Since I'm currently at position (0,0) with no resources or other agents nearby, and my goal is to be...", 'position_change': (53, 49)})[0m
+2025-07-06 18:17:24.558 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 0: Failed to collect wood: No resources at position (50, 55)
+2025-07-06 18:17:24.558 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLira(0)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (50, 55)[0m
+2025-07-06 18:17:24.639 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 1: Failed to collect wood: No resources at position (15, 58)
+2025-07-06 18:17:24.639 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(1)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (15, 58)[0m
+2025-07-06 18:17:24.640 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 4: Failed to collect resource: No resources at position (27, 41)
+2025-07-06 18:17:24.640 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mThorn(4)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (27, 41)[0m
+2025-07-06 18:17:24.802 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 5: Failed to collect wood: No resources at position (55, 0)
+2025-07-06 18:17:24.802 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(5)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (55, 0)[0m
+2025-07-06 18:17:25.089 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 2: Failed to collect resource: No resources at position (44, 19)
+2025-07-06 18:17:25.089 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mShello(2)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (44, 19)[0m
+2025-07-06 18:17:25.322 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 7: Failed to collect resource: No resources at position (10, 20)
+2025-07-06 18:17:25.322 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(7)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (10, 20)[0m
+2025-07-06 18:17:26.845 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 6: Failed to collect wood: No resources at position (16, 10)
+2025-07-06 18:17:26.846 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(6)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (16, 10)[0m
+2025-07-06 18:17:27.302 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 3: Failed to collect wood: No resources at position (35, 56)
+2025-07-06 18:17:27.302 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(3)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (35, 56)[0m
+2025-07-06 18:17:27.302 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 9: ("Moved east: Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid.... Moved east to (17, 5). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", {'success': True, 'description': "Moved east to (17, 5). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", 'position_change': (17, 5)})
+2025-07-06 18:17:27.303 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLeaf(9)[0m [93m行动 →[0m [36m("Moved east: Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid.... Moved east to (17, 5). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", {'success': True, 'description': "Moved east to (17, 5). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", 'position_change': (17, 5)})[0m
+2025-07-06 18:17:27.303 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:394 - [Trinity MCP] Adjudicated turn 0 with 10 events
+2025-07-06 18:17:27.303 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:436 - [Trinity MCP] Executed world management for turn 1
+2025-07-06 18:17:27.304 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 18:17:27.304 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 18:17:27.304 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 18:17:27.304 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 18:17:27.304 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 18:17:27.304 | INFO     | sociology_simulation.world:step:775 - Lira(0) is in critical health!
+2025-07-06 18:17:27.304 | INFO     | sociology_simulation.world:step:775 - Rok(1) is in critical health!
+2025-07-06 18:17:27.304 | INFO     | sociology_simulation.world:step:775 - Shello(2) is in critical health!
+2025-07-06 18:17:27.304 | INFO     | sociology_simulation.world:step:775 - Rok(3) is in critical health!
+2025-07-06 18:17:27.304 | INFO     | sociology_simulation.world:step:775 - Thorn(4) is in critical health!
+2025-07-06 18:17:27.304 | INFO     | sociology_simulation.world:step:775 - Rok(5) is in critical health!
+2025-07-06 18:17:27.304 | INFO     | sociology_simulation.world:step:775 - Rok(6) is in critical health!
+2025-07-06 18:17:27.305 | INFO     | sociology_simulation.world:step:775 - Rok(7) is in critical health!
+2025-07-06 18:17:27.305 | INFO     | sociology_simulation.world:step:775 - Gorruk(8) is in critical health!
+2025-07-06 18:17:27.305 | INFO     | sociology_simulation.world:step:775 - Leaf(9) is in critical health!
+2025-07-06 18:17:27.305 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 18:17:27.305 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 18:17:27.305 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 18:17:27.305 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 18:17:27.306 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 2 START ===
+2025-07-06 18:17:36.972 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 5: Failed to collect wood: No resources at position (55, 0)
+2025-07-06 18:17:36.972 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(5)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (55, 0)[0m
+2025-07-06 18:17:37.612 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 7: Failed to collect stone: No resources at position (10, 20)
+2025-07-06 18:17:37.612 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(7)[0m [93m行动 →[0m [36mFailed to collect stone: No resources at position (10, 20)[0m
+2025-07-06 18:17:37.624 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 4: Failed to collect resource: No resources at position (27, 41)
+2025-07-06 18:17:37.624 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mThorn(4)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (27, 41)[0m
+2025-07-06 18:17:37.692 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 6: Failed to collect wood: No resources at position (16, 10)
+2025-07-06 18:17:37.692 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(6)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (16, 10)[0m
+2025-07-06 18:17:38.445 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 1: Failed to collect wood: No resources at position (15, 58)
+2025-07-06 18:17:38.445 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(1)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (15, 58)[0m
+2025-07-06 18:17:38.788 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 0: Failed to collect wood: No resources at position (50, 55)
+2025-07-06 18:17:38.789 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLira(0)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (50, 55)[0m
+2025-07-06 18:17:39.020 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 8: Failed to collect stone: No resources at position (53, 49)
+2025-07-06 18:17:39.020 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mGorruk(8)[0m [93m行动 →[0m [36mFailed to collect stone: No resources at position (53, 49)[0m
+2025-07-06 18:17:39.167 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 2: Failed to collect fish: No resources at position (44, 19)
+2025-07-06 18:17:39.167 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mShello(2)[0m [93m行动 →[0m [36mFailed to collect fish: No resources at position (44, 19)[0m
+2025-07-06 18:17:39.569 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 3: Failed to collect wood: No resources at position (35, 56)
+2025-07-06 18:17:39.569 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(3)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (35, 56)[0m
+2025-07-06 18:17:39.894 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 9: Failed to collect resource: No resources at position (17, 5)
+2025-07-06 18:17:39.894 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLeaf(9)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (17, 5)[0m
+2025-07-06 18:17:39.894 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:394 - [Trinity MCP] Adjudicated turn 2 with 0 events
+2025-07-06 18:17:39.895 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:436 - [Trinity MCP] Executed world management for turn 3
+2025-07-06 18:17:39.895 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 18:17:39.895 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 18:17:39.895 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 18:17:39.895 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 18:17:39.895 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 18:17:39.895 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 18:17:39.895 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 18:17:39.895 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 18:17:39.895 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 18:17:39.895 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 4 START ===
+2025-07-06 18:17:48.584 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 5: Failed to collect wood: No resources at position (55, 0)
+2025-07-06 18:17:48.585 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(5)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (55, 0)[0m
+2025-07-06 18:17:51.450 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 1: Failed to collect wood: No resources at position (15, 58)
+2025-07-06 18:17:51.450 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(1)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (15, 58)[0m
+2025-07-06 18:17:51.823 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 7: Failed to collect stone: No resources at position (10, 20)
+2025-07-06 18:17:51.823 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(7)[0m [93m行动 →[0m [36mFailed to collect stone: No resources at position (10, 20)[0m
+2025-07-06 18:17:52.142 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 6: Failed to collect wood: No resources at position (16, 10)
+2025-07-06 18:17:52.142 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(6)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (16, 10)[0m
+2025-07-06 18:17:53.247 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 3: Failed to collect wood: No resources at position (35, 56)
+2025-07-06 18:17:53.247 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(3)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (35, 56)[0m
+2025-07-06 18:17:53.635 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 0: Failed to collect resource: No resources at position (50, 55)
+2025-07-06 18:17:53.635 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLira(0)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (50, 55)[0m
+2025-07-06 18:17:53.747 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 8: ('Moved east: Given my current situation and goal to become the strongest hunter, I should prioritize finding game.... Moved east to (54, 49). Given my current situation and goal to become the strongest hunter, I should prioritize finding game...', {'success': True, 'description': 'Moved east to (54, 49). Given my current situation and goal to become the strongest hunter, I should prioritize finding game...', 'position_change': (54, 49)})
+2025-07-06 18:17:53.747 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mGorruk(8)[0m [93m行动 →[0m [36m('Moved east: Given my current situation and goal to become the strongest hunter, I should prioritize finding game.... Moved east to (54, 49). Given my current situation and goal to become the strongest hunter, I should prioritize finding game...', {'success': True, 'description': 'Moved east to (54, 49). Given my current situation and goal to become the strongest hunter, I should prioritize finding game...', 'position_change': (54, 49)})[0m
+2025-07-06 18:17:54.188 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 2: Failed to collect resource: No resources at position (44, 19)
+2025-07-06 18:17:54.188 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mShello(2)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (44, 19)[0m
+2025-07-06 18:17:54.416 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 4: Failed to collect resource: No resources at position (27, 41)
+2025-07-06 18:17:54.416 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mThorn(4)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (27, 41)[0m
+2025-07-06 18:17:54.464 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 9: ("Moved north: Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid.... Moved north to (17, 4). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", {'success': True, 'description': "Moved north to (17, 4). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", 'position_change': (17, 4)})
+2025-07-06 18:17:54.464 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLeaf(9)[0m [93m行动 →[0m [36m("Moved north: Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid.... Moved north to (17, 4). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", {'success': True, 'description': "Moved north to (17, 4). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", 'position_change': (17, 4)})[0m
+2025-07-06 18:17:54.465 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:394 - [Trinity MCP] Adjudicated turn 4 with 0 events
+2025-07-06 18:17:54.465 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:436 - [Trinity MCP] Executed world management for turn 5
+2025-07-06 18:17:54.467 | INFO     | sociology_simulation.world:step:761 - Web data exported to: web_data/simulation_turn_005.json
+2025-07-06 18:17:54.467 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 18:17:54.467 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 18:17:54.467 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 18:17:54.467 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 18:17:54.467 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 18:17:54.467 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 18:17:54.467 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 18:17:54.467 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 18:17:54.467 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 18:17:54.467 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 6 START ===
+2025-07-06 18:18:03.043 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 1: Failed to collect wood: No resources at position (15, 58)
+2025-07-06 18:18:03.043 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(1)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (15, 58)[0m
+2025-07-06 18:18:03.756 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 4: Failed to collect resource: No resources at position (27, 41)
+2025-07-06 18:18:03.756 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mThorn(4)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (27, 41)[0m
+2025-07-06 18:18:04.739 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 6: Failed to collect wood: No resources at position (16, 10)
+2025-07-06 18:18:04.740 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(6)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (16, 10)[0m
+2025-07-06 18:18:04.822 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 7: Failed to collect stone: No resources at position (10, 20)
+2025-07-06 18:18:04.822 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(7)[0m [93m行动 →[0m [36mFailed to collect stone: No resources at position (10, 20)[0m
+2025-07-06 18:18:04.909 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 5: ('Failed to move north: Cannot move outside world boundaries', {'success': False, 'error': 'Cannot move outside world boundaries'})
+2025-07-06 18:18:04.909 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(5)[0m [93m行动 →[0m [36m('Failed to move north: Cannot move outside world boundaries', {'success': False, 'error': 'Cannot move outside world boundaries'})[0m
+2025-07-06 18:18:05.022 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 3: Failed to collect wood: No resources at position (35, 56)
+2025-07-06 18:18:05.023 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(3)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (35, 56)[0m
+2025-07-06 18:18:05.511 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 8: ('Moved east: Given my current situation and goal to become the strongest hunter in the tribe, I should prioritize.... Moved east to (55, 49). Given my current situation and goal to become the strongest hunter in the tribe, I should prioritize...', {'success': True, 'description': 'Moved east to (55, 49). Given my current situation and goal to become the strongest hunter in the tribe, I should prioritize...', 'position_change': (55, 49)})
+2025-07-06 18:18:05.511 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mGorruk(8)[0m [93m行动 →[0m [36m('Moved east: Given my current situation and goal to become the strongest hunter in the tribe, I should prioritize.... Moved east to (55, 49). Given my current situation and goal to become the strongest hunter in the tribe, I should prioritize...', {'success': True, 'description': 'Moved east to (55, 49). Given my current situation and goal to become the strongest hunter in the tribe, I should prioritize...', 'position_change': (55, 49)})[0m
+2025-07-06 18:18:05.824 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 2: Failed to collect resource: No resources at position (44, 19)
+2025-07-06 18:18:05.824 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mShello(2)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (44, 19)[0m
+2025-07-06 18:18:05.968 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 9: ("Moved north: Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid.... Moved north to (17, 3). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", {'success': True, 'description': "Moved north to (17, 3). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", 'position_change': (17, 3)})
+2025-07-06 18:18:05.968 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLeaf(9)[0m [93m行动 →[0m [36m("Moved north: Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid.... Moved north to (17, 3). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", {'success': True, 'description': "Moved north to (17, 3). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", 'position_change': (17, 3)})[0m
+2025-07-06 18:18:07.531 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 0: Failed to collect wood: No resources at position (50, 55)
+2025-07-06 18:18:07.531 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLira(0)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (50, 55)[0m
+2025-07-06 18:18:07.532 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:394 - [Trinity MCP] Adjudicated turn 6 with 0 events
+2025-07-06 18:18:07.532 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:436 - [Trinity MCP] Executed world management for turn 7
+2025-07-06 18:18:07.532 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 18:18:07.532 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 18:18:07.532 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 18:18:07.532 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 18:18:07.532 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 18:18:07.532 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 18:18:07.532 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 18:18:07.532 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 18:18:07.532 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 18:18:07.533 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 8 START ===
+2025-07-06 18:18:17.538 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 4: Failed to collect resource: No resources at position (27, 41)
+2025-07-06 18:18:17.538 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mThorn(4)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (27, 41)[0m
+2025-07-06 18:18:18.212 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 5: Failed to collect wood: No resources at position (55, 0)
+2025-07-06 18:18:18.212 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(5)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (55, 0)[0m
+2025-07-06 18:18:18.283 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 2: Failed to collect resource: No resources at position (44, 19)
+2025-07-06 18:18:18.283 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mShello(2)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (44, 19)[0m
+2025-07-06 18:18:18.633 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 1: Failed to collect wood: No resources at position (15, 58)
+2025-07-06 18:18:18.634 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(1)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (15, 58)[0m
+2025-07-06 18:18:18.738 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 8: ('Moved south: Given my current situation and goal to become the strongest hunter, I should prioritize finding game.... Moved south to (55, 50). Given my current situation and goal to become the strongest hunter, I should prioritize finding game...', {'success': True, 'description': 'Moved south to (55, 50). Given my current situation and goal to become the strongest hunter, I should prioritize finding game...', 'position_change': (55, 50)})
+2025-07-06 18:18:18.739 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mGorruk(8)[0m [93m行动 →[0m [36m('Moved south: Given my current situation and goal to become the strongest hunter, I should prioritize finding game.... Moved south to (55, 50). Given my current situation and goal to become the strongest hunter, I should prioritize finding game...', {'success': True, 'description': 'Moved south to (55, 50). Given my current situation and goal to become the strongest hunter, I should prioritize finding game...', 'position_change': (55, 50)})[0m
+2025-07-06 18:18:19.117 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 6: Failed to collect wood: No resources at position (16, 10)
+2025-07-06 18:18:19.117 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(6)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (16, 10)[0m
+2025-07-06 18:18:19.838 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 9: ("Moved east: Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid.... Moved east to (18, 3). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", {'success': True, 'description': "Moved east to (18, 3). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", 'position_change': (18, 3)})
+2025-07-06 18:18:19.838 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLeaf(9)[0m [93m行动 →[0m [36m("Moved east: Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid.... Moved east to (18, 3). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", {'success': True, 'description': "Moved east to (18, 3). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and consid...", 'position_change': (18, 3)})[0m
+2025-07-06 18:18:19.838 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 0: Failed to collect wood: No resources at position (50, 55)
+2025-07-06 18:18:19.838 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLira(0)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (50, 55)[0m
+2025-07-06 18:18:20.260 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 3: Failed to collect wood: No resources at position (35, 56)
+2025-07-06 18:18:20.261 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(3)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (35, 56)[0m
+2025-07-06 18:18:21.367 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 7: Failed to collect stone: No resources at position (10, 20)
+2025-07-06 18:18:21.367 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(7)[0m [93m行动 →[0m [36mFailed to collect stone: No resources at position (10, 20)[0m
+2025-07-06 18:18:21.367 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:394 - [Trinity MCP] Adjudicated turn 8 with 0 events
+2025-07-06 18:18:21.367 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:436 - [Trinity MCP] Executed world management for turn 9
+2025-07-06 18:18:21.368 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 18:18:21.368 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 18:18:21.368 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 18:18:21.368 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 18:18:21.368 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 18:18:21.368 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 18:18:21.368 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 18:18:21.368 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 18:18:21.368 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 18:18:21.368 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 10 START ===
+2025-07-06 18:18:29.886 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 1: Failed to collect wood: No resources at position (15, 58)
+2025-07-06 18:18:29.886 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(1)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (15, 58)[0m
+2025-07-06 18:18:30.021 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 2: Failed to collect resource: No resources at position (44, 19)
+2025-07-06 18:18:30.021 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mShello(2)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (44, 19)[0m
+2025-07-06 18:18:30.797 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 4: Failed to collect resource: No resources at position (27, 41)
+2025-07-06 18:18:30.797 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mThorn(4)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (27, 41)[0m
+2025-07-06 18:18:31.853 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 5: Failed to collect stone: No resources at position (55, 0)
+2025-07-06 18:18:31.853 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(5)[0m [93m行动 →[0m [36mFailed to collect stone: No resources at position (55, 0)[0m
+2025-07-06 18:18:31.920 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 9: ("Moved north: Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and observ.... Moved north to (18, 2). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and observ...", {'success': True, 'description': "Moved north to (18, 2). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and observ...", 'position_change': (18, 2)})
+2025-07-06 18:18:31.920 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLeaf(9)[0m [93m行动 →[0m [36m("Moved north: Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and observ.... Moved north to (18, 2). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and observ...", {'success': True, 'description': "Moved north to (18, 2). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and observ...", 'position_change': (18, 2)})[0m
+2025-07-06 18:18:33.009 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 8: ('Moved east: Given my current situation and goal to become the strongest hunter, I should prioritize finding game.... Moved east to (56, 50). Given my current situation and goal to become the strongest hunter, I should prioritize finding game...', {'success': True, 'description': 'Moved east to (56, 50). Given my current situation and goal to become the strongest hunter, I should prioritize finding game...', 'position_change': (56, 50)})
+2025-07-06 18:18:33.009 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mGorruk(8)[0m [93m行动 →[0m [36m('Moved east: Given my current situation and goal to become the strongest hunter, I should prioritize finding game.... Moved east to (56, 50). Given my current situation and goal to become the strongest hunter, I should prioritize finding game...', {'success': True, 'description': 'Moved east to (56, 50). Given my current situation and goal to become the strongest hunter, I should prioritize finding game...', 'position_change': (56, 50)})[0m
+2025-07-06 18:18:33.529 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 3: Failed to collect wood: No resources at position (35, 56)
+2025-07-06 18:18:33.529 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(3)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (35, 56)[0m
+2025-07-06 18:18:33.676 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 6: Failed to collect wood: No resources at position (16, 10)
+2025-07-06 18:18:33.676 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(6)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (16, 10)[0m
+2025-07-06 18:18:34.795 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 0: Failed to collect resource: No resources at position (50, 55)
+2025-07-06 18:18:34.795 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLira(0)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (50, 55)[0m
+2025-07-06 18:18:35.812 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 7: Failed to collect wood: No resources at position (10, 20)
+2025-07-06 18:18:35.812 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(7)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (10, 20)[0m
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:394 - [Trinity MCP] Adjudicated turn 10 with 10 events
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:436 - [Trinity MCP] Executed world management for turn 11
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:775 - Lira(0) is in critical health!
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:775 - Rok(1) is in critical health!
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:775 - Shello(2) is in critical health!
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:775 - Rok(3) is in critical health!
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:775 - Thorn(4) is in critical health!
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:775 - Rok(5) is in critical health!
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:775 - Rok(6) is in critical health!
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:775 - Rok(7) is in critical health!
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:775 - Gorruk(8) is in critical health!
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:775 - Leaf(9) is in critical health!
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 18:18:35.813 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 18:18:35.814 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 12 START ===
+2025-07-06 18:18:44.557 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 9: ("Moved north: Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and observ.... Moved north to (18, 1). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and observ...", {'success': True, 'description': "Moved north to (18, 1). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and observ...", 'position_change': (18, 1)})
+2025-07-06 18:18:44.557 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLeaf(9)[0m [93m行动 →[0m [36m("Moved north: Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and observ.... Moved north to (18, 1). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and observ...", {'success': True, 'description': "Moved north to (18, 1). Given my goal to become the tribe's foremost expert on edible plants and medicinal herbs, and observ...", 'position_change': (18, 1)})[0m
+2025-07-06 18:18:45.440 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 4: Failed to collect resource: No resources at position (27, 41)
+2025-07-06 18:18:45.440 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mThorn(4)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (27, 41)[0m
+2025-07-06 18:18:45.971 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 5: Failed to collect wood: No resources at position (55, 0)
+2025-07-06 18:18:45.971 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(5)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (55, 0)[0m
+2025-07-06 18:18:46.411 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 1: Failed to collect wood: No resources at position (15, 58)
+2025-07-06 18:18:46.411 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(1)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (15, 58)[0m
+2025-07-06 18:18:46.804 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 3: Failed to collect wood: No resources at position (35, 56)
+2025-07-06 18:18:46.804 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(3)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (35, 56)[0m
+2025-07-06 18:18:47.388 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 7: Failed to collect stone: No resources at position (10, 20)
+2025-07-06 18:18:47.388 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(7)[0m [93m行动 →[0m [36mFailed to collect stone: No resources at position (10, 20)[0m
+2025-07-06 18:18:48.205 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 0: Failed to collect wood: No resources at position (50, 55)
+2025-07-06 18:18:48.205 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLira(0)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (50, 55)[0m
+2025-07-06 18:18:48.376 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 6: Failed to collect wood: No resources at position (16, 10)
+2025-07-06 18:18:48.377 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(6)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (16, 10)[0m
+2025-07-06 18:18:49.245 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 2: Failed to collect stone: No resources at position (44, 19)
+2025-07-06 18:18:49.246 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mShello(2)[0m [93m行动 →[0m [36mFailed to collect stone: No resources at position (44, 19)[0m
+2025-07-06 18:18:49.551 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 8: ('Moved east: Given my current situation and goal to become the strongest hunter, I should prioritize finding and .... Moved east to (57, 50). Given my current situation and goal to become the strongest hunter, I should prioritize finding and ...', {'success': True, 'description': 'Moved east to (57, 50). Given my current situation and goal to become the strongest hunter, I should prioritize finding and ...', 'position_change': (57, 50)})
+2025-07-06 18:18:49.552 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mGorruk(8)[0m [93m行动 →[0m [36m('Moved east: Given my current situation and goal to become the strongest hunter, I should prioritize finding and .... Moved east to (57, 50). Given my current situation and goal to become the strongest hunter, I should prioritize finding and ...', {'success': True, 'description': 'Moved east to (57, 50). Given my current situation and goal to become the strongest hunter, I should prioritize finding and ...', 'position_change': (57, 50)})[0m
+2025-07-06 18:18:49.552 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:394 - [Trinity MCP] Adjudicated turn 12 with 0 events
+2025-07-06 18:18:49.553 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:436 - [Trinity MCP] Executed world management for turn 13
+2025-07-06 18:18:49.553 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 18:18:49.553 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 18:18:49.553 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 18:18:49.553 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 18:18:49.553 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 18:18:49.553 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 18:18:49.553 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 18:18:49.553 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 18:18:49.554 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 18:18:49.554 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 14 START ===
+2025-07-06 18:18:58.186 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 9: ("Moved east: Given that I'm surrounded by grassland with no visible resources or other agents nearby, and my goal.... Moved east to (19, 1). Given that I'm surrounded by grassland with no visible resources or other agents nearby, and my goal...", {'success': True, 'description': "Moved east to (19, 1). Given that I'm surrounded by grassland with no visible resources or other agents nearby, and my goal...", 'position_change': (19, 1)})
+2025-07-06 18:18:58.186 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLeaf(9)[0m [93m行动 →[0m [36m("Moved east: Given that I'm surrounded by grassland with no visible resources or other agents nearby, and my goal.... Moved east to (19, 1). Given that I'm surrounded by grassland with no visible resources or other agents nearby, and my goal...", {'success': True, 'description': "Moved east to (19, 1). Given that I'm surrounded by grassland with no visible resources or other agents nearby, and my goal...", 'position_change': (19, 1)})[0m
+2025-07-06 18:18:58.562 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 0: Failed to collect wood: No resources at position (50, 55)
+2025-07-06 18:18:58.562 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLira(0)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (50, 55)[0m
+2025-07-06 18:18:59.171 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 4: Failed to collect resource: No resources at position (27, 41)
+2025-07-06 18:18:59.171 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mThorn(4)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (27, 41)[0m
+2025-07-06 18:18:59.880 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 5: Failed to collect wood: No resources at position (55, 0)
+2025-07-06 18:18:59.880 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(5)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (55, 0)[0m
+2025-07-06 18:19:00.009 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 6: Failed to collect wood: No resources at position (16, 10)
+2025-07-06 18:19:00.009 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(6)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (16, 10)[0m
+2025-07-06 18:19:00.078 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 7: Failed to collect stone: No resources at position (10, 20)
+2025-07-06 18:19:00.078 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(7)[0m [93m行动 →[0m [36mFailed to collect stone: No resources at position (10, 20)[0m
+2025-07-06 18:19:00.175 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 2: Failed to collect fish: No resources at position (44, 19)
+2025-07-06 18:19:00.176 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mShello(2)[0m [93m行动 →[0m [36mFailed to collect fish: No resources at position (44, 19)[0m
+2025-07-06 18:19:00.481 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 3: Failed to collect wood: No resources at position (35, 56)
+2025-07-06 18:19:00.481 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(3)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (35, 56)[0m
+2025-07-06 18:19:01.774 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 1: Failed to collect wood: No resources at position (15, 58)
+2025-07-06 18:19:01.774 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(1)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (15, 58)[0m
+2025-07-06 18:19:03.421 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 8: ('Moved east: Given my current situation and goal to become the strongest hunter in the tribe, I should prioritize.... Moved east to (58, 50). Given my current situation and goal to become the strongest hunter in the tribe, I should prioritize...', {'success': True, 'description': 'Moved east to (58, 50). Given my current situation and goal to become the strongest hunter in the tribe, I should prioritize...', 'position_change': (58, 50)})
+2025-07-06 18:19:03.421 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mGorruk(8)[0m [93m行动 →[0m [36m('Moved east: Given my current situation and goal to become the strongest hunter in the tribe, I should prioritize.... Moved east to (58, 50). Given my current situation and goal to become the strongest hunter in the tribe, I should prioritize...', {'success': True, 'description': 'Moved east to (58, 50). Given my current situation and goal to become the strongest hunter in the tribe, I should prioritize...', 'position_change': (58, 50)})[0m
+2025-07-06 18:19:03.422 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:394 - [Trinity MCP] Adjudicated turn 14 with 0 events
+2025-07-06 18:19:03.422 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:436 - [Trinity MCP] Executed world management for turn 15
+2025-07-06 18:19:03.430 | INFO     | sociology_simulation.world:step:761 - Web data exported to: web_data/simulation_turn_015.json
+2025-07-06 18:19:03.430 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 18:19:03.430 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 18:19:03.431 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 18:19:03.431 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 18:19:03.431 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 18:19:03.431 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 18:19:03.431 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 18:19:03.431 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 18:19:03.431 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 18:19:03.431 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 16 START ===
+2025-07-06 18:19:13.364 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 1: Failed to collect wood: No resources at position (15, 58)
+2025-07-06 18:19:13.365 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(1)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (15, 58)[0m
+2025-07-06 18:19:13.517 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 0: Failed to collect wood: No resources at position (50, 55)
+2025-07-06 18:19:13.517 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLira(0)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (50, 55)[0m
+2025-07-06 18:19:14.204 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 3: Failed to collect food: No resources at position (35, 56)
+2025-07-06 18:19:14.204 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(3)[0m [93m行动 →[0m [36mFailed to collect food: No resources at position (35, 56)[0m
+2025-07-06 18:19:14.264 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 4: Failed to collect resource: No resources at position (27, 41)
+2025-07-06 18:19:14.264 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mThorn(4)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (27, 41)[0m
+2025-07-06 18:19:14.372 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 9: ("Moved east: Given that I'm surrounded by grassland with no visible resources or other agents nearby, and my goal.... Moved east to (20, 1). Given that I'm surrounded by grassland with no visible resources or other agents nearby, and my goal...", {'success': True, 'description': "Moved east to (20, 1). Given that I'm surrounded by grassland with no visible resources or other agents nearby, and my goal...", 'position_change': (20, 1)})
+2025-07-06 18:19:14.372 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLeaf(9)[0m [93m行动 →[0m [36m("Moved east: Given that I'm surrounded by grassland with no visible resources or other agents nearby, and my goal.... Moved east to (20, 1). Given that I'm surrounded by grassland with no visible resources or other agents nearby, and my goal...", {'success': True, 'description': "Moved east to (20, 1). Given that I'm surrounded by grassland with no visible resources or other agents nearby, and my goal...", 'position_change': (20, 1)})[0m
+2025-07-06 18:19:14.615 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 5: Failed to collect wood: No resources at position (55, 0)
+2025-07-06 18:19:14.615 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(5)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (55, 0)[0m
+2025-07-06 18:19:15.002 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 2: Failed to collect fish: No resources at position (44, 19)
+2025-07-06 18:19:15.002 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mShello(2)[0m [93m行动 →[0m [36mFailed to collect fish: No resources at position (44, 19)[0m
+2025-07-06 18:19:15.647 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 7: Failed to collect stone: No resources at position (10, 20)
+2025-07-06 18:19:15.648 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(7)[0m [93m行动 →[0m [36mFailed to collect stone: No resources at position (10, 20)[0m
+2025-07-06 18:19:16.701 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 6: Failed to collect wood: No resources at position (16, 10)
+2025-07-06 18:19:16.701 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(6)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (16, 10)[0m
+2025-07-06 18:19:16.701 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 8: Failed to collect resource: No resources at position (58, 50)
+2025-07-06 18:19:16.701 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mGorruk(8)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (58, 50)[0m
+2025-07-06 18:19:16.701 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:394 - [Trinity MCP] Adjudicated turn 16 with 0 events
+2025-07-06 18:19:16.701 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:436 - [Trinity MCP] Executed world management for turn 17
+2025-07-06 18:19:16.701 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 18:19:16.702 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 18:19:16.702 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 18:19:16.702 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 18:19:16.702 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 18:19:16.702 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 18:19:16.702 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 18:19:16.702 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 18:19:16.702 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 18:19:16.702 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 18 START ===
+2025-07-06 18:19:26.213 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 0: Failed to collect resource: No resources at position (50, 55)
+2025-07-06 18:19:26.214 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLira(0)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (50, 55)[0m
+2025-07-06 18:19:26.661 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 2: Failed to collect stone: No resources at position (44, 19)
+2025-07-06 18:19:26.661 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mShello(2)[0m [93m行动 →[0m [36mFailed to collect stone: No resources at position (44, 19)[0m
+2025-07-06 18:19:27.310 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 4: Failed to collect resource: No resources at position (27, 41)
+2025-07-06 18:19:27.310 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mThorn(4)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (27, 41)[0m
+2025-07-06 18:19:27.412 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 9: ("Moved east: Given that I'm surrounded by grassland with no visible resources and no other agents nearby, the bes.... Moved east to (21, 1). Given that I'm surrounded by grassland with no visible resources and no other agents nearby, the bes...", {'success': True, 'description': "Moved east to (21, 1). Given that I'm surrounded by grassland with no visible resources and no other agents nearby, the bes...", 'position_change': (21, 1)})
+2025-07-06 18:19:27.412 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mLeaf(9)[0m [93m行动 →[0m [36m("Moved east: Given that I'm surrounded by grassland with no visible resources and no other agents nearby, the bes.... Moved east to (21, 1). Given that I'm surrounded by grassland with no visible resources and no other agents nearby, the bes...", {'success': True, 'description': "Moved east to (21, 1). Given that I'm surrounded by grassland with no visible resources and no other agents nearby, the bes...", 'position_change': (21, 1)})[0m
+2025-07-06 18:19:27.578 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 3: Failed to collect wood: No resources at position (35, 56)
+2025-07-06 18:19:27.578 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(3)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (35, 56)[0m
+2025-07-06 18:19:27.746 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 5: Failed to collect wood: No resources at position (55, 0)
+2025-07-06 18:19:27.746 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(5)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (55, 0)[0m
+2025-07-06 18:19:28.185 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 1: Failed to collect wood: No resources at position (15, 58)
+2025-07-06 18:19:28.185 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(1)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (15, 58)[0m
+2025-07-06 18:19:28.750 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 8: Failed to collect wood: No resources at position (58, 50)
+2025-07-06 18:19:28.750 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mGorruk(8)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (58, 50)[0m
+2025-07-06 18:19:29.951 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 6: Failed to collect wood: No resources at position (16, 10)
+2025-07-06 18:19:29.951 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - [92m⚡[0m [1mRok(6)[0m [93m行动 →[0m [36mFailed to collect wood: No resources at position (16, 10)[0m

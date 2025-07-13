@@ -1,0 +1,85 @@
+2025-07-06 21:36:01.948 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 21:36:01.948 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 21:36:01.948 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:361 - Applying MCP integration...
+2025-07-06 21:36:01.948 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:445 - Agent actions patched for MCP
+2025-07-06 21:36:01.948 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:566 - Trinity rule generation, adjudication, and action execution patched for MCP
+2025-07-06 21:36:01.948 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:378 - MCP integration applied successfully
+2025-07-06 21:36:01.948 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 21:36:01.948 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 21:36:01.948 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 21:36:01.948 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 21:36:01.949 | INFO     | __main__:main:93 - Era: 魔法原始社会
+2025-07-06 21:36:01.949 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 21:36:01.949 | INFO     | __main__:main:95 - Number of agents: 10
+2025-07-06 21:36:01.949 | INFO     | __main__:main:96 - Turns: 1000
+2025-07-06 21:36:01.949 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 21:36:40.337 | WARNING  | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:719 - Failed to parse terrain line: TERRAIN TYPES:
+2025-07-06 21:36:40.338 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:742 - Trinity created 4 terrains, 6 resources, 3 rules
+2025-07-06 21:36:40.339 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:474 - Trinity rules generated via MCP: 4 terrains, 6 resources
+2025-07-06 21:36:40.339 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 21:36:40.340 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 魔法原始社会
+2025-07-06 21:36:40.340 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: MAGIC_FOREST, SPIRIT_PLAINS, SHAMAN_MOUNTAINS, MYSTIC_SWAMP
+2025-07-06 21:36:40.341 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 21:36:40.341 | INFO     | sociology_simulation.world:initialize:81 -   DISTRIBUTIONS::
+2025-07-06 21:36:40.341 | INFO     | sociology_simulation.world:initialize:81 -   ENCHANTED_WOOD:
+2025-07-06 21:36:40.342 | INFO     | sociology_simulation.world:initialize:83 -     - {MAGIC_FOREST: 70% chance
+2025-07-06 21:36:40.342 | INFO     | sociology_simulation.world:initialize:81 -   SPIRIT_STONES:
+2025-07-06 21:36:40.342 | INFO     | sociology_simulation.world:initialize:83 -     - {SPIRIT_PLAINS: 20% chance
+2025-07-06 21:36:40.342 | INFO     | sociology_simulation.world:initialize:81 -   SACRED_HERBS:
+2025-07-06 21:36:40.343 | INFO     | sociology_simulation.world:initialize:83 -     - {SHAMAN_MOUNTAINS: 30% chance
+2025-07-06 21:36:40.343 | INFO     | sociology_simulation.world:initialize:81 -   HEALING_WATER:
+2025-07-06 21:36:40.343 | INFO     | sociology_simulation.world:initialize:83 -     - {MYSTIC_SWAMP: 20% chance
+2025-07-06 21:36:40.344 | INFO     | sociology_simulation.world:initialize:81 -   MAGIC_MUSHROOM:
+2025-07-06 21:36:40.344 | INFO     | sociology_simulation.world:initialize:83 -     - {MAGIC_FOREST: 40% chance
+2025-07-06 21:36:40.345 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 21:36:40.345 | INFO     | sociology_simulation.world:generate_realistic_terrain:148 - Generating terrain using 'mixed' algorithm with seed 15280
+2025-07-06 21:36:40.471 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:158 - Generated realistic 64x64 terrain map
+2025-07-06 21:36:40.471 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 21:36:40.471 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 21:36:48.208 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLuma(9)[0m [94mgoal ➜[0m [3mBecome the revered elder who teaches the tribe's children...[0m
+2025-07-06 21:36:48.209 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mGorak(4)[0m [94mgoal ➜[0m [3mBecome the strongest hunter in the tribe by consistently ...[0m
+2025-07-06 21:36:48.246 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mThorn(0)[0m [94mgoal ➜[0m [3mBecome the strongest hunter in the tribe by mastering bot...[0m
+2025-07-06 21:36:48.385 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mThorn(7)[0m [94mgoal ➜[0m [3mBecome the wise elder who trains young tribe members in b...[0m
+2025-07-06 21:36:48.392 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mThorn(8)[0m [94mgoal ➜[0m [3mDiscover and document all the magical properties of plant...[0m
+2025-07-06 21:36:48.420 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mThorn(6)[0m [94mgoal ➜[0m [3mDiscover and document all the magical properties of plant...[0m
+2025-07-06 21:36:48.490 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLira(3)[0m [94mgoal ➜[0m [3mBecome the respected elder who trains young tribe members...[0m
+2025-07-06 21:36:48.685 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mGorvak(2)[0m [94mgoal ➜[0m [3mBecome the strongest hunter in the tribe by mastering spe...[0m
+2025-07-06 21:36:48.712 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLira(1)[0m [94mgoal ➜[0m [3mBecome the tribe's chief storyteller by mastering ancient...[0m
+2025-07-06 21:36:48.713 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mThorn(5)[0m [94mgoal ➜[0m [3mBecome the respected elder who mediates disputes and unit...[0m
+2025-07-06 21:36:48.715 | INFO     | sociology_simulation.world:step:562 - 
+=== TURN 0 START ===
+2025-07-06 21:36:59.071 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mLuma(9)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (60,...[0m
+2025-07-06 21:36:59.654 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mGorvak(2)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (17,...[0m
+2025-07-06 21:37:00.701 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mThorn(0)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (21,...[0m
+2025-07-06 21:37:00.909 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mThorn(8)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (19,...[0m
+2025-07-06 21:37:01.930 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mLira(1)[0m [93m行动 →[0m [36mMoved east: Given that I'm surrounded by MAGIC_FOREST ter...[0m
+2025-07-06 21:37:02.343 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mThorn(6)[0m [93m行动 →[0m [36mMoved east: Given my current situation and goal to docume...[0m
+2025-07-06 21:37:02.344 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mThorn(7)[0m [93m行动 →[0m [36mMoved north: Given that I'm surrounded by MAGIC_FOREST te...[0m
+2025-07-06 21:37:03.821 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mGorak(4)[0m [93m行动 →[0m [36mMoved east: Since there are no resources at my current po...[0m
+2025-07-06 21:37:03.911 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mThorn(5)[0m [93m行动 →[0m [36mFailed to collect resource: No resources at position (9, 57)[0m
+2025-07-06 21:37:04.797 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - [92m⚡[0m [1mLira(3)[0m [93m行动 →[0m [36mFailed to collect stone: No resources at position (19, 59)[0m
+2025-07-06 21:37:10.743 | INFO     | sociology_simulation.world:step:772 - 
+========================================
+2025-07-06 21:37:10.744 | INFO     | sociology_simulation.world:step:773 - TURN SUMMARY - 10 agents alive
+2025-07-06 21:37:10.744 | INFO     | sociology_simulation.world:step:774 - Groups: 0, Technologies: 0
+2025-07-06 21:37:10.745 | INFO     | sociology_simulation.world:step:775 - Markets: 0, Political Entities: 0
+2025-07-06 21:37:10.745 | INFO     | sociology_simulation.world:step:776 - Era: 石器时代
+2025-07-06 21:37:10.745 | INFO     | sociology_simulation.world:step:778 - Thorn(0) is in critical health!
+2025-07-06 21:37:10.745 | INFO     | sociology_simulation.world:step:778 - Lira(1) is in critical health!
+2025-07-06 21:37:10.745 | INFO     | sociology_simulation.world:step:778 - Gorvak(2) is in critical health!
+2025-07-06 21:37:10.746 | INFO     | sociology_simulation.world:step:778 - Lira(3) is in critical health!
+2025-07-06 21:37:10.746 | INFO     | sociology_simulation.world:step:778 - Gorak(4) is in critical health!
+2025-07-06 21:37:10.746 | INFO     | sociology_simulation.world:step:778 - Thorn(5) is in critical health!
+2025-07-06 21:37:10.747 | INFO     | sociology_simulation.world:step:778 - Thorn(6) is in critical health!
+2025-07-06 21:37:10.747 | INFO     | sociology_simulation.world:step:778 - Thorn(7) is in critical health!
+2025-07-06 21:37:10.747 | INFO     | sociology_simulation.world:step:778 - Thorn(8) is in critical health!
+2025-07-06 21:37:10.747 | INFO     | sociology_simulation.world:step:778 - Luma(9) is in critical health!
+2025-07-06 21:37:10.747 | INFO     | sociology_simulation.world:step:778 - 1. The tribe is facing immediate starvation risks due to repeated failed reso...
+2025-07-06 21:37:10.747 | INFO     | sociology_simulation.world:step:778 - 2. Agents are dispersing randomly without coordination, suggesting a critical...
+2025-07-06 21:37:10.748 | INFO     | sociology_simulation.world:step:779 - ========================================
+
+2025-07-06 21:37:10.749 | INFO     | sociology_simulation.world:step:562 - 
+=== TURN 2 START ===

@@ -1,0 +1,123 @@
+2025-07-06 17:23:56.756 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 17:23:56.756 | INFO     | __main__:main:88 - Applying MCP integration...
+2025-07-06 17:23:56.756 | INFO     | sociology_simulation.mcp_integration:apply_mcp_integration:498 - Applying MCP integration patches...
+2025-07-06 17:23:56.756 | SUCCESS  | sociology_simulation.mcp_integration:apply_mcp_integration:502 - Agent class patched for MCP
+2025-07-06 17:23:56.756 | SUCCESS  | sociology_simulation.mcp_integration:apply_mcp_integration:508 - Trinity class patched for MCP
+2025-07-06 17:23:56.756 | SUCCESS  | sociology_simulation.mcp_integration:apply_mcp_integration:514 - World class patched for MCP
+2025-07-06 17:23:56.756 | SUCCESS  | sociology_simulation.mcp_integration:apply_mcp_integration:518 - MCP integration patches applied successfully
+2025-07-06 17:23:56.756 | INFO     | __main__:main:90 - MCP integration applied successfully
+2025-07-06 17:23:56.756 | INFO     | __main__:main:92 - Starting sociology simulation with Hydra configuration
+2025-07-06 17:23:56.756 | INFO     | __main__:main:93 - Initialized 12 prompt templates
+2025-07-06 17:23:56.756 | INFO     | __main__:main:94 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 17:23:56.756 | INFO     | __main__:main:95 - Era: 石器时代
+2025-07-06 17:23:56.756 | INFO     | __main__:main:96 - World size: 64x64
+2025-07-06 17:23:56.756 | INFO     | __main__:main:97 - Number of agents: 3
+2025-07-06 17:23:56.756 | INFO     | __main__:main:98 - Turns: 3
+2025-07-06 17:23:56.757 | INFO     | __main__:run_simulation:120 - Initializing MCP client for world...
+2025-07-06 17:23:56.757 | WARNING  | sociology_simulation.mcp_client:initialize:85 - Failed to connect to agent_actions server: ClientSession.__init__() missing 2 required positional arguments: 'read_stream' and 'write_stream'
+2025-07-06 17:23:56.757 | WARNING  | sociology_simulation.mcp_client:initialize:85 - Failed to connect to social_interactions server: ClientSession.__init__() missing 2 required positional arguments: 'read_stream' and 'write_stream'
+2025-07-06 17:23:56.757 | WARNING  | sociology_simulation.mcp_client:initialize:85 - Failed to connect to world_management server: ClientSession.__init__() missing 2 required positional arguments: 'read_stream' and 'write_stream'
+2025-07-06 17:23:56.757 | WARNING  | sociology_simulation.mcp_client:initialize:85 - Failed to connect to skills server: ClientSession.__init__() missing 2 required positional arguments: 'read_stream' and 'write_stream'
+2025-07-06 17:23:56.757 | WARNING  | sociology_simulation.mcp_client:initialize:85 - Failed to connect to decision server: ClientSession.__init__() missing 2 required positional arguments: 'read_stream' and 'write_stream'
+2025-07-06 17:23:56.757 | WARNING  | sociology_simulation.mcp_client:initialize:89 - No MCP servers available, using fallback mode
+2025-07-06 17:23:56.757 | SUCCESS  | sociology_simulation.mcp_integration:initialize_mcp:374 - MCP integration initialized
+2025-07-06 17:23:56.757 | INFO     | __main__:run_simulation:122 - MCP client initialized successfully
+2025-07-06 17:23:56.757 | WARNING  | sociology_simulation.mcp_integration:mcp_generate_initial_rules:262 - [Trinity MCP] Using fallback rule generation
+2025-07-06 17:23:56.757 | INFO     | sociology_simulation.mcp_integration:_setup_default_rules:291 - Setup default rules for Trinity
+2025-07-06 17:23:56.757 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 17:23:56.757 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 17:23:56.757 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: OCEAN, FOREST, GRASSLAND, MOUNTAIN
+2025-07-06 17:23:56.757 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 17:23:56.757 | INFO     | sociology_simulation.world:initialize:81 -   WOOD:
+2025-07-06 17:23:56.757 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 50.0% chance
+2025-07-06 17:23:56.757 | INFO     | sociology_simulation.world:initialize:83 -     - OCEAN: 0% chance
+2025-07-06 17:23:56.757 | INFO     | sociology_simulation.world:initialize:81 -   APPLE:
+2025-07-06 17:23:56.757 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 30.0% chance
+2025-07-06 17:23:56.757 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 20.0% chance
+2025-07-06 17:23:56.757 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 17:23:56.757 | INFO     | sociology_simulation.world:initialize:83 -     - OCEAN: 40.0% chance
+2025-07-06 17:23:56.757 | INFO     | sociology_simulation.world:initialize:81 -   STONE:
+2025-07-06 17:23:56.757 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 60.0% chance
+2025-07-06 17:23:56.757 | INFO     | sociology_simulation.world:initialize:81 -   MAGICAL_CRYSTAL:
+2025-07-06 17:23:56.758 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 10.0% chance
+2025-07-06 17:23:56.758 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 5.0% chance
+2025-07-06 17:23:56.758 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 17:23:56.758 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 497528
+2025-07-06 17:23:56.859 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 17:23:56.861 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 17:23:56.861 | INFO     | sociology_simulation.world:initialize:96 -   APPLE: 657 units
+2025-07-06 17:23:56.861 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 68 units
+2025-07-06 17:23:56.861 | INFO     | sociology_simulation.world:initialize:96 -   MAGICAL_CRYSTAL: 53 units
+2025-07-06 17:23:56.861 | INFO     | sociology_simulation.world:initialize:96 -   STONE: 385 units
+2025-07-06 17:23:56.861 | INFO     | sociology_simulation.world:initialize:96 -   WOOD: 2 units
+2025-07-06 17:23:56.861 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 17:24:05.429 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rook(1) personal goal ➜ Create a detailed map of all nearby caves and their contents to share with the tribe.
+2025-07-06 17:24:05.519 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rook(2) personal goal ➜ Discover and map all edible plants and medicinal herbs within a three-day walking radius of my vi...
+2025-07-06 17:24:06.500 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rook(0) personal goal ➜ Become the tribe's master storyteller by collecting and sharing knowledge of animal behaviors, pl...
+2025-07-06 17:24:06.500 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 17:24:06.500 | INFO     | sociology_simulation.mcp_integration:mcp_act:87 - Agent 0 chose action: collect resource (fallback)
+2025-07-06 17:24:06.500 | INFO     | sociology_simulation.mcp_integration:mcp_act:87 - Agent 1 chose action: collect resource (fallback)
+2025-07-06 17:24:06.501 | INFO     | sociology_simulation.mcp_integration:mcp_act:87 - Agent 2 chose action: collect resource (fallback)
+2025-07-06 17:24:06.505 | WARNING  | sociology_simulation.mcp_integration:mcp_adjudicate:313 - [Trinity MCP] Using fallback adjudication
+2025-07-06 17:24:06.505 | INFO     | sociology_simulation.mcp_integration:_basic_adjudicate:322 - [Trinity Fallback] Processing 0 events
+2025-07-06 17:24:06.505 | INFO     | sociology_simulation.mcp_integration:mcp_execute_actions:348 - [Trinity MCP] Using basic action execution
+2025-07-06 17:24:06.505 | INFO     | sociology_simulation.mcp_integration:_basic_execute_actions:357 - [Trinity Fallback] Executing basic world actions
+2025-07-06 17:24:06.509 | INFO     | sociology_simulation.world:step:761 - Web data exported to: web_data/simulation_turn_000.json
+2025-07-06 17:24:06.509 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 17:24:06.509 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 3 agents alive
+2025-07-06 17:24:06.509 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 17:24:06.509 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 17:24:06.509 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 1 START ===
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.mcp_integration:mcp_act:87 - Agent 0 chose action: collect resource (fallback)
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.mcp_integration:mcp_act:87 - Agent 1 chose action: collect resource (fallback)
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.mcp_integration:mcp_act:87 - Agent 2 chose action: collect resource (fallback)
+2025-07-06 17:24:06.510 | WARNING  | sociology_simulation.mcp_integration:mcp_adjudicate:313 - [Trinity MCP] Using fallback adjudication
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.mcp_integration:_basic_adjudicate:322 - [Trinity Fallback] Processing 0 events
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.mcp_integration:mcp_execute_actions:348 - [Trinity MCP] Using basic action execution
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.mcp_integration:_basic_execute_actions:357 - [Trinity Fallback] Executing basic world actions
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 3 agents alive
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 17:24:06.510 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 2 START ===
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.mcp_integration:mcp_act:87 - Agent 0 chose action: collect resource (fallback)
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.mcp_integration:mcp_act:87 - Agent 1 chose action: collect resource (fallback)
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.mcp_integration:mcp_act:87 - Agent 2 chose action: collect resource (fallback)
+2025-07-06 17:24:06.511 | WARNING  | sociology_simulation.mcp_integration:mcp_adjudicate:313 - [Trinity MCP] Using fallback adjudication
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.mcp_integration:_basic_adjudicate:322 - [Trinity Fallback] Processing 0 events
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.mcp_integration:mcp_execute_actions:348 - [Trinity MCP] Using basic action execution
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.mcp_integration:_basic_execute_actions:357 - [Trinity Fallback] Executing basic world actions
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 3 agents alive
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 17:24:06.511 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 17:24:06.514 | INFO     | __main__:run_simulation:218 - Cleaning up MCP connections...
+2025-07-06 17:24:06.515 | INFO     | sociology_simulation.mcp_integration:cleanup_mcp:382 - MCP connections cleaned up
+2025-07-06 17:24:06.515 | INFO     | __main__:run_simulation:220 - MCP cleanup completed

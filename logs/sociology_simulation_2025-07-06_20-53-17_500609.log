@@ -1,0 +1,247 @@
+2025-07-06 20:53:17.508 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 20:53:17.509 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 20:53:17.509 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:361 - Applying MCP integration...
+2025-07-06 20:53:17.509 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:445 - Agent actions patched for MCP
+2025-07-06 20:53:17.509 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:566 - Trinity rule generation, adjudication, and action execution patched for MCP
+2025-07-06 20:53:17.509 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:378 - MCP integration applied successfully
+2025-07-06 20:53:17.509 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 20:53:17.509 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 20:53:17.509 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 20:53:17.509 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 20:53:17.509 | INFO     | __main__:main:93 - Era: 石器时代
+2025-07-06 20:53:17.509 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 20:53:17.509 | INFO     | __main__:main:95 - Number of agents: 10
+2025-07-06 20:53:17.509 | INFO     | __main__:main:96 - Turns: 1000
+2025-07-06 20:53:17.510 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 20:53:57.843 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:666 - Trinity response content:
+Here are my world creation decisions for the 石器时代 simulation:
+
+TERRAIN TYPES:
+1. TERRAIN RIVER_VALLEY 'Fertile land near freshwater sources' cost=1.1 resources={{fish: 0.7, clay: 0.5, reeds: 0.4}} color=teal
+2. TERRAIN FLINT_HILLS 'Rocky outcrops with exposed stone formations' cost=1.4 resources={{flint: 0.9, stone: 0.6}} color=gray
+3. TERRAIN OAK_FOREST 'Ancient forests with hardwood trees' cost=1.3 resources={{wood: 0.8, acorns: 0.5, mushrooms: 0.3}} color=dark_green
+4. TERRAIN SAVANNAH 'Open grasslands with scattered trees' cost=1.0 resources={{berries: 0.6, game: 0.4, medicinal_herbs: 0.2}} color=light_green
+5. TERRAIN SWAMP 'Wetlands with abundant plant life' cost=1.7 resources={{reeds: 0.7, medicinal_plants: 0.4, fish: 0.3}} color=dark_blue
+
+RESOURCE DISTRIBUTIONS:
+1. RESOURCE flint distribution={{FLINT_HILLS: 0.9, RIVER_VALLEY: 0.1}} depletion=0.15 regen=0.02
+2. RESOURCE game distribution={{SAVANNAH: 0.4, OAK_FOREST: 0.3, SWAMP: 0.2}} depletion=0.2 regen=0.1
+3. RESOURCE clay distribution={{RIVER_VALLEY: 0.5, SWAMP: 0.3}} depletion=0.1 regen=0.07
+4. RESOURCE medicinal_plants distribution={{SWAMP: 0.4, SAVANNAH: 0.2}} depletion=0.25 regen=0.08
+5. RESOURCE acorns distribution={{OAK_FOREST: 0.5}} depletion=0.3 regen=0.15
+6. RESOURCE fish distribution={{RIVER_VALLEY: 0.7, SWAMP: 0.3}} depletion=0.2 regen=0.12
+
+WORLD RULES:
+1. RULE seasonal_migration 'Animal herds migrate with seasons' conditions=['turn_mod_12=0'] effects=['game_distribution_shift'] priority=1
+2. RULE tool_breakage 'Primitive tools degrade with use' conditions=['resource_harvest'] effects=['random_tool_break:0.1'] priority=2
+3. RULE oral_tradition 'Knowledge passes through generations' conditions=['population_change'] effects=['random_skill_preservation:0.7'] priority=3
+
+These elements reflect:
+- The primitive technology level (flint tools, clay pottery)
+- Hunter-gatherer lifestyle (seasonal resources, game tracking)
+- Importance of natural resources (stone, wood, medicinal plants)
+- Environmental challenges (tool fragility, knowledge preservation)
+- Settlement patterns (river valleys as prime locations)
+2025-07-06 20:53:57.843 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:667 - Parsing 28 lines from Trinity response
+2025-07-06 20:53:57.844 | WARNING  | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:715 - Failed to parse terrain line: TERRAIN TYPES:
+2025-07-06 20:53:57.844 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:738 - Trinity created 5 terrains, 7 resources, 3 rules
+2025-07-06 20:53:57.845 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:474 - Trinity rules generated via MCP: 5 terrains, 7 resources
+2025-07-06 20:53:57.845 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 20:53:57.845 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 20:53:57.845 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: RIVER_VALLEY, FLINT_HILLS, OAK_FOREST, SAVANNAH, SWAMP
+2025-07-06 20:53:57.845 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 20:53:57.846 | INFO     | sociology_simulation.world:initialize:81 -   DISTRIBUTIONS::
+2025-07-06 20:53:57.846 | INFO     | sociology_simulation.world:initialize:81 -   FLINT:
+2025-07-06 20:53:57.846 | INFO     | sociology_simulation.world:initialize:83 -     - {FLINT_HILLS: 90.0% chance
+2025-07-06 20:53:57.846 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER_VALLEY: 10.0% chance
+2025-07-06 20:53:57.846 | INFO     | sociology_simulation.world:initialize:81 -   GAME:
+2025-07-06 20:53:57.846 | INFO     | sociology_simulation.world:initialize:83 -     - {SAVANNAH: 40.0% chance
+2025-07-06 20:53:57.846 | INFO     | sociology_simulation.world:initialize:83 -     - OAK_FOREST: 30.0% chance
+2025-07-06 20:53:57.846 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 20.0% chance
+2025-07-06 20:53:57.846 | INFO     | sociology_simulation.world:initialize:81 -   CLAY:
+2025-07-06 20:53:57.847 | INFO     | sociology_simulation.world:initialize:83 -     - {RIVER_VALLEY: 50.0% chance
+2025-07-06 20:53:57.847 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 30.0% chance
+2025-07-06 20:53:57.847 | INFO     | sociology_simulation.world:initialize:81 -   MEDICINAL_PLANTS:
+2025-07-06 20:53:57.847 | INFO     | sociology_simulation.world:initialize:83 -     - {SWAMP: 40.0% chance
+2025-07-06 20:53:57.847 | INFO     | sociology_simulation.world:initialize:83 -     - SAVANNAH: 20.0% chance
+2025-07-06 20:53:57.847 | INFO     | sociology_simulation.world:initialize:81 -   ACORNS:
+2025-07-06 20:53:57.847 | INFO     | sociology_simulation.world:initialize:83 -     - {OAK_FOREST: 50.0% chance
+2025-07-06 20:53:57.847 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 20:53:57.847 | INFO     | sociology_simulation.world:initialize:83 -     - {RIVER_VALLEY: 70.0% chance
+2025-07-06 20:53:57.847 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 30.0% chance
+2025-07-06 20:53:57.847 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 20:53:57.848 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 273176
+2025-07-06 20:53:57.966 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 20:53:57.967 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 20:53:57.967 | INFO     | sociology_simulation.world:initialize:96 -   CLAY: 161 units
+2025-07-06 20:53:57.967 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 143 units
+2025-07-06 20:53:57.967 | INFO     | sociology_simulation.world:initialize:96 -   FLINT: 345 units
+2025-07-06 20:53:57.967 | INFO     | sociology_simulation.world:initialize:96 -   GAME: 112 units
+2025-07-06 20:53:57.967 | INFO     | sociology_simulation.world:initialize:96 -   MEDICINAL_PLANTS: 10 units
+2025-07-06 20:53:57.967 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 20:54:04.920 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rok(5) personal goal ➜ Become the strongest hunter and gatherer in the tribe by crafting superior stone tools and leadin...
+2025-07-06 20:54:05.081 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Flint(0) personal goal ➜ Become the most skilled and respected toolmaker in the tribe by crafting superior stone tools and...
+2025-07-06 20:54:05.523 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rok(6) personal goal ➜ Become the most skilled hunter and provider for my tribe by crafting superior tools and weapons f...
+2025-07-06 20:54:05.697 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Thorn(3) personal goal ➜ Learn the medicinal uses of local plants and become the tribe's herbal healer.
+2025-07-06 20:54:05.898 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rok(4) personal goal ➜ Carve a durable wooden spear using stone tools to become the most skilled hunter in my tribe.
+2025-07-06 20:54:05.989 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rok(8) personal goal ➜ Become the leader of my tribe by demonstrating superior hunting skills and negotiating favorable ...
+2025-07-06 20:54:06.102 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rell(7) personal goal ➜ Become the most skilled storyteller and trader in the tribe by collecting and sharing knowledge f...
+2025-07-06 20:54:06.177 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Thorn(9) personal goal ➜ Become the most knowledgeable elder in the tribe by discovering and documenting all edible plants...
+2025-07-06 20:54:06.792 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rook(2) personal goal ➜ Discover and map all edible plants and medicinal herbs within a three-day walking radius of our v...
+2025-07-06 20:54:07.365 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Lira(1) personal goal ➜ Become the most respected storyteller and mediator in the tribe by collecting and sharing knowled...
+2025-07-06 20:54:07.365 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 20:54:18.294 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 3: ("Moved east: Given my current situation and goal of becoming the tribe's herbal healer, I should focus on explori.... Moved east to (40, 1). Given my current situation and goal of becoming the tribe's herbal healer, I should focus on explori...", {'success': True, 'description': "Moved east to (40, 1). Given my current situation and goal of becoming the tribe's herbal healer, I should focus on explori...", 'position_change': (40, 1)})
+2025-07-06 20:54:18.294 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Thorn(3) 行动 → ("Moved east: Given my current situation and goal of becoming the tribe's herbal healer, I should focus on explori.... Moved east to (40, 1). Given my current situation and goal of becoming the tribe's herbal healer, I should focus on explori...", {'success': True, 'description': "Moved east to (40, 1). Given my current situation and goal of becoming the tribe's herbal healer, I should focus on explori...", 'position_change': (40, 1)})
+2025-07-06 20:54:19.914 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 6: ('Failed to collect wood: No resources at position (15, 17)', {'success': False, 'error': 'No resources at position (15, 17)'})
+2025-07-06 20:54:19.914 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(6) 行动 → ('Failed to collect wood: No resources at position (15, 17)', {'success': False, 'error': 'No resources at position (15, 17)'})
+2025-07-06 20:54:19.969 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 7: ('Failed to collect resource: No resources at position (13, 17)', {'success': False, 'error': 'No resources at position (13, 17)'})
+2025-07-06 20:54:19.969 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rell(7) 行动 → ('Failed to collect resource: No resources at position (13, 17)', {'success': False, 'error': 'No resources at position (13, 17)'})
+2025-07-06 20:54:20.125 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 8: ('Moved east: Given my current situation surrounded by swamps with only a few river valleys visible, and no immedi.... Moved east to (25, 1). Given my current situation surrounded by swamps with only a few river valleys visible, and no immedi...', {'success': True, 'description': 'Moved east to (25, 1). Given my current situation surrounded by swamps with only a few river valleys visible, and no immedi...', 'position_change': (25, 1)})
+2025-07-06 20:54:20.125 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(8) 行动 → ('Moved east: Given my current situation surrounded by swamps with only a few river valleys visible, and no immedi.... Moved east to (25, 1). Given my current situation surrounded by swamps with only a few river valleys visible, and no immedi...', {'success': True, 'description': 'Moved east to (25, 1). Given my current situation surrounded by swamps with only a few river valleys visible, and no immedi...', 'position_change': (25, 1)})
+2025-07-06 20:54:20.443 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 0: ('Moved east: Given my current situation in a river valley with no immediate resources or other agents nearby, and.... Moved east to (43, 13). Given my current situation in a river valley with no immediate resources or other agents nearby, and...', {'success': True, 'description': 'Moved east to (43, 13). Given my current situation in a river valley with no immediate resources or other agents nearby, and...', 'position_change': (43, 13)})
+2025-07-06 20:54:20.444 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Flint(0) 行动 → ('Moved east: Given my current situation in a river valley with no immediate resources or other agents nearby, and.... Moved east to (43, 13). Given my current situation in a river valley with no immediate resources or other agents nearby, and...', {'success': True, 'description': 'Moved east to (43, 13). Given my current situation in a river valley with no immediate resources or other agents nearby, and...', 'position_change': (43, 13)})
+2025-07-06 20:54:20.629 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 9: ('Moved east: Given my current position in a river valley with no immediate resources visible, and my goal to beco.... Moved east to (13, 52). Given my current position in a river valley with no immediate resources visible, and my goal to beco...', {'success': True, 'description': 'Moved east to (13, 52). Given my current position in a river valley with no immediate resources visible, and my goal to beco...', 'position_change': (13, 52)})
+2025-07-06 20:54:20.629 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Thorn(9) 行动 → ('Moved east: Given my current position in a river valley with no immediate resources visible, and my goal to beco.... Moved east to (13, 52). Given my current position in a river valley with no immediate resources visible, and my goal to beco...', {'success': True, 'description': 'Moved east to (13, 52). Given my current position in a river valley with no immediate resources visible, and my goal to beco...', 'position_change': (13, 52)})
+2025-07-06 20:54:21.359 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 1: ('Failed to collect fish: No resources at position (23, 13)', {'success': False, 'error': 'No resources at position (23, 13)'})
+2025-07-06 20:54:21.360 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Lira(1) 行动 → ('Failed to collect fish: No resources at position (23, 13)', {'success': False, 'error': 'No resources at position (23, 13)'})
+2025-07-06 20:54:21.399 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 5: ('Failed to collect stone: No resources at position (44, 24)', {'success': False, 'error': 'No resources at position (44, 24)'})
+2025-07-06 20:54:21.400 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(5) 行动 → ('Failed to collect stone: No resources at position (44, 24)', {'success': False, 'error': 'No resources at position (44, 24)'})
+2025-07-06 20:54:22.072 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 2: ("Moved east: Given that I'm currently in a river valley environment with no immediate resources visible, and my g.... Moved east to (41, 26). Given that I'm currently in a river valley environment with no immediate resources visible, and my g...", {'success': True, 'description': "Moved east to (41, 26). Given that I'm currently in a river valley environment with no immediate resources visible, and my g...", 'position_change': (41, 26)})
+2025-07-06 20:54:22.073 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rook(2) 行动 → ("Moved east: Given that I'm currently in a river valley environment with no immediate resources visible, and my g.... Moved east to (41, 26). Given that I'm currently in a river valley environment with no immediate resources visible, and my g...", {'success': True, 'description': "Moved east to (41, 26). Given that I'm currently in a river valley environment with no immediate resources visible, and my g...", 'position_change': (41, 26)})
+2025-07-06 20:54:22.443 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 4: ('Failed to collect wood: No resources at position (59, 10)', {'success': False, 'error': 'No resources at position (59, 10)'})
+2025-07-06 20:54:22.443 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(4) 行动 → ('Failed to collect wood: No resources at position (59, 10)', {'success': False, 'error': 'No resources at position (59, 10)'})
+2025-07-06 20:54:22.449 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:513 - [Trinity MCP] Adjudicated turn 0 with 10 events
+2025-07-06 20:54:22.450 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:553 - [Trinity MCP] Executed world management for turn 1
+2025-07-06 20:54:22.450 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 20:54:22.450 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 20:54:22.450 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 20:54:22.450 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 20:54:22.450 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 20:54:22.450 | INFO     | sociology_simulation.world:step:775 - Flint(0) is in critical health!
+2025-07-06 20:54:22.450 | INFO     | sociology_simulation.world:step:775 - Lira(1) is in critical health!
+2025-07-06 20:54:22.450 | INFO     | sociology_simulation.world:step:775 - Rook(2) is in critical health!
+2025-07-06 20:54:22.450 | INFO     | sociology_simulation.world:step:775 - Thorn(3) is in critical health!
+2025-07-06 20:54:22.450 | INFO     | sociology_simulation.world:step:775 - Rok(4) is in critical health!
+2025-07-06 20:54:22.450 | INFO     | sociology_simulation.world:step:775 - Rok(5) is in critical health!
+2025-07-06 20:54:22.450 | INFO     | sociology_simulation.world:step:775 - Rok(6) is in critical health!
+2025-07-06 20:54:22.450 | INFO     | sociology_simulation.world:step:775 - Rell(7) is in critical health!
+2025-07-06 20:54:22.451 | INFO     | sociology_simulation.world:step:775 - Rok(8) is in critical health!
+2025-07-06 20:54:22.451 | INFO     | sociology_simulation.world:step:775 - Thorn(9) is in critical health!
+2025-07-06 20:54:22.451 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 20:54:22.451 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 20:54:22.451 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 20:54:22.451 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 20:54:22.451 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 2 START ===
+2025-07-06 20:54:34.121 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 3: ('Failed to collect resource: No resources at position (40, 1)', {'success': False, 'error': 'No resources at position (40, 1)'})
+2025-07-06 20:54:34.122 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Thorn(3) 行动 → ('Failed to collect resource: No resources at position (40, 1)', {'success': False, 'error': 'No resources at position (40, 1)'})
+2025-07-06 20:54:34.305 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 2: ("Moved east: Given that I'm currently in a river valley environment with no immediate resources visible, and my g.... Moved east to (42, 26). Given that I'm currently in a river valley environment with no immediate resources visible, and my g...", {'success': True, 'description': "Moved east to (42, 26). Given that I'm currently in a river valley environment with no immediate resources visible, and my g...", 'position_change': (42, 26)})
+2025-07-06 20:54:34.305 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rook(2) 行动 → ("Moved east: Given that I'm currently in a river valley environment with no immediate resources visible, and my g.... Moved east to (42, 26). Given that I'm currently in a river valley environment with no immediate resources visible, and my g...", {'success': True, 'description': "Moved east to (42, 26). Given that I'm currently in a river valley environment with no immediate resources visible, and my g...", 'position_change': (42, 26)})
+2025-07-06 20:54:35.722 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 0: ("Moved east: Given that I'm currently in a river valley with no immediate resources or other agents nearby, and m.... Moved east to (44, 13). Given that I'm currently in a river valley with no immediate resources or other agents nearby, and m...", {'success': True, 'description': "Moved east to (44, 13). Given that I'm currently in a river valley with no immediate resources or other agents nearby, and m...", 'position_change': (44, 13)})
+2025-07-06 20:54:35.723 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Flint(0) 行动 → ("Moved east: Given that I'm currently in a river valley with no immediate resources or other agents nearby, and m.... Moved east to (44, 13). Given that I'm currently in a river valley with no immediate resources or other agents nearby, and m...", {'success': True, 'description': "Moved east to (44, 13). Given that I'm currently in a river valley with no immediate resources or other agents nearby, and m...", 'position_change': (44, 13)})
+2025-07-06 20:54:35.788 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 5: ('Failed to collect stone: No resources at position (44, 24)', {'success': False, 'error': 'No resources at position (44, 24)'})
+2025-07-06 20:54:35.789 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(5) 行动 → ('Failed to collect stone: No resources at position (44, 24)', {'success': False, 'error': 'No resources at position (44, 24)'})
+2025-07-06 20:54:35.874 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 4: ('Failed to collect wood: No resources at position (59, 10)', {'success': False, 'error': 'No resources at position (59, 10)'})
+2025-07-06 20:54:35.874 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(4) 行动 → ('Failed to collect wood: No resources at position (59, 10)', {'success': False, 'error': 'No resources at position (59, 10)'})
+2025-07-06 20:54:36.813 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 1: ('Failed to collect fish: No resources at position (23, 13)', {'success': False, 'error': 'No resources at position (23, 13)'})
+2025-07-06 20:54:36.813 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Lira(1) 行动 → ('Failed to collect fish: No resources at position (23, 13)', {'success': False, 'error': 'No resources at position (23, 13)'})
+2025-07-06 20:54:36.903 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 6: ('Failed to collect wood: No resources at position (15, 17)', {'success': False, 'error': 'No resources at position (15, 17)'})
+2025-07-06 20:54:36.904 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(6) 行动 → ('Failed to collect wood: No resources at position (15, 17)', {'success': False, 'error': 'No resources at position (15, 17)'})
+2025-07-06 20:54:37.756 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 8: ('Moved north: Given my current situation surrounded by swamps with no immediate resources or agents nearby, and co.... Moved north to (25, 0). Given my current situation surrounded by swamps with no immediate resources or agents nearby, and co...', {'success': True, 'description': 'Moved north to (25, 0). Given my current situation surrounded by swamps with no immediate resources or agents nearby, and co...', 'position_change': (25, 0)})
+2025-07-06 20:54:37.756 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(8) 行动 → ('Moved north: Given my current situation surrounded by swamps with no immediate resources or agents nearby, and co.... Moved north to (25, 0). Given my current situation surrounded by swamps with no immediate resources or agents nearby, and co...', {'success': True, 'description': 'Moved north to (25, 0). Given my current situation surrounded by swamps with no immediate resources or agents nearby, and co...', 'position_change': (25, 0)})
+2025-07-06 20:54:38.397 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 9: ("Moved north: Given that I'm currently in a river valley environment with no immediate resources visible, and my g.... Moved north to (13, 51). Given that I'm currently in a river valley environment with no immediate resources visible, and my g...", {'success': True, 'description': "Moved north to (13, 51). Given that I'm currently in a river valley environment with no immediate resources visible, and my g...", 'position_change': (13, 51)})
+2025-07-06 20:54:38.397 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Thorn(9) 行动 → ("Moved north: Given that I'm currently in a river valley environment with no immediate resources visible, and my g.... Moved north to (13, 51). Given that I'm currently in a river valley environment with no immediate resources visible, and my g...", {'success': True, 'description': "Moved north to (13, 51). Given that I'm currently in a river valley environment with no immediate resources visible, and my g...", 'position_change': (13, 51)})
+2025-07-06 20:54:38.398 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 7: ('Failed to collect fish: No resources at position (13, 17)', {'success': False, 'error': 'No resources at position (13, 17)'})
+2025-07-06 20:54:38.398 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rell(7) 行动 → ('Failed to collect fish: No resources at position (13, 17)', {'success': False, 'error': 'No resources at position (13, 17)'})
+2025-07-06 20:54:38.399 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:513 - [Trinity MCP] Adjudicated turn 2 with 0 events
+2025-07-06 20:54:38.399 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:553 - [Trinity MCP] Executed world management for turn 3
+2025-07-06 20:54:38.399 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 20:54:38.399 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 20:54:38.399 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 20:54:38.399 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 20:54:38.399 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 20:54:38.400 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 20:54:38.400 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 20:54:38.400 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 20:54:38.400 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 20:54:38.400 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 4 START ===
+2025-07-06 20:54:49.659 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 3: ("Moved east: Given that I'm currently in a river valley environment with no visible resources or other agents nea.... Moved east to (41, 1). Given that I'm currently in a river valley environment with no visible resources or other agents nea...", {'success': True, 'description': "Moved east to (41, 1). Given that I'm currently in a river valley environment with no visible resources or other agents nea...", 'position_change': (41, 1)})
+2025-07-06 20:54:49.660 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Thorn(3) 行动 → ("Moved east: Given that I'm currently in a river valley environment with no visible resources or other agents nea.... Moved east to (41, 1). Given that I'm currently in a river valley environment with no visible resources or other agents nea...", {'success': True, 'description': "Moved east to (41, 1). Given that I'm currently in a river valley environment with no visible resources or other agents nea...", 'position_change': (41, 1)})
+2025-07-06 20:54:50.410 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 0: ("Collected stone: Given that I'm currently in a river valley with no visible resources or other agents nearby, and my .... Collected 1 flint. Given that I'm currently in a river valley with no visible resources or other agents nearby, and my ...", {'success': True, 'description': "Collected 1 flint. Given that I'm currently in a river valley with no visible resources or other agents nearby, and my ...", 'inventory_changes': {'flint': 1}})
+2025-07-06 20:54:50.410 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Flint(0) 行动 → ("Collected stone: Given that I'm currently in a river valley with no visible resources or other agents nearby, and my .... Collected 1 flint. Given that I'm currently in a river valley with no visible resources or other agents nearby, and my ...", {'success': True, 'description': "Collected 1 flint. Given that I'm currently in a river valley with no visible resources or other agents nearby, and my ...", 'inventory_changes': {'flint': 1}})
+2025-07-06 20:54:50.848 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 9: ('Moved north: Given my current situation and goal of becoming the most knowledgeable elder by discovering edible p.... Moved north to (13, 50). Given my current situation and goal of becoming the most knowledgeable elder by discovering edible p...', {'success': True, 'description': 'Moved north to (13, 50). Given my current situation and goal of becoming the most knowledgeable elder by discovering edible p...', 'position_change': (13, 50)})
+2025-07-06 20:54:50.848 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Thorn(9) 行动 → ('Moved north: Given my current situation and goal of becoming the most knowledgeable elder by discovering edible p.... Moved north to (13, 50). Given my current situation and goal of becoming the most knowledgeable elder by discovering edible p...', {'success': True, 'description': 'Moved north to (13, 50). Given my current situation and goal of becoming the most knowledgeable elder by discovering edible p...', 'position_change': (13, 50)})
+2025-07-06 20:54:52.420 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 5: ('Failed to collect stone: No resources at position (44, 24)', {'success': False, 'error': 'No resources at position (44, 24)'})
+2025-07-06 20:54:52.421 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(5) 行动 → ('Failed to collect stone: No resources at position (44, 24)', {'success': False, 'error': 'No resources at position (44, 24)'})
+2025-07-06 20:54:57.544 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 7: ('Failed to collect resource: No resources at position (13, 17)', {'success': False, 'error': 'No resources at position (13, 17)'})
+2025-07-06 20:54:57.544 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rell(7) 行动 → ('Failed to collect resource: No resources at position (13, 17)', {'success': False, 'error': 'No resources at position (13, 17)'})
+2025-07-06 20:54:58.265 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 4: ('Failed to collect wood: No resources at position (59, 10)', {'success': False, 'error': 'No resources at position (59, 10)'})
+2025-07-06 20:54:58.266 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(4) 行动 → ('Failed to collect wood: No resources at position (59, 10)', {'success': False, 'error': 'No resources at position (59, 10)'})
+2025-07-06 20:54:59.388 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 6: ('Failed to collect wood: No resources at position (15, 17)', {'success': False, 'error': 'No resources at position (15, 17)'})
+2025-07-06 20:54:59.388 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(6) 行动 → ('Failed to collect wood: No resources at position (15, 17)', {'success': False, 'error': 'No resources at position (15, 17)'})
+2025-07-06 20:54:59.458 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 1: ('Failed to collect fish: No resources at position (23, 13)', {'success': False, 'error': 'No resources at position (23, 13)'})
+2025-07-06 20:54:59.459 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Lira(1) 行动 → ('Failed to collect fish: No resources at position (23, 13)', {'success': False, 'error': 'No resources at position (23, 13)'})
+2025-07-06 20:55:00.080 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 2: ("Moved east: Given that I'm currently in a river valley environment with no immediate resources visible and anoth.... Moved east to (43, 26). Given that I'm currently in a river valley environment with no immediate resources visible and anoth...", {'success': True, 'description': "Moved east to (43, 26). Given that I'm currently in a river valley environment with no immediate resources visible and anoth...", 'position_change': (43, 26)})
+2025-07-06 20:55:00.080 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rook(2) 行动 → ("Moved east: Given that I'm currently in a river valley environment with no immediate resources visible and anoth.... Moved east to (43, 26). Given that I'm currently in a river valley environment with no immediate resources visible and anoth...", {'success': True, 'description': "Moved east to (43, 26). Given that I'm currently in a river valley environment with no immediate resources visible and anoth...", 'position_change': (43, 26)})
+2025-07-06 20:55:00.823 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 8: ('Collected fish: Given my current situation surrounded by swamps with no immediate resources or agents nearby, and co.... Collected 1 fish. Given my current situation surrounded by swamps with no immediate resources or agents nearby, and co...', {'success': True, 'description': 'Collected 1 fish. Given my current situation surrounded by swamps with no immediate resources or agents nearby, and co...', 'inventory_changes': {'fish': 1}})
+2025-07-06 20:55:00.823 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(8) 行动 → ('Collected fish: Given my current situation surrounded by swamps with no immediate resources or agents nearby, and co.... Collected 1 fish. Given my current situation surrounded by swamps with no immediate resources or agents nearby, and co...', {'success': True, 'description': 'Collected 1 fish. Given my current situation surrounded by swamps with no immediate resources or agents nearby, and co...', 'inventory_changes': {'fish': 1}})
+2025-07-06 20:55:00.824 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:513 - [Trinity MCP] Adjudicated turn 4 with 0 events
+2025-07-06 20:55:00.824 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:553 - [Trinity MCP] Executed world management for turn 5
+2025-07-06 20:55:00.833 | INFO     | sociology_simulation.world:step:761 - Web data exported to: web_data/simulation_turn_005.json
+2025-07-06 20:55:00.834 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 20:55:00.834 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 20:55:00.834 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 20:55:00.834 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 20:55:00.834 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 20:55:00.834 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 20:55:00.834 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 20:55:00.834 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 20:55:00.834 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 20:55:00.834 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 6 START ===
+2025-07-06 20:55:11.784 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 2: ("Moved east: Given that I'm currently in a river valley with no immediate resources visible, and my goal is to di.... Moved east to (44, 26). Given that I'm currently in a river valley with no immediate resources visible, and my goal is to di...", {'success': True, 'description': "Moved east to (44, 26). Given that I'm currently in a river valley with no immediate resources visible, and my goal is to di...", 'position_change': (44, 26)})
+2025-07-06 20:55:11.784 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rook(2) 行动 → ("Moved east: Given that I'm currently in a river valley with no immediate resources visible, and my goal is to di.... Moved east to (44, 26). Given that I'm currently in a river valley with no immediate resources visible, and my goal is to di...", {'success': True, 'description': "Moved east to (44, 26). Given that I'm currently in a river valley with no immediate resources visible, and my goal is to di...", 'position_change': (44, 26)})
+2025-07-06 20:55:12.975 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 8: ('Moved east: Given my current position surrounded by swamps with no immediate resources or other agents visible, .... Moved east to (26, 0). Given my current position surrounded by swamps with no immediate resources or other agents visible, ...', {'success': True, 'description': 'Moved east to (26, 0). Given my current position surrounded by swamps with no immediate resources or other agents visible, ...', 'position_change': (26, 0)})
+2025-07-06 20:55:12.976 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(8) 行动 → ('Moved east: Given my current position surrounded by swamps with no immediate resources or other agents visible, .... Moved east to (26, 0). Given my current position surrounded by swamps with no immediate resources or other agents visible, ...', {'success': True, 'description': 'Moved east to (26, 0). Given my current position surrounded by swamps with no immediate resources or other agents visible, ...', 'position_change': (26, 0)})
+2025-07-06 20:55:12.985 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 6: ('Failed to collect wood: No resources at position (15, 17)', {'success': False, 'error': 'No resources at position (15, 17)'})
+2025-07-06 20:55:12.985 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(6) 行动 → ('Failed to collect wood: No resources at position (15, 17)', {'success': False, 'error': 'No resources at position (15, 17)'})
+2025-07-06 20:55:13.370 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 3: ('Failed to collect resource: No resources at position (41, 1)', {'success': False, 'error': 'No resources at position (41, 1)'})
+2025-07-06 20:55:13.371 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Thorn(3) 行动 → ('Failed to collect resource: No resources at position (41, 1)', {'success': False, 'error': 'No resources at position (41, 1)'})
+2025-07-06 20:55:13.449 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 4: ('Failed to collect wood: No resources at position (59, 10)', {'success': False, 'error': 'No resources at position (59, 10)'})
+2025-07-06 20:55:13.449 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(4) 行动 → ('Failed to collect wood: No resources at position (59, 10)', {'success': False, 'error': 'No resources at position (59, 10)'})
+2025-07-06 20:55:13.634 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 7: ('Failed to collect resource: No resources at position (13, 17)', {'success': False, 'error': 'No resources at position (13, 17)'})
+2025-07-06 20:55:13.635 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rell(7) 行动 → ('Failed to collect resource: No resources at position (13, 17)', {'success': False, 'error': 'No resources at position (13, 17)'})
+2025-07-06 20:55:14.136 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 1: ('Failed to collect fish: No resources at position (23, 13)', {'success': False, 'error': 'No resources at position (23, 13)'})
+2025-07-06 20:55:14.136 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Lira(1) 行动 → ('Failed to collect fish: No resources at position (23, 13)', {'success': False, 'error': 'No resources at position (23, 13)'})
+2025-07-06 20:55:14.443 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 9: ('Moved north: Given my current situation and goal of becoming the most knowledgeable elder by discovering edible p.... Moved north to (13, 49). Given my current situation and goal of becoming the most knowledgeable elder by discovering edible p...', {'success': True, 'description': 'Moved north to (13, 49). Given my current situation and goal of becoming the most knowledgeable elder by discovering edible p...', 'position_change': (13, 49)})
+2025-07-06 20:55:14.444 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Thorn(9) 行动 → ('Moved north: Given my current situation and goal of becoming the most knowledgeable elder by discovering edible p.... Moved north to (13, 49). Given my current situation and goal of becoming the most knowledgeable elder by discovering edible p...', {'success': True, 'description': 'Moved north to (13, 49). Given my current situation and goal of becoming the most knowledgeable elder by discovering edible p...', 'position_change': (13, 49)})
+2025-07-06 20:55:14.643 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 0: ('Failed to collect stone: No resources at position (44, 13)', {'success': False, 'error': 'No resources at position (44, 13)'})
+2025-07-06 20:55:14.644 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Flint(0) 行动 → ('Failed to collect stone: No resources at position (44, 13)', {'success': False, 'error': 'No resources at position (44, 13)'})
+2025-07-06 20:55:16.038 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:427 - MCP action executed directly for agent 5: ('Failed to collect wood: No resources at position (44, 24)', {'success': False, 'error': 'No resources at position (44, 24)'})
+2025-07-06 20:55:16.039 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(5) 行动 → ('Failed to collect wood: No resources at position (44, 24)', {'success': False, 'error': 'No resources at position (44, 24)'})
+2025-07-06 20:55:16.040 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_adjudicate:513 - [Trinity MCP] Adjudicated turn 6 with 0 events
+2025-07-06 20:55:16.040 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_execute_actions:553 - [Trinity MCP] Executed world management for turn 7
+2025-07-06 20:55:16.040 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 20:55:16.040 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 20:55:16.040 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 20:55:16.040 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 20:55:16.040 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 20:55:16.040 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 20:55:16.040 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 20:55:16.040 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 20:55:16.040 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 20:55:16.041 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 8 START ===

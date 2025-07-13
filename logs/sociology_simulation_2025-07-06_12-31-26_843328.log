@@ -1,0 +1,94 @@
+2025-07-06 12:31:26.852 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 12:31:26.852 | INFO     | __main__:main:83 - Starting sociology simulation with Hydra configuration
+2025-07-06 12:31:26.852 | INFO     | __main__:main:84 - Initialized 12 prompt templates
+2025-07-06 12:31:26.852 | INFO     | __main__:main:85 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 12:31:26.852 | INFO     | __main__:main:86 - Era: 石器时代
+2025-07-06 12:31:26.852 | INFO     | __main__:main:87 - World size: 64x64
+2025-07-06 12:31:26.852 | INFO     | __main__:main:88 - Number of agents: 10
+2025-07-06 12:31:26.852 | INFO     | __main__:main:89 - Turns: 1000
+2025-07-06 12:31:42.762 | SUCCESS  | sociology_simulation.trinity:_generate_initial_rules:49 - [Trinity] Generated rules for era: 石器时代
+2025-07-06 12:31:42.763 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 12:31:42.764 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 12:31:42.764 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, GRASSLAND, RIVER, MOUNTAIN, SWAMP
+2025-07-06 12:31:42.765 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 12:31:42.765 | INFO     | sociology_simulation.world:initialize:81 -   WOOD:
+2025-07-06 12:31:42.765 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 60.0% chance
+2025-07-06 12:31:42.765 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 20.0% chance
+2025-07-06 12:31:42.766 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 30.0% chance
+2025-07-06 12:31:42.766 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 12:31:42.766 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 50.0% chance
+2025-07-06 12:31:42.766 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 30.0% chance
+2025-07-06 12:31:42.766 | INFO     | sociology_simulation.world:initialize:81 -   FLINT:
+2025-07-06 12:31:42.767 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 70.0% chance
+2025-07-06 12:31:42.767 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 20.0% chance
+2025-07-06 12:31:42.767 | INFO     | sociology_simulation.world:initialize:81 -   BERRIES:
+2025-07-06 12:31:42.768 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 40.0% chance
+2025-07-06 12:31:42.768 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 30.0% chance
+2025-07-06 12:31:42.769 | INFO     | sociology_simulation.world:initialize:81 -   CLAY:
+2025-07-06 12:31:42.769 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 40.0% chance
+2025-07-06 12:31:42.769 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 50.0% chance
+2025-07-06 12:31:42.770 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 12:31:42.770 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 81238
+2025-07-06 12:31:42.889 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 12:31:42.892 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 12:31:42.892 | INFO     | sociology_simulation.world:initialize:96 -   BERRIES: 871 units
+2025-07-06 12:31:42.892 | INFO     | sociology_simulation.world:initialize:96 -   CLAY: 305 units
+2025-07-06 12:31:42.892 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 327 units
+2025-07-06 12:31:42.892 | INFO     | sociology_simulation.world:initialize:96 -   FLINT: 915 units
+2025-07-06 12:31:42.892 | INFO     | sociology_simulation.world:initialize:96 -   WOOD: 666 units
+2025-07-06 12:31:42.892 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 12:31:49.594 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(0)[0m [94mpersonal goal ➜[0m [3mLead my tribe to discover and settle in a new fertile valley with abundant resources and teach yo...[0m
+2025-07-06 12:31:49.840 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(6)[0m [94mpersonal goal ➜[0m [3mBecome the most knowledgeable elder in the tribe by discovering and documenting all edible plants...[0m
+2025-07-06 12:31:49.916 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlare(9)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled fisherman and shell collector in the tribe to provide food and decorative...[0m
+2025-07-06 12:31:50.310 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mStorm(5)[0m [94mpersonal goal ➜[0m [3mBecome the most respected elder in my tribe by using my charm to mediate conflicts and organize s...[0m
+2025-07-06 12:31:50.429 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(8)[0m [94mpersonal goal ➜[0m [3mBecome the respected elder who trains the strongest hunters and most skilled toolmakers in the tr...[0m
+2025-07-06 12:31:50.541 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(2)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by consistently bringing back the largest game.[0m
+2025-07-06 12:31:50.630 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(3)[0m [94mpersonal goal ➜[0m [3mBecome the respected elder who teaches younger tribe members how to craft durable tools and weapo...[0m
+2025-07-06 12:31:50.701 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(7)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by crafting superior stone tools and leading successful ...[0m
+2025-07-06 12:31:50.788 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(4)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by crafting superior stone tools and leading successful ...[0m
+2025-07-06 12:31:51.117 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(1)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled hunter and gatherer in the tribe by mastering tracking techniques, discov...[0m
+2025-07-06 12:31:51.119 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 12:31:54.608 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(7)[0m: (age 29) attempting: "collect flint from the nearby mountain at [58,11]"
+2025-07-06 12:31:54.609 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: Replacement index 0 out of range for positional args tuple
+2025-07-06 12:31:54.609 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(7):
+2025-07-06 12:31:54.609 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(7)[0m [93m行动 →[0m [36m"collect flint from the nearby mountain at [58,11]"[0m
+2025-07-06 12:31:54.881 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlare(9)[0m: (age 22) attempting: "move to the river at [22,44] to fish"
+2025-07-06 12:31:54.882 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: Replacement index 0 out of range for positional args tuple
+2025-07-06 12:31:54.883 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(9):
+2025-07-06 12:31:54.883 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlare(9)[0m [93m行动 →[0m [36m"move to the river at [22,44] to fish"[0m
+2025-07-06 12:31:55.077 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(6)[0m: (age 70) attempting: "move west to examine the berries at (52,7)"
+2025-07-06 12:31:55.078 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: Replacement index 0 out of range for positional args tuple
+2025-07-06 12:31:55.078 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(6):
+2025-07-06 12:31:55.079 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(0)[0m: (age 61) attempting: "Move east towards the river to explore for potential se...
+2025-07-06 12:31:55.079 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(6)[0m [93m行动 →[0m [36m"move west to examine the berries at (52,7)"[0m
+2025-07-06 12:31:55.080 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: Replacement index 0 out of range for positional args tuple
+2025-07-06 12:31:55.080 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 12:31:55.080 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(0)[0m [93m行动 →[0m [36m"Move east towards the river to explore for potential settlement locations."[0m
+2025-07-06 12:31:55.136 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(5)[0m: (age 41) attempting: "Move south to the grassland with berries at position [4...
+2025-07-06 12:31:55.137 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: Replacement index 0 out of range for positional args tuple
+2025-07-06 12:31:55.137 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(5):
+2025-07-06 12:31:55.138 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mStorm(5)[0m [93m行动 →[0m [36m"Move south to the grassland with berries at position [47,50] to gather food for the tribe."[0m
+2025-07-06 12:31:55.243 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(8)[0m: (age 61) attempting: "Gather flint from the nearby grassland to start learnin...
+2025-07-06 12:31:55.244 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: Replacement index 0 out of range for positional args tuple
+2025-07-06 12:31:55.244 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 12:31:55.245 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(8)[0m [93m行动 →[0m [36m"Gather flint from the nearby grassland to start learning toolmaking."[0m
+2025-07-06 12:31:55.270 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(2)[0m: (age 50) attempting: "Gather flint from the grassland at (22,34) to craft hun...
+2025-07-06 12:31:55.270 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: Replacement index 0 out of range for positional args tuple
+2025-07-06 12:31:55.270 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 12:31:55.271 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(2)[0m [93m行动 →[0m [36m"Gather flint from the grassland at (22,34) to craft hunting tools."[0m
+2025-07-06 12:31:56.176 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(1)[0m: (age 22) attempting: "Collect flint at position [59, 22] to craft better tools."
+2025-07-06 12:31:56.177 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: Replacement index 0 out of range for positional args tuple
+2025-07-06 12:31:56.177 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(1):
+2025-07-06 12:31:56.178 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(1)[0m [93m行动 →[0m [36m"Collect flint at position [59, 22] to craft better tools."[0m
+2025-07-06 12:31:56.990 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(4)[0m: (age 21) attempting: "Collect flint at position [29, 39] to craft better tools."
+2025-07-06 12:31:56.991 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: Replacement index 0 out of range for positional args tuple
+2025-07-06 12:31:56.991 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(4):
+2025-07-06 12:31:56.992 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(4)[0m [93m行动 →[0m [36m"Collect flint at position [29, 39] to craft better tools."[0m
+2025-07-06 12:31:57.120 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(3)[0m: (age 61) attempting: "Collect the flint at position [26,51] to start gatherin...
+2025-07-06 12:31:57.121 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: Replacement index 0 out of range for positional args tuple
+2025-07-06 12:31:57.121 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 12:31:57.122 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(3)[0m [93m行动 →[0m [36m"Collect the flint at position [26,51] to start gathering materials for tool-making."[0m

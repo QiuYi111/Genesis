@@ -1,0 +1,18 @@
+2025-07-06 20:37:12.334 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 20:37:12.334 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 20:37:12.337 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:361 - Applying MCP integration...
+2025-07-06 20:37:12.337 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:445 - Agent actions patched for MCP
+2025-07-06 20:37:12.337 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:566 - Trinity rule generation, adjudication, and action execution patched for MCP
+2025-07-06 20:37:12.337 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:378 - MCP integration applied successfully
+2025-07-06 20:37:12.337 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 20:37:12.337 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 20:37:12.337 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 20:37:12.337 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 20:37:12.337 | INFO     | __main__:main:93 - Era: 石器时代
+2025-07-06 20:37:12.337 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 20:37:12.337 | INFO     | __main__:main:95 - Number of agents: 10
+2025-07-06 20:37:12.337 | INFO     | __main__:main:96 - Turns: 1000
+2025-07-06 20:37:12.338 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 20:37:47.247 | WARNING  | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:673 - Failed to parse terrain line: TERRAIN TYPES:
+2025-07-06 20:37:47.247 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:696 - Trinity created 0 terrains, 1 resources, 0 rules
+2025-07-06 20:37:47.248 | ERROR    | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:477 - MCP Trinity rule generation failed: MCP failed to generate terrain types for era '石器时代'. This simulation requires MCP integration to function properly.

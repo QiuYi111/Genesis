@@ -1,0 +1,4057 @@
+{
+  "world": {
+    "size": 32,
+    "turn": 48,
+    "era": "Stone Age",
+    "terrain": [
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN",
+      "WATER",
+      "WATER",
+      "DESERT",
+      "DESERT",
+      "DESERT",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "GRASSLAND",
+      "FOREST",
+      "FOREST",
+      "FOREST",
+      "MOUNTAIN",
+      "MOUNTAIN"
+    ],
+    "resources": [
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {},
+      {},
+      {
+        "wood": 4
+      },
+      {
+        "wood": 4
+      },
+      {},
+      {},
+      {
+        "water": 4
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "wood": 1
+      },
+      {
+        "fruit": 3
+      },
+      {
+        "fruit": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {
+        "food": 2
+      },
+      {
+        "food": 3
+      },
+      {
+        "food": 2
+      },
+      {},
+      {},
+      {
+        "wood": 4
+      },
+      {},
+      {
+        "stone": 1
+      },
+      {
+        "water": 5
+      },
+      {
+        "water": 5
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {
+        "wood": 4
+      },
+      {
+        "wood": 4
+      },
+      {
+        "wood": 5
+      },
+      {},
+      {
+        "stone": 3
+      },
+      {
+        "food": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "wood": 3
+      },
+      {},
+      {},
+      {},
+      {
+        "stone": 4
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {},
+      {},
+      {
+        "wood": 2
+      },
+      {
+        "wood": 1,
+        "fruit": 3
+      },
+      {
+        "wood": 4
+      },
+      {},
+      {
+        "stone": 4
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {
+        "food": 1
+      },
+      {},
+      {},
+      {
+        "wood": 2,
+        "fruit": 3
+      },
+      {},
+      {
+        "wood": 5
+      },
+      {
+        "wood": 4
+      },
+      {
+        "stone": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {
+        "food": 1
+      },
+      {
+        "wood": 1,
+        "fruit": 2
+      },
+      {
+        "wood": 1
+      },
+      {
+        "fruit": 2
+      },
+      {},
+      {
+        "stone": 4
+      },
+      {
+        "water": 5
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "wood": 3
+      },
+      {},
+      {},
+      {
+        "wood": 1
+      },
+      {},
+      {},
+      {
+        "water": 4,
+        "food": 2
+      },
+      {
+        "water": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {
+        "food": 2
+      },
+      {
+        "fruit": 1
+      },
+      {
+        "wood": 1
+      },
+      {
+        "wood": 4
+      },
+      {},
+      {},
+      {
+        "water": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {
+        "wood": 3
+      },
+      {},
+      {
+        "wood": 4
+      },
+      {
+        "stone": 2
+      },
+      {
+        "stone": 4
+      },
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 3
+      },
+      {
+        "wood": 5,
+        "fruit": 2
+      },
+      {
+        "wood": 5
+      },
+      {
+        "fruit": 1
+      },
+      {},
+      {},
+      {
+        "water": 2
+      },
+      {
+        "water": 6
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "fruit": 2
+      },
+      {
+        "wood": 1,
+        "fruit": 2
+      },
+      {
+        "stone": 4
+      },
+      {},
+      {
+        "water": 3
+      },
+      {},
+      {},
+      {
+        "water": 5
+      },
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {
+        "food": 1
+      },
+      {},
+      {},
+      {},
+      {
+        "wood": 2
+      },
+      {
+        "wood": 1
+      },
+      {
+        "stone": 2
+      },
+      {},
+      {},
+      {
+        "water": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 3
+      },
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {
+        "wood": 5,
+        "fruit": 2
+      },
+      {},
+      {},
+      {},
+      {
+        "water": 5
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "fruit": 1
+      },
+      {},
+      {
+        "wood": 2,
+        "fruit": 3
+      },
+      {},
+      {},
+      {
+        "water": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {
+        "fruit": 3
+      },
+      {
+        "wood": 3
+      },
+      {
+        "wood": 3,
+        "fruit": 3
+      },
+      {
+        "stone": 3
+      },
+      {},
+      {
+        "water": 6
+      },
+      {
+        "water": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 3
+      },
+      {
+        "wood": 3,
+        "fruit": 1
+      },
+      {},
+      {
+        "wood": 2
+      },
+      {},
+      {},
+      {},
+      {
+        "water": 4,
+        "food": 2
+      },
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {},
+      {
+        "food": 3
+      },
+      {},
+      {
+        "fruit": 2
+      },
+      {
+        "fruit": 1
+      },
+      {},
+      {},
+      {
+        "stone": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {},
+      {
+        "fruit": 2
+      },
+      {
+        "stone": 2
+      },
+      {
+        "stone": 2
+      },
+      {
+        "food": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "wood": 4
+      },
+      {
+        "wood": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "water": 4
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "wood": 4,
+        "fruit": 1
+      },
+      {},
+      {
+        "fruit": 2
+      },
+      {},
+      {},
+      {},
+      {
+        "water": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {
+        "food": 2
+      },
+      {
+        "food": 1
+      },
+      {
+        "wood": 3,
+        "fruit": 2
+      },
+      {
+        "wood": 3
+      },
+      {
+        "stone": 3
+      },
+      {
+        "stone": 4
+      },
+      {
+        "stone": 3
+      },
+      {
+        "water": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {
+        "wood": 5,
+        "fruit": 3
+      },
+      {
+        "fruit": 2
+      },
+      {
+        "fruit": 2
+      },
+      {},
+      {},
+      {
+        "water": 4
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 3
+      },
+      {},
+      {
+        "wood": 1
+      },
+      {},
+      {
+        "wood": 2
+      },
+      {},
+      {
+        "stone": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {
+        "wood": 4
+      },
+      {
+        "wood": 2,
+        "fruit": 1
+      },
+      {
+        "wood": 1
+      },
+      {
+        "wood": 2,
+        "fruit": 3
+      },
+      {},
+      {},
+      {
+        "water": 4,
+        "food": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "wood": 4
+      },
+      {
+        "wood": 1,
+        "fruit": 1
+      },
+      {
+        "wood": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {},
+      {
+        "wood": 4,
+        "fruit": 3
+      },
+      {},
+      {
+        "fruit": 3
+      },
+      {
+        "fruit": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "wood": 2
+      },
+      {
+        "fruit": 3
+      },
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "wood": 3,
+        "fruit": 2
+      },
+      {},
+      {
+        "fruit": 1
+      },
+      {
+        "stone": 4
+      },
+      {},
+      {},
+      {},
+      {
+        "water": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {
+        "fruit": 2
+      },
+      {
+        "fruit": 3
+      },
+      {},
+      {},
+      {},
+      {
+        "water": 6,
+        "food": 1
+      },
+      {
+        "food": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {
+        "food": 3
+      },
+      {
+        "fruit": 1
+      },
+      {},
+      {
+        "stone": 4
+      },
+      {},
+      {},
+      {},
+      {
+        "water": 4
+      },
+      {
+        "water": 3,
+        "food": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "wood": 3
+      },
+      {
+        "wood": 5
+      },
+      {},
+      {
+        "stone": 3
+      },
+      {},
+      {
+        "water": 5,
+        "food": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 3
+      },
+      {},
+      {
+        "fruit": 3
+      },
+      {
+        "fruit": 1
+      },
+      {
+        "wood": 4
+      },
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "wood": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {
+        "food": 2
+      },
+      {},
+      {},
+      {
+        "wood": 1
+      },
+      {},
+      {},
+      {
+        "water": 4
+      },
+      {
+        "water": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "wood": 1
+      },
+      {
+        "stone": 2
+      },
+      {
+        "stone": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {},
+      {
+        "wood": 1
+      },
+      {
+        "wood": 5
+      },
+      {
+        "stone": 1
+      },
+      {},
+      {
+        "water": 6,
+        "food": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "fruit": 3
+      },
+      {},
+      {},
+      {
+        "stone": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {
+        "food": 1
+      },
+      {
+        "food": 2
+      },
+      {},
+      {},
+      {
+        "wood": 2,
+        "fruit": 1
+      },
+      {
+        "wood": 3
+      },
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "wood": 4,
+        "fruit": 3
+      },
+      {
+        "fruit": 2
+      },
+      {
+        "fruit": 2
+      },
+      {},
+      {
+        "stone": 2
+      },
+      {
+        "water": 3,
+        "food": 1
+      },
+      {
+        "water": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {
+        "food": 1
+      },
+      {
+        "food": 1
+      },
+      {},
+      {
+        "wood": 3,
+        "fruit": 2
+      },
+      {
+        "wood": 2,
+        "fruit": 1
+      },
+      {
+        "wood": 4,
+        "fruit": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "fruit": 2
+      },
+      {},
+      {},
+      {
+        "stone": 2
+      },
+      {
+        "stone": 3
+      },
+      {
+        "food": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {
+        "food": 3
+      },
+      {},
+      {
+        "wood": 2,
+        "fruit": 3
+      },
+      {
+        "fruit": 3
+      },
+      {
+        "wood": 2
+      },
+      {},
+      {
+        "stone": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "wood": 2
+      },
+      {},
+      {},
+      {
+        "fruit": 2
+      },
+      {
+        "wood": 3
+      },
+      {},
+      {},
+      {
+        "water": 4
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "stone": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {
+        "fruit": 1
+      },
+      {},
+      {
+        "wood": 4,
+        "fruit": 2
+      },
+      {
+        "fruit": 1
+      },
+      {},
+      {},
+      {},
+      {
+        "water": 6,
+        "food": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "wood": 2
+      },
+      {},
+      {
+        "fruit": 1
+      },
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "wood": 1,
+        "fruit": 1
+      },
+      {
+        "wood": 1
+      },
+      {
+        "fruit": 3
+      },
+      {},
+      {
+        "stone": 4
+      },
+      {
+        "stone": 3
+      },
+      {
+        "stone": 1
+      },
+      {
+        "water": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {},
+      {
+        "wood": 3
+      },
+      {
+        "wood": 2,
+        "fruit": 3
+      },
+      {
+        "wood": 3,
+        "fruit": 2
+      },
+      {},
+      {},
+      {
+        "water": 4
+      },
+      {
+        "water": 4,
+        "food": 1
+      },
+      {},
+      {},
+      {},
+      {
+        "food": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "stone": 4
+      },
+      {
+        "water": 6
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {},
+      {
+        "wood": 3
+      },
+      {},
+      {
+        "stone": 3
+      },
+      {},
+      {
+        "water": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {
+        "wood": 4
+      },
+      {},
+      {
+        "wood": 1,
+        "fruit": 3
+      },
+      {},
+      {},
+      {
+        "water": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "stone": 4
+      },
+      {
+        "stone": 2
+      },
+      {
+        "water": 4,
+        "food": 2
+      },
+      {
+        "water": 3
+      },
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {
+        "food": 2
+      },
+      {
+        "food": 3
+      },
+      {},
+      {},
+      {
+        "fruit": 3
+      },
+      {},
+      {
+        "stone": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "stone": 2
+      },
+      {
+        "water": 4,
+        "food": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "stone": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {},
+      {},
+      {
+        "stone": 1
+      },
+      {},
+      {
+        "water": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {
+        "fruit": 2
+      },
+      {},
+      {},
+      {},
+      {
+        "stone": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "fruit": 1
+      },
+      {},
+      {
+        "stone": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "wood": 3
+      },
+      {
+        "wood": 2
+      },
+      {},
+      {
+        "stone": 1
+      },
+      {
+        "water": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {
+        "wood": 3,
+        "fruit": 3
+      },
+      {
+        "wood": 3
+      },
+      {
+        "fruit": 1
+      },
+      {
+        "stone": 2
+      },
+      {
+        "stone": 4
+      },
+      {
+        "water": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "fruit": 3
+      },
+      {
+        "fruit": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "water": 2
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 1
+      },
+      {},
+      {
+        "wood": 3,
+        "fruit": 3
+      },
+      {},
+      {},
+      {
+        "fruit": 2
+      },
+      {},
+      {},
+      {
+        "water": 5
+      },
+      {
+        "water": 3,
+        "food": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "fruit": 2
+      },
+      {
+        "wood": 2,
+        "fruit": 2
+      },
+      {
+        "wood": 2
+      },
+      {},
+      {},
+      {
+        "water": 5
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 2
+      },
+      {},
+      {},
+      {},
+      {
+        "wood": 2
+      },
+      {},
+      {
+        "wood": 2,
+        "fruit": 1
+      },
+      {},
+      {
+        "wood": 4
+      },
+      {},
+      {
+        "stone": 1
+      },
+      {
+        "water": 6
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "food": 3
+      },
+      {},
+      {},
+      {
+        "wood": 3
+      },
+      {
+        "wood": 4
+      },
+      {},
+      {},
+      {
+        "water": 2
+      },
+      {
+        "water": 3
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "groups": [],
+    "stats": {
+      "total_agents": 10,
+      "active_agents": 10,
+      "total_groups": 0,
+      "total_resources": 877,
+      "technologies_discovered": 0
+    }
+  },
+  "agents": [
+    {
+      "aid": 0,
+      "name": "Rok",
+      "x": 31,
+      "y": 3,
+      "health": 100,
+      "current_action": "move_east",
+      "inventory": {},
+      "skills": {
+        "foraging": {
+          "level": 4,
+          "experience": 0
+        },
+        "crafting": {
+          "level": 1,
+          "experience": 0
+        }
+      },
+      "group_id": null,
+      "social_connections": [],
+      "reputation": {
+        "trustworthy": 0,
+        "skilled": 0,
+        "brave": 0,
+        "wise": 0
+      },
+      "memory": []
+    },
+    {
+      "aid": 1,
+      "name": "Ash",
+      "x": 0,
+      "y": 20,
+      "health": 100,
+      "current_action": "move_south",
+      "inventory": {
+        "stone": 1
+      },
+      "skills": {
+        "foraging": {
+          "level": 2,
+          "experience": 0
+        },
+        "crafting": {
+          "level": 2,
+          "experience": 0
+        }
+      },
+      "group_id": null,
+      "social_connections": [],
+      "reputation": {
+        "trustworthy": 0,
+        "skilled": 0,
+        "brave": 0,
+        "wise": 0
+      },
+      "memory": []
+    },
+    {
+      "aid": 2,
+      "name": "Flint",
+      "x": 15,
+      "y": 24,
+      "health": 100,
+      "current_action": "move_west",
+      "inventory": {
+        "food": 1,
+        "fruit": 1,
+        "stone": 1,
+        "wood": 1
+      },
+      "skills": {
+        "foraging": {
+          "level": 3,
+          "experience": 0
+        },
+        "crafting": {
+          "level": 3,
+          "experience": 0
+        }
+      },
+      "group_id": null,
+      "social_connections": [],
+      "reputation": {
+        "trustworthy": 0,
+        "skilled": 0,
+        "brave": 0,
+        "wise": 0
+      },
+      "memory": []
+    },
+    {
+      "aid": 3,
+      "name": "Clay",
+      "x": 22,
+      "y": 19,
+      "health": 100,
+      "current_action": "move_west",
+      "inventory": {
+        "stone": 1
+      },
+      "skills": {
+        "foraging": {
+          "level": 5,
+          "experience": 0
+        },
+        "crafting": {
+          "level": 5,
+          "experience": 0
+        }
+      },
+      "group_id": null,
+      "social_connections": [],
+      "reputation": {
+        "trustworthy": 0,
+        "skilled": 0,
+        "brave": 0,
+        "wise": 0
+      },
+      "memory": []
+    },
+    {
+      "aid": 4,
+      "name": "Storm",
+      "x": 11,
+      "y": 30,
+      "health": 100,
+      "current_action": "rest",
+      "inventory": {
+        "wood": 1
+      },
+      "skills": {
+        "foraging": {
+          "level": 5,
+          "experience": 0
+        },
+        "crafting": {
+          "level": 2,
+          "experience": 0
+        }
+      },
+      "group_id": null,
+      "social_connections": [],
+      "reputation": {
+        "trustworthy": 0,
+        "skilled": 0,
+        "brave": 0,
+        "wise": 0
+      },
+      "memory": []
+    },
+    {
+      "aid": 5,
+      "name": "River",
+      "x": 11,
+      "y": 30,
+      "health": 100,
+      "current_action": "move_north",
+      "inventory": {
+        "fruit": 1,
+        "wood": 1
+      },
+      "skills": {
+        "foraging": {
+          "level": 3,
+          "experience": 0
+        },
+        "crafting": {
+          "level": 3,
+          "experience": 0
+        }
+      },
+      "group_id": null,
+      "social_connections": [],
+      "reputation": {
+        "trustworthy": 0,
+        "skilled": 0,
+        "brave": 0,
+        "wise": 0
+      },
+      "memory": []
+    },
+    {
+      "aid": 6,
+      "name": "Pine",
+      "x": 11,
+      "y": 4,
+      "health": 100,
+      "current_action": "move_west",
+      "inventory": {
+        "wood": 1
+      },
+      "skills": {
+        "foraging": {
+          "level": 2,
+          "experience": 0
+        },
+        "crafting": {
+          "level": 2,
+          "experience": 0
+        }
+      },
+      "group_id": null,
+      "social_connections": [],
+      "reputation": {
+        "trustworthy": 0,
+        "skilled": 0,
+        "brave": 0,
+        "wise": 0
+      },
+      "memory": []
+    },
+    {
+      "aid": 7,
+      "name": "Stone",
+      "x": 4,
+      "y": 16,
+      "health": 100,
+      "current_action": "forage",
+      "inventory": {
+        "food": 1,
+        "stone": 2
+      },
+      "skills": {
+        "foraging": {
+          "level": 4,
+          "experience": 0
+        },
+        "crafting": {
+          "level": 4,
+          "experience": 0
+        }
+      },
+      "group_id": null,
+      "social_connections": [],
+      "reputation": {
+        "trustworthy": 0,
+        "skilled": 0,
+        "brave": 0,
+        "wise": 0
+      },
+      "memory": []
+    },
+    {
+      "aid": 8,
+      "name": "Wolf",
+      "x": 21,
+      "y": 1,
+      "health": 100,
+      "current_action": "move_east",
+      "inventory": {},
+      "skills": {
+        "foraging": {
+          "level": 5,
+          "experience": 0
+        },
+        "crafting": {
+          "level": 2,
+          "experience": 0
+        }
+      },
+      "group_id": null,
+      "social_connections": [],
+      "reputation": {
+        "trustworthy": 0,
+        "skilled": 0,
+        "brave": 0,
+        "wise": 0
+      },
+      "memory": []
+    },
+    {
+      "aid": 9,
+      "name": "Bear",
+      "x": 10,
+      "y": 27,
+      "health": 100,
+      "current_action": "move_east",
+      "inventory": {
+        "stone": 1,
+        "food": 2,
+        "wood": 1
+      },
+      "skills": {
+        "foraging": {
+          "level": 5,
+          "experience": 0
+        },
+        "crafting": {
+          "level": 1,
+          "experience": 0
+        }
+      },
+      "group_id": null,
+      "social_connections": [],
+      "reputation": {
+        "trustworthy": 0,
+        "skilled": 0,
+        "brave": 0,
+        "wise": 0
+      },
+      "memory": []
+    }
+  ],
+  "turn": 48,
+  "timestamp": 1751731381.258658,
+  "logs": [
+    {
+      "timestamp": 1751731333.63817,
+      "level": "INFO",
+      "message": "Starting web servers...",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731333.650765,
+      "level": "INFO",
+      "message": "server listening on [::1]:8765",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731333.650802,
+      "level": "INFO",
+      "message": "server listening on 127.0.0.1:8765",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731333.650825,
+      "level": "INFO",
+      "message": "WebSocket server started on localhost:8765",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731333.651437,
+      "level": "INFO",
+      "message": "HTTP server started on http://localhost:8081",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731333.6514618,
+      "level": "INFO",
+      "message": "Web UI available at: http://localhost:8081",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731333.65148,
+      "level": "INFO",
+      "message": "WebSocket server at: ws://localhost:8765",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731333.651495,
+      "level": "INFO",
+      "message": "Creating simulation...",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731333.652214,
+      "level": "INFO",
+      "message": "Starting simulation...",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731333.6522381,
+      "level": "INFO",
+      "message": "=== Turn 1 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731333.655081,
+      "level": "INFO",
+      "message": "Turn 1 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731334.6569521,
+      "level": "INFO",
+      "message": "=== Turn 2 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731334.6573389,
+      "level": "INFO",
+      "message": "Storm improved foraging to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731334.669203,
+      "level": "INFO",
+      "message": "Turn 2 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731335.670701,
+      "level": "INFO",
+      "message": "=== Turn 3 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731335.671011,
+      "level": "INFO",
+      "message": "Flint found food",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731335.671186,
+      "level": "INFO",
+      "message": "Stone found food",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731335.681333,
+      "level": "INFO",
+      "message": "Turn 3 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731336.682424,
+      "level": "INFO",
+      "message": "=== Turn 4 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731336.6825469,
+      "level": "INFO",
+      "message": "River found fruit",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731336.68261,
+      "level": "INFO",
+      "message": "Stone found stone",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731336.69095,
+      "level": "INFO",
+      "message": "Turn 4 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731337.6923242,
+      "level": "INFO",
+      "message": "=== Turn 5 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731337.704438,
+      "level": "INFO",
+      "message": "Turn 5 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731338.706142,
+      "level": "INFO",
+      "message": "=== Turn 6 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731338.706465,
+      "level": "INFO",
+      "message": "Storm improved foraging to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731338.706679,
+      "level": "INFO",
+      "message": "Bear improved foraging to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731338.718056,
+      "level": "INFO",
+      "message": "Turn 6 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731339.71923,
+      "level": "INFO",
+      "message": "=== Turn 7 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731339.719588,
+      "level": "INFO",
+      "message": "Stone improved foraging to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731339.731734,
+      "level": "INFO",
+      "message": "Turn 7 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731340.732825,
+      "level": "INFO",
+      "message": "=== Turn 8 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731340.733247,
+      "level": "INFO",
+      "message": "Stone improved foraging to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731340.742811,
+      "level": "INFO",
+      "message": "Turn 8 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731341.7440178,
+      "level": "INFO",
+      "message": "=== Turn 9 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731341.753144,
+      "level": "INFO",
+      "message": "Turn 9 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731342.754646,
+      "level": "INFO",
+      "message": "=== Turn 10 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731342.7549481,
+      "level": "INFO",
+      "message": "Pine found wood",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731342.768225,
+      "level": "INFO",
+      "message": "Turn 10 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731343.769459,
+      "level": "INFO",
+      "message": "Completed 10 turns",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731343.7695549,
+      "level": "INFO",
+      "message": "=== Turn 11 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731343.7696419,
+      "level": "INFO",
+      "message": "Clay found stone",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731343.769699,
+      "level": "INFO",
+      "message": "River improved foraging to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731343.7785559,
+      "level": "INFO",
+      "message": "Turn 11 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731344.780619,
+      "level": "INFO",
+      "message": "=== Turn 12 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731344.780972,
+      "level": "INFO",
+      "message": "Bear found stone",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731344.789642,
+      "level": "INFO",
+      "message": "Turn 12 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731345.7905731,
+      "level": "INFO",
+      "message": "=== Turn 13 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731345.799517,
+      "level": "INFO",
+      "message": "Turn 13 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731346.800946,
+      "level": "INFO",
+      "message": "=== Turn 14 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731346.801066,
+      "level": "INFO",
+      "message": "Stone improved crafting to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731346.80845,
+      "level": "INFO",
+      "message": "Turn 14 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731347.8094552,
+      "level": "INFO",
+      "message": "=== Turn 15 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731347.809503,
+      "level": "INFO",
+      "message": "Clay improved crafting to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731347.8095272,
+      "level": "INFO",
+      "message": "River improved crafting to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731347.8095481,
+      "level": "INFO",
+      "message": "Bear found food",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731347.813697,
+      "level": "INFO",
+      "message": "Turn 15 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731348.815626,
+      "level": "INFO",
+      "message": "=== Turn 16 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731348.828022,
+      "level": "INFO",
+      "message": "Turn 16 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731349.829466,
+      "level": "INFO",
+      "message": "=== Turn 17 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731349.8419058,
+      "level": "INFO",
+      "message": "Turn 17 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731350.843633,
+      "level": "INFO",
+      "message": "=== Turn 18 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731350.843936,
+      "level": "INFO",
+      "message": "Ash improved crafting to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731350.8443708,
+      "level": "INFO",
+      "message": "Flint found fruit",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731350.844557,
+      "level": "INFO",
+      "message": "River improved crafting to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731350.844695,
+      "level": "INFO",
+      "message": "Bear found food",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731350.8566148,
+      "level": "INFO",
+      "message": "Turn 18 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731351.858338,
+      "level": "INFO",
+      "message": "=== Turn 19 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731351.8587039,
+      "level": "INFO",
+      "message": "Ash improved foraging to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731351.859361,
+      "level": "INFO",
+      "message": "Bear found wood",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731351.873491,
+      "level": "INFO",
+      "message": "Turn 19 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731352.875243,
+      "level": "INFO",
+      "message": "=== Turn 20 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731352.875459,
+      "level": "INFO",
+      "message": "Ash found stone",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731352.875581,
+      "level": "INFO",
+      "message": "Clay improved foraging to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731352.8756852,
+      "level": "INFO",
+      "message": "River improved foraging to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731352.8757272,
+      "level": "INFO",
+      "message": "Wolf improved foraging to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731352.8890188,
+      "level": "INFO",
+      "message": "Turn 20 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731353.890804,
+      "level": "INFO",
+      "message": "Completed 20 turns",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731353.89103,
+      "level": "INFO",
+      "message": "=== Turn 21 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731353.8912508,
+      "level": "INFO",
+      "message": "Flint improved foraging to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731353.91271,
+      "level": "INFO",
+      "message": "Turn 21 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731354.27666,
+      "level": "INFO",
+      "message": "::1 [06/Jul/2025:00:02:34 +0800] \"GET / HTTP/1.1\" 403 175 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36\"",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731354.9146721,
+      "level": "INFO",
+      "message": "=== Turn 22 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731354.91479,
+      "level": "INFO",
+      "message": "Rok improved foraging to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731354.91484,
+      "level": "INFO",
+      "message": "Flint improved crafting to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731354.9150138,
+      "level": "INFO",
+      "message": "Clay improved crafting to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731354.9284549,
+      "level": "INFO",
+      "message": "Turn 22 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731355.930238,
+      "level": "INFO",
+      "message": "=== Turn 23 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731355.95121,
+      "level": "INFO",
+      "message": "Turn 23 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731356.952328,
+      "level": "INFO",
+      "message": "=== Turn 24 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731356.952724,
+      "level": "INFO",
+      "message": "Storm improved crafting to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731356.953259,
+      "level": "INFO",
+      "message": "Wolf improved crafting to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731356.973703,
+      "level": "INFO",
+      "message": "Turn 24 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731357.9755452,
+      "level": "INFO",
+      "message": "=== Turn 25 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731357.975884,
+      "level": "INFO",
+      "message": "Rok improved foraging to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731357.976146,
+      "level": "INFO",
+      "message": "Storm found wood",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731357.976309,
+      "level": "INFO",
+      "message": "Bear improved foraging to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731357.9946399,
+      "level": "INFO",
+      "message": "Turn 25 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731358.996095,
+      "level": "INFO",
+      "message": "=== Turn 26 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731359.017083,
+      "level": "INFO",
+      "message": "Turn 26 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731360.018879,
+      "level": "INFO",
+      "message": "=== Turn 27 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731360.019237,
+      "level": "INFO",
+      "message": "Flint improved crafting to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731360.030187,
+      "level": "INFO",
+      "message": "Turn 27 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731361.031647,
+      "level": "INFO",
+      "message": "=== Turn 28 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731361.032041,
+      "level": "INFO",
+      "message": "Pine improved foraging to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731361.0325341,
+      "level": "INFO",
+      "message": "Stone found stone",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731361.032852,
+      "level": "INFO",
+      "message": "Wolf improved foraging to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731361.04561,
+      "level": "INFO",
+      "message": "Turn 28 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731362.046688,
+      "level": "INFO",
+      "message": "=== Turn 29 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731362.0468109,
+      "level": "INFO",
+      "message": "Flint improved foraging to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731362.046873,
+      "level": "INFO",
+      "message": "Storm improved foraging to level 4",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731362.056309,
+      "level": "INFO",
+      "message": "Turn 29 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731363.057714,
+      "level": "INFO",
+      "message": "=== Turn 30 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731363.05784,
+      "level": "INFO",
+      "message": "Pine improved crafting to level 2",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731363.067672,
+      "level": "INFO",
+      "message": "Turn 30 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731364.0694249,
+      "level": "INFO",
+      "message": "Completed 30 turns",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731364.0696929,
+      "level": "INFO",
+      "message": "=== Turn 31 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731364.0820491,
+      "level": "INFO",
+      "message": "Turn 31 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731365.083745,
+      "level": "INFO",
+      "message": "=== Turn 32 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731365.084075,
+      "level": "INFO",
+      "message": "Clay improved foraging to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731365.084339,
+      "level": "INFO",
+      "message": "Stone improved foraging to level 4",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731365.0964491,
+      "level": "INFO",
+      "message": "Turn 32 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731366.098295,
+      "level": "INFO",
+      "message": "=== Turn 33 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731366.098596,
+      "level": "INFO",
+      "message": "Clay improved crafting to level 4",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731366.111081,
+      "level": "INFO",
+      "message": "Turn 33 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731367.111965,
+      "level": "INFO",
+      "message": "=== Turn 34 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731367.123911,
+      "level": "INFO",
+      "message": "Turn 34 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731368.125283,
+      "level": "INFO",
+      "message": "=== Turn 35 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731368.1321778,
+      "level": "INFO",
+      "message": "Turn 35 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731369.1337879,
+      "level": "INFO",
+      "message": "=== Turn 36 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731369.143401,
+      "level": "INFO",
+      "message": "Turn 36 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731370.1445901,
+      "level": "INFO",
+      "message": "=== Turn 37 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731370.148334,
+      "level": "INFO",
+      "message": "Turn 37 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731371.1490839,
+      "level": "INFO",
+      "message": "=== Turn 38 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731371.149306,
+      "level": "INFO",
+      "message": "Clay improved foraging to level 4",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731371.1607308,
+      "level": "INFO",
+      "message": "Turn 38 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731372.161778,
+      "level": "INFO",
+      "message": "=== Turn 39 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731372.165529,
+      "level": "INFO",
+      "message": "Turn 39 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731373.1669571,
+      "level": "INFO",
+      "message": "=== Turn 40 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731373.1673222,
+      "level": "INFO",
+      "message": "Storm improved foraging to level 5",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731373.178518,
+      "level": "INFO",
+      "message": "Turn 40 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731374.179832,
+      "level": "INFO",
+      "message": "Completed 40 turns",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731374.179914,
+      "level": "INFO",
+      "message": "=== Turn 41 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731374.179997,
+      "level": "INFO",
+      "message": "Stone improved crafting to level 3",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731374.1885629,
+      "level": "INFO",
+      "message": "Turn 41 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731375.189575,
+      "level": "INFO",
+      "message": "=== Turn 42 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731375.189686,
+      "level": "INFO",
+      "message": "Flint found stone",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731375.189754,
+      "level": "INFO",
+      "message": "River found wood",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731375.1898181,
+      "level": "INFO",
+      "message": "Bear improved foraging to level 4",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731375.200593,
+      "level": "INFO",
+      "message": "Turn 42 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731376.2012959,
+      "level": "INFO",
+      "message": "=== Turn 43 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731376.2014341,
+      "level": "INFO",
+      "message": "Stone improved crafting to level 4",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731376.201495,
+      "level": "INFO",
+      "message": "Wolf improved foraging to level 4",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731376.210768,
+      "level": "INFO",
+      "message": "Turn 43 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731377.2121758,
+      "level": "INFO",
+      "message": "=== Turn 44 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731377.212277,
+      "level": "INFO",
+      "message": "Clay improved crafting to level 5",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731377.220614,
+      "level": "INFO",
+      "message": "Turn 44 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731378.2220218,
+      "level": "INFO",
+      "message": "=== Turn 45 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731378.2221298,
+      "level": "INFO",
+      "message": "Rok improved foraging to level 4",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731378.222184,
+      "level": "INFO",
+      "message": "Flint found wood",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731378.230578,
+      "level": "INFO",
+      "message": "Turn 45 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731379.232268,
+      "level": "INFO",
+      "message": "=== Turn 46 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731379.232554,
+      "level": "INFO",
+      "message": "Wolf improved foraging to level 5",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731379.244012,
+      "level": "INFO",
+      "message": "Turn 46 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731380.24547,
+      "level": "INFO",
+      "message": "=== Turn 47 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731380.2456,
+      "level": "INFO",
+      "message": "Bear improved foraging to level 5",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731380.25581,
+      "level": "INFO",
+      "message": "Turn 47 completed with 10 active agents",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731381.256667,
+      "level": "INFO",
+      "message": "=== Turn 48 ===",
+      "agent_id": null
+    },
+    {
+      "timestamp": 1751731381.256961,
+      "level": "INFO",
+      "message": "Clay improved foraging to level 5",
+      "agent_id": null
+    }
+  ]
+}

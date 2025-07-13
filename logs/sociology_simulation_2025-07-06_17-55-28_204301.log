@@ -1,0 +1,83 @@
+2025-07-06 17:55:28.214 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 17:55:28.214 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 17:55:28.214 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:207 - Applying MCP integration...
+2025-07-06 17:55:28.214 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:272 - Agent actions patched for MCP
+2025-07-06 17:55:28.214 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:306 - Trinity rule generation patched for MCP
+2025-07-06 17:55:28.215 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:224 - MCP integration applied successfully
+2025-07-06 17:55:28.215 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 17:55:28.215 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 17:55:28.215 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 17:55:28.215 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 17:55:28.215 | INFO     | __main__:main:93 - Era: 石器时代
+2025-07-06 17:55:28.215 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 17:55:28.215 | INFO     | __main__:main:95 - Number of agents: 10
+2025-07-06 17:55:28.215 | INFO     | __main__:main:96 - Turns: 1000
+2025-07-06 17:55:28.215 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 17:55:28.215 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_trinity_rules_with_mcp:523 - Trinity MCP rule generation error: 'Config' object has no attribute 'get'
+2025-07-06 17:55:28.215 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:297 - Trinity rules generated via MCP
+2025-07-06 17:55:28.216 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 17:55:28.216 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 17:55:28.216 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, GRASSLAND, MOUNTAIN, WATER
+2025-07-06 17:55:28.216 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 17:55:28.216 | INFO     | sociology_simulation.world:initialize:81 -   WOOD:
+2025-07-06 17:55:28.216 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 80.0% chance
+2025-07-06 17:55:28.216 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 20.0% chance
+2025-07-06 17:55:28.216 | INFO     | sociology_simulation.world:initialize:81 -   STONE:
+2025-07-06 17:55:28.216 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 90.0% chance
+2025-07-06 17:55:28.216 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 10.0% chance
+2025-07-06 17:55:28.216 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 17:55:28.216 | INFO     | sociology_simulation.world:initialize:83 -     - WATER: 70.0% chance
+2025-07-06 17:55:28.216 | INFO     | sociology_simulation.world:initialize:81 -   APPLE:
+2025-07-06 17:55:28.216 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 40.0% chance
+2025-07-06 17:55:28.216 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 17:55:28.216 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 97763
+2025-07-06 17:55:28.316 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 17:55:28.318 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 17:55:28.318 | INFO     | sociology_simulation.world:initialize:96 -   APPLE: 126 units
+2025-07-06 17:55:28.318 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 4 units
+2025-07-06 17:55:28.318 | INFO     | sociology_simulation.world:initialize:96 -   STONE: 1217 units
+2025-07-06 17:55:28.318 | INFO     | sociology_simulation.world:initialize:96 -   WOOD: 806 units
+2025-07-06 17:55:28.318 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 17:55:34.699 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mGor(8)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by consistently bringing back the largest game animals.[0m
+2025-07-06 17:55:34.849 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(2)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by catching more large game than anyone else.[0m
+2025-07-06 17:55:34.850 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRuna(9)[0m [94mpersonal goal ➜[0m [3mBecome the most respected elder in the tribe by discovering new medicinal plants and teaching you...[0m
+2025-07-06 17:55:35.158 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(3)[0m [94mpersonal goal ➜[0m [3mBecome the tribe's best hunter and toolmaker by crafting superior stone weapons and tracking larg...[0m
+2025-07-06 17:55:35.161 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLira(6)[0m [94mpersonal goal ➜[0m [3mBecome the most respected storyteller and wisdom-keeper of the tribe by collecting and sharing an...[0m
+2025-07-06 17:55:35.188 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(4)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by crafting superior stone tools and leading successful ...[0m
+2025-07-06 17:55:35.425 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(1)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by consistently bringing back the largest game.[0m
+2025-07-06 17:55:35.467 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLira(0)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled storyteller and peacemaker in the tribe by collecting and sharing knowled...[0m
+2025-07-06 17:55:35.556 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLuma(5)[0m [94mpersonal goal ➜[0m [3mBecome the most respected storyteller and wisdom-keeper of the tribe by collecting and sharing kn...[0m
+2025-07-06 17:55:35.737 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLira(7)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled storyteller and gatherer of ancient knowledge in my tribe by collecting a...[0m
+2025-07-06 17:55:35.739 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 17:55:35.740 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:87 - MCP action generation error for agent 0: 'Config' object has no attribute 'get'
+2025-07-06 17:55:35.740 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mLira(0)[0m: (age 34) attempting: Agent 0 searches for resources (fallback action)
+2025-07-06 17:55:35.742 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:87 - MCP action generation error for agent 1: 'Config' object has no attribute 'get'
+2025-07-06 17:55:35.742 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mRok(1)[0m: (age 20) attempting: Agent 1 searches for resources (fallback action)
+2025-07-06 17:55:35.743 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:87 - MCP action generation error for agent 2: 'Config' object has no attribute 'get'
+2025-07-06 17:55:35.743 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mRok(2)[0m: (age 23) attempting: Agent 2 searches for resources (fallback action)
+2025-07-06 17:55:35.744 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:87 - MCP action generation error for agent 3: 'Config' object has no attribute 'get'
+2025-07-06 17:55:35.744 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mRok(3)[0m: (age 27) attempting: Agent 3 searches for resources (fallback action)
+2025-07-06 17:55:35.746 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:87 - MCP action generation error for agent 4: 'Config' object has no attribute 'get'
+2025-07-06 17:55:35.746 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mRok(4)[0m: (age 59) attempting: Agent 4 searches for resources (fallback action)
+2025-07-06 17:55:35.746 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:87 - MCP action generation error for agent 5: 'Config' object has no attribute 'get'
+2025-07-06 17:55:35.747 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mLuma(5)[0m: (age 59) attempting: Agent 5 searches for resources (fallback action)
+2025-07-06 17:55:35.747 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:87 - MCP action generation error for agent 6: 'Config' object has no attribute 'get'
+2025-07-06 17:55:35.747 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mLira(6)[0m: (age 67) attempting: Agent 6 searches for resources (fallback action)
+2025-07-06 17:55:35.748 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:87 - MCP action generation error for agent 7: 'Config' object has no attribute 'get'
+2025-07-06 17:55:35.749 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mLira(7)[0m: (age 17) attempting: Agent 7 searches for resources (fallback action)
+2025-07-06 17:55:35.750 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:87 - MCP action generation error for agent 8: 'Config' object has no attribute 'get'
+2025-07-06 17:55:35.750 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mGor(8)[0m: (age 40) attempting: Agent 8 searches for resources (fallback action)
+2025-07-06 17:55:35.751 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:87 - MCP action generation error for agent 9: 'Config' object has no attribute 'get'
+2025-07-06 17:55:35.751 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mRuna(9)[0m: (age 65) attempting: Agent 9 searches for resources (fallback action)
+2025-07-06 17:55:40.901 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"shell": 1},
+  "position": [49, 22],
+  "log": "Found a shell while searchi...
+2025-07-06 17:55:40.902 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 17:55:40.902 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Lira(0):
+2025-07-06 17:55:40.902 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:263 - [92m⚡[0m [1mLira(0)[0m [93m行动 →[0m [36mAgent 0 searches for resources (fallback action)[0m

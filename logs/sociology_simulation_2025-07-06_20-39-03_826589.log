@@ -1,0 +1,43 @@
+2025-07-06 20:39:03.834 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 20:39:03.834 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 20:39:03.837 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:361 - Applying MCP integration...
+2025-07-06 20:39:03.837 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:445 - Agent actions patched for MCP
+2025-07-06 20:39:03.837 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:566 - Trinity rule generation, adjudication, and action execution patched for MCP
+2025-07-06 20:39:03.837 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:378 - MCP integration applied successfully
+2025-07-06 20:39:03.837 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 20:39:03.837 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 20:39:03.837 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 20:39:03.837 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 20:39:03.837 | INFO     | __main__:main:93 - Era: 石器时代
+2025-07-06 20:39:03.838 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 20:39:03.838 | INFO     | __main__:main:95 - Number of agents: 10
+2025-07-06 20:39:03.838 | INFO     | __main__:main:96 - Turns: 1000
+2025-07-06 20:39:03.838 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 20:39:37.342 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:659 - Trinity response content:
+Here are my world creation decisions for the 石器时代 simulation:
+
+TERRAIN TYPES:
+1. TERRAIN PLAINS 'Open grasslands with scattered shrubs' cost=1.0 resources={berries: 0.5, flint: 0.2} color=yellow_green
+2. TERRAIN FOREST 'Dense woodlands with ancient trees' cost=1.4 resources={wood: 0.9, mushrooms: 0.4, deer: 0.3} color=dark_green
+3. TERRAIN RIVERBANK 'Fertile land along water sources' cost=1.2 resources={fish: 0.7, clay: 0.5, reeds: 0.4} color=light_blue
+4. TERRAIN MOUNTAIN 'Rocky highlands with caves' cost=2.0 resources={flint: 0.8, stone: 0.6, copper_ore: 0.1} color=grey
+5. TERRAIN SWAMP 'Wetlands with dense vegetation' cost=1.6 resources={reeds: 0.6, frogs: 0.4, medicinal_herbs: 0.3} color=dark_blue
+
+RESOURCE DISTRIBUTIONS:
+1. RESOURCE flint distribution={MOUNTAIN: 0.8, PLAINS: 0.2} depletion=0.15 regen=0.02
+2. RESOURCE wood distribution={FOREST: 0.9, SWAMP: 0.3} depletion=0.1 regen=0.07
+3. RESOURCE fish distribution={RIVERBANK: 0.7} depletion=0.2 regen=0.15
+4. RESOURCE berries distribution={PLAINS: 0.5, FOREST: 0.3} depletion=0.3 regen=0.2
+5. RESOURCE clay distribution={RIVERBANK: 0.5} depletion=0.25 regen=0.1
+6. RESOURCE deer distribution={FOREST: 0.3, PLAINS: 0.2} depletion=0.4 regen=0.05
+
+WORLD RULES:
+1. RULE seasonal_migration 'Animals migrate with seasons' conditions=['turn_mod_12=6'] effects=['deer_distribution_change'] priority=1
+2. RULE tool_breakage 'Primitive tools break frequently' conditions=['action_count>10'] effects=['random_tool_loss'] priority=2
+3. RULE tribal_expansion 'Successful tribes grow over time' conditions=['food_surplus>3'] effects=['population_increase'] priority=1
+
+These elements reflect the primitive technology, hunter-gatherer lifestyle, and environmental dependence of the 石器时代. The terrain types provide diverse but challenging environments, while resources emphasize basic survival needs and early tool-making materials. The rules introduce seasonal dynamics, technological limitations, and simple population mechanics characteristic of this era.
+2025-07-06 20:39:37.342 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:660 - Parsing 23 lines from Trinity response
+2025-07-06 20:39:37.343 | WARNING  | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:673 - Failed to parse terrain line: TERRAIN TYPES:
+2025-07-06 20:39:37.343 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:696 - Trinity created 0 terrains, 1 resources, 0 rules
+2025-07-06 20:39:37.343 | ERROR    | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:477 - MCP Trinity rule generation failed: MCP failed to generate terrain types for era '石器时代'. This simulation requires MCP integration to function properly.

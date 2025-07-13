@@ -1,0 +1,71 @@
+2025-07-06 07:55:41.155 | SUCCESS  | sociology_simulation.prompts:load_from_config:394 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 07:55:41.155 | INFO     | __main__:main:83 - Starting sociology simulation with Hydra configuration
+2025-07-06 07:55:41.156 | INFO     | __main__:main:84 - Initialized 12 prompt templates
+2025-07-06 07:55:41.156 | INFO     | __main__:main:85 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 07:55:41.156 | INFO     | __main__:main:86 - Era: 石器时代
+2025-07-06 07:55:41.156 | INFO     | __main__:main:87 - World size: 64x64
+2025-07-06 07:55:41.156 | INFO     | __main__:main:88 - Number of agents: 10
+2025-07-06 07:55:41.156 | INFO     | __main__:main:89 - Turns: 1000
+2025-07-06 07:55:55.209 | SUCCESS  | sociology_simulation.trinity:_generate_initial_rules:49 - [Trinity] Generated rules for era: 石器时代
+2025-07-06 07:55:55.210 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 07:55:55.210 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 07:55:55.210 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, GRASSLAND, RIVER, MOUNTAIN, SWAMP
+2025-07-06 07:55:55.210 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 07:55:55.211 | INFO     | sociology_simulation.world:initialize:81 -   WOOD:
+2025-07-06 07:55:55.211 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 60.0% chance
+2025-07-06 07:55:55.211 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 20.0% chance
+2025-07-06 07:55:55.211 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 30.0% chance
+2025-07-06 07:55:55.211 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 07:55:55.211 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 50.0% chance
+2025-07-06 07:55:55.212 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 30.0% chance
+2025-07-06 07:55:55.212 | INFO     | sociology_simulation.world:initialize:81 -   FLINT:
+2025-07-06 07:55:55.212 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 70.0% chance
+2025-07-06 07:55:55.212 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 10.0% chance
+2025-07-06 07:55:55.212 | INFO     | sociology_simulation.world:initialize:81 -   BERRIES:
+2025-07-06 07:55:55.212 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 40.0% chance
+2025-07-06 07:55:55.212 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 30.0% chance
+2025-07-06 07:55:55.212 | INFO     | sociology_simulation.world:initialize:81 -   CLAY:
+2025-07-06 07:55:55.213 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 40.0% chance
+2025-07-06 07:55:55.213 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 50.0% chance
+2025-07-06 07:55:55.213 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 07:55:55.213 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 525772
+2025-07-06 07:55:55.341 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 07:55:55.343 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 07:55:55.343 | INFO     | sociology_simulation.world:initialize:96 -   BERRIES: 726 units
+2025-07-06 07:55:55.344 | INFO     | sociology_simulation.world:initialize:96 -   CLAY: 467 units
+2025-07-06 07:55:55.344 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 487 units
+2025-07-06 07:55:55.344 | INFO     | sociology_simulation.world:initialize:96 -   FLINT: 654 units
+2025-07-06 07:55:55.344 | INFO     | sociology_simulation.world:initialize:96 -   WOOD: 716 units
+2025-07-06 07:55:55.344 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 07:56:01.462 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(2)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by consistently bringing back the largest game.[0m
+2025-07-06 07:56:01.807 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(8)[0m [94mpersonal goal ➜[0m [3mBecome the respected leader of my tribe by using my charm to unite neighboring clans and establis...[0m
+2025-07-06 07:56:01.899 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mSpark(0)[0m [94mpersonal goal ➜[0m [3mBecome the tribe's most knowledgeable explorer by discovering and documenting all edible plants a...[0m
+2025-07-06 07:56:01.922 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(1)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter and wisest elder by mastering all hunting techniques and discovering ...[0m
+2025-07-06 07:56:01.969 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(6)[0m [94mpersonal goal ➜[0m [3mBecome the tribe's foremost explorer by discovering and mapping all edible plants and safe water ...[0m
+2025-07-06 07:56:02.159 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mStorm(5)[0m [94mpersonal goal ➜[0m [3mBecome the most respected elder in the tribe by crafting superior tools and sharing wisdom throug...[0m
+2025-07-06 07:56:02.223 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mStorm(7)[0m [94mpersonal goal ➜[0m [3mBecome the respected elder who trains young hunters in effective fishing techniques using my stre...[0m
+2025-07-06 07:56:02.238 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(9)[0m [94mpersonal goal ➜[0m [3mBecome the tribe's most knowledgeable elder by discovering and documenting all edible plants and ...[0m
+2025-07-06 07:56:02.276 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mStorm(3)[0m [94mpersonal goal ➜[0m [3mBecome the most respected storyteller and mediator in the tribe by crafting engaging tales from g...[0m
+2025-07-06 07:56:02.284 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mStorm(4)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled storyteller and mediator in the tribe by mastering oral traditions and re...[0m
+2025-07-06 07:56:02.285 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 07:56:05.850 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(9)[0m: (age 45) attempting: "collect berries at current position"
+2025-07-06 07:56:05.879 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(8)[0m: (age 42) attempting: "fish at current river location"
+2025-07-06 07:56:05.881 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(5)[0m: (age 51) attempting: "collect flint at current position"
+2025-07-06 07:56:05.901 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(2)[0m: (age 20) attempting: "collect flint at current position"
+2025-07-06 07:56:06.007 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mSpark(0)[0m: (age 18) attempting: "move north to collect berries at [57,9]"
+2025-07-06 07:56:06.009 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(1)[0m: (age 67) attempting: "collect clay from the river at [24,30]"
+2025-07-06 07:56:06.055 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(3)[0m: (age 49) attempting: "collect fish from current river tile"
+2025-07-06 07:56:06.141 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(7)[0m: (age 65) attempting: "move east to the river at [58,48] to fish"
+2025-07-06 07:56:06.223 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(6)[0m: (age 22) attempting: "move north to the grassland at [19, 29] to collect berr...
+2025-07-06 07:56:07.107 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(4)[0m: (age 43) attempting: "move north to collect berries at [53,59]"
+2025-07-06 07:56:10.341 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"apple": -1, "berries": 1},
+  "position": [17, 27],
+  "log": "Exchanged an...
+2025-07-06 07:56:10.344 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 07:56:10.344 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):

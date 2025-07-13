@@ -1,0 +1,99 @@
+2025-07-06 11:30:34.419 | SUCCESS  | sociology_simulation.prompts:load_from_config:420 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 11:30:34.420 | INFO     | __main__:main:83 - Starting sociology simulation with Hydra configuration
+2025-07-06 11:30:34.420 | INFO     | __main__:main:84 - Initialized 12 prompt templates
+2025-07-06 11:30:34.420 | INFO     | __main__:main:85 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 11:30:34.420 | INFO     | __main__:main:86 - Era: 石器时代
+2025-07-06 11:30:34.420 | INFO     | __main__:main:87 - World size: 64x64
+2025-07-06 11:30:34.420 | INFO     | __main__:main:88 - Number of agents: 10
+2025-07-06 11:30:34.420 | INFO     | __main__:main:89 - Turns: 1000
+2025-07-06 11:30:34.420 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_generate_initial_rules, 错误: 提示词模板 trinity_generate_initial_rules 缺少参数: '"key"'
+2025-07-06 11:30:34.420 | SUCCESS  | sociology_simulation.trinity:_generate_initial_rules:49 - [Trinity] Generated rules for era: 石器时代
+2025-07-06 11:30:34.420 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 11:30:34.420 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 11:30:34.420 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, OCEAN, MOUNTAIN, GRASSLAND
+2025-07-06 11:30:34.420 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 11:30:34.420 | INFO     | sociology_simulation.world:initialize:81 -   WOOD:
+2025-07-06 11:30:34.420 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 50.0% chance
+2025-07-06 11:30:34.420 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 11:30:34.421 | INFO     | sociology_simulation.world:initialize:83 -     - OCEAN: 40.0% chance
+2025-07-06 11:30:34.421 | INFO     | sociology_simulation.world:initialize:81 -   STONE:
+2025-07-06 11:30:34.421 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 60.0% chance
+2025-07-06 11:30:34.421 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 11:30:34.421 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 589774
+2025-07-06 11:30:34.509 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 11:30:34.509 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 11:30:34.509 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 251 units
+2025-07-06 11:30:34.509 | INFO     | sociology_simulation.world:initialize:96 -   STONE: 30 units
+2025-07-06 11:30:34.510 | INFO     | sociology_simulation.world:initialize:96 -   WOOD: 336 units
+2025-07-06 11:30:34.510 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 11:30:41.411 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(3)[0m [94mpersonal goal ➜[0m [3mDiscover and document all edible plants and their uses within a three-day walking distance of my ...[0m
+2025-07-06 11:30:41.574 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mStorm(6)[0m [94mpersonal goal ➜[0m [3mBecome the storyteller and peacemaker who unites neighboring tribes through compelling tales and ...[0m
+2025-07-06 11:30:41.577 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mStorm(5)[0m [94mpersonal goal ➜[0m [3mBecome the most knowledgeable elder in the tribe by discovering and documenting all edible plants...[0m
+2025-07-06 11:30:41.579 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(9)[0m [94mpersonal goal ➜[0m [3mBecome the most respected elder in the tribe by leading successful hunting expeditions and settli...[0m
+2025-07-06 11:30:41.611 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(7)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter and explorer of the tribe by crafting superior stone tools and discov...[0m
+2025-07-06 11:30:41.615 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(8)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter and explorer of the tribe by crafting superior stone tools and discov...[0m
+2025-07-06 11:30:41.697 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlare(1)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled toolmaker and storyteller in the tribe by crafting innovative stone tools...[0m
+2025-07-06 11:30:41.744 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(0)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled and respected toolmaker in my tribe by crafting superior stone axes and t...[0m
+2025-07-06 11:30:41.804 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mFlint(2)[0m [94mpersonal goal ➜[0m [3mDiscover and map all edible plants and medicinal herbs within a three-day walking radius of my vi...[0m
+2025-07-06 11:30:41.887 | INFO     | sociology_simulation.agent:decide_goal:168 - [95m🎯[0m [1mEmber(4)[0m [94mpersonal goal ➜[0m [3mBecome the most respected storyteller and peacemaker among neighboring tribes by sharing wisdom a...[0m
+2025-07-06 11:30:41.888 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 11:30:44.482 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(8)[0m: (age 29) attempting: "move north to the forest at [45,22]"
+2025-07-06 11:30:44.483 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 11:30:44.483 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(8):
+2025-07-06 11:30:44.483 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(8)[0m [93m行动 →[0m [36m"move north to the forest at [45,22]"[0m
+2025-07-06 11:30:45.199 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(2)[0m: (age 34) attempting: "move inland to search for edible plants and medicinal h...
+2025-07-06 11:30:45.200 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 11:30:45.200 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(2):
+2025-07-06 11:30:45.200 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(2)[0m [93m行动 →[0m [36m"move inland to search for edible plants and medicinal herbs"[0m
+2025-07-06 11:30:45.394 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(9)[0m: (age 56) attempting: "collect wood at current position"
+2025-07-06 11:30:45.394 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 11:30:45.395 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(9):
+2025-07-06 11:30:45.395 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(9)[0m [93m行动 →[0m [36m"collect wood at current position"[0m
+2025-07-06 11:30:45.437 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(3)[0m: (age 29) attempting: "move north to the forest"
+2025-07-06 11:30:45.438 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 11:30:45.438 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(3):
+2025-07-06 11:30:45.438 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(3)[0m [93m行动 →[0m [36m"move north to the forest"[0m
+2025-07-06 11:30:45.456 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mEmber(4)[0m: (age 49) attempting: "approach Storm to share a story"
+2025-07-06 11:30:45.457 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 11:30:45.457 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Ember(4):
+2025-07-06 11:30:45.457 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mEmber(4)[0m [93m行动 →[0m [36m"approach Storm to share a story"[0m
+2025-07-06 11:30:45.461 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(7)[0m: (age 23) attempting: "explore north to discover new hunting grounds"
+2025-07-06 11:30:45.461 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 11:30:45.461 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(7):
+2025-07-06 11:30:45.461 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(7)[0m [93m行动 →[0m [36m"explore north to discover new hunting grounds"[0m
+2025-07-06 11:30:45.522 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(6)[0m: (age 38) attempting: "approach Ember to share a story"
+2025-07-06 11:30:45.522 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 11:30:45.522 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(6):
+2025-07-06 11:30:45.522 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mStorm(6)[0m [93m行动 →[0m [36m"approach Ember to share a story"[0m
+2025-07-06 11:30:45.583 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlare(1)[0m: (age 33) attempting: "move to [24,62] to collect stone"
+2025-07-06 11:30:45.583 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 11:30:45.583 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flare(1):
+2025-07-06 11:30:45.583 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlare(1)[0m [93m行动 →[0m [36m"move to [24,62] to collect stone"[0m
+2025-07-06 11:30:45.913 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(0)[0m: (age 48) attempting: "move north to find stone for toolmaking"
+2025-07-06 11:30:45.914 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 11:30:45.914 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Flint(0):
+2025-07-06 11:30:45.914 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mFlint(0)[0m [93m行动 →[0m [36m"move north to find stone for toolmaking"[0m
+2025-07-06 11:30:47.452 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mStorm(5)[0m: (age 62) attempting: "move north to explore the grassland for edible plants"
+2025-07-06 11:30:47.453 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: action_handler_resolve, 错误: 提示词模板 action_handler_resolve 缺少参数: '"key"'
+2025-07-06 11:30:47.454 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Storm(5):
+2025-07-06 11:30:47.455 | INFO     | sociology_simulation.agent:act:362 - [92m⚡[0m [1mStorm(5)[0m [93m行动 →[0m [36m"move north to explore the grassland for edible plants"[0m
+2025-07-06 11:30:47.458 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_adjudicate, 错误: 提示词模板 trinity_adjudicate 缺少参数: '"key"'
+2025-07-06 11:30:47.461 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_analyze_behaviors, 错误: 提示词模板 trinity_analyze_behaviors 缺少参数: '"key"'
+2025-07-06 11:30:47.461 | ERROR    | sociology_simulation.enhanced_llm:generate:154 - 生成响应失败 - 模板: trinity_execute_actions, 错误: 提示词模板 trinity_execute_actions 缺少参数: '"key"'
+2025-07-06 11:30:47.461 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 11:30:47.462 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 10 agents alive
+2025-07-06 11:30:47.462 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 11:30:47.462 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 11:30:47.462 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 11:30:47.462 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 11:30:47.462 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 11:30:47.462 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 11:30:47.462 | INFO     | sociology_simulation.world:step:776 - ========================================
+
+2025-07-06 11:30:47.463 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 2 START ===

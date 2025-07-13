@@ -1,0 +1,70 @@
+2025-07-06 18:05:37.744 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 18:05:37.745 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 18:05:37.750 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:220 - Applying MCP integration...
+2025-07-06 18:05:37.750 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:308 - Agent actions patched for MCP
+2025-07-06 18:05:37.750 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:361 - Trinity rule generation patched for MCP
+2025-07-06 18:05:37.750 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:237 - MCP integration applied successfully
+2025-07-06 18:05:37.750 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 18:05:37.750 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 18:05:37.750 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 18:05:37.750 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 18:05:37.750 | INFO     | __main__:main:93 - Era: 石器时代
+2025-07-06 18:05:37.750 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 18:05:37.750 | INFO     | __main__:main:95 - Number of agents: 2
+2025-07-06 18:05:37.750 | INFO     | __main__:main:96 - Turns: 1
+2025-07-06 18:05:37.751 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 18:06:10.234 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:566 - Trinity created 0 terrains, 1 resources, 0 rules
+2025-07-06 18:06:10.234 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:345 - Trinity rules generated via MCP: 4 terrains, 1 resources
+2025-07-06 18:06:10.234 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 18:06:10.235 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 18:06:10.235 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, GRASSLAND, MOUNTAIN, WATER
+2025-07-06 18:06:10.235 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 18:06:10.235 | INFO     | sociology_simulation.world:initialize:81 -   DISTRIBUTIONS::
+2025-07-06 18:06:10.235 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 18:06:10.235 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 450450
+2025-07-06 18:06:10.346 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 18:06:10.346 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 18:06:10.346 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 18:06:17.745 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Thorn(1) personal goal ➜ Discover and document all edible plants and medicinal herbs within a three-day walking radius of ...
+2025-07-06 18:06:18.218 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Thorn(0) personal goal ➜ Become the respected elder who trains the strongest hunters and most skilled crafters in the tribe.
+2025-07-06 18:06:18.219 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 18:06:28.004 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 1: ('Moved north: Given my current goal of discovering edible plants.... Moved north to (49, 6). Given my current goal of discovering edible plants...', {'success': True, 'description': 'Moved north to (49, 6). Given my current goal of discovering edible plants...', 'position_change': (49, 6)})
+2025-07-06 18:06:28.005 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Thorn(1) 行动 → ('Moved north: Given my current goal of discovering edible plants.... Moved north to (49, 6). Given my current goal of discovering edible plants...', {'success': True, 'description': 'Moved north to (49, 6). Given my current goal of discovering edible plants...', 'position_change': (49, 6)})
+2025-07-06 18:06:30.046 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:287 - MCP action executed directly for agent 0: ('Moved east: Given my current situation surrounded by water wit.... Moved east to (57, 14). Given my current situation surrounded by water wit...', {'success': True, 'description': 'Moved east to (57, 14). Given my current situation surrounded by water wit...', 'position_change': (57, 14)})
+2025-07-06 18:06:30.046 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:299 - ⚡ Thorn(0) 行动 → ('Moved east: Given my current situation surrounded by water wit.... Moved east to (57, 14). Given my current situation surrounded by water wit...', {'success': True, 'description': 'Moved east to (57, 14). Given my current situation surrounded by water wit...', 'position_change': (57, 14)})
+2025-07-06 18:06:38.210 | SUCCESS  | sociology_simulation.bible:add_rule:204 - [Bible] Added rule: basic_healing (legacy_basic_healing) to default
+2025-07-06 18:06:38.210 | SUCCESS  | sociology_simulation.bible:add_rule:204 - [Bible] Added rule: natural_medicine (legacy_natural_medicine) to default
+2025-07-06 18:06:38.210 | SUCCESS  | sociology_simulation.bible:update:440 - [Bible] Added 2 legacy rules
+2025-07-06 18:06:38.211 | SUCCESS  | sociology_simulation.trinity:_process_skill_updates:212 - [Trinity] Created new skill: herbal_knowledge
+2025-07-06 18:06:47.507 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "agent_skill_changes": {},
+  "global_skill_updates": {
+    "new_skills": {
+      "foragi...
+2025-07-06 18:06:47.509 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 18:06:56.139 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "add_resource_rules": {
+    "berries": {
+      "forest": 0.7,
+      "grassland": 0.3
+   ...
+2025-07-06 18:06:56.139 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 18:06:56.140 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 18:06:56.140 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 2 agents alive
+2025-07-06 18:06:56.140 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 18:06:56.140 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 18:06:56.140 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 18:06:56.140 | INFO     | sociology_simulation.world:step:775 - Thorn(0) is in critical health!
+2025-07-06 18:06:56.140 | INFO     | sociology_simulation.world:step:775 - Thorn(1) is in critical health!
+2025-07-06 18:06:56.140 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 18:06:56.140 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 18:06:56.140 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 18:06:56.140 | INFO     | sociology_simulation.world:step:776 - ========================================
+

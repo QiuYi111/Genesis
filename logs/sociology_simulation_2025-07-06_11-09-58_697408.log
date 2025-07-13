@@ -1,0 +1,12 @@
+2025-07-06 11:09:58.706 | SUCCESS  | sociology_simulation.prompts:load_from_config:394 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 11:09:58.706 | INFO     | __main__:main:83 - Starting sociology simulation with Hydra configuration
+2025-07-06 11:09:58.706 | INFO     | __main__:main:84 - Initialized 12 prompt templates
+2025-07-06 11:09:58.706 | INFO     | __main__:main:85 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 11:09:58.706 | INFO     | __main__:main:86 - Era: 石器时代
+2025-07-06 11:09:58.706 | INFO     | __main__:main:87 - World size: 64x64
+2025-07-06 11:09:58.706 | INFO     | __main__:main:88 - Number of agents: 10
+2025-07-06 11:09:58.706 | INFO     | __main__:main:89 - Turns: 1000
+2025-07-06 11:09:58.707 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 1/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 11:09:59.208 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 2/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 11:10:00.209 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 3/5: API key not found in environment variable DEEPSEEK_API_KEY
+2025-07-06 11:10:01.712 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:251 - JSON生成失败，重试 4/5: API key not found in environment variable DEEPSEEK_API_KEY

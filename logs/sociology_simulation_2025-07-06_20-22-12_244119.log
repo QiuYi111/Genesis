@@ -1,0 +1,71 @@
+2025-07-06 20:22:12.252 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 20:22:12.252 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 20:22:12.253 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:361 - Applying MCP integration...
+2025-07-06 20:22:12.253 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:449 - Agent actions patched for MCP
+2025-07-06 20:22:12.253 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:590 - Trinity rule generation, adjudication, and action execution patched for MCP
+2025-07-06 20:22:12.253 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:378 - MCP integration applied successfully
+2025-07-06 20:22:12.253 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 20:22:12.253 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 20:22:12.253 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 20:22:12.253 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 20:22:12.253 | INFO     | __main__:main:93 - Era: 石器时代
+2025-07-06 20:22:12.253 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 20:22:12.253 | INFO     | __main__:main:95 - Number of agents: 10
+2025-07-06 20:22:12.253 | INFO     | __main__:main:96 - Turns: 1000
+2025-07-06 20:22:12.254 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 20:22:42.511 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:691 - Trinity created 0 terrains, 1 resources, 0 rules
+2025-07-06 20:22:42.512 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:488 - Trinity rules generated via MCP: 4 terrains, 1 resources
+2025-07-06 20:22:42.512 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 20:22:42.512 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 20:22:42.513 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, GRASSLAND, MOUNTAIN, WATER
+2025-07-06 20:22:42.513 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 20:22:42.513 | INFO     | sociology_simulation.world:initialize:81 -   DISTRIBUTIONS::
+2025-07-06 20:22:42.513 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 20:22:42.513 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 256675
+2025-07-06 20:22:42.632 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 20:22:42.632 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 20:22:42.632 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 20:22:50.226 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(4)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by crafting superior stone tools and bringing back the m...[0m
+2025-07-06 20:22:50.292 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mEldra(8)[0m [94mpersonal goal ➜[0m [3mBecome the most respected storyteller in the tribe by sharing wisdom and legends gathered over my...[0m
+2025-07-06 20:22:50.599 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mGor(1)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by consistently bringing back the largest game.[0m
+2025-07-06 20:22:50.911 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mGor(9)[0m [94mpersonal goal ➜[0m [3mBecome the strongest hunter in the tribe by consistently bringing back the largest game.[0m
+2025-07-06 20:22:51.375 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(5)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled hunter and gatherer in the tribe by mastering tracking techniques and dis...[0m
+2025-07-06 20:22:51.592 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mFlint(7)[0m [94mpersonal goal ➜[0m [3mBecome the most skilled toolmaker and storyteller in the tribe by crafting superior stone tools a...[0m
+2025-07-06 20:22:51.928 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mHerb(0)[0m [94mpersonal goal ➜[0m [3mDiscover and document all the medicinal plants within a day's walk of our village to help heal ou...[0m
+2025-07-06 20:22:51.965 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(2)[0m [94mpersonal goal ➜[0m [3mI will explore and map the surrounding lands to discover new resources and hunting grounds.[0m
+2025-07-06 20:22:52.431 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(3)[0m [94mpersonal goal ➜[0m [3mLead my tribe to discover and settle in a new fertile land by the river, using my strength to cle...[0m
+2025-07-06 20:22:52.804 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mMoss(6)[0m [94mpersonal goal ➜[0m [3mBecome the tribe's most knowledgeable elder by discovering and documenting new medicinal plants a...[0m
+2025-07-06 20:22:52.806 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 20:22:52.809 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 0: name 'wood' is not defined
+2025-07-06 20:22:52.809 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mHerb(0)[0m: (age 63) attempting: Agent 0 searches for resources (fallback action)
+2025-07-06 20:22:52.811 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 1: name 'wood' is not defined
+2025-07-06 20:22:52.811 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mGor(1)[0m: (age 31) attempting: Agent 1 searches for resources (fallback action)
+2025-07-06 20:22:52.812 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 2: name 'wood' is not defined
+2025-07-06 20:22:52.812 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mRok(2)[0m: (age 44) attempting: Agent 2 searches for resources (fallback action)
+2025-07-06 20:22:52.813 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 3: name 'wood' is not defined
+2025-07-06 20:22:52.814 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mRok(3)[0m: (age 65) attempting: Agent 3 searches for resources (fallback action)
+2025-07-06 20:22:52.815 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 4: name 'wood' is not defined
+2025-07-06 20:22:52.816 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mRok(4)[0m: (age 38) attempting: Agent 4 searches for resources (fallback action)
+2025-07-06 20:22:52.816 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 5: name 'wood' is not defined
+2025-07-06 20:22:52.816 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mRok(5)[0m: (age 26) attempting: Agent 5 searches for resources (fallback action)
+2025-07-06 20:22:52.817 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 6: name 'wood' is not defined
+2025-07-06 20:22:52.817 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mMoss(6)[0m: (age 64) attempting: Agent 6 searches for resources (fallback action)
+2025-07-06 20:22:52.818 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 7: name 'wood' is not defined
+2025-07-06 20:22:52.818 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mFlint(7)[0m: (age 52) attempting: Agent 7 searches for resources (fallback action)
+2025-07-06 20:22:52.818 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 8: name 'wood' is not defined
+2025-07-06 20:22:52.819 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mEldra(8)[0m: (age 70) attempting: Agent 8 searches for resources (fallback action)
+2025-07-06 20:22:52.819 | ERROR    | sociology_simulation.mcp_enhanced_llm:generate_agent_action_with_mcp:91 - MCP action generation error for agent 9: name 'wood' is not defined
+2025-07-06 20:22:52.819 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mGor(9)[0m: (age 27) attempting: Agent 9 searches for resources (fallback action)
+2025-07-06 20:22:57.453 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "inventory": {"wood": 1},
+  "position": [18, 42],
+  "log": "Found 1 wood while searching...
+2025-07-06 20:22:57.457 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 20:22:57.457 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Herb(0):
+2025-07-06 20:22:57.459 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:434 - Fallback action handler used for agent 0
+2025-07-06 20:22:57.459 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:440 - [92m⚡[0m [1mHerb(0)[0m [93m行动 →[0m [36mAgent 0 searches for resources (fallback action)[0m

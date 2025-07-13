@@ -1,0 +1,89 @@
+2025-07-06 18:02:07.464 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 18:02:07.464 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 18:02:07.465 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:220 - Applying MCP integration...
+2025-07-06 18:02:07.465 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:285 - Agent actions patched for MCP
+2025-07-06 18:02:07.465 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:338 - Trinity rule generation patched for MCP
+2025-07-06 18:02:07.465 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:237 - MCP integration applied successfully
+2025-07-06 18:02:07.465 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 18:02:07.465 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 18:02:07.465 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 18:02:07.465 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 18:02:07.466 | INFO     | __main__:main:93 - Era: 石器时代
+2025-07-06 18:02:07.466 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 18:02:07.466 | INFO     | __main__:main:95 - Number of agents: 2
+2025-07-06 18:02:07.466 | INFO     | __main__:main:96 - Turns: 1
+2025-07-06 18:02:07.466 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 18:02:40.078 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:556 - Trinity created 0 terrains, 1 resources, 0 rules
+2025-07-06 18:02:40.078 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:322 - Trinity rules generated via MCP: 4 terrains, 1 resources
+2025-07-06 18:02:40.078 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 18:02:40.078 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 18:02:40.078 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, GRASSLAND, MOUNTAIN, WATER
+2025-07-06 18:02:40.078 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 18:02:40.078 | INFO     | sociology_simulation.world:initialize:81 -   DISTRIBUTIONS::
+2025-07-06 18:02:40.078 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 18:02:40.078 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 780333
+2025-07-06 18:02:40.178 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-07-06 18:02:40.178 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 18:02:40.178 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 18:02:48.323 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rok(0) personal goal ➜ Become the strongest hunter in the tribe by crafting superior stone weapons and leading successfu...
+2025-07-06 18:02:48.614 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Lira(1) personal goal ➜ Become the tribe's storyteller by collecting and sharing knowledge of animal behaviors, seasonal ...
+2025-07-06 18:02:48.615 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-07-06 18:02:59.039 | INFO     | sociology_simulation.world:resolve:254 - → Rok(0): (age 23) attempting: Moved north: Given that I'm currently in a grassland are...
+2025-07-06 18:02:59.211 | INFO     | sociology_simulation.world:resolve:254 - → Lira(1): (age 26) attempting: Moved east: Given my current situation and goal of becom...
+2025-07-06 18:03:04.145 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "position": [18, 38],
+  "log": "Moved north from [18, 39] to [18, 38]"
+}
+```...
+2025-07-06 18:03:04.147 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 18:03:04.147 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Rok(0):
+2025-07-06 18:03:04.148 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:276 - ⚡ Rok(0) 行动 → Moved north: Given that I'm currently in a grassland area with .... Moved north to (18, 39). Given that I'm currently...
+2025-07-06 18:03:09.062 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "position": [44, 52],
+  "log": "Moved east to position [44, 52]"
+}
+```...
+2025-07-06 18:03:09.063 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 18:03:09.063 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Lira(1):
+2025-07-06 18:03:09.063 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:276 - ⚡ Lira(1) 行动 → Moved east: Given my current situation and goal of becoming th.... Moved east to (43, 52). Given my current situation...
+2025-07-06 18:03:23.126 | SUCCESS  | sociology_simulation.bible:add_rule:204 - [Bible] Added rule: stone_tool_crafting (legacy_stone_tool_crafting) to default
+2025-07-06 18:03:23.126 | SUCCESS  | sociology_simulation.bible:add_rule:204 - [Bible] Added rule: tribal_shelters (legacy_tribal_shelters) to default
+2025-07-06 18:03:23.126 | SUCCESS  | sociology_simulation.bible:add_rule:204 - [Bible] Added rule: foraging_rules (legacy_foraging_rules) to default
+2025-07-06 18:03:23.126 | SUCCESS  | sociology_simulation.bible:update:440 - [Bible] Added 3 legacy rules
+2025-07-06 18:03:23.126 | SUCCESS  | sociology_simulation.trinity:adjudicate:65 - [Trinity] Era changed to: 石器时代
+2025-07-06 18:03:23.126 | SUCCESS  | sociology_simulation.trinity:_process_skill_updates:212 - [Trinity] Created new skill: flint_knapping
+2025-07-06 18:03:23.126 | SUCCESS  | sociology_simulation.trinity:_process_skill_updates:212 - [Trinity] Created new skill: berry_identification
+2025-07-06 18:03:23.126 | INFO     | sociology_simulation.trinity:_process_skill_updates:217 - [Trinity] Updated unlock conditions for flint_knapping
+2025-07-06 18:03:23.126 | INFO     | sociology_simulation.trinity:_process_skill_updates:217 - [Trinity] Updated unlock conditions for berry_identification
+2025-07-06 18:03:34.944 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "agent_skill_changes": {},
+  "global_skill_updates": {
+    "new_skills": {
+      "shell_...
+2025-07-06 18:03:34.945 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 18:03:42.592 | WARNING  | sociology_simulation.enhanced_llm:_generate_json_response:229 - JSON解析失败，尝试修复: ```json
+{
+  "add_resource_rules": {
+    "berries": {
+      "forest": 0.7,
+      "grassland": 0.3
+   ...
+2025-07-06 18:03:42.592 | INFO     | sociology_simulation.enhanced_llm:_generate_json_response:236 - JSON修复成功
+2025-07-06 18:03:42.592 | INFO     | sociology_simulation.world:step:769 - 
+========================================
+2025-07-06 18:03:42.592 | INFO     | sociology_simulation.world:step:770 - TURN SUMMARY - 2 agents alive
+2025-07-06 18:03:42.592 | INFO     | sociology_simulation.world:step:771 - Groups: 0, Technologies: 0
+2025-07-06 18:03:42.592 | INFO     | sociology_simulation.world:step:772 - Markets: 0, Political Entities: 0
+2025-07-06 18:03:42.592 | INFO     | sociology_simulation.world:step:773 - Era: 石器时代
+2025-07-06 18:03:42.592 | INFO     | sociology_simulation.world:step:775 - 技能单一，社会发展受限
+2025-07-06 18:03:42.592 | INFO     | sociology_simulation.world:step:775 - 社会孤立现象严重，合作困难
+2025-07-06 18:03:42.592 | INFO     | sociology_simulation.world:step:775 - 经济困难，资源分配不均
+2025-07-06 18:03:42.592 | INFO     | sociology_simulation.world:step:776 - ========================================
+

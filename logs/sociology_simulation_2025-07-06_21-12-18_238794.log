@@ -1,0 +1,131 @@
+2025-07-06 21:12:18.248 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-07-06 21:12:18.248 | INFO     | __main__:main:84 - Applying MCP integration to replace JSON generation with structured tool calls...
+2025-07-06 21:12:18.252 | INFO     | sociology_simulation.mcp_integration_patch:apply_mcp_integration:361 - Applying MCP integration...
+2025-07-06 21:12:18.252 | INFO     | sociology_simulation.mcp_integration_patch:_patch_agent_actions:445 - Agent actions patched for MCP
+2025-07-06 21:12:18.252 | INFO     | sociology_simulation.mcp_integration_patch:_patch_trinity_rules:566 - Trinity rule generation, adjudication, and action execution patched for MCP
+2025-07-06 21:12:18.252 | SUCCESS  | sociology_simulation.mcp_integration_patch:apply_mcp_integration:378 - MCP integration applied successfully
+2025-07-06 21:12:18.252 | INFO     | __main__:main:88 - MCP integration applied - LLM will now use structured tools instead of JSON
+2025-07-06 21:12:18.252 | INFO     | __main__:main:90 - Starting sociology simulation with Hydra configuration
+2025-07-06 21:12:18.252 | INFO     | __main__:main:91 - Initialized 12 prompt templates
+2025-07-06 21:12:18.252 | INFO     | __main__:main:92 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-07-06 21:12:18.253 | INFO     | __main__:main:93 - Era: 石器时代
+2025-07-06 21:12:18.253 | INFO     | __main__:main:94 - World size: 64x64
+2025-07-06 21:12:18.253 | INFO     | __main__:main:95 - Number of agents: 10
+2025-07-06 21:12:18.253 | INFO     | __main__:main:96 - Turns: 1000
+2025-07-06 21:12:18.253 | INFO     | __main__:run_simulation:120 - MCP client connected to world instance
+2025-07-06 21:12:53.540 | WARNING  | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:715 - Failed to parse terrain line: TERRAIN TYPES:
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.mcp_enhanced_llm:_execute_trinity_decisions:738 - Trinity created 5 terrains, 7 resources, 3 rules
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_generate_rules:474 - Trinity rules generated via MCP: 5 terrains, 7 resources
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: 石器时代
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: PLAIN, FOREST, RIVER, MOUNTAIN, SWAMP
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:81 -   DISTRIBUTIONS::
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:81 -   FLINT:
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:83 -     - {MOUNTAIN: 80% chance
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:83 -     - PLAIN: 20% chance
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:81 -   WOOD:
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:83 -     - {FOREST: 90% chance
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:83 -     - PLAIN: 10% chance
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:83 -     - {RIVER: 70% chance
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 30% chance
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:81 -   GAME:
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:83 -     - {FOREST: 30% chance
+2025-07-06 21:12:53.541 | INFO     | sociology_simulation.world:initialize:83 -     - PLAIN: 40% chance
+2025-07-06 21:12:53.542 | INFO     | sociology_simulation.world:initialize:81 -   BERRIES:
+2025-07-06 21:12:53.542 | INFO     | sociology_simulation.world:initialize:83 -     - {PLAIN: 50% chance
+2025-07-06 21:12:53.542 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 30% chance
+2025-07-06 21:12:53.542 | INFO     | sociology_simulation.world:initialize:81 -   CLAY:
+2025-07-06 21:12:53.542 | INFO     | sociology_simulation.world:initialize:83 -     - {RIVER: 50% chance
+2025-07-06 21:12:53.542 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 40% chance
+2025-07-06 21:12:53.542 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-07-06 21:12:53.542 | INFO     | sociology_simulation.world:generate_realistic_terrain:147 - Generating terrain using 'mixed' algorithm with seed 723065
+2025-07-06 21:12:53.653 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:157 - Generated realistic 64x64 terrain map
+2025-07-06 21:12:53.656 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-07-06 21:12:53.656 | INFO     | sociology_simulation.world:initialize:96 -   BERRIES: 1 units
+2025-07-06 21:12:53.656 | INFO     | sociology_simulation.world:initialize:96 -   CLAY: 214 units
+2025-07-06 21:12:53.656 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 172 units
+2025-07-06 21:12:53.656 | INFO     | sociology_simulation.world:initialize:96 -   FLINT: 436 units
+2025-07-06 21:12:53.656 | INFO     | sociology_simulation.world:initialize:96 -   GAME: 865 units
+2025-07-06 21:12:53.656 | INFO     | sociology_simulation.world:initialize:96 -   WOOD: 179 units
+2025-07-06 21:12:53.656 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-07-06 21:13:00.659 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Gor(3) goal ➜ Become the strongest hunter in the tribe by consistently ...
+2025-07-06 21:13:01.140 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Gor(8) goal ➜ Become the strongest hunter in the tribe by consistently ...
+2025-07-06 21:13:01.239 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Flintok(9) goal ➜ Become the strongest hunter in the tribe by crafting supe...
+2025-07-06 21:13:01.808 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Thorn(4) goal ➜ Become the tribe's foremost expert on identifying and cat...
+2025-07-06 21:13:01.808 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Rok(5) goal ➜ Become the strongest hunter in the tribe by crafting supe...
+2025-07-06 21:13:01.827 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Thorn(1) goal ➜ Become the tribe's foremost expert on identifying and cat...
+2025-07-06 21:13:01.921 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Gor(0) goal ➜ Become the strongest hunter in the tribe by consistently ...
+2025-07-06 21:13:02.071 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Gor(7) goal ➜ Become the strongest hunter in the tribe by consistently ...
+2025-07-06 21:13:02.329 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Gor(2) goal ➜ Become the strongest hunter in the tribe by consistently ...
+2025-07-06 21:13:05.615 | INFO     | sociology_simulation.agent:decide_goal:183 - 🎯 Thorn(6) goal ➜ Discover and map all edible plants and medicinal herbs wi...
+2025-07-06 21:13:05.617 | INFO     | sociology_simulation.world:step:561 - 
+=== TURN 0 START ===
+2025-07-06 21:13:17.273 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Gor(7) 行动 → Moved east: Given the current situation where I'm surroun...
+2025-07-06 21:13:18.098 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Flintok(9) 行动 → Failed to collect stone: No resources at position (2, 38)
+2025-07-06 21:13:18.098 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Gor(2) 行动 → Moved east: Given my goal to become the strongest hunter ...
+2025-07-06 21:13:18.124 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Gor(8) 行动 → Failed to collect stone: No resources at position (10, 55)
+2025-07-06 21:13:18.320 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Gor(3) 行动 → Collected resource: Given my current situation and goal t...
+2025-07-06 21:13:18.810 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Rok(5) 行动 → Failed to collect stone: No resources at position (36, 22)
+2025-07-06 21:13:18.879 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Thorn(6) 行动 → Moved north: Given that I'm surrounded by swamp terrain w...
+2025-07-06 21:13:19.275 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Thorn(4) 行动 → Failed to collect resource: No resources at position (0, 34)
+2025-07-06 21:13:19.349 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Thorn(1) 行动 → Moved east: Given my goal of becoming the foremost expert...
+2025-07-06 21:13:20.147 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Gor(0) 行动 → Moved east: Given my current situation and goal to become...
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:773 - 
+========================================
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:774 - TURN SUMMARY - 3 agents alive
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:775 - Groups: 0, Technologies: 0
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:776 - Markets: 0, Political Entities: 0
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:777 - Era: 石器时代
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:779 - Gor(0) starved to death at age 37!
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:779 - Gor(2) starved to death at age 30!
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:779 - Gor(3) starved to death at age 62!
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:779 - Thorn(4) starved to death at age 42!
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:779 - Rok(5) starved to death at age 61!
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:779 - Gor(8) starved to death at age 31!
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:779 - Flintok(9) starved to death at age 24!
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:779 - Thorn(1) is in critical health!
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:779 - Thorn(6) is in critical health!
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:779 - Gor(7) is in critical health!
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:779 - 1. The tribe has suffered catastrophic population collapse (70% mortality) wh...
+2025-07-06 21:13:27.146 | INFO     | sociology_simulation.world:step:779 - 2. Agents are dispersing rapidly across terrain without coordinated explorati...
+2025-07-06 21:13:27.147 | INFO     | sociology_simulation.world:step:780 - ========================================
+
+2025-07-06 21:13:27.147 | INFO     | sociology_simulation.world:step:561 - 
+=== TURN 2 START ===
+2025-07-06 21:13:41.849 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Gor(7) 行动 → Moved east: Given the current situation where I'm surroun...
+2025-07-06 21:13:42.265 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Thorn(6) 行动 → Moved north: Given the current situation where I'm surrou...
+2025-07-06 21:13:43.405 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Thorn(1) 行动 → Moved east: Given my goal to become the tribe's foremost ...
+2025-07-06 21:13:49.327 | INFO     | sociology_simulation.world:step:773 - 
+========================================
+2025-07-06 21:13:49.327 | INFO     | sociology_simulation.world:step:774 - TURN SUMMARY - 2 agents alive
+2025-07-06 21:13:49.327 | INFO     | sociology_simulation.world:step:775 - Groups: 0, Technologies: 0
+2025-07-06 21:13:49.327 | INFO     | sociology_simulation.world:step:776 - Markets: 0, Political Entities: 0
+2025-07-06 21:13:49.327 | INFO     | sociology_simulation.world:step:777 - Era: 石器时代
+2025-07-06 21:13:49.327 | INFO     | sociology_simulation.world:step:779 - Thorn(1) starved to death at age 32!
+2025-07-06 21:13:49.327 | INFO     | sociology_simulation.world:step:779 - 1. The tribe is facing imminent collapse due to catastrophic population decli...
+2025-07-06 21:13:49.327 | INFO     | sociology_simulation.world:step:779 - 2. Agents are prioritizing individual survival through relocation rather than...
+2025-07-06 21:13:49.327 | INFO     | sociology_simulation.world:step:780 - ========================================
+
+2025-07-06 21:13:49.328 | INFO     | sociology_simulation.world:step:561 - 
+=== TURN 4 START ===
+2025-07-06 21:14:00.796 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Gor(7) 行动 → Failed to collect resource: No resources at position (56,...
+2025-07-06 21:14:02.084 | INFO     | sociology_simulation.mcp_integration_patch:mcp_enhanced_act:437 - ⚡ Thorn(6) 行动 → Moved north: Given that I'm surrounded by swamp terrain w...
+2025-07-06 21:14:02.090 | INFO     | sociology_simulation.world:step:765 - Web data exported to: web_data/simulation_turn_005.json
+2025-07-06 21:14:07.813 | INFO     | sociology_simulation.world:step:773 - 
+========================================
+2025-07-06 21:14:07.813 | INFO     | sociology_simulation.world:step:774 - TURN SUMMARY - 1 agents alive
+2025-07-06 21:14:07.813 | INFO     | sociology_simulation.world:step:775 - Groups: 0, Technologies: 0
+2025-07-06 21:14:07.813 | INFO     | sociology_simulation.world:step:776 - Markets: 0, Political Entities: 0
+2025-07-06 21:14:07.813 | INFO     | sociology_simulation.world:step:777 - Era: 石器时代
+2025-07-06 21:14:07.813 | INFO     | sociology_simulation.world:step:779 - Thorn(6) starved to death at age 50!
+2025-07-06 21:14:07.813 | INFO     | sociology_simulation.world:step:779 - 1. The tribe is on the brink of collapse due to catastrophic population decli...
+2025-07-06 21:14:07.813 | INFO     | sociology_simulation.world:step:779 - 2. Complete lack of social organization (no skills, connections, or groups) s...
+2025-07-06 21:14:07.813 | INFO     | sociology_simulation.world:step:780 - ========================================
+
+2025-07-06 21:14:07.813 | INFO     | sociology_simulation.world:step:561 - 
+=== TURN 6 START ===
