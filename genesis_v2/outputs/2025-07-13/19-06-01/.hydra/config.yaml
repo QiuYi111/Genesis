@@ -1,0 +1,81 @@
+simulation:
+  name: Genesis Simulation
+  description: Emergent social complexity through LLM-driven agents
+  era_prompt: stone age tribes
+  seed: 42
+world:
+  width: 64
+  height: 64
+  terrain_types:
+  - water
+  - grassland
+  - forest
+  - mountain
+  - desert
+  resources:
+    water:
+      abundance: 0.3
+      clustering: 0.7
+    food:
+      abundance: 0.4
+      clustering: 0.6
+    wood:
+      abundance: 0.25
+      clustering: 0.8
+    stone:
+      abundance: 0.2
+      clustering: 0.9
+    metal:
+      abundance: 0.05
+      clustering: 0.95
+agents:
+  count: 10
+  spawn_radius: 5
+  attributes:
+    health:
+      min: 80
+      max: 100
+    strength:
+      min: 5
+      max: 15
+    intelligence:
+      min: 5
+      max: 15
+    charisma:
+      min: 5
+      max: 15
+  starting_inventory:
+    food: 5
+    water: 5
+llm:
+  provider: mock
+  model: gpt-3.5-turbo
+  temperature: 0.7
+  max_tokens: 500
+  rate_limit:
+    requests_per_minute: 60
+    burst_limit: 10
+  cache:
+    enabled: true
+    ttl: 3600
+    max_size: 10000
+trinity:
+  observation_interval: 10
+  skill_generation_threshold: 3
+  event_trigger_probability: 0.1
+  age_progression_threshold: 0.8
+memory:
+  personal_capacity: 100
+  cultural_capacity: 1000
+  decay_factor: 0.95
+runtime:
+  max_turns: 5
+  turn_delay: 0.1
+  log_level: INFO
+  save_interval: 50
+output:
+  format: rich
+  show_map: true
+  show_stats: true
+  export_web: false
+  web_port: 8080

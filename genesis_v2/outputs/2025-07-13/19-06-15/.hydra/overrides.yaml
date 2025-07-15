@@ -1,0 +1,3 @@
+- llm.provider=mock
+- runtime.max_turns=5
+- output.show_stats=true

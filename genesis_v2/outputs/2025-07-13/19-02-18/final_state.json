@@ -1,0 +1,1715 @@
+{
+  "simulation_config": "simulation:\n  name: Genesis Simulation\n  description: Emergent social complexity through LLM-driven agents\n  era_prompt: stone age tribes\n  seed: 42\nworld:\n  width: 64\n  height: 64\n  terrain_types:\n  - water\n  - grassland\n  - forest\n  - mountain\n  - desert\n  resources:\n    water:\n      abundance: 0.3\n      clustering: 0.7\n    food:\n      abundance: 0.4\n      clustering: 0.6\n    wood:\n      abundance: 0.25\n      clustering: 0.8\n    stone:\n      abundance: 0.2\n      clustering: 0.9\n    metal:\n      abundance: 0.05\n      clustering: 0.95\nagents:\n  count: 10\n  spawn_radius: 5\n  attributes:\n    health:\n      min: 80\n      max: 100\n    strength:\n      min: 5\n      max: 15\n    intelligence:\n      min: 5\n      max: 15\n    charisma:\n      min: 5\n      max: 15\n  starting_inventory:\n    food: 5\n    water: 5\nllm:\n  provider: mock\n  model: gpt-3.5-turbo\n  temperature: 0.7\n  max_tokens: 500\n  rate_limit:\n    requests_per_minute: 60\n    burst_limit: 10\n  cache:\n    enabled: true\n    ttl: 3600\n    max_size: 10000\ntrinity:\n  observation_interval: 10\n  skill_generation_threshold: 3\n  event_trigger_probability: 0.1\n  age_progression_threshold: 0.8\nmemory:\n  personal_capacity: 100\n  cultural_capacity: 1000\n  decay_factor: 0.95\nruntime:\n  max_turns: 5\n  turn_delay: 0.1\n  log_level: INFO\n  save_interval: 50\noutput:\n  format: rich\n  show_map: true\n  show_stats: true\n  export_web: false\n  web_port: 8080\n",
+  "final_state": "SimulationState(turn=5, world_state={'dimensions': (64, 64), 'terrain_distribution': {'WATER': np.int64(0), 'GRASSLAND': np.int64(3640), 'FOREST': np.int64(407), 'MOUNTAIN': np.int64(0), 'DESERT': np.int64(49)}, 'total_resources': {'water': 2705.4706125638495, 'food': 3427.731408698786, 'wood': 1514.6077146246596, 'stone': 2705.4706125638495, 'metal': 2705.47061256385}, 'climate': {'temperature': 20.956164911684155, 'humidity': 50.0}, 'buildings': 0, 'time': 5}, agent_states={'b6e62343': {'id': 'b6e62343', 'name': 'Agent-1', 'position': (29, 34), 'state': 'idle', 'attributes': {'health': 100.0, 'strength': 10.0, 'intelligence': 10.0, 'charisma': 10.0, 'dexterity': 10.0, 'endurance': 10.0}, 'dynamic_attributes': {}, 'inventory': {'water': {'quantity': 5, 'type': 'resource'}, 'berries': {'quantity': 3.0, 'type': 'food'}, 'stone': {'quantity': 2.0, 'type': 'resource'}, 'stick': {'quantity': 1.0, 'type': 'tool'}, 'food': {'quantity': 5, 'type': 'resource'}}, 'inventory_weight': '18.0/50.0', 'skills': {'gathering': 0.3, 'walking': 0.8, 'observation': 0.5, 'communication': 0.4, 'crafting_basic': 0.2}, 'social_connections': 0, 'memories': 5, 'goals': [], 'life_goals': ['survive_and_thrive', 'explore_world', 'build_community'], 'needs': {'hunger': 2.5, 'thirst': 3.5, 'fatigue': 1.5, 'social': 1.0}}, 'cbb59286': {'id': 'cbb59286', 'name': 'Agent-2', 'position': (27, 24), 'state': 'idle', 'attributes': {'health': 100.0, 'strength': 10.0, 'intelligence': 10.0, 'charisma': 10.0, 'dexterity': 10.0, 'endurance': 10.0}, 'dynamic_attributes': {}, 'inventory': {'water': {'quantity': 5, 'type': 'resource'}, 'berries': {'quantity': 3.0, 'type': 'food'}, 'stone': {'quantity': 2.0, 'type': 'resource'}, 'stick': {'quantity': 1.0, 'type': 'tool'}, 'food': {'quantity': 5, 'type': 'resource'}}, 'inventory_weight': '18.0/50.0', 'skills': {'gathering': 0.3, 'walking': 0.8, 'observation': 0.5, 'communication': 0.4, 'crafting_basic': 0.2}, 'social_connections': 0, 'memories': 5, 'goals': [], 'life_goals': ['survive_and_thrive', 'explore_world', 'build_community'], 'needs': {'hunger': 2.5, 'thirst': 3.5, 'fatigue': 1.5, 'social': 1.0}}, '562e12ff': {'id': '562e12ff', 'name': 'Agent-3', 'position': (27, 29), 'state': 'idle', 'attributes': {'health': 100.0, 'strength': 10.0, 'intelligence': 10.0, 'charisma': 10.0, 'dexterity': 10.0, 'endurance': 10.0}, 'dynamic_attributes': {}, 'inventory': {'water': {'quantity': 5, 'type': 'resource'}, 'berries': {'quantity': 3.0, 'type': 'food'}, 'stone': {'quantity': 2.0, 'type': 'resource'}, 'stick': {'quantity': 1.0, 'type': 'tool'}, 'food': {'quantity': 5, 'type': 'resource'}}, 'inventory_weight': '18.0/50.0', 'skills': {'gathering': 0.3, 'walking': 0.8, 'observation': 0.5, 'communication': 0.4, 'crafting_basic': 0.2}, 'social_connections': 0, 'memories': 5, 'goals': [], 'life_goals': ['survive_and_thrive', 'explore_world', 'build_community'], 'needs': {'hunger': 2.5, 'thirst': 3.5, 'fatigue': 1.5, 'social': 1.0}}, '6437e2b3': {'id': '6437e2b3', 'name': 'Agent-4', 'position': (31, 37), 'state': 'idle', 'attributes': {'health': 100.0, 'strength': 10.0, 'intelligence': 10.0, 'charisma': 10.0, 'dexterity': 10.0, 'endurance': 10.0}, 'dynamic_attributes': {}, 'inventory': {'water': {'quantity': 5, 'type': 'resource'}, 'berries': {'quantity': 3.0, 'type': 'food'}, 'stone': {'quantity': 2.0, 'type': 'resource'}, 'stick': {'quantity': 1.0, 'type': 'tool'}, 'food': {'quantity': 5, 'type': 'resource'}}, 'inventory_weight': '18.0/50.0', 'skills': {'gathering': 0.3, 'walking': 0.8, 'observation': 0.5, 'communication': 0.4, 'crafting_basic': 0.2}, 'social_connections': 0, 'memories': 5, 'goals': [], 'life_goals': ['survive_and_thrive', 'explore_world', 'build_community'], 'needs': {'hunger': 2.5, 'thirst': 3.5, 'fatigue': 1.5, 'social': 1.0}}, '8c776a94': {'id': '8c776a94', 'name': 'Agent-5', 'position': (33, 30), 'state': 'idle', 'attributes': {'health': 100.0, 'strength': 10.0, 'intelligence': 10.0, 'charisma': 10.0, 'dexterity': 10.0, 'endurance': 10.0}, 'dynamic_attributes': {}, 'inventory': {'water': {'quantity': 5, 'type': 'resource'}, 'berries': {'quantity': 3.0, 'type': 'food'}, 'stone': {'quantity': 2.0, 'type': 'resource'}, 'stick': {'quantity': 1.0, 'type': 'tool'}, 'food': {'quantity': 5, 'type': 'resource'}}, 'inventory_weight': '18.0/50.0', 'skills': {'gathering': 0.3, 'walking': 0.8, 'observation': 0.5, 'communication': 0.4, 'crafting_basic': 0.2}, 'social_connections': 0, 'memories': 5, 'goals': [], 'life_goals': ['survive_and_thrive', 'explore_world', 'build_community'], 'needs': {'hunger': 2.5, 'thirst': 3.5, 'fatigue': 1.5, 'social': 1.0}}, 'ae15594c': {'id': 'ae15594c', 'name': 'Agent-6', 'position': (30, 28), 'state': 'idle', 'attributes': {'health': 100.0, 'strength': 10.0, 'intelligence': 10.0, 'charisma': 10.0, 'dexterity': 10.0, 'endurance': 10.0}, 'dynamic_attributes': {}, 'inventory': {'water': {'quantity': 5, 'type': 'resource'}, 'berries': {'quantity': 3.0, 'type': 'food'}, 'stone': {'quantity': 2.0, 'type': 'resource'}, 'stick': {'quantity': 1.0, 'type': 'tool'}, 'food': {'quantity': 5, 'type': 'resource'}}, 'inventory_weight': '18.0/50.0', 'skills': {'gathering': 0.3, 'walking': 0.8, 'observation': 0.5, 'communication': 0.4, 'crafting_basic': 0.2}, 'social_connections': 0, 'memories': 5, 'goals': [], 'life_goals': ['survive_and_thrive', 'explore_world', 'build_community'], 'needs': {'hunger': 2.5, 'thirst': 3.5, 'fatigue': 1.5, 'social': 1.0}}, 'a38216e5': {'id': 'a38216e5', 'name': 'Agent-7', 'position': (34, 31), 'state': 'idle', 'attributes': {'health': 100.0, 'strength': 10.0, 'intelligence': 10.0, 'charisma': 10.0, 'dexterity': 10.0, 'endurance': 10.0}, 'dynamic_attributes': {}, 'inventory': {'water': {'quantity': 5, 'type': 'resource'}, 'berries': {'quantity': 3.0, 'type': 'food'}, 'stone': {'quantity': 2.0, 'type': 'resource'}, 'stick': {'quantity': 1.0, 'type': 'tool'}, 'food': {'quantity': 5, 'type': 'resource'}}, 'inventory_weight': '18.0/50.0', 'skills': {'gathering': 0.3, 'walking': 0.8, 'observation': 0.5, 'communication': 0.4, 'crafting_basic': 0.2}, 'social_connections': 0, 'memories': 5, 'goals': [], 'life_goals': ['survive_and_thrive', 'explore_world', 'build_community'], 'needs': {'hunger': 2.5, 'thirst': 3.5, 'fatigue': 1.5, 'social': 1.0}}, '0d20bf35': {'id': '0d20bf35', 'name': 'Agent-8', 'position': (32, 28), 'state': 'idle', 'attributes': {'health': 100.0, 'strength': 10.0, 'intelligence': 10.0, 'charisma': 10.0, 'dexterity': 10.0, 'endurance': 10.0}, 'dynamic_attributes': {}, 'inventory': {'water': {'quantity': 5, 'type': 'resource'}, 'berries': {'quantity': 3.0, 'type': 'food'}, 'stone': {'quantity': 2.0, 'type': 'resource'}, 'stick': {'quantity': 1.0, 'type': 'tool'}, 'food': {'quantity': 5, 'type': 'resource'}}, 'inventory_weight': '18.0/50.0', 'skills': {'gathering': 0.3, 'walking': 0.8, 'observation': 0.5, 'communication': 0.4, 'crafting_basic': 0.2}, 'social_connections': 0, 'memories': 5, 'goals': [], 'life_goals': ['survive_and_thrive', 'explore_world', 'build_community'], 'needs': {'hunger': 2.5, 'thirst': 3.5, 'fatigue': 1.5, 'social': 1.0}}, 'cacbb8b9': {'id': 'cacbb8b9', 'name': 'Agent-9', 'position': (34, 27), 'state': 'idle', 'attributes': {'health': 100.0, 'strength': 10.0, 'intelligence': 10.0, 'charisma': 10.0, 'dexterity': 10.0, 'endurance': 10.0}, 'dynamic_attributes': {}, 'inventory': {'water': {'quantity': 5, 'type': 'resource'}, 'berries': {'quantity': 3.0, 'type': 'food'}, 'stone': {'quantity': 2.0, 'type': 'resource'}, 'stick': {'quantity': 1.0, 'type': 'tool'}, 'food': {'quantity': 5, 'type': 'resource'}}, 'inventory_weight': '18.0/50.0', 'skills': {'gathering': 0.3, 'walking': 0.8, 'observation': 0.5, 'communication': 0.4, 'crafting_basic': 0.2}, 'social_connections': 0, 'memories': 5, 'goals': [], 'life_goals': ['survive_and_thrive', 'explore_world', 'build_community'], 'needs': {'hunger': 2.5, 'thirst': 3.5, 'fatigue': 1.5, 'social': 1.0}}, 'b8fce8d1': {'id': 'b8fce8d1', 'name': 'Agent-10', 'position': (30, 33), 'state': 'idle', 'attributes': {'health': 100.0, 'strength': 10.0, 'intelligence': 10.0, 'charisma': 10.0, 'dexterity': 10.0, 'endurance': 10.0}, 'dynamic_attributes': {}, 'inventory': {'water': {'quantity': 5, 'type': 'resource'}, 'berries': {'quantity': 3.0, 'type': 'food'}, 'stone': {'quantity': 2.0, 'type': 'resource'}, 'stick': {'quantity': 1.0, 'type': 'tool'}, 'food': {'quantity': 5, 'type': 'resource'}}, 'inventory_weight': '18.0/50.0', 'skills': {'gathering': 0.3, 'walking': 0.8, 'observation': 0.5, 'communication': 0.4, 'crafting_basic': 0.2}, 'social_connections': 0, 'memories': 5, 'goals': [], 'life_goals': ['survive_and_thrive', 'explore_world', 'build_community'], 'needs': {'hunger': 2.5, 'thirst': 3.5, 'fatigue': 1.5, 'social': 1.0}}}, events=[{'agent_id': 'b6e62343', 'agent_name': 'Agent-1', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (29, 35)}, 'decision_time': 9.059906005859375e-06, 'agent_state': 'idle'}, 'position': (29, 35)}, {'agent_id': 'cbb59286', 'agent_name': 'Agent-2', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (31, 27)}, 'decision_time': 3.0994415283203125e-06, 'agent_state': 'idle'}, 'position': (31, 27)}, {'agent_id': '562e12ff', 'agent_name': 'Agent-3', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (31, 28)}, 'decision_time': 2.86102294921875e-06, 'agent_state': 'idle'}, 'position': (31, 28)}, {'agent_id': '6437e2b3', 'agent_name': 'Agent-4', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (31, 35)}, 'decision_time': 2.1457672119140625e-06, 'agent_state': 'idle'}, 'position': (31, 35)}, {'agent_id': '8c776a94', 'agent_name': 'Agent-5', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (32, 29)}, 'decision_time': 3.0994415283203125e-06, 'agent_state': 'idle'}, 'position': (32, 29)}, {'agent_id': 'ae15594c', 'agent_name': 'Agent-6', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (29, 29)}, 'decision_time': 1.9073486328125e-06, 'agent_state': 'idle'}, 'position': (29, 29)}, {'agent_id': 'a38216e5', 'agent_name': 'Agent-7', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (36, 29)}, 'decision_time': 2.1457672119140625e-06, 'agent_state': 'idle'}, 'position': (36, 29)}, {'agent_id': '0d20bf35', 'agent_name': 'Agent-8', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (33, 29)}, 'decision_time': 1.6689300537109375e-06, 'agent_state': 'idle'}, 'position': (33, 29)}, {'agent_id': 'cacbb8b9', 'agent_name': 'Agent-9', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (31, 27)}, 'decision_time': 3.0994415283203125e-06, 'agent_state': 'idle'}, 'position': (31, 27)}, {'agent_id': 'b8fce8d1', 'agent_name': 'Agent-10', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (32, 35)}, 'decision_time': 3.0994415283203125e-06, 'agent_state': 'idle'}, 'position': (32, 35)}, {'agent_id': 'b6e62343', 'agent_name': 'Agent-1', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (28, 34)}, 'decision_time': 1.2159347534179688e-05, 'agent_state': 'idle'}, 'position': (28, 34)}, {'agent_id': 'cbb59286', 'agent_name': 'Agent-2', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (30, 27)}, 'decision_time': 5.7220458984375e-06, 'agent_state': 'idle'}, 'position': (30, 27)}, {'agent_id': '562e12ff', 'agent_name': 'Agent-3', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (30, 28)}, 'decision_time': 4.0531158447265625e-06, 'agent_state': 'idle'}, 'position': (30, 28)}, {'agent_id': '6437e2b3', 'agent_name': 'Agent-4', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (31, 36)}, 'decision_time': 4.0531158447265625e-06, 'agent_state': 'idle'}, 'position': (31, 36)}, {'agent_id': '8c776a94', 'agent_name': 'Agent-5', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (33, 29)}, 'decision_time': 4.0531158447265625e-06, 'agent_state': 'idle'}, 'position': (33, 29)}, {'agent_id': 'ae15594c', 'agent_name': 'Agent-6', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (29, 28)}, 'decision_time': 4.0531158447265625e-06, 'agent_state': 'idle'}, 'position': (29, 28)}, {'agent_id': 'a38216e5', 'agent_name': 'Agent-7', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (36, 30)}, 'decision_time': 4.0531158447265625e-06, 'agent_state': 'idle'}, 'position': (36, 30)}, {'agent_id': '0d20bf35', 'agent_name': 'Agent-8', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (33, 28)}, 'decision_time': 4.76837158203125e-06, 'agent_state': 'idle'}, 'position': (33, 28)}, {'agent_id': 'cacbb8b9', 'agent_name': 'Agent-9', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (31, 26)}, 'decision_time': 4.76837158203125e-06, 'agent_state': 'idle'}, 'position': (31, 26)}, {'agent_id': 'b8fce8d1', 'agent_name': 'Agent-10', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (31, 34)}, 'decision_time': 4.0531158447265625e-06, 'agent_state': 'idle'}, 'position': (31, 34)}, {'agent_id': 'b6e62343', 'agent_name': 'Agent-1', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (29, 34)}, 'decision_time': 2.002716064453125e-05, 'agent_state': 'idle'}, 'position': (29, 34)}, {'agent_id': 'cbb59286', 'agent_name': 'Agent-2', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (29, 26)}, 'decision_time': 8.106231689453125e-06, 'agent_state': 'idle'}, 'position': (29, 26)}, {'agent_id': '562e12ff', 'agent_name': 'Agent-3', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (29, 29)}, 'decision_time': 6.198883056640625e-06, 'agent_state': 'idle'}, 'position': (29, 29)}, {'agent_id': '6437e2b3', 'agent_name': 'Agent-4', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (31, 37)}, 'decision_time': 6.9141387939453125e-06, 'agent_state': 'idle'}, 'position': (31, 37)}, {'agent_id': '8c776a94', 'agent_name': 'Agent-5', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (33, 30)}, 'decision_time': 6.198883056640625e-06, 'agent_state': 'idle'}, 'position': (33, 30)}, {'agent_id': 'ae15594c', 'agent_name': 'Agent-6', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (30, 27)}, 'decision_time': 5.9604644775390625e-06, 'agent_state': 'idle'}, 'position': (30, 27)}, {'agent_id': 'a38216e5', 'agent_name': 'Agent-7', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (35, 31)}, 'decision_time': 5.9604644775390625e-06, 'agent_state': 'idle'}, 'position': (35, 31)}, {'agent_id': '0d20bf35', 'agent_name': 'Agent-8', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (32, 28)}, 'decision_time': 6.9141387939453125e-06, 'agent_state': 'idle'}, 'position': (32, 28)}, {'agent_id': 'cacbb8b9', 'agent_name': 'Agent-9', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (32, 27)}, 'decision_time': 6.198883056640625e-06, 'agent_state': 'idle'}, 'position': (32, 27)}, {'agent_id': 'b8fce8d1', 'agent_name': 'Agent-10', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (30, 33)}, 'decision_time': 6.198883056640625e-06, 'agent_state': 'idle'}, 'position': (30, 33)}, {'agent_id': 'b6e62343', 'agent_name': 'Agent-1', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (30, 35)}, 'decision_time': 6.508827209472656e-05, 'agent_state': 'idle'}, 'position': (30, 35)}, {'agent_id': 'cbb59286', 'agent_name': 'Agent-2', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (28, 25)}, 'decision_time': 2.3126602172851562e-05, 'agent_state': 'idle'}, 'position': (28, 25)}, {'agent_id': '562e12ff', 'agent_name': 'Agent-3', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (28, 29)}, 'decision_time': 1.811981201171875e-05, 'agent_state': 'idle'}, 'position': (28, 29)}, {'agent_id': '6437e2b3', 'agent_name': 'Agent-4', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (30, 38)}, 'decision_time': 2.9802322387695312e-05, 'agent_state': 'idle'}, 'position': (30, 38)}, {'agent_id': '8c776a94', 'agent_name': 'Agent-5', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (34, 30)}, 'decision_time': 1.0013580322265625e-05, 'agent_state': 'idle'}, 'position': (34, 30)}, {'agent_id': 'ae15594c', 'agent_name': 'Agent-6', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (29, 28)}, 'decision_time': 6.9141387939453125e-06, 'agent_state': 'idle'}, 'position': (29, 28)}, {'agent_id': 'a38216e5', 'agent_name': 'Agent-7', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (35, 30)}, 'decision_time': 6.9141387939453125e-06, 'agent_state': 'idle'}, 'position': (35, 30)}, {'agent_id': '0d20bf35', 'agent_name': 'Agent-8', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (33, 28)}, 'decision_time': 7.867813110351562e-06, 'agent_state': 'idle'}, 'position': (33, 28)}, {'agent_id': 'cacbb8b9', 'agent_name': 'Agent-9', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (33, 27)}, 'decision_time': 6.9141387939453125e-06, 'agent_state': 'idle'}, 'position': (33, 27)}, {'agent_id': 'b8fce8d1', 'agent_name': 'Agent-10', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (30, 32)}, 'decision_time': 7.867813110351562e-06, 'agent_state': 'idle'}, 'position': (30, 32)}, {'agent_id': 'b6e62343', 'agent_name': 'Agent-1', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (29, 34)}, 'decision_time': 6.604194641113281e-05, 'agent_state': 'idle'}, 'position': (29, 34)}, {'agent_id': 'cbb59286', 'agent_name': 'Agent-2', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (27, 24)}, 'decision_time': 1.811981201171875e-05, 'agent_state': 'idle'}, 'position': (27, 24)}, {'agent_id': '562e12ff', 'agent_name': 'Agent-3', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (27, 29)}, 'decision_time': 1.0728836059570312e-05, 'agent_state': 'idle'}, 'position': (27, 29)}, {'agent_id': '6437e2b3', 'agent_name': 'Agent-4', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (31, 37)}, 'decision_time': 1.0013580322265625e-05, 'agent_state': 'idle'}, 'position': (31, 37)}, {'agent_id': '8c776a94', 'agent_name': 'Agent-5', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (33, 30)}, 'decision_time': 1.0013580322265625e-05, 'agent_state': 'idle'}, 'position': (33, 30)}, {'agent_id': 'ae15594c', 'agent_name': 'Agent-6', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (30, 28)}, 'decision_time': 8.106231689453125e-06, 'agent_state': 'idle'}, 'position': (30, 28)}, {'agent_id': 'a38216e5', 'agent_name': 'Agent-7', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (34, 31)}, 'decision_time': 9.775161743164062e-06, 'agent_state': 'idle'}, 'position': (34, 31)}, {'agent_id': '0d20bf35', 'agent_name': 'Agent-8', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (32, 28)}, 'decision_time': 5.507469177246094e-05, 'agent_state': 'idle'}, 'position': (32, 28)}, {'agent_id': 'cacbb8b9', 'agent_name': 'Agent-9', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (34, 27)}, 'decision_time': 1.0967254638671875e-05, 'agent_state': 'idle'}, 'position': (34, 27)}, {'agent_id': 'b8fce8d1', 'agent_name': 'Agent-10', 'action': {'action': 'move', 'result': {'success': True, 'action': 'move', 'new_position': (30, 33)}, 'decision_time': 7.867813110351562e-06, 'agent_state': 'idle'}, 'position': (30, 33)}], timestamp='2025-07-13T19:02:18.864182')",
+  "statistics": {
+    "total_turns": 5,
+    "start_time": "2025-07-13 19:02:18.884472",
+    "end_time": "2025-07-13 19:02:19.310321",
+    "agent_actions": [
+      {
+        "agent_id": "b6e62343",
+        "agent_name": "Agent-1",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              29,
+              35
+            ]
+          },
+          "decision_time": 9.059906005859375e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          29,
+          35
+        ]
+      },
+      {
+        "agent_id": "cbb59286",
+        "agent_name": "Agent-2",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              31,
+              27
+            ]
+          },
+          "decision_time": 3.0994415283203125e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          31,
+          27
+        ]
+      },
+      {
+        "agent_id": "562e12ff",
+        "agent_name": "Agent-3",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              31,
+              28
+            ]
+          },
+          "decision_time": 2.86102294921875e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          31,
+          28
+        ]
+      },
+      {
+        "agent_id": "6437e2b3",
+        "agent_name": "Agent-4",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              31,
+              35
+            ]
+          },
+          "decision_time": 2.1457672119140625e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          31,
+          35
+        ]
+      },
+      {
+        "agent_id": "8c776a94",
+        "agent_name": "Agent-5",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              32,
+              29
+            ]
+          },
+          "decision_time": 3.0994415283203125e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          32,
+          29
+        ]
+      },
+      {
+        "agent_id": "ae15594c",
+        "agent_name": "Agent-6",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              29,
+              29
+            ]
+          },
+          "decision_time": 1.9073486328125e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          29,
+          29
+        ]
+      },
+      {
+        "agent_id": "a38216e5",
+        "agent_name": "Agent-7",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              36,
+              29
+            ]
+          },
+          "decision_time": 2.1457672119140625e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          36,
+          29
+        ]
+      },
+      {
+        "agent_id": "0d20bf35",
+        "agent_name": "Agent-8",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              33,
+              29
+            ]
+          },
+          "decision_time": 1.6689300537109375e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          33,
+          29
+        ]
+      },
+      {
+        "agent_id": "cacbb8b9",
+        "agent_name": "Agent-9",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              31,
+              27
+            ]
+          },
+          "decision_time": 3.0994415283203125e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          31,
+          27
+        ]
+      },
+      {
+        "agent_id": "b8fce8d1",
+        "agent_name": "Agent-10",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              32,
+              35
+            ]
+          },
+          "decision_time": 3.0994415283203125e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          32,
+          35
+        ]
+      },
+      {
+        "agent_id": "b6e62343",
+        "agent_name": "Agent-1",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              28,
+              34
+            ]
+          },
+          "decision_time": 1.2159347534179688e-05,
+          "agent_state": "idle"
+        },
+        "position": [
+          28,
+          34
+        ]
+      },
+      {
+        "agent_id": "cbb59286",
+        "agent_name": "Agent-2",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              30,
+              27
+            ]
+          },
+          "decision_time": 5.7220458984375e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          30,
+          27
+        ]
+      },
+      {
+        "agent_id": "562e12ff",
+        "agent_name": "Agent-3",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              30,
+              28
+            ]
+          },
+          "decision_time": 4.0531158447265625e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          30,
+          28
+        ]
+      },
+      {
+        "agent_id": "6437e2b3",
+        "agent_name": "Agent-4",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              31,
+              36
+            ]
+          },
+          "decision_time": 4.0531158447265625e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          31,
+          36
+        ]
+      },
+      {
+        "agent_id": "8c776a94",
+        "agent_name": "Agent-5",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              33,
+              29
+            ]
+          },
+          "decision_time": 4.0531158447265625e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          33,
+          29
+        ]
+      },
+      {
+        "agent_id": "ae15594c",
+        "agent_name": "Agent-6",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              29,
+              28
+            ]
+          },
+          "decision_time": 4.0531158447265625e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          29,
+          28
+        ]
+      },
+      {
+        "agent_id": "a38216e5",
+        "agent_name": "Agent-7",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              36,
+              30
+            ]
+          },
+          "decision_time": 4.0531158447265625e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          36,
+          30
+        ]
+      },
+      {
+        "agent_id": "0d20bf35",
+        "agent_name": "Agent-8",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              33,
+              28
+            ]
+          },
+          "decision_time": 4.76837158203125e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          33,
+          28
+        ]
+      },
+      {
+        "agent_id": "cacbb8b9",
+        "agent_name": "Agent-9",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              31,
+              26
+            ]
+          },
+          "decision_time": 4.76837158203125e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          31,
+          26
+        ]
+      },
+      {
+        "agent_id": "b8fce8d1",
+        "agent_name": "Agent-10",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              31,
+              34
+            ]
+          },
+          "decision_time": 4.0531158447265625e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          31,
+          34
+        ]
+      },
+      {
+        "agent_id": "b6e62343",
+        "agent_name": "Agent-1",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              29,
+              34
+            ]
+          },
+          "decision_time": 2.002716064453125e-05,
+          "agent_state": "idle"
+        },
+        "position": [
+          29,
+          34
+        ]
+      },
+      {
+        "agent_id": "cbb59286",
+        "agent_name": "Agent-2",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              29,
+              26
+            ]
+          },
+          "decision_time": 8.106231689453125e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          29,
+          26
+        ]
+      },
+      {
+        "agent_id": "562e12ff",
+        "agent_name": "Agent-3",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              29,
+              29
+            ]
+          },
+          "decision_time": 6.198883056640625e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          29,
+          29
+        ]
+      },
+      {
+        "agent_id": "6437e2b3",
+        "agent_name": "Agent-4",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              31,
+              37
+            ]
+          },
+          "decision_time": 6.9141387939453125e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          31,
+          37
+        ]
+      },
+      {
+        "agent_id": "8c776a94",
+        "agent_name": "Agent-5",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              33,
+              30
+            ]
+          },
+          "decision_time": 6.198883056640625e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          33,
+          30
+        ]
+      },
+      {
+        "agent_id": "ae15594c",
+        "agent_name": "Agent-6",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              30,
+              27
+            ]
+          },
+          "decision_time": 5.9604644775390625e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          30,
+          27
+        ]
+      },
+      {
+        "agent_id": "a38216e5",
+        "agent_name": "Agent-7",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              35,
+              31
+            ]
+          },
+          "decision_time": 5.9604644775390625e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          35,
+          31
+        ]
+      },
+      {
+        "agent_id": "0d20bf35",
+        "agent_name": "Agent-8",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              32,
+              28
+            ]
+          },
+          "decision_time": 6.9141387939453125e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          32,
+          28
+        ]
+      },
+      {
+        "agent_id": "cacbb8b9",
+        "agent_name": "Agent-9",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              32,
+              27
+            ]
+          },
+          "decision_time": 6.198883056640625e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          32,
+          27
+        ]
+      },
+      {
+        "agent_id": "b8fce8d1",
+        "agent_name": "Agent-10",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              30,
+              33
+            ]
+          },
+          "decision_time": 6.198883056640625e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          30,
+          33
+        ]
+      },
+      {
+        "agent_id": "b6e62343",
+        "agent_name": "Agent-1",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              30,
+              35
+            ]
+          },
+          "decision_time": 6.508827209472656e-05,
+          "agent_state": "idle"
+        },
+        "position": [
+          30,
+          35
+        ]
+      },
+      {
+        "agent_id": "cbb59286",
+        "agent_name": "Agent-2",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              28,
+              25
+            ]
+          },
+          "decision_time": 2.3126602172851562e-05,
+          "agent_state": "idle"
+        },
+        "position": [
+          28,
+          25
+        ]
+      },
+      {
+        "agent_id": "562e12ff",
+        "agent_name": "Agent-3",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              28,
+              29
+            ]
+          },
+          "decision_time": 1.811981201171875e-05,
+          "agent_state": "idle"
+        },
+        "position": [
+          28,
+          29
+        ]
+      },
+      {
+        "agent_id": "6437e2b3",
+        "agent_name": "Agent-4",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              30,
+              38
+            ]
+          },
+          "decision_time": 2.9802322387695312e-05,
+          "agent_state": "idle"
+        },
+        "position": [
+          30,
+          38
+        ]
+      },
+      {
+        "agent_id": "8c776a94",
+        "agent_name": "Agent-5",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              34,
+              30
+            ]
+          },
+          "decision_time": 1.0013580322265625e-05,
+          "agent_state": "idle"
+        },
+        "position": [
+          34,
+          30
+        ]
+      },
+      {
+        "agent_id": "ae15594c",
+        "agent_name": "Agent-6",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              29,
+              28
+            ]
+          },
+          "decision_time": 6.9141387939453125e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          29,
+          28
+        ]
+      },
+      {
+        "agent_id": "a38216e5",
+        "agent_name": "Agent-7",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              35,
+              30
+            ]
+          },
+          "decision_time": 6.9141387939453125e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          35,
+          30
+        ]
+      },
+      {
+        "agent_id": "0d20bf35",
+        "agent_name": "Agent-8",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              33,
+              28
+            ]
+          },
+          "decision_time": 7.867813110351562e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          33,
+          28
+        ]
+      },
+      {
+        "agent_id": "cacbb8b9",
+        "agent_name": "Agent-9",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              33,
+              27
+            ]
+          },
+          "decision_time": 6.9141387939453125e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          33,
+          27
+        ]
+      },
+      {
+        "agent_id": "b8fce8d1",
+        "agent_name": "Agent-10",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              30,
+              32
+            ]
+          },
+          "decision_time": 7.867813110351562e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          30,
+          32
+        ]
+      },
+      {
+        "agent_id": "b6e62343",
+        "agent_name": "Agent-1",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              29,
+              34
+            ]
+          },
+          "decision_time": 6.604194641113281e-05,
+          "agent_state": "idle"
+        },
+        "position": [
+          29,
+          34
+        ]
+      },
+      {
+        "agent_id": "cbb59286",
+        "agent_name": "Agent-2",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              27,
+              24
+            ]
+          },
+          "decision_time": 1.811981201171875e-05,
+          "agent_state": "idle"
+        },
+        "position": [
+          27,
+          24
+        ]
+      },
+      {
+        "agent_id": "562e12ff",
+        "agent_name": "Agent-3",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              27,
+              29
+            ]
+          },
+          "decision_time": 1.0728836059570312e-05,
+          "agent_state": "idle"
+        },
+        "position": [
+          27,
+          29
+        ]
+      },
+      {
+        "agent_id": "6437e2b3",
+        "agent_name": "Agent-4",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              31,
+              37
+            ]
+          },
+          "decision_time": 1.0013580322265625e-05,
+          "agent_state": "idle"
+        },
+        "position": [
+          31,
+          37
+        ]
+      },
+      {
+        "agent_id": "8c776a94",
+        "agent_name": "Agent-5",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              33,
+              30
+            ]
+          },
+          "decision_time": 1.0013580322265625e-05,
+          "agent_state": "idle"
+        },
+        "position": [
+          33,
+          30
+        ]
+      },
+      {
+        "agent_id": "ae15594c",
+        "agent_name": "Agent-6",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              30,
+              28
+            ]
+          },
+          "decision_time": 8.106231689453125e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          30,
+          28
+        ]
+      },
+      {
+        "agent_id": "a38216e5",
+        "agent_name": "Agent-7",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              34,
+              31
+            ]
+          },
+          "decision_time": 9.775161743164062e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          34,
+          31
+        ]
+      },
+      {
+        "agent_id": "0d20bf35",
+        "agent_name": "Agent-8",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              32,
+              28
+            ]
+          },
+          "decision_time": 5.507469177246094e-05,
+          "agent_state": "idle"
+        },
+        "position": [
+          32,
+          28
+        ]
+      },
+      {
+        "agent_id": "cacbb8b9",
+        "agent_name": "Agent-9",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              34,
+              27
+            ]
+          },
+          "decision_time": 1.0967254638671875e-05,
+          "agent_state": "idle"
+        },
+        "position": [
+          34,
+          27
+        ]
+      },
+      {
+        "agent_id": "b8fce8d1",
+        "agent_name": "Agent-10",
+        "action": {
+          "action": "move",
+          "result": {
+            "success": true,
+            "action": "move",
+            "new_position": [
+              30,
+              33
+            ]
+          },
+          "decision_time": 7.867813110351562e-06,
+          "agent_state": "idle"
+        },
+        "position": [
+          30,
+          33
+        ]
+      }
+    ],
+    "world_events": [],
+    "performance_metrics": {
+      "avg_llm_response_time": 0.0,
+      "llm_calls_per_turn": 0,
+      "memory_usage": 0.0
+    }
+  },
+  "world_summary": {
+    "dimensions": [
+      64,
+      64
+    ],
+    "terrain_distribution": {
+      "WATER": "0",
+      "GRASSLAND": "3640",
+      "FOREST": "407",
+      "MOUNTAIN": "0",
+      "DESERT": "49"
+    },
+    "total_resources": {
+      "water": 2705.4706125638495,
+      "food": 3427.731408698786,
+      "wood": 1514.6077146246596,
+      "stone": 2705.4706125638495,
+      "metal": 2705.47061256385
+    },
+    "climate": {
+      "temperature": 20.956164911684155,
+      "humidity": 50.0
+    },
+    "buildings": 0,
+    "time": 5
+  },
+  "agent_summary": {
+    "b6e62343": {
+      "id": "b6e62343",
+      "name": "Agent-1",
+      "position": [
+        29,
+        34
+      ],
+      "state": "idle",
+      "attributes": {
+        "health": 100.0,
+        "strength": 10.0,
+        "intelligence": 10.0,
+        "charisma": 10.0,
+        "dexterity": 10.0,
+        "endurance": 10.0
+      },
+      "dynamic_attributes": {},
+      "inventory": {
+        "water": {
+          "quantity": 5,
+          "type": "resource"
+        },
+        "berries": {
+          "quantity": 3.0,
+          "type": "food"
+        },
+        "stone": {
+          "quantity": 2.0,
+          "type": "resource"
+        },
+        "stick": {
+          "quantity": 1.0,
+          "type": "tool"
+        },
+        "food": {
+          "quantity": 5,
+          "type": "resource"
+        }
+      },
+      "inventory_weight": "18.0/50.0",
+      "skills": {
+        "gathering": 0.3,
+        "walking": 0.8,
+        "observation": 0.5,
+        "communication": 0.4,
+        "crafting_basic": 0.2
+      },
+      "social_connections": 0,
+      "memories": 5,
+      "goals": [],
+      "life_goals": [
+        "survive_and_thrive",
+        "explore_world",
+        "build_community"
+      ],
+      "needs": {
+        "hunger": 2.5,
+        "thirst": 3.5,
+        "fatigue": 1.5,
+        "social": 1.0
+      }
+    },
+    "cbb59286": {
+      "id": "cbb59286",
+      "name": "Agent-2",
+      "position": [
+        27,
+        24
+      ],
+      "state": "idle",
+      "attributes": {
+        "health": 100.0,
+        "strength": 10.0,
+        "intelligence": 10.0,
+        "charisma": 10.0,
+        "dexterity": 10.0,
+        "endurance": 10.0
+      },
+      "dynamic_attributes": {},
+      "inventory": {
+        "water": {
+          "quantity": 5,
+          "type": "resource"
+        },
+        "berries": {
+          "quantity": 3.0,
+          "type": "food"
+        },
+        "stone": {
+          "quantity": 2.0,
+          "type": "resource"
+        },
+        "stick": {
+          "quantity": 1.0,
+          "type": "tool"
+        },
+        "food": {
+          "quantity": 5,
+          "type": "resource"
+        }
+      },
+      "inventory_weight": "18.0/50.0",
+      "skills": {
+        "gathering": 0.3,
+        "walking": 0.8,
+        "observation": 0.5,
+        "communication": 0.4,
+        "crafting_basic": 0.2
+      },
+      "social_connections": 0,
+      "memories": 5,
+      "goals": [],
+      "life_goals": [
+        "survive_and_thrive",
+        "explore_world",
+        "build_community"
+      ],
+      "needs": {
+        "hunger": 2.5,
+        "thirst": 3.5,
+        "fatigue": 1.5,
+        "social": 1.0
+      }
+    },
+    "562e12ff": {
+      "id": "562e12ff",
+      "name": "Agent-3",
+      "position": [
+        27,
+        29
+      ],
+      "state": "idle",
+      "attributes": {
+        "health": 100.0,
+        "strength": 10.0,
+        "intelligence": 10.0,
+        "charisma": 10.0,
+        "dexterity": 10.0,
+        "endurance": 10.0
+      },
+      "dynamic_attributes": {},
+      "inventory": {
+        "water": {
+          "quantity": 5,
+          "type": "resource"
+        },
+        "berries": {
+          "quantity": 3.0,
+          "type": "food"
+        },
+        "stone": {
+          "quantity": 2.0,
+          "type": "resource"
+        },
+        "stick": {
+          "quantity": 1.0,
+          "type": "tool"
+        },
+        "food": {
+          "quantity": 5,
+          "type": "resource"
+        }
+      },
+      "inventory_weight": "18.0/50.0",
+      "skills": {
+        "gathering": 0.3,
+        "walking": 0.8,
+        "observation": 0.5,
+        "communication": 0.4,
+        "crafting_basic": 0.2
+      },
+      "social_connections": 0,
+      "memories": 5,
+      "goals": [],
+      "life_goals": [
+        "survive_and_thrive",
+        "explore_world",
+        "build_community"
+      ],
+      "needs": {
+        "hunger": 2.5,
+        "thirst": 3.5,
+        "fatigue": 1.5,
+        "social": 1.0
+      }
+    },
+    "6437e2b3": {
+      "id": "6437e2b3",
+      "name": "Agent-4",
+      "position": [
+        31,
+        37
+      ],
+      "state": "idle",
+      "attributes": {
+        "health": 100.0,
+        "strength": 10.0,
+        "intelligence": 10.0,
+        "charisma": 10.0,
+        "dexterity": 10.0,
+        "endurance": 10.0
+      },
+      "dynamic_attributes": {},
+      "inventory": {
+        "water": {
+          "quantity": 5,
+          "type": "resource"
+        },
+        "berries": {
+          "quantity": 3.0,
+          "type": "food"
+        },
+        "stone": {
+          "quantity": 2.0,
+          "type": "resource"
+        },
+        "stick": {
+          "quantity": 1.0,
+          "type": "tool"
+        },
+        "food": {
+          "quantity": 5,
+          "type": "resource"
+        }
+      },
+      "inventory_weight": "18.0/50.0",
+      "skills": {
+        "gathering": 0.3,
+        "walking": 0.8,
+        "observation": 0.5,
+        "communication": 0.4,
+        "crafting_basic": 0.2
+      },
+      "social_connections": 0,
+      "memories": 5,
+      "goals": [],
+      "life_goals": [
+        "survive_and_thrive",
+        "explore_world",
+        "build_community"
+      ],
+      "needs": {
+        "hunger": 2.5,
+        "thirst": 3.5,
+        "fatigue": 1.5,
+        "social": 1.0
+      }
+    },
+    "8c776a94": {
+      "id": "8c776a94",
+      "name": "Agent-5",
+      "position": [
+        33,
+        30
+      ],
+      "state": "idle",
+      "attributes": {
+        "health": 100.0,
+        "strength": 10.0,
+        "intelligence": 10.0,
+        "charisma": 10.0,
+        "dexterity": 10.0,
+        "endurance": 10.0
+      },
+      "dynamic_attributes": {},
+      "inventory": {
+        "water": {
+          "quantity": 5,
+          "type": "resource"
+        },
+        "berries": {
+          "quantity": 3.0,
+          "type": "food"
+        },
+        "stone": {
+          "quantity": 2.0,
+          "type": "resource"
+        },
+        "stick": {
+          "quantity": 1.0,
+          "type": "tool"
+        },
+        "food": {
+          "quantity": 5,
+          "type": "resource"
+        }
+      },
+      "inventory_weight": "18.0/50.0",
+      "skills": {
+        "gathering": 0.3,
+        "walking": 0.8,
+        "observation": 0.5,
+        "communication": 0.4,
+        "crafting_basic": 0.2
+      },
+      "social_connections": 0,
+      "memories": 5,
+      "goals": [],
+      "life_goals": [
+        "survive_and_thrive",
+        "explore_world",
+        "build_community"
+      ],
+      "needs": {
+        "hunger": 2.5,
+        "thirst": 3.5,
+        "fatigue": 1.5,
+        "social": 1.0
+      }
+    },
+    "ae15594c": {
+      "id": "ae15594c",
+      "name": "Agent-6",
+      "position": [
+        30,
+        28
+      ],
+      "state": "idle",
+      "attributes": {
+        "health": 100.0,
+        "strength": 10.0,
+        "intelligence": 10.0,
+        "charisma": 10.0,
+        "dexterity": 10.0,
+        "endurance": 10.0
+      },
+      "dynamic_attributes": {},
+      "inventory": {
+        "water": {
+          "quantity": 5,
+          "type": "resource"
+        },
+        "berries": {
+          "quantity": 3.0,
+          "type": "food"
+        },
+        "stone": {
+          "quantity": 2.0,
+          "type": "resource"
+        },
+        "stick": {
+          "quantity": 1.0,
+          "type": "tool"
+        },
+        "food": {
+          "quantity": 5,
+          "type": "resource"
+        }
+      },
+      "inventory_weight": "18.0/50.0",
+      "skills": {
+        "gathering": 0.3,
+        "walking": 0.8,
+        "observation": 0.5,
+        "communication": 0.4,
+        "crafting_basic": 0.2
+      },
+      "social_connections": 0,
+      "memories": 5,
+      "goals": [],
+      "life_goals": [
+        "survive_and_thrive",
+        "explore_world",
+        "build_community"
+      ],
+      "needs": {
+        "hunger": 2.5,
+        "thirst": 3.5,
+        "fatigue": 1.5,
+        "social": 1.0
+      }
+    },
+    "a38216e5": {
+      "id": "a38216e5",
+      "name": "Agent-7",
+      "position": [
+        34,
+        31
+      ],
+      "state": "idle",
+      "attributes": {
+        "health": 100.0,
+        "strength": 10.0,
+        "intelligence": 10.0,
+        "charisma": 10.0,
+        "dexterity": 10.0,
+        "endurance": 10.0
+      },
+      "dynamic_attributes": {},
+      "inventory": {
+        "water": {
+          "quantity": 5,
+          "type": "resource"
+        },
+        "berries": {
+          "quantity": 3.0,
+          "type": "food"
+        },
+        "stone": {
+          "quantity": 2.0,
+          "type": "resource"
+        },
+        "stick": {
+          "quantity": 1.0,
+          "type": "tool"
+        },
+        "food": {
+          "quantity": 5,
+          "type": "resource"
+        }
+      },
+      "inventory_weight": "18.0/50.0",
+      "skills": {
+        "gathering": 0.3,
+        "walking": 0.8,
+        "observation": 0.5,
+        "communication": 0.4,
+        "crafting_basic": 0.2
+      },
+      "social_connections": 0,
+      "memories": 5,
+      "goals": [],
+      "life_goals": [
+        "survive_and_thrive",
+        "explore_world",
+        "build_community"
+      ],
+      "needs": {
+        "hunger": 2.5,
+        "thirst": 3.5,
+        "fatigue": 1.5,
+        "social": 1.0
+      }
+    },
+    "0d20bf35": {
+      "id": "0d20bf35",
+      "name": "Agent-8",
+      "position": [
+        32,
+        28
+      ],
+      "state": "idle",
+      "attributes": {
+        "health": 100.0,
+        "strength": 10.0,
+        "intelligence": 10.0,
+        "charisma": 10.0,
+        "dexterity": 10.0,
+        "endurance": 10.0
+      },
+      "dynamic_attributes": {},
+      "inventory": {
+        "water": {
+          "quantity": 5,
+          "type": "resource"
+        },
+        "berries": {
+          "quantity": 3.0,
+          "type": "food"
+        },
+        "stone": {
+          "quantity": 2.0,
+          "type": "resource"
+        },
+        "stick": {
+          "quantity": 1.0,
+          "type": "tool"
+        },
+        "food": {
+          "quantity": 5,
+          "type": "resource"
+        }
+      },
+      "inventory_weight": "18.0/50.0",
+      "skills": {
+        "gathering": 0.3,
+        "walking": 0.8,
+        "observation": 0.5,
+        "communication": 0.4,
+        "crafting_basic": 0.2
+      },
+      "social_connections": 0,
+      "memories": 5,
+      "goals": [],
+      "life_goals": [
+        "survive_and_thrive",
+        "explore_world",
+        "build_community"
+      ],
+      "needs": {
+        "hunger": 2.5,
+        "thirst": 3.5,
+        "fatigue": 1.5,
+        "social": 1.0
+      }
+    },
+    "cacbb8b9": {
+      "id": "cacbb8b9",
+      "name": "Agent-9",
+      "position": [
+        34,
+        27
+      ],
+      "state": "idle",
+      "attributes": {
+        "health": 100.0,
+        "strength": 10.0,
+        "intelligence": 10.0,
+        "charisma": 10.0,
+        "dexterity": 10.0,
+        "endurance": 10.0
+      },
+      "dynamic_attributes": {},
+      "inventory": {
+        "water": {
+          "quantity": 5,
+          "type": "resource"
+        },
+        "berries": {
+          "quantity": 3.0,
+          "type": "food"
+        },
+        "stone": {
+          "quantity": 2.0,
+          "type": "resource"
+        },
+        "stick": {
+          "quantity": 1.0,
+          "type": "tool"
+        },
+        "food": {
+          "quantity": 5,
+          "type": "resource"
+        }
+      },
+      "inventory_weight": "18.0/50.0",
+      "skills": {
+        "gathering": 0.3,
+        "walking": 0.8,
+        "observation": 0.5,
+        "communication": 0.4,
+        "crafting_basic": 0.2
+      },
+      "social_connections": 0,
+      "memories": 5,
+      "goals": [],
+      "life_goals": [
+        "survive_and_thrive",
+        "explore_world",
+        "build_community"
+      ],
+      "needs": {
+        "hunger": 2.5,
+        "thirst": 3.5,
+        "fatigue": 1.5,
+        "social": 1.0
+      }
+    },
+    "b8fce8d1": {
+      "id": "b8fce8d1",
+      "name": "Agent-10",
+      "position": [
+        30,
+        33
+      ],
+      "state": "idle",
+      "attributes": {
+        "health": 100.0,
+        "strength": 10.0,
+        "intelligence": 10.0,
+        "charisma": 10.0,
+        "dexterity": 10.0,
+        "endurance": 10.0
+      },
+      "dynamic_attributes": {},
+      "inventory": {
+        "water": {
+          "quantity": 5,
+          "type": "resource"
+        },
+        "berries": {
+          "quantity": 3.0,
+          "type": "food"
+        },
+        "stone": {
+          "quantity": 2.0,
+          "type": "resource"
+        },
+        "stick": {
+          "quantity": 1.0,
+          "type": "tool"
+        },
+        "food": {
+          "quantity": 5,
+          "type": "resource"
+        }
+      },
+      "inventory_weight": "18.0/50.0",
+      "skills": {
+        "gathering": 0.3,
+        "walking": 0.8,
+        "observation": 0.5,
+        "communication": 0.4,
+        "crafting_basic": 0.2
+      },
+      "social_connections": 0,
+      "memories": 5,
+      "goals": [],
+      "life_goals": [
+        "survive_and_thrive",
+        "explore_world",
+        "build_community"
+      ],
+      "needs": {
+        "hunger": 2.5,
+        "thirst": 3.5,
+        "fatigue": 1.5,
+        "social": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+# Project Genesis Configuration
+# This configuration drives the entire simulation
+
+# Simulation metadata
+simulation:
+  name: "Genesis Simulation"
+  description: "Emergent social complexity through LLM-driven agents"
+  era_prompt: "stone age tribes"  # Starting era context
+  seed: 42
+  
+# World configuration
+world:
+  width: 64
+  height: 64
+  terrain_types:
+    - water
+    - grassland
+    - forest
+    - mountain
+    - desert
+  
+  # Resource distribution
+  resources:
+    water:
+      abundance: 0.3
+      clustering: 0.7
+    food:
+      abundance: 0.4
+      clustering: 0.6
+    wood:
+      abundance: 0.25
+      clustering: 0.8
+    stone:
+      abundance: 0.2
+      clustering: 0.9
+    metal:
+      abundance: 0.05
+      clustering: 0.95
+
+# Agent configuration
+agents:
+  count: 10
+  spawn_radius: 5
+  
+  # Initial attributes range
+  attributes:
+    health: {min: 80, max: 100}
+    strength: {min: 5, max: 15}
+    intelligence: {min: 5, max: 15}
+    charisma: {min: 5, max: 15}
+  
+  # Starting inventory
+  starting_inventory:
+    food: 5
+    water: 5
+
+# LLM configuration
+llm:
+  provider: "mock"  # mock, deepseek, openai
+  model: "gpt-3.5-turbo"
+  temperature: 0.7
+  max_tokens: 500
+  
+  # Rate limiting
+  rate_limit:
+    requests_per_minute: 60
+    burst_limit: 10
+  
+  # Caching
+  cache:
+    enabled: true
+    ttl: 3600
+    max_size: 10000
+
+# Trinity system configuration
+trinity:
+  observation_interval: 10  # steps between observations
+  skill_generation_threshold: 3  # how many agents need to exhibit behavior
+  event_trigger_probability: 0.1
+  age_progression_threshold: 0.8  # society development level
+
+# Memory configuration
+memory:
+  personal_capacity: 100
+  cultural_capacity: 1000
+  decay_factor: 0.95
+
+# Runtime configuration
+runtime:
+  max_turns: 1000
+  turn_delay: 0.1  # seconds between turns
+  log_level: "INFO"
+  save_interval: 50  # save every N turns
+
+# Output configuration
+output:
+  format: "rich"  # rich, json, csv
+  show_map: true
+  show_stats: true
+  export_web: false
+  web_port: 8080
