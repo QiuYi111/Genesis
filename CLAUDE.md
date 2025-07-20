@@ -1,0 +1,2 @@
+- read the REFACTORING_PLAN.md when you are asked to refactor
+- every edit you made should be git logged. You should git commit the change
