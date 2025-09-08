@@ -39,7 +39,11 @@ class DeepSeekProvider(BaseProvider):
         }
 
         def _do_request() -> str:
-            req = urllib.request.Request(self._ENDPOINT, data=json.dumps(payload).encode("utf-8"), headers=headers)
+            req = urllib.request.Request(
+                self._ENDPOINT,
+                data=json.dumps(payload).encode("utf-8"),
+                headers=headers,
+            )
             try:
                 with urllib.request.urlopen(req, timeout=timeout) as resp:
                     raw = resp.read().decode("utf-8")
