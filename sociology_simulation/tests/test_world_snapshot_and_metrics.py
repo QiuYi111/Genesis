@@ -9,7 +9,14 @@ def test_step_returns_metrics_and_updates_turn():
     assert result["turn"] == 0
     m = result["metrics"]
     # Basic keys exist and are non-negative
-    for k in ("actions_per_turn", "resource_food", "resource_wood", "resource_flint", "inv_spear", "scarcity"):
+    for k in (
+        "actions_per_turn",
+        "resource_food",
+        "resource_wood",
+        "resource_flint",
+        "inv_spear",
+        "scarcity",
+    ):
         assert k in m
         assert isinstance(m[k], float)
         assert m[k] >= 0.0
@@ -38,4 +45,3 @@ class _DummyTrinity:
             resource_regen_multiplier = 1.0
 
         return _TA()
-

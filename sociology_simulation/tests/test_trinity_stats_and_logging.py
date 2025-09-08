@@ -5,8 +5,8 @@ from typing import Any
 
 import pytest
 
-from sociology_simulation.trinity import LLMPlanner, NullPlanner, Trinity
 from sociology_simulation.services.llm import DeepSeekProvider
+from sociology_simulation.trinity import LLMPlanner, NullPlanner, Trinity
 
 
 def test_observe_aggregates_event_stats() -> None:
@@ -55,14 +55,17 @@ def test_llm_planner_exception_fallback() -> None:
     assert out.get("regen", 1.0) == 1.0
 
 
-def test_deepseek_provider_without_key_returns_empty_json_text(monkeypatch: pytest.MonkeyPatch) -> None:
+def test_deepseek_provider_without_key_returns_empty_json_text(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
     # Ensure no API key is visible
     monkeypatch.delenv("DEEPSEEK_API_KEY", raising=False)
     provider = DeepSeekProvider()
 
     async def _run() -> str:
-        return await provider.generate(messages=[{"role": "user", "content": "hi"}], cfg={"model": "deepseek-chat"})
+        return await provider.generate(
+            messages=[{"role": "user", "content": "hi"}], cfg={"model": "deepseek-chat"}
+        )
 
     text = asyncio.get_event_loop().run_until_complete(_run())
     assert text == "{}"
-

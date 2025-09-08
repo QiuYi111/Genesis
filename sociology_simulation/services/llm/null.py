@@ -1,7 +1,7 @@
 from __future__ import annotations
 
+from ...trinity.contracts import ModelCfg, Msg
 from .base import BaseProvider
-from ...trinity.contracts import Msg, ModelCfg
 
 
 class NullProvider(BaseProvider):

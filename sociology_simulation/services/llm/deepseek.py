@@ -7,8 +7,8 @@ import urllib.error
 import urllib.request
 from typing import Any
 
+from ...trinity.contracts import ModelCfg, Msg
 from .base import BaseProvider
-from ...trinity.contracts import Msg, ModelCfg
 
 
 class DeepSeekProvider(BaseProvider):

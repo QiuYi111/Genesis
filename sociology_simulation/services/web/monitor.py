@@ -6,7 +6,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional, Set
 
-
 # Optional dependency: we degrade to a no-op monitor if not installed.
 try:  # pragma: no cover - import guard
     import websockets

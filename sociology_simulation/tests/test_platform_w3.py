@@ -4,8 +4,8 @@ import asyncio
 import json
 from pathlib import Path
 
-from sociology_simulation.services.web.monitor import WebSocketMonitor, Exporter
 from sociology_simulation.cli.config import AppCfg, apply_overrides, to_dict
+from sociology_simulation.services.web.monitor import Exporter, WebSocketMonitor
 
 
 def test_cli_config_overrides_and_to_dict() -> None:

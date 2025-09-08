@@ -2,12 +2,11 @@ from __future__ import annotations
 
 import asyncio
 import logging
-from typing import Any
 
 import pytest
 
-from sociology_simulation.trinity import NullPlanner, Trinity
 from sociology_simulation.services.llm.deepseek import DeepSeekProvider
+from sociology_simulation.trinity import NullPlanner, Trinity
 
 
 def test_trinity_observe_aggregates_event_counts() -> None:
@@ -77,4 +76,3 @@ def test_deepseek_provider_without_key_returns_empty_json_text() -> None:
 
     text = asyncio.get_event_loop().run_until_complete(_run())
     assert text == "{}"
-

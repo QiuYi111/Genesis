@@ -1,11 +1,10 @@
 from __future__ import annotations
 
 import random
-from dataclasses import dataclass
 from typing import Any, Dict, List, Tuple
 
 from .agent import Agent
-from .types import TurnResult, BehaviorEvent, Position, WorldView, ActionType
+from .types import ActionType, BehaviorEvent, Position, TurnResult, WorldView
 
 
 class _WorldView(WorldView):
@@ -119,7 +118,10 @@ class World:
                         continue
                     other = self._agent_by_id(partner_id)
                     if other is not None:
-                        if agent.inventory.get("food", 0) >= 1 and other.inventory.get("flint", 0) >= 1:
+                        if (
+                            agent.inventory.get("food", 0) >= 1
+                            and other.inventory.get("flint", 0) >= 1
+                        ):
                             agent.inventory["food"] -= 1
                             other.inventory["food"] = other.inventory.get("food", 0) + 1
                             other.inventory["flint"] -= 1

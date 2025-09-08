@@ -9,7 +9,7 @@ from __future__ import annotations
 import logging
 from typing import Any, Protocol
 
-from .contracts import TrinityActions
+from .contracts import LLMProvider, TrinityActions
 from .utils import run_async, safe_json_loads
 
 
@@ -103,7 +103,7 @@ class LLMPlanner:
     On any exception or timeout, returns a safe default plan.
     """
 
-    def __init__(self, provider: "LLMProvider", cfg: dict[str, Any]) -> None:  # type: ignore[name-defined]
+    def __init__(self, provider: LLMProvider, cfg: dict[str, Any]) -> None:
         self._provider = provider
         # Keep only the expected keys to avoid passing unknowns further
         self._cfg = {

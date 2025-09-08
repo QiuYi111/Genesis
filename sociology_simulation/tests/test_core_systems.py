@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from sociology_simulation.core.world import World
 from sociology_simulation.core.types import Position
+from sociology_simulation.core.world import World
 
 
 class DummyTrinity:

@@ -27,6 +27,6 @@ class LLMProvider(Protocol):
 @dataclass
 class TrinityActions:
     resource_regen_multiplier: float = 1.0
-    terrain_adjustments: Optional[list[tuple["Position", str]]] = None
+    # Use coordinates tuple to avoid cross-package type reference at runtime
+    terrain_adjustments: Optional[list[tuple[tuple[int, int], str]]] = None
     skill_updates: Optional[dict[str, dict]] = None
-

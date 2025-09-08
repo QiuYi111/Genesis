@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import os
 
+from ...trinity.contracts import ModelCfg, Msg
 from .base import BaseProvider
-from ...trinity.contracts import Msg, ModelCfg
 
 
 class OpenAIProvider(BaseProvider):

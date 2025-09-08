@@ -1,15 +1,15 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import List
+from typing import Any, List
 
 from .types import (
-    Position,
-    Inventory,
-    DecisionContext,
     Action,
     ActionType,
     BehaviorEvent,
+    DecisionContext,
+    Inventory,
+    Position,
     WorldView,
 )
 
@@ -21,7 +21,7 @@ class Agent:
     pos: Position
     inventory: Inventory = field(default_factory=dict)
 
-    def perceive(self, world: "World", *, turn: int) -> DecisionContext:  # type: ignore[name-defined]
+    def perceive(self, world: Any, *, turn: int) -> DecisionContext:
         view: WorldView = world._world_view  # read-only facade
         visible = view.get_visible(self.pos, radius=1)
         neighbors = view.get_neighbors(self.pos, radius=1)

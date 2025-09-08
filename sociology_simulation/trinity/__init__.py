@@ -1,7 +1,7 @@
 """Trinity engine package (W1/W2 minimal exports)."""
 
-from .trinity import Planner, NullPlanner, Trinity, LLMPlanner
-from .contracts import Msg, ModelCfg, LLMProvider, TrinityActions
+from .contracts import LLMProvider, ModelCfg, Msg, TrinityActions
+from .trinity import LLMPlanner, NullPlanner, Planner, Trinity
 
 __all__ = [
     "Planner",

@@ -10,7 +10,6 @@ import os
 from dataclasses import dataclass
 from typing import Final
 
-
 _BASE_DIR: Final[str] = os.path.join("web_data", "snapshots")
 
 

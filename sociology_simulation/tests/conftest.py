@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import asyncio
 
+import pytest
+
 
 def pytest_sessionstart(session):  # type: ignore[unused-argument]
     """Ensure a default asyncio event loop exists for tests that directly use
@@ -31,9 +33,6 @@ def pytest_unconfigure(config):  # type: ignore[unused-argument]
         loop.close()
     except Exception:
         pass
-
-
-import pytest
 
 
 @pytest.fixture

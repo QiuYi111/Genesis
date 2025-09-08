@@ -2,13 +2,13 @@ from __future__ import annotations
 
 import asyncio
 import sys
+from pathlib import Path
 from typing import Sequence
 
 from ..core.world import World
-from ..services.web.monitor import WebSocketMonitor, Exporter
-from pathlib import Path
 from ..services.llm.null import NullProvider
-from ..trinity.trinity import Trinity, NullPlanner, LLMPlanner
+from ..services.web.monitor import Exporter, WebSocketMonitor
+from ..trinity.trinity import LLMPlanner, NullPlanner, Trinity
 from .config import AppCfg, apply_overrides
 
 
@@ -29,7 +29,9 @@ def make_provider(provider_name: str):
     return NullProvider()
 
 
-async def simulation_loop(world: World, trinity: Trinity, monitor: WebSocketMonitor, *, turns: int) -> None:
+async def simulation_loop(
+    world: World, trinity: Trinity, monitor: WebSocketMonitor, *, turns: int
+) -> None:
     for t in range(turns):
         result = world.step(t, trinity=trinity)
         # Broadcast one frame per turn; schema defined by world.snapshot().
@@ -46,11 +48,17 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     world = World(size=cfg.world.size, seed=cfg.runtime.seed, num_agents=cfg.world.num_agents)
     _provider = make_provider(cfg.model.provider)
-    planner = NullPlanner() if cfg.model.provider == "null" else LLMPlanner(_provider, vars(cfg.model))
+    planner = (
+        NullPlanner()
+        if cfg.model.provider == "null"
+        else LLMPlanner(_provider, vars(cfg.model))
+    )
     trinity = Trinity(planner)
 
     monitor = WebSocketMonitor()
-    exporter = Exporter(Path(cfg.web.export_dir)) if getattr(cfg.web, "export", False) else None
+    exporter = (
+        Exporter(Path(cfg.web.export_dir)) if getattr(cfg.web, "export", False) else None
+    )
     async def _run():
         await monitor.start(cfg.web.port)
         await simulation_loop(world, trinity, monitor, turns=cfg.runtime.turns)
