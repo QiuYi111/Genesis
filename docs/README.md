@@ -20,6 +20,8 @@
 - **[智能体系统](technical/agent-system.md)** - Agent 设计和行为机制
 - **[Trinity 系统](technical/trinity-system.md)** - 神系统的设计和实现
 - **[技能系统](technical/skill-system.md)** - 动态技能创建和管理
+ - 运行时快照 Schema：见 [Runtime Snapshot v1](snapshot_v1.md)
+ - WebSocket 监控：见 [WebSocket Monitor](websocket_monitor.md)
 
 ### 💡 示例教程
 
@@ -109,14 +111,12 @@ Trinity (神系统)
 └── 生态平衡 - 可持续发展机制
 ```
 
-## 🛠️ 技术栈
+## 🛠️ 技术栈（本仓 MVP）
 
-- **Python 3.8+** - 核心开发语言
-- **aiohttp** - 异步 HTTP 客户端
-- **Hydra** - 配置管理系统
-- **DeepSeek/OpenAI API** - 大语言模型服务
-- **matplotlib** - 数据可视化
-- **loguru** - 高级日志系统
+- Python 3.10+
+- uv（依赖与运行）
+- websockets（可选，未安装时 Monitor 自动降级）
+- pytest / ruff / black（开发工具）
 
 ## 🔍 使用场景
 
@@ -170,9 +170,9 @@ Trinity (神系统)
 
 本文档随项目持续更新。主要版本发布时会同步更新所有相关文档。
 
-**最后更新**: 2024年3月
-**文档版本**: v2.0
-**对应代码版本**: v2.0.0
+**最后更新**: 2025-09
+**文档版本**: v0.2（W2）
+**对应代码版本**: main（W2 完成）
 
 ---
 
