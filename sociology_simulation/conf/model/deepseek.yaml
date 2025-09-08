@@ -1,0 +1,5 @@
+provider: deepseek
+model: deepseek-chat
+temperature: 0.3
+timeout: 8.0
+

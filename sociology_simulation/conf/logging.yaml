@@ -1,0 +1,5 @@
+level: INFO
+handlers:
+  - type: stderr
+    level: INFO
+

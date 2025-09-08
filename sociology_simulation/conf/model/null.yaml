@@ -1,0 +1,5 @@
+provider: null
+model: placeholder
+temperature: 0.0
+timeout: 5.0
+
