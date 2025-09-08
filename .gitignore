@@ -1,0 +1,14 @@
+*
+*.pyc
+!.gitignore
+!docs/
+!docs/*
+!*.md
+!uv.lock
+!*.py
+!api/
+!/api/*
+!sociology_simulation/
+!sociology_simulation/*
+!sociology_simulation/*/*
+!sociology_simulation/*/*/*

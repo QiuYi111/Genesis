@@ -1,7 +1,17 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
-from .types import Position, Inventory, DecisionContext, Action, ActionType, BehaviorEvent, WorldView
+from dataclasses import dataclass, field
+from typing import List
+
+from .types import (
+    Position,
+    Inventory,
+    DecisionContext,
+    Action,
+    ActionType,
+    BehaviorEvent,
+    WorldView,
+)
 
 
 @dataclass
@@ -9,30 +19,56 @@ class Agent:
     id: int
     name: str
     pos: Position
-    inventory: Inventory
+    inventory: Inventory = field(default_factory=dict)
 
     def perceive(self, world: "World", *, turn: int) -> DecisionContext:  # type: ignore[name-defined]
+        view: WorldView = world._world_view  # read-only facade
+        visible = view.get_visible(self.pos, radius=1)
+        neighbors = view.get_neighbors(self.pos, radius=1)
+        signals = view.get_signals()
         return {
             "pos": self.pos,
-            "visible": [],
-            "neighbors": [],
-            "signals": world.compute_resource_status(),
+            "visible": visible,
+            "neighbors": neighbors,
+            "signals": signals,
         }
 
     def decide(self, ctx: DecisionContext) -> Action:
-        # Minimal deterministic behavior for smoke: alternate move/forage
-        return Action(type=ActionType.MOVE, payload={"dx": 1, "dy": 0})
+        inv = self.inventory
+        # Craft if possible (wood + flint -> spear)
+        if inv.get("wood", 0) >= 1 and inv.get("flint", 0) >= 1 and inv.get("spear", 0) < 1:
+            return Action(ActionType.CRAFT, {"recipe": "spear"})
 
-    def act(self, action: Action, world_view: WorldView) -> list[BehaviorEvent]:
-        if action.type == ActionType.MOVE:
-            to = Position(self.pos.x + int(action.payload.get("dx", 0)), self.pos.y + int(action.payload.get("dy", 0)))
-            return [
-                {
-                    "agent_id": self.id,
-                    "name": "move",
-                    "turn": 0,
-                    "data": {"from": self.pos, "to": to},
-                }
-            ]
-        return []
+        # Trade if lacking flint but holding food and neighbors exist
+        if inv.get("flint", 0) == 0 and inv.get("food", 0) >= 1 and ctx["neighbors"]:
+            return Action(ActionType.TRADE, {"offer": "food", "request": "flint"})
 
+        # Forage if current tile has any resources
+        here = [cell for (pos, cell) in ctx["visible"] if pos == ctx["pos"]]
+        if here and any(v > 0 for v in here[0].values()):
+            return Action(ActionType.FORAGE, {"amount": 1})
+
+        # Otherwise, move to the richest visible cell
+        richest = None
+        best_score = -1
+        for (pos, cell) in ctx["visible"]:
+            score = cell.get("wood", 0) + cell.get("flint", 0) + cell.get("food", 0)
+            if score > best_score:
+                richest = pos
+                best_score = score
+        if richest is not None and richest != ctx["pos"]:
+            return Action(ActionType.MOVE, {"to": richest})
+
+        # Fallback: no-op forage attempt
+        return Action(ActionType.FORAGE, {"amount": 1})
+
+    def act(self, action: Action, world_view: WorldView) -> List[BehaviorEvent]:
+        # Agent emits an intent event; world will settle effects.
+        return [
+            {
+                "agent_id": self.id,
+                "name": action.type,
+                "turn": 0,
+                "data": dict(action.payload),
+            }
+        ]
