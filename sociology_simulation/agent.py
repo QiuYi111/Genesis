@@ -2,8 +2,6 @@
 from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Dict, List, Tuple, Optional, TYPE_CHECKING
-import json
-import random
 import aiohttp
 from loguru import logger
 
@@ -51,6 +49,7 @@ class Agent:
     group_id: Optional[int] = None
     leadership_score: int = 0
     reputation: Dict[str, int] = field(default_factory=dict)
+    numeric_states: Dict[str, float] = field(default_factory=dict)
 
     def __post_init__(self):
         """Initialize basic agent state - skills will be set by Trinity"""
@@ -101,6 +100,25 @@ class Agent:
                 del self.experience[skill_name]
             self.log.append(f"失去了技能: {skill_name}" + (f" ({reason})" if reason else ""))
             logger.info(f"{self.name}({self.aid}) lost skill: {skill_name}")
+
+    # === Numeric state management ===
+    def set_numeric_state(self, name: str, value: float) -> None:
+        """Create or overwrite a numeric state variable"""
+        self.numeric_states[name] = float(value)
+
+    def adjust_numeric_state(self, name: str, delta: float) -> float:
+        """Adjust a numeric state variable by delta, creating it if missing"""
+        new_value = float(self.numeric_states.get(name, 0.0) + delta)
+        self.numeric_states[name] = new_value
+        return new_value
+
+    def remove_numeric_state(self, name: str) -> None:
+        """Remove a numeric state variable if it exists"""
+        self.numeric_states.pop(name, None)
+
+    def get_numeric_state(self, name: str) -> float:
+        """Get current value of a numeric state variable"""
+        return float(self.numeric_states.get(name, 0.0))
     
     def get_skill_level(self, skill: str) -> int:
         """Get current skill level"""
@@ -260,7 +278,7 @@ class Agent:
         
         # Store location information
         for tile in vis_tiles:
-            existing = next((l for l in self.memory["locations"] if l["pos"] == tile["pos"]), None)
+            existing = next((loc for loc in self.memory["locations"] if loc["pos"] == tile["pos"]), None)
             if not existing:
                 self.memory["locations"].append({
                     "pos": tile["pos"],
@@ -362,8 +380,8 @@ class Agent:
         memory_summary = {
             "known_agents": [{"id": a["aid"], "name": a["name"], "last_seen": a["last_seen"]} 
                             for a in self.memory.get("agents", [])],
-            "known_locations": [{"pos": l["pos"], "terrain": l["terrain"], "last_visited": l["last_visited"]}
-                              for l in self.memory.get("locations", [])]
+            "known_locations": [{"pos": loc["pos"], "terrain": loc["terrain"], "last_visited": loc["last_visited"]}
+                              for loc in self.memory.get("locations", [])]
         }
         
         llm_service = get_llm_service()

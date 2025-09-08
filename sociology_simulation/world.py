@@ -4,8 +4,7 @@ import asyncio
 import random
 import json
 import aiohttp
-from typing import Dict, List, Tuple, Optional, TYPE_CHECKING
-from dataclasses import dataclass
+from typing import Dict, List, Optional, TYPE_CHECKING
 from loguru import logger
 
 from .config import VISION_RADIUS, DEFAULT_TERRAIN, TERRAIN_COLORS, DEFAULT_RESOURCE_RULES
@@ -21,8 +20,8 @@ from .technology_system import TechnologySystem
 from .interaction_system import InteractionSystem
 from .economic_system import EconomicSystem, PoliticalSystem
 from .web_export import (
-    initialize_web_export, save_world_for_web, save_turn_for_web, 
-    export_web_data, export_incremental_web_data
+    initialize_web_export, save_world_for_web, save_turn_for_web,
+    export_incremental_web_data,
 )
 
 if TYPE_CHECKING:
@@ -133,9 +132,8 @@ class World:
         terrain_types = getattr(self.trinity, "terrain_types", DEFAULT_TERRAIN)
         terrain_colors = getattr(self.trinity, "terrain_colors", {})
         
-        # Choose algorithm based on era or randomly
-        algorithms = ["noise", "voronoi", "mixed"]
-        algorithm = "mixed"  # Default to mixed for best results
+        # Choose algorithm based on era or default to mixed for stability
+        algorithm = "mixed"
         
         # Use a seed based on era for consistency
         seed = hash(self.era_prompt) % 1000000
@@ -451,7 +449,7 @@ class World:
             
             if "exchange_request" in outcome:
                 exchange_data = outcome["exchange_request"]
-                if (exchange_data and isinstance(exchange_data, dict) and 
+                if (exchange_data and isinstance(exchange_data, dict) and
                     "target_id" in exchange_data and "offer" in exchange_data and "request" in exchange_data):
                     world.pending_interactions.append({
                         "source_id": agent.aid,
@@ -468,7 +466,24 @@ class World:
                     return {
                         "log": "交换请求格式无效"
                     }
-                
+
+            # Generic numeric state updates from Trinity or LLM
+            if "state_updates" in outcome:
+                updates = outcome["state_updates"]
+                if isinstance(updates, dict):
+                    for name, value in updates.items():
+                        agent.set_numeric_state(name, value)
+            if "state_deltas" in outcome:
+                deltas = outcome["state_deltas"]
+                if isinstance(deltas, dict):
+                    for name, delta in deltas.items():
+                        agent.adjust_numeric_state(name, delta)
+            if "state_remove" in outcome:
+                removes = outcome["state_remove"]
+                if isinstance(removes, list):
+                    for name in removes:
+                        agent.remove_numeric_state(name)
+
             return outcome
             
         async def generate_chat_response(self, agent: Agent, topic: str, 
@@ -559,7 +574,6 @@ class World:
         turn_log = []
         
         # Process pending interactions
-        new_interactions = []
         for interaction in self.pending_interactions:
             target_agent = next((a for a in self.agents if a.aid == interaction["target_id"]), None)
             if not target_agent:
