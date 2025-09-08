@@ -27,6 +27,8 @@ class ModelCfg:
 @dataclass
 class WebCfg:
     port: int = 8081
+    export: bool = False
+    export_dir: str = "web_data"
 
 
 @dataclass

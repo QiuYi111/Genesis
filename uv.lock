@@ -284,6 +284,9 @@ wheels = [
 name = "sociology-simulation"
 version = "0.1.0"
 source = { editable = "." }
+dependencies = [
+    { name = "websockets" },
+]
 
 [package.dev-dependencies]
 dev = [
@@ -294,6 +297,7 @@ dev = [
 ]
 
 [package.metadata]
+requires-dist = [{ name = "websockets", specifier = ">=10,<12" }]
 
 [package.metadata.requires-dev]
 dev = [
@@ -349,4 +353,35 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz", hash = "sha256:0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466", size = 109391, upload-time = "2025-08-25T13:49:26.313Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/18/67/36e9267722cc04a6b9f15c7f3441c2363321a3ea07da7ae0c0707beb2a9c/typing_extensions-4.15.0-py3-none-any.whl", hash = "sha256:f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548", size = 44614, upload-time = "2025-08-25T13:49:24.86Z" },
+]
+
+[[package]]
+name = "websockets"
+version = "11.0.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d8/3b/2ed38e52eed4cf277f9df5f0463a99199a04d9e29c9e227cfafa57bd3993/websockets-11.0.3.tar.gz", hash = "sha256:88fc51d9a26b10fc331be344f1781224a375b78488fc343620184e95a4b27016", size = 104235, upload-time = "2023-05-07T14:25:20.083Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e1/76/88640f8aeac7eb0d058b913e7bb72682f8d569db44c7d30e576ec4777ce1/websockets-11.0.3-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:3ccc8a0c387629aec40f2fc9fdcb4b9d5431954f934da3eaf16cdc94f67dbfac", size = 123714, upload-time = "2023-05-07T14:23:15.309Z" },
+    { url = "https://files.pythonhosted.org/packages/b9/6b/26b28115b46e23e74ede76d95792eedfe8c58b21f4daabfff1e9f159c8fe/websockets-11.0.3-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:d67ac60a307f760c6e65dad586f556dde58e683fab03323221a4e530ead6f74d", size = 120949, upload-time = "2023-05-07T14:23:17.656Z" },
+    { url = "https://files.pythonhosted.org/packages/f3/82/2d1f3395d47fab65fa8b801e2251b324300ed8db54753b6fb7919cef0c11/websockets-11.0.3-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:84d27a4832cc1a0ee07cdcf2b0629a8a72db73f4cf6de6f0904f6661227f256f", size = 121032, upload-time = "2023-05-07T14:23:20.096Z" },
+    { url = "https://files.pythonhosted.org/packages/b2/ec/56bdd12d847e4fc2d0a7ba2d7f1476f79cda50599d11ffb6080b86f21ef1/websockets-11.0.3-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ffd7dcaf744f25f82190856bc26ed81721508fc5cbf2a330751e135ff1283564", size = 130620, upload-time = "2023-05-07T14:23:21.545Z" },
+    { url = "https://files.pythonhosted.org/packages/c9/fb/ae5ed4be3514287cf8f6c348c87e1392a6e3f4d6eadae75c18847a2f84b6/websockets-11.0.3-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:7622a89d696fc87af8e8d280d9b421db5133ef5b29d3f7a1ce9f1a7bf7fcfa11", size = 129628, upload-time = "2023-05-07T14:23:23.105Z" },
+    { url = "https://files.pythonhosted.org/packages/58/0a/7570e15661a0a546c3a1152d95fe8c05480459bab36247f0acbf41f01a41/websockets-11.0.3-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:bceab846bac555aff6427d060f2fcfff71042dba6f5fca7dc4f75cac815e57ca", size = 129938, upload-time = "2023-05-07T14:23:24.959Z" },
+    { url = "https://files.pythonhosted.org/packages/ba/6c/5c0322b2875e8395e6bf0eff11f43f3e25da7ef5b12f4d908cd3a19ea841/websockets-11.0.3-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "sha256:54c6e5b3d3a8936a4ab6870d46bdd6ec500ad62bde9e44462c32d18f1e9a8e54", size = 134663, upload-time = "2023-05-07T14:23:26.382Z" },
+    { url = "https://files.pythonhosted.org/packages/de/0e/d7274e4d41d7b34f204744c27a23707be2ecefaf6f7df2145655f086ecd7/websockets-11.0.3-cp310-cp310-musllinux_1_1_i686.whl", hash = "sha256:41f696ba95cd92dc047e46b41b26dd24518384749ed0d99bea0a941ca87404c4", size = 133900, upload-time = "2023-05-07T14:23:28.307Z" },
+    { url = "https://files.pythonhosted.org/packages/82/3c/00f051abcf88aec5e952a8840076749b0b26a30c219dcae8ba70200998aa/websockets-11.0.3-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:86d2a77fd490ae3ff6fae1c6ceaecad063d3cc2320b44377efdde79880e11526", size = 134520, upload-time = "2023-05-07T14:23:30.734Z" },
+    { url = "https://files.pythonhosted.org/packages/8f/7b/4d4ecd29be7d08486e38f987a6603c491296d1e33fe55127d79aebb0333e/websockets-11.0.3-cp310-cp310-win32.whl", hash = "sha256:2d903ad4419f5b472de90cd2d40384573b25da71e33519a67797de17ef849b69", size = 124152, upload-time = "2023-05-07T14:23:33.183Z" },
+    { url = "https://files.pythonhosted.org/packages/98/a7/0ed69892981351e5acf88fac0ff4c801fabca2c3bdef9fca4c7d3fde8c53/websockets-11.0.3-cp310-cp310-win_amd64.whl", hash = "sha256:1d2256283fa4b7f4c7d7d3e84dc2ece74d341bce57d5b9bf385df109c2a1a82f", size = 124674, upload-time = "2023-05-07T14:23:35.331Z" },
+    { url = "https://files.pythonhosted.org/packages/16/49/ae616bd221efba84a3d78737b417f704af1ffa36f40dcaba5eb954dd4753/websockets-11.0.3-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:e848f46a58b9fcf3d06061d17be388caf70ea5b8cc3466251963c8345e13f7eb", size = 123748, upload-time = "2023-05-07T14:23:37.977Z" },
+    { url = "https://files.pythonhosted.org/packages/0a/84/68b848a373493b58615d6c10e9e8ccbaadfd540f84905421739a807704f8/websockets-11.0.3-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:aa5003845cdd21ac0dc6c9bf661c5beddd01116f6eb9eb3c8e272353d45b3288", size = 120975, upload-time = "2023-05-07T14:23:40.339Z" },
+    { url = "https://files.pythonhosted.org/packages/8c/a8/e81533499f84ef6cdd95d11d5b05fa827c0f097925afd86f16e6a2631d8e/websockets-11.0.3-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:b58cbf0697721120866820b89f93659abc31c1e876bf20d0b3d03cef14faf84d", size = 121017, upload-time = "2023-05-07T14:23:41.874Z" },
+    { url = "https://files.pythonhosted.org/packages/6b/ca/65d6986665888494eca4d5435a9741c822022996f0f4200c57ce4b9242f7/websockets-11.0.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:660e2d9068d2bedc0912af508f30bbeb505bbbf9774d98def45f68278cea20d3", size = 131200, upload-time = "2023-05-07T14:23:43.309Z" },
+    { url = "https://files.pythonhosted.org/packages/c0/a8/a8a582ebeeecc8b5f332997d44c57e241748f8a9856e06a38a5a13b30796/websockets-11.0.3-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:c1f0524f203e3bd35149f12157438f406eff2e4fb30f71221c8a5eceb3617b6b", size = 130195, upload-time = "2023-05-07T14:23:45.337Z" },
+    { url = "https://files.pythonhosted.org/packages/a9/5e/b25c60067d700e811dccb4e3c318eeadd3a19d8b3620de9f97434af777a7/websockets-11.0.3-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:def07915168ac8f7853812cc593c71185a16216e9e4fa886358a17ed0fd9fcf6", size = 130569, upload-time = "2023-05-07T14:23:46.926Z" },
+    { url = "https://files.pythonhosted.org/packages/14/fc/5cbbf439c925e1e184a0392ec477a30cee2fabc0e63807c1d4b6d570fb52/websockets-11.0.3-cp311-cp311-musllinux_1_1_aarch64.whl", hash = "sha256:b30c6590146e53149f04e85a6e4fcae068df4289e31e4aee1fdf56a0dead8f97", size = 136015, upload-time = "2023-05-07T14:23:48.43Z" },
+    { url = "https://files.pythonhosted.org/packages/0f/d8/a997d3546aef9cc995a1126f7d7ade96c0e16c1a0efb9d2d430aee57c925/websockets-11.0.3-cp311-cp311-musllinux_1_1_i686.whl", hash = "sha256:619d9f06372b3a42bc29d0cd0354c9bb9fb39c2cbc1a9c5025b4538738dbffaf", size = 135292, upload-time = "2023-05-07T14:23:50.744Z" },
+    { url = "https://files.pythonhosted.org/packages/89/8f/707a05d5725f956c78d252a5fd73b89fa3ac57dd3959381c2d1acb41cb13/websockets-11.0.3-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:01f5567d9cf6f502d655151645d4e8b72b453413d3819d2b6f1185abc23e82dd", size = 135890, upload-time = "2023-05-07T14:23:52.707Z" },
+    { url = "https://files.pythonhosted.org/packages/b5/94/ac47552208583d5dbcce468430c1eb2ae18962f6b3a694a2b7727cc60d4a/websockets-11.0.3-cp311-cp311-win32.whl", hash = "sha256:e1459677e5d12be8bbc7584c35b992eea142911a6236a3278b9b5ce3326f282c", size = 124149, upload-time = "2023-05-07T14:23:53.848Z" },
+    { url = "https://files.pythonhosted.org/packages/e1/7c/0ad6e7ef0a054d73092f616d20d3d9bd3e1b837554cb20a52d8dd9f5b049/websockets-11.0.3-cp311-cp311-win_amd64.whl", hash = "sha256:e7837cb169eca3b3ae94cc5787c4fed99eef74c0ab9506756eea335e0d6f3ed8", size = 124670, upload-time = "2023-05-07T14:23:55.812Z" },
+    { url = "https://files.pythonhosted.org/packages/47/96/9d5749106ff57629b54360664ae7eb9afd8302fad1680ead385383e33746/websockets-11.0.3-py3-none-any.whl", hash = "sha256:6681ba9e7f8f3b19440921e99efbb40fc89f26cd71bf539e45d8c8a25c976dc6", size = 118056, upload-time = "2023-05-07T14:25:18.508Z" },
 ]

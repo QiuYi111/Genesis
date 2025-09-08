@@ -192,6 +192,17 @@ class World:
         }
 
     def snapshot(self) -> dict:
+        # Provide a minimal, stable v1 snapshot for Platform/Web consumers.
+        # Includes world.size, agents states, metrics, and a resource heatmap (sum per cell).
+        resources_heat = [
+            [
+                int(self.resources[y][x].get("wood", 0)
+                    + self.resources[y][x].get("flint", 0)
+                    + self.resources[y][x].get("food", 0))
+                for x in range(self.size)
+            ]
+            for y in range(self.size)
+        ]
         return {
             "turn": self._turn,
             "world": {"size": self.size},
@@ -205,4 +216,5 @@ class World:
                 for a in self.agents
             ],
             "metrics": self._compute_metrics(self._last_actions_count),
+            "resources_heat": resources_heat,
         }

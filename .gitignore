@@ -13,4 +13,5 @@
 !sociology_simulation/*/*
 !sociology_simulation/*/*/*
 *.pyc
-__pycache__/
+*.cpython-313.pyc
+*/__pycache__/*
