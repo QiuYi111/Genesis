@@ -15,6 +15,11 @@ uv run python -m sociology_simulation.main \
     runtime.show_conversations=true
 ```
 
+> 实用提示：
+> - 行动“gather/consume”已走本地分发，确定性生效（无需 LLM）。
+> - 回合摘要先基于事实计算，再由 LLM 生成叙事并做一致性守卫。
+> - 地形算法可通过 `world.terrain_algorithm` 选择 `simple|noise|voronoi|mixed`（默认 `mixed`）。
+
 ### 预期发展轨迹
 
 #### 第1-5回合：生存阶段

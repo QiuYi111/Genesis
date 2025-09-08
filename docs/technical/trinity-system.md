@@ -138,6 +138,23 @@ async def make_decision(self, context, decision_type):
     return response
 ```
 
+### 已落地的演化与繁衍机制（实现说明）
+
+- 基线技能注入：Trinity 在初始化即注入核心技能集 `move/gather/consume/trade/craft/build`，保证基础行动稳定可用。
+- 演化回退路径：当某回合没有可执行的 LLM 输出时，每 3 回合触发一次温和资源再生与轻微气候影响，确保系统稳态推进而非停滞。
+- 繁衍建议：基于健康、年龄、物资与邻近度的启发式配对，交由 World 以一定概率生成后代，属性为父母混合并带少量扰动。
+
+### 事实驱动的回合摘要
+
+- 事实收集：World 先计算回合事实（人口、群体、市场、政治实体、技术数、技能多样性、社交连边、经济健康、重要事件等）。
+- 叙事生成：通过 `trinity_turn_summary` 提示词生成 JSON 叙事（`summary/highlights/warnings`），并在本地进行一致性校验与清洗，避免出现与事实相矛盾的表述（例如“技能单一”但指标显示技能多样）。
+
+### 相关配置键（实现版）
+
+- `world.terrain_algorithm`: 地形算法选择，`simple | noise | voronoi | mixed`。
+- `runtime.hunger_growth_rate`: 饥饿增长速率；`runtime.auto_consume`: 是否自动进食。
+- `output.turn_summary_llm`: 是否启用 LLM 叙事；`output.turn_summary_max_highlights`: 高亮数量上限。
+
 ### 决策平衡机制
 Trinity 需要在干预和自然发展之间保持平衡：
 

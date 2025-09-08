@@ -100,6 +100,30 @@ Trinity (神系统)
 └── 生态平衡 - 可持续发展机制
 ```
 
+## ⚙️ 关键配置（实现版）
+
+- `world.terrain_algorithm`: 地形算法选择，`simple | noise | voronoi | mixed`（默认 `mixed`）。
+- `runtime.hunger_growth_rate`: 饥饿增长速率（默认 `3.0`）。
+- `runtime.auto_consume`: 是否在饥饿高时自动进食（默认 `true`，兼容旧行为）。
+- `output.turn_summary_llm`: 是否启用基于事实的 LLM 叙述（默认 `true`）。
+- `output.turn_summary_max_highlights`: 摘要中最多高亮条目数（默认 `5`）。
+
+说明：上述键为当前实现使用的实际键名；若早期计划文档中出现 `world.terrain.algorithm` 等嵌套命名，请以本节为准。
+
+## 🧩 与开发计划的对应落地
+
+- 初始化与地形多样性（A）：一次性规则生成 + 失败安全回退；多算法地形 + 进程内缓存；多样性校验。
+- 资源交互与可靠性（B）：`gather/consume` 行为走本地分发，确定性、无 LLM 依赖；饥饿配置项保持兼容默认。
+- 演化与繁衍（C）：每 3 回合无动作时执行温和演化回退；数值状态含 `stamina` 与冷却；基于启发式的繁衍建议与概率生成。
+- 回合摘要与分析（D）：先算事实，再请求 LLM 叙述，并做一致性守卫，避免“技能单一”等与指标矛盾的描述。
+
+相关实现入口：
+- 配置：`sociology_simulation/conf/config.yaml`
+- 地形生成：`sociology_simulation/terrain_generator.py`
+- 世界逻辑：`sociology_simulation/world.py`
+- Trinity：`sociology_simulation/trinity.py`
+- 提示模板：`sociology_simulation/conf/prompts.yaml`
+
 ## 🛠️ 技术栈
 
 - **Python 3.10+** - 核心开发语言

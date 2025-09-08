@@ -194,6 +194,30 @@ agents:
   social_connection_threshold: 5
 ```
 
+## 实现要点与配置（对齐开发计划）
+
+- 初始化与环境多样性（A）
+  - 一次性规则生成 + 失败安全回退（保持默认地形/资源规则）。
+  - 地形算法键：`world.terrain_algorithm`，支持 `simple | noise | voronoi | mixed`，并带进程内缓存（按尺寸/种子/算法/地形类型）。
+  - 多样性校验：不足则回退至简化地形，资源为空则回退至默认规则重放置。
+
+- 资源交互与可靠性（B）
+  - `gather/consume` 进入本地分发逻辑，确定性、无 LLM 依赖；营养表与自动进食保持向后兼容。
+  - 运行时配置：`runtime.hunger_growth_rate`、`runtime.auto_consume`（默认 true）。
+  - Trinity 基线技能开局注入，避免 LLM 失败导致技能缺失。
+
+- 演化与繁衍（C）
+  - 每 3 回合在无动作时执行温和资源再生与轻微气候影响（演化回退）。
+  - `Agent.numeric_states` 含 `stamina`，按行动施加体力消耗与冷却（启发式推断行动类型）。
+  - Trinity 给出繁衍建议，World 以概率生成后代（属性混合并扰动）。
+
+- 回合摘要与分析（D）
+  - 先算事实（人口/群体/市场/政治/技术/技能多样性/社交/经济/事件），再请求 `trinity_turn_summary` 叙事。
+  - 本地一致性守卫：清理与事实矛盾的描述（如“技能单一”在技能多样时被移除），补充“新技能”高亮。
+  - 相关输出配置：`output.turn_summary_llm`、`output.turn_summary_max_highlights`。
+
+说明：以上为当前实现采用的实际配置键名；若历史文档存在 `world.terrain.algorithm` 等嵌套命名，请以本节为准。
+
 ## 性能考虑
 
 ### 异步处理

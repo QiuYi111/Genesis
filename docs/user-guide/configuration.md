@@ -117,6 +117,12 @@ social:
   max_group_size: 12
 ```
 
+### 实现中的关键键名（与计划文档的差异说明）
+
+- `world.terrain_algorithm`: 地形算法选择，`simple | noise | voronoi | mixed`（计划文档中的 `world.terrain.algorithm` 为早期命名，实际实现以本键为准）。
+- `runtime.hunger_growth_rate` 与 `runtime.auto_consume`: 控制饥饿增长与自动进食（默认与历史行为兼容）。
+- `output.turn_summary_llm` 与 `output.turn_summary_max_highlights`: 控制事实驱动 + LLM 叙事摘要的启用与高亮数量。
+
 ## 配置组详解
 
 ### 模型配置 (model)
