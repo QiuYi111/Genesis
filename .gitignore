@@ -1,5 +1,5 @@
 *
-*.pyc
+
 !.gitignore
 !docs/
 !docs/*
@@ -12,3 +12,5 @@
 !sociology_simulation/*
 !sociology_simulation/*/*
 !sociology_simulation/*/*/*
+*.pyc
+__pycache__/
