@@ -10,4 +10,12 @@ wheels/
 .venv
 logs/*
 outputs/*
-web_data/*
+web_data/*# BEGIN repo-reorg ignore block
+web_data/
+logs/
+outputs/
+.venv/
+.python-version
+__pycache__/
+.pytest_cache/
+# END repo-reorg ignore block
