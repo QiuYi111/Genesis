@@ -1,4 +1,0 @@
-- logging=debug
-- runtime.turns=1
-- world.num_agents=1
-- runtime.show_map_every=0

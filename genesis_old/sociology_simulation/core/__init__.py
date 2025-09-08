@@ -1,0 +1,1 @@
+# Core domain components for sociology simulation
