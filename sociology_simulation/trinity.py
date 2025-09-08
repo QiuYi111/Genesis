@@ -1,15 +1,15 @@
 """Trinity class for generating world rules"""
-import asyncio
 import random
-import json
 import aiohttp
-from typing import Dict, List, Any
-from dataclasses import dataclass
+from typing import Any, Dict, List, Optional, TYPE_CHECKING
 from loguru import logger
 
 from .config import DEFAULT_TERRAIN, DEFAULT_RESOURCE_RULES
 from .enhanced_llm import get_llm_service
 from .bible import Bible
+
+if TYPE_CHECKING:
+    from .agent import Agent
 
 class Trinity:
     """World rules generator class
@@ -252,7 +252,7 @@ class Trinity:
         for skill_name, changes in skill_changes.items():
             if "unlock" in changes:
                 if skill_name not in agent.skills:
-                    agent.add_skill(skill_name, changes["unlock"].get("level", 1), 
+                    agent.add_skill(skill_name, changes["unlock"].get("level", 1),
                                    changes["unlock"].get("description", ""))
                     logger.info(f"[Trinity] Agent {agent.aid} unlocked skill: {skill_name}")
             
@@ -264,3 +264,24 @@ class Trinity:
             if "remove" in changes:
                 agent.remove_skill(skill_name, changes["remove"].get("reason", ""))
                 logger.info(f"[Trinity] Agent {agent.aid} lost skill: {skill_name}")
+
+    def update_agent_numeric_state(
+        self,
+        agent: "Agent",
+        updates: Optional[Dict[str, float]] = None,
+        deltas: Optional[Dict[str, float]] = None,
+        remove: Optional[List[str]] = None,
+    ) -> None:
+        """Allow Trinity to modify an agent's numeric state variables"""
+
+        if updates:
+            for name, value in updates.items():
+                agent.set_numeric_state(name, value)
+
+        if deltas:
+            for name, delta in deltas.items():
+                agent.adjust_numeric_state(name, delta)
+
+        if remove:
+            for name in remove:
+                agent.remove_numeric_state(name)
