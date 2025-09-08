@@ -7,6 +7,29 @@
 - Tests: `sociology_simulation/tests/` and several top‑level `test_*.py` files.
 - Runtime artifacts: `logs/`, `outputs/`, `web_data/` are git‑ignored.
 
+### Repository Layout (Tree)
+
+```
+.
+├── sociology_simulation/           # Core code + Hydra conf/
+├── scripts/                        # Runnable scripts/tools
+│   ├── run_simple_web_simulation.py
+│   ├── run_web_simulation.py
+│   ├── run_with_web_export.py
+│   └── reorg_repo.sh
+├── web_ui/                         # Web UI static assets
+│   ├── index.html                  # Monitor main page (tests depend on this)
+│   ├── js/simulation-ui.js
+│   ├── landing/index.html          # Landing/demo page
+│   └── experimental/               # Experimental pages
+├── web_data/                       # Runtime JSON (git-ignored)
+├── docs/                           # Documentation (web-ui/, guides/, engineering/, plans/, agents/)
+├── logs/  outputs/                 # Runtime artifacts (git-ignored)
+├── test_*.py                       # Cross-module tests (optionally move under package tests/)
+├── pyproject.toml  uv.lock
+└── README.md
+```
+
 ## Build, Test, and Development Commands
 - Install deps: `uv sync` (requires Python 3.10+ and uv).
 - Run simulation: `uv run python -m sociology_simulation.main world.num_agents=10 runtime.turns=30`.

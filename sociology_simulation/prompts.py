@@ -91,14 +91,18 @@ You need to:
 
 Available action types:
 - Movement: "move north/south/east/west"
-- Collect resources: "collect nearby wood/stone/apples"
+- Gather: "gather wood", "gather 2 stone" (from your current tile)
+- Consume: "consume apple", "eat fish" (reduces hunger if available)
 - Interact with other Agents: "chat with Agent X about Y topic", "trade items with Agent X"
 - Craft items: "craft tool using wood and stone or other inventory items"
 - Use items: "use torch to explore cave", "eat apple from backpack"
 - Build: "build a hut"
-- Rest/eat: "eat apple to restore energy", "rest to recover health"
+- Rest/eat: "rest to recover health"
 
-Note: Be specific and concise. Make use of items in your inventory whenever helpful.""",
+Notes:
+- Be specific and concise.
+- If you are very hungry and have food, prefer a consume action.
+- Do not invent items you don't have.""",
             user="""Era background: {era_prompt}
 
 Current state:

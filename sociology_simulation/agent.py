@@ -50,6 +50,8 @@ class Agent:
     leadership_score: int = 0
     reputation: Dict[str, int] = field(default_factory=dict)
     numeric_states: Dict[str, float] = field(default_factory=dict)
+    # Optional per-action cooldowns (action_name -> remaining turns)
+    action_cooldowns: Dict[str, int] = field(default_factory=dict)
 
     def __post_init__(self):
         """Initialize basic agent state - skills will be set by Trinity"""
@@ -60,6 +62,10 @@ class Agent:
             self.experience = {}
         if not self.reputation:
             self.reputation = {"trustworthy": 0, "skilled": 0, "brave": 0, "wise": 0}
+        # Seed default numeric states
+        if "stamina" not in self.numeric_states:
+            # Default stamina pool for optional action costs
+            self.numeric_states["stamina"] = 100.0
     
     def add_skill(self, skill_name: str, initial_level: int = 1, description: str = ""):
         """Add a new skill to the agent (called by Trinity)"""

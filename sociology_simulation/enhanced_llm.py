@@ -1022,6 +1022,56 @@ IF YOU CANNOT GENERATE VALID JSON, RETURN: {}
             recent_activities="\n".join(recent_activities)
         )
         return response.parsed_data if response.success else {}
+
+    async def trinity_turn_summary(
+        self,
+        facts: Dict[str, Any],
+        notable_events: List[str],
+        session: aiohttp.ClientSession
+    ) -> Dict[str, Any]:
+        """Generate a fact-grounded turn summary JSON using template.
+
+        Returns a dict with keys: summary (str), highlights (list[str]), warnings (list[str]).
+        Falls back to a minimal templated summary when LLM fails.
+        """
+        try:
+            response = await self.generate(
+                "trinity_turn_summary",
+                session,
+                facts_json=json.dumps(facts, ensure_ascii=False, indent=2),
+                notable_events="\n".join(notable_events[:10])
+            )
+            if response.success and isinstance(response.parsed_data, dict):
+                data = response.parsed_data
+                # Ensure required keys exist
+                return {
+                    "summary": str(data.get("summary", "")),
+                    "highlights": list(data.get("highlights", []))[:10],
+                    "warnings": list(data.get("warnings", []))[:10],
+                }
+        except Exception as e:
+            logger.warning(f"LLM turn summary failed, using fallback: {e}")
+
+        # Fallback summary strictly from facts
+        agents = facts.get("agents_alive", 0)
+        groups = facts.get("groups_count", 0)
+        tech = facts.get("technologies_count", 0)
+        markets = facts.get("markets_count", 0)
+        skill_div = facts.get("skill_diversity", 0)
+        new_skills = facts.get("new_skills_this_turn", [])
+
+        summary = (
+            f"{agents} agents active; {groups} groups; {markets} markets; "
+            f"{tech} technologies. Skill diversity: {skill_div}."
+        )
+        highlights = []
+        if new_skills:
+            highlights.append(f"New skills: {', '.join(map(str, new_skills[:5]))}")
+        econ = facts.get("economic_health")
+        if isinstance(econ, (int, float)):
+            highlights.append(f"Economic health: {econ:.2f}")
+
+        return {"summary": summary, "highlights": highlights, "warnings": []}
     
     def get_statistics(self) -> Dict[str, Any]:
         """获取LLM服务统计信息"""

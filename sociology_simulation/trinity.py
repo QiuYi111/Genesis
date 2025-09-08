@@ -30,7 +30,15 @@ class Trinity:
         self.terrain_types = DEFAULT_TERRAIN
         self.resource_rules = DEFAULT_RESOURCE_RULES
         self.turn = 0
-        self.available_skills = {}  # skill_name -> skill_definition
+        # Seed baseline core skills to ensure deterministic availability (Workstream B)
+        self.available_skills = {
+            "move": {"description": "Move across the map", "category": "core"},
+            "gather": {"description": "Gather nearby resources", "category": "core"},
+            "consume": {"description": "Consume food to reduce hunger", "category": "core"},
+            "trade": {"description": "Trade items with others", "category": "core"},
+            "craft": {"description": "Craft tools or items", "category": "core"},
+            "build": {"description": "Construct simple buildings", "category": "core"},
+        }
         self.skill_unlock_conditions = {}  # skill_name -> unlock_conditions
         self.system_prompt = (
             "You are TRINITY – the omniscient adjudicator of a sociological simulation.\n"
@@ -39,14 +47,45 @@ class Trinity:
         )
 
     async def _generate_initial_rules(self, session: aiohttp.ClientSession):
-        """Generate initial terrain and resource rules based on era using enhanced LLM"""
-        llm_service = get_llm_service()
-        rules = await llm_service.trinity_generate_rules(self.era_prompt, session)
-        
-        self.terrain_types = rules.get("terrain_types", DEFAULT_TERRAIN)
-        self.resource_rules = rules.get("resource_rules", DEFAULT_RESOURCE_RULES)
-        self.terrain_colors = rules.get("terrain_colors", {})
-        logger.success(f"[Trinity] Generated rules for era: {self.era_prompt}")
+        """Generate initial terrain and resource rules based on era using enhanced LLM.
+
+        Resilient: catches LLM errors, validates schema, and preserves defaults on failure.
+        """
+        try:
+            llm_service = get_llm_service()
+            rules = await llm_service.trinity_generate_rules(self.era_prompt, session)
+        except Exception as e:
+            logger.error(f"[Trinity] LLM error generating initial rules: {e}")
+            # Keep defaults already set in __init__
+            self.terrain_colors = {}
+            return
+
+        # Validate and apply results without clearing defaults on invalid payloads
+        try:
+            terrain_types = rules.get("terrain_types") if isinstance(rules, dict) else None
+            if isinstance(terrain_types, list) and all(isinstance(t, str) for t in terrain_types) and len(terrain_types) >= 1:
+                self.terrain_types = terrain_types
+
+            resource_rules = rules.get("resource_rules") if isinstance(rules, dict) else None
+            if isinstance(resource_rules, dict) and resource_rules:
+                # Shallow validate probabilities
+                valid = True
+                for res, terrains in resource_rules.items():
+                    if not isinstance(res, str) or not isinstance(terrains, dict) or not terrains:
+                        valid = False
+                        break
+                    for terr, prob in terrains.items():
+                        if not isinstance(terr, str) or not isinstance(prob, (int, float)):
+                            valid = False
+                            break
+                if valid:
+                    self.resource_rules = resource_rules
+
+            self.terrain_colors = rules.get("terrain_colors", {}) if isinstance(rules, dict) else {}
+            logger.success(f"[Trinity] Generated rules for era: {self.era_prompt}")
+        except Exception as e:
+            logger.error(f"[Trinity] Invalid rules payload; keeping defaults. Error: {e}")
+            self.terrain_colors = {}
 
     async def adjudicate(self, global_log: List[str], session: aiohttp.ClientSession):
         """Adjudicate simulation events and update rules using enhanced LLM"""
@@ -83,6 +122,7 @@ class Trinity:
             self.era_prompt, self.turn, len(world.agents), 
             self.resource_rules, resource_status, session
         )
+        recognized_update = False
         
         # Process new action types
         if "update_resource_distribution" in data:
@@ -92,6 +132,7 @@ class Trinity:
                 else:
                     self.resource_rules[resource] = terrain_probs
             logger.success(f"[Trinity] Updated resource distribution: {data['update_resource_distribution']}")
+            recognized_update = True
         
         if "regenerate_resources" in data:
             regenerate_data = data["regenerate_resources"]
@@ -99,6 +140,7 @@ class Trinity:
             specific_resources = regenerate_data.get("specific_resources", [])
             self._regenerate_resources(world, multiplier, specific_resources)
             logger.success(f"[Trinity] Regenerated resources with multiplier {multiplier}")
+            recognized_update = True
         
         if "adjust_terrain" in data:
             if world.map is None:
@@ -109,6 +151,7 @@ class Trinity:
                     if 0 <= x < world.size and 0 <= y < world.size:
                         world.map[x][y] = data["adjust_terrain"]["new_terrain"]
                 logger.success(f"[Trinity] Adjusted terrain at {len(data['adjust_terrain']['positions'])} positions")
+            recognized_update = True
         
         if "environmental_influence" in data:
             for agent_id in data["environmental_influence"]["agent_ids"]:
@@ -116,15 +159,33 @@ class Trinity:
                 if agent:
                     agent.log.append(f"环境影响: {data['environmental_influence']['effect']}")
             logger.success(f"[Trinity] Environmental influence on {len(data['environmental_influence']['agent_ids'])} agents")
+            recognized_update = True
         
         if "add_resource_rules" in data:
             self.resource_rules.update(data["add_resource_rules"])
             logger.success(f"[Trinity] Added new resource rules: {data['add_resource_rules']}")
+            recognized_update = True
         
         if "climate_change" in data:
             climate_data = data["climate_change"]
             self._apply_climate_change(world, climate_data)
             logger.success(f"[Trinity] Climate change: {climate_data['type']} - {climate_data['effect']}")
+            recognized_update = True
+
+        # Deterministic evolution fallback: if LLM produced nothing actionable, nudge world gently
+        if not recognized_update and (self.turn % 3 == 0):
+            # Light resource regeneration and a mild climate note
+            self._regenerate_resources(world, multiplier=0.4, specific_resources=[])
+            self._apply_climate_change(world, {"type": "mild_abundance", "effect": "小幅度资源丰收"})
+            logger.info("[Trinity] Applied deterministic fallback: mild regeneration and climate effect")
+
+        # Always suggest reproduction candidates (LLM-assisted path can be added later)
+        try:
+            suggestions = self._suggest_reproduction_candidates(world)
+            # Store suggestions on world for processing in step()
+            world.reproduction_suggestions = suggestions
+        except Exception as e:
+            logger.warning(f"[Trinity] Reproduction suggestion failed: {e}")
     
     def _calculate_resource_status(self, world) -> Dict[str, Any]:
         """Calculate current resource status for Trinity's decision making"""
@@ -203,6 +264,35 @@ class Trinity:
         # Broadcast climate change to all agents
         for agent in world.agents:
             agent.log.append(f"气候变化: {effect}")
+
+    def _suggest_reproduction_candidates(self, world) -> List[Dict[str, int]]:
+        """Heuristically suggest reproduction pairs based on health, inventory and proximity"""
+        candidates: List[Dict[str, int]] = []
+        agents = list(world.agents)
+        # Filter healthy, adult agents with sufficient resources
+        adults = [a for a in agents if a.age >= 18 and a.health >= 70 and sum(a.inventory.values()) >= 3]
+        # Greedy pairing within proximity
+        used = set()
+        for a in adults:
+            if a.aid in used:
+                continue
+            # Find nearest compatible partner
+            best = None
+            best_dist = 9999
+            for b in adults:
+                if b.aid == a.aid or b.aid in used:
+                    continue
+                # Proximity check (Chebyshev distance)
+                dist = max(abs(a.pos[0] - b.pos[0]), abs(a.pos[1] - b.pos[1]))
+                if dist <= 3 and abs(a.age - b.age) <= 20:
+                    if dist < best_dist:
+                        best_dist = dist
+                        best = b
+            if best:
+                candidates.append({"a": a.aid, "b": best.aid})
+                used.add(a.aid)
+                used.add(best.aid)
+        return candidates
     
     def _process_skill_updates(self, skill_updates: Dict):
         """Process skill system updates from Trinity"""

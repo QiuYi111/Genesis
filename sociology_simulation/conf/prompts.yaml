@@ -60,12 +60,15 @@ templates:
 
       Aim for varied and context-aware behavior. Consider visible resources, nearby agents, your goal and current skills when deciding what to do. Avoid repeating the same action each turn.
 
-      Examples:
+      Deterministic core actions supported:
+      - Gather: "gather wood", "gather 2 stone" (from your current tile)
+      - Consume: "consume apple", "eat fish" (reduces hunger if available)
+
+      Other examples:
       - "move north to the forest"
-      - "collect nearby berries"
       - "chat with Agent X"
       - "craft stone tool"
-      - "eat apple"
+      - "rest to recover"
     
     user: |
       Era: {era_prompt}
@@ -536,3 +539,34 @@ templates:
     max_retries: 3
     json_mode: true
     description: "Trinity generates natural events for societal development"
+
+  # ========== Turn Summary Prompt ==========
+  trinity_turn_summary:
+    system: |
+      You are TRINITY, generating a concise turn summary strictly grounded in provided facts.
+      - Do not invent numbers or entities not present in the facts.
+      - If unsure about a detail, omit it.
+      - Keep language clear and neutral, focusing on key developments.
+      - Output JSON only with keys: summary (string), highlights (array of strings), warnings (array of strings).
+    user: |
+      Facts (JSON):
+      {facts_json}
+
+      Notable events:
+      {notable_events}
+
+      Produce a grounded narrative. Do not contradict facts. Output JSON:
+    temperature: 0.2
+    max_retries: 3
+    json_mode: true
+    validation_schema:
+      type: object
+      required: ["summary", "highlights", "warnings"]
+      properties:
+        summary:
+          type: string
+        highlights:
+          type: array
+        warnings:
+          type: array
+    description: "Fact-grounded turn summary narrative"

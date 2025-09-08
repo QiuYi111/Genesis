@@ -28,6 +28,16 @@ uv run python -m sociology_simulation.main \
     runtime.turns=30
 ```
 
+### 运行 Web Demo（简易可视化）
+
+```bash
+uv run python run_simple_web_simulation.py
+# 打开浏览器访问
+# http://localhost:8081
+```
+
+> 提示：该入口会启动一个简易 HTTP + WebSocket 服务，用于实时查看地图与智能体状态。
+
 ### 核心特性预览
 
 **智能涌现系统**
@@ -99,6 +109,31 @@ Trinity (神系统)
 - **DeepSeek/OpenAI API** - 大语言模型服务
 - **matplotlib** - 数据可视化
 - **loguru** - 高级日志系统
+
+## 📁 仓库结构
+
+```
+.
+├── sociology_simulation/           # 核心代码与 Hydra 配置（conf/）
+├── scripts/                        # 可运行脚本与工具
+│   ├── run_simple_web_simulation.py
+│   ├── run_web_simulation.py
+│   ├── run_with_web_export.py
+│   └── reorg_repo.sh
+├── web_ui/                         # Web UI 静态资源
+│   ├── index.html                  # 监控面板主页面（测试依赖此路径）
+│   ├── js/simulation-ui.js
+│   ├── landing/index.html          # 项目 landing/demo 页面
+│   └── experimental/               # 实验性页面
+├── web_data/                       # 运行期导出 JSON（已 gitignore）
+├── docs/                           # 文档（web-ui/、guides/、engineering/、plans/、agents/）
+├── logs/  outputs/                 # 运行产物（已 gitignore）
+├── test_*.py                       # 跨模块测试（可选下沉至包内 tests/）
+├── pyproject.toml  uv.lock
+└── README.md
+```
+
+> 说明：保留根级 `run_simple_web_simulation.py` 作为入口桩，内部委托到 `scripts/run_simple_web_simulation.py`，以保持既有使用习惯。
 
 ## 🔍 使用场景
 

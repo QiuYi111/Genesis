@@ -7,8 +7,15 @@ import aiohttp
 from typing import Dict, List, Optional, TYPE_CHECKING
 from loguru import logger
 
-from .config import VISION_RADIUS, DEFAULT_TERRAIN, TERRAIN_COLORS, DEFAULT_RESOURCE_RULES
+from .config import (
+    VISION_RADIUS,
+    DEFAULT_TERRAIN,
+    TERRAIN_COLORS,
+    DEFAULT_RESOURCE_RULES,
+    get_config,
+)
 from .enhanced_llm import get_llm_service
+from .config import get_config
 from .output_formatter import get_formatter
 from .bible import Bible
 from .agent import Agent
@@ -63,14 +70,30 @@ class World:
         self.interaction_system = InteractionSystem()
         self.economic_system = EconomicSystem()
         self.political_system = PoliticalSystem()
+        self.reproduction_suggestions: List[Dict[str, int]] = []
 
     async def initialize(self, session: aiohttp.ClientSession):
         """Initialize world state"""
         self.bible = Bible()
         self.trinity = Trinity(self.bible, self.era_prompt)
-        await self.trinity._generate_initial_rules(session)
-        while not hasattr(self.trinity, 'resource_rules'):
-            await asyncio.sleep(0.1)
+        # Generate initial rules once with safe fallbacks
+        try:
+            await self.trinity._generate_initial_rules(session)
+        except Exception as e:
+            logger.error(f"Trinity initial rule generation failed: {e}")
+            # Safe fallbacks
+            self.trinity.terrain_types = DEFAULT_TERRAIN
+            self.trinity.resource_rules = DEFAULT_RESOURCE_RULES
+
+        # Validate rules and apply fallbacks if invalid
+        terrain_types = getattr(self.trinity, "terrain_types", None)
+        resource_rules = getattr(self.trinity, "resource_rules", None)
+        if not isinstance(terrain_types, list) or len(terrain_types) == 0:
+            logger.warning("Invalid or missing terrain_types from Trinity; using DEFAULT_TERRAIN")
+            self.trinity.terrain_types = DEFAULT_TERRAIN
+        if not isinstance(resource_rules, dict) or len(resource_rules) == 0:
+            logger.warning("Invalid or missing resource_rules from Trinity; using DEFAULT_RESOURCE_RULES")
+            self.trinity.resource_rules = DEFAULT_RESOURCE_RULES
         
         logger.info("\n" + "="*40)
         logger.info(f"INITIALIZING WORLD FOR ERA: {self.era_prompt}")
@@ -85,6 +108,16 @@ class World:
         self.map = self.generate_realistic_terrain()
         self.resources = {}
         self.place_resources()
+
+        # Validate diversity: ensure resources actually appear; otherwise fall back to defaults
+        total_resources = sum(sum(v.values()) for v in self.resources.values())
+        if total_resources == 0:
+            logger.warning("No resources placed with current rules; falling back to DEFAULT rules and regenerating")
+            self.trinity.terrain_types = DEFAULT_TERRAIN
+            self.trinity.resource_rules = DEFAULT_RESOURCE_RULES
+            self.map = self.generate_realistic_terrain()
+            self.resources = {}
+            self.place_resources()
         
         resource_counts = {}
         for pos, resources in self.resources.items():
@@ -132,14 +165,22 @@ class World:
         terrain_types = getattr(self.trinity, "terrain_types", DEFAULT_TERRAIN)
         terrain_colors = getattr(self.trinity, "terrain_colors", {})
         
-        # Choose algorithm based on era or default to mixed for stability
-        algorithm = "mixed"
+        # Choose algorithm from config if available; default to mixed for stability
+        try:
+            from .config import get_config  # late import to avoid cycles in tests
+            cfg = get_config()
+            algorithm = getattr(cfg.world, "terrain_algorithm", "mixed")
+        except Exception:
+            algorithm = "mixed"
         
         # Use a seed based on era for consistency
         seed = hash(self.era_prompt) % 1000000
         
         logger.info(f"Generating terrain using '{algorithm}' algorithm with seed {seed}")
         
+        if algorithm == "simple":
+            return self.generate_simple_terrain()
+
         try:
             terrain_map = generate_advanced_terrain(
                 size=self.size,
@@ -149,6 +190,11 @@ class World:
                 seed=seed
             )
             logger.success(f"Generated realistic {self.size}x{self.size} terrain map")
+            # Ensure diversity: at least 2 terrain types present
+            unique_types = {terrain_map[x][y] for x in range(self.size) for y in range(self.size)}
+            if len(unique_types) < 2 and len(terrain_types) >= 2:
+                logger.warning("Terrain diversity too low; falling back to simple terrain generation")
+                return self.generate_simple_terrain()
             return terrain_map
             
         except Exception as e:
@@ -244,12 +290,27 @@ class World:
                     "required_materials": {"wood": 5}
                 }
             }
+            # Optional action costs and cooldowns
+            self.action_costs = {
+                "move": {"stamina": 2, "cooldown": 0},
+                "gather": {"stamina": 5, "cooldown": 1},
+                "build": {"stamina": 10, "cooldown": 2},
+                "craft": {"stamina": 7, "cooldown": 1},
+                "trade": {"stamina": 1, "cooldown": 0},
+                "consume": {"stamina": 0, "cooldown": 0},
+                "chat": {"stamina": 0, "cooldown": 0},
+            }
 
         async def resolve(self, action: str, agent: Agent, world: World, era_prompt: str) -> Dict:
             """Resolve natural language actions using enhanced LLM service"""
             formatter = get_formatter()
             attempt_text = f"(age {agent.age}) attempting: {action}"
             logger.info(formatter.format_agent_action(agent.name, agent.aid, attempt_text, None))
+
+            # Deterministic dispatch for core actions (Workstream B)
+            outcome = self._try_dispatch(action, agent)
+            if outcome is not None:
+                return outcome
             
             # Age-based restrictions
             if "courtship" in action.lower() and agent.age < 18:
@@ -277,6 +338,123 @@ class World:
                     )
                     
                     return await self._process_outcome(outcome, agent, world, session, era_prompt)
+
+        def _try_dispatch(self, action: str, agent: Agent) -> Optional[Dict]:
+            """Dispatch strictly handled actions without LLM involvement.
+
+            Currently supports: gather, consume.
+            """
+            text = (action or "").strip().lower()
+            if not text:
+                return None
+
+            # Dispatch table mapping
+            if text.startswith("gather") or text.startswith("collect") or " gather " in text or " collect " in text:
+                return self._dispatch_gather(text, agent)
+            if text.startswith("consume") or text.startswith("eat") or " consume " in text or " eat " in text:
+                return self._dispatch_consume(text, agent)
+
+            return None
+
+        def _dispatch_gather(self, text: str, agent: Agent) -> Optional[Dict]:
+            """Move items from world tile resources to agent inventory respecting availability."""
+            pos = agent.pos
+            tile_resources = self.world.resources.get(pos, {})
+            if not tile_resources:
+                return {"log": "No resources to gather here."}
+
+            # Identify requested resource(s) from text, else take one available
+            words = set(w.strip(".,:;!?") for w in text.split())
+            # Known resources from world rules
+            known = set(self.world.trinity.resource_rules.keys()) if hasattr(self.world.trinity, "resource_rules") else set()
+            requested = [r for r in known if r in words]
+
+            changes: Dict[str, int] = {}
+            logs: List[str] = []
+
+            def take(res: str, qty: int = 1) -> int:
+                available = tile_resources.get(res, 0)
+                if available <= 0:
+                    return 0
+                take_n = min(qty, available)
+                tile_resources[res] = available - take_n
+                if tile_resources[res] == 0:
+                    del tile_resources[res]
+                changes[res] = changes.get(res, 0) + take_n
+                return take_n
+
+            # If the user specifies a number like "gather 2 wood"
+            qty = 1
+            for w in words:
+                try:
+                    maybe = int(w)
+                    if 1 <= maybe <= 1000:
+                        qty = maybe
+                        break
+                except ValueError:
+                    pass
+
+            if requested:
+                for res in requested:
+                    got = take(res, qty)
+                    if got > 0:
+                        logs.append(f"Gathered {got} {res}")
+                if not logs:
+                    return {"log": "Requested resource not available here."}
+            else:
+                # Take one unit of any available resource if none specified
+                any_res = next(iter(tile_resources.keys()), None)
+                if not any_res:
+                    return {"log": "No resources to gather here."}
+                got = take(any_res, qty)
+                logs.append(f"Gathered {got} {any_res}")
+
+            return {
+                "inventory": {k: v for k, v in changes.items()},
+                "log": "; ".join(logs)
+            }
+
+        def _dispatch_consume(self, text: str, agent: Agent) -> Optional[Dict]:
+            """Consume food to reduce hunger. Reuses world's nutrition logic."""
+            words = set(w.strip(".,:;!?") for w in text.split())
+
+            # Nutrition table mirrors _try_consume_food priorities
+            nutrition = {
+                "fish": 25,
+                "apple": 20,
+                "fruit": 20,
+                "berries": 15,
+                "bread": 30,
+                "meat": 35,
+                "vegetables": 10,
+            }
+
+            specified = [f for f in nutrition.keys() if f in words]
+
+            if specified:
+                # Try to consume the first specified available item
+                for food in specified:
+                    if agent.inventory.get(food, 0) > 0:
+                        new_hunger = max(0, agent.hunger - nutrition[food])
+                        new_health = min(100, agent.health + 2)
+                        return {
+                            "inventory": {food: -1},
+                            "hunger": new_hunger,
+                            "health": new_health,
+                            "log": f"Consumed {food}, hunger decreased"
+                        }
+                # Specified but not available
+                return {"log": "No specified food available to consume."}
+
+            # If not specified, choose the highest nutrition available
+            available = [(f, nutrition[f]) for f in nutrition.keys() if agent.inventory.get(f, 0) > 0]
+            if not available:
+                return {"log": "No food to consume."}
+            available.sort(key=lambda x: x[1], reverse=True)
+            food, nut = available[0]
+            new_hunger = max(0, agent.hunger - nut)
+            new_health = min(100, agent.health + 2)
+            return {"inventory": {food: -1}, "hunger": new_hunger, "health": new_health, "log": f"Consumed {food}, hunger decreased"}
 
         def _clean_json_response(self, response: str) -> str:
             """Clean potentially malformed JSON response"""
@@ -484,6 +662,24 @@ class World:
                     for name in removes:
                         agent.remove_numeric_state(name)
 
+            # Optional stamina costs and per-action cooldowns
+            try:
+                action_type = self._infer_action_type(outcome)
+                if action_type in self.action_costs:
+                    cost = self.action_costs[action_type]
+                    # Apply stamina cost if present
+                    stamina_cost = float(cost.get("stamina", 0))
+                    if stamina_cost:
+                        agent.adjust_numeric_state("stamina", -stamina_cost)
+                        # Clamp stamina to [0, 100]
+                        agent.numeric_states["stamina"] = max(0.0, min(100.0, agent.numeric_states["stamina"]))
+                    # Apply cooldown if present
+                    cd = int(cost.get("cooldown", 0))
+                    if cd > 0:
+                        agent.action_cooldowns[action_type] = max(agent.action_cooldowns.get(action_type, 0), cd)
+            except Exception as e:
+                logger.debug(f"Optional action cost application skipped: {e}")
+
             return outcome
             
         async def generate_chat_response(self, agent: Agent, topic: str, 
@@ -529,6 +725,30 @@ class World:
                         new_agents.append(new_agent)
             
             return new_agents
+
+        def _infer_action_type(self, outcome: Dict) -> str:
+            """Heuristic action type inference from outcome for optional costs/cooldowns"""
+            if not isinstance(outcome, dict):
+                return ""
+            if "build" in outcome:
+                return "build"
+            if "create_tool" in outcome:
+                return "craft"
+            if "exchange_request" in outcome:
+                return "trade"
+            if "chat_request" in outcome:
+                return "chat"
+            # Movement if position changed
+            if "position" in outcome:
+                return "move"
+            # Treat positive inventory deltas as gather
+            if "inventory" in outcome and isinstance(outcome["inventory"], dict):
+                inv = outcome["inventory"]
+                if any(qty > 0 for qty in inv.values() if isinstance(qty, (int, float))):
+                    return "gather"
+                if any(qty < 0 for qty in inv.values() if isinstance(qty, (int, float))):
+                    return "craft"
+            return ""
         
         def process_death_events(self, turn_log: list) -> List[Agent]:
             """Process death events and broadcast notifications"""
@@ -646,6 +866,32 @@ class World:
         # Process special events
         new_agents = action_handler.process_courtship_events()
         dead_agents = action_handler.process_death_events(turn_log)
+
+        # Process Trinity reproduction suggestions probabilistically
+        try:
+            for pair in getattr(self, "reproduction_suggestions", [])[:5]:  # cap processing per turn
+                if not isinstance(pair, dict) or "a" not in pair or "b" not in pair:
+                    continue
+                if random.random() < 0.35:  # reproduction probability
+                    agent1 = next((a for a in self.agents if a.aid == pair["a"]), None)
+                    agent2 = next((a for a in self.agents if a.aid == pair["b"]), None)
+                    if agent1 and agent2:
+                        new_aid = max(a.aid for a in self.agents) + 1 if self.agents else 0
+                        new_pos = (
+                            (agent1.pos[0] + agent2.pos[0]) // 2,
+                            (agent1.pos[1] + agent2.pos[1]) // 2,
+                        )
+                        # Mix attributes with slight randomness
+                        strength = int(round((agent1.attributes.get("strength", 5) + agent2.attributes.get("strength", 5)) / 2 + random.randint(-1, 1)))
+                        curiosity = int(round((agent1.attributes.get("curiosity", 5) + agent2.attributes.get("curiosity", 5)) / 2 + random.randint(-1, 1)))
+                        charm = int(round((agent1.attributes.get("charm", 5) + agent2.attributes.get("charm", 5)) / 2 + random.randint(-1, 1)))
+                        new_attr = {"strength": max(1, strength), "curiosity": max(1, curiosity), "charm": max(1, charm)}
+                        new_inv = {"fruit": 1}
+                        child = Agent(new_aid, new_pos, new_attr, new_inv, age=0)
+                        new_agents.append(child)
+                        turn_log.append(f"新生命诞生：{new_aid} 在({new_pos[0]},{new_pos[1]})")
+        except Exception as e:
+            logger.debug(f"Reproduction suggestion processing skipped: {e}")
         
         # Update world state
         self.agents = [a for a in self.agents if a.aid not in {d.aid for d in dead_agents}]
@@ -655,15 +901,30 @@ class World:
         agents_to_remove = []
         for agent in self.agents:
             agent.age += 1
+            # Decrease per-action cooldowns if present
+            if hasattr(agent, "action_cooldowns") and isinstance(agent.action_cooldowns, dict):
+                for key in list(agent.action_cooldowns.keys()):
+                    agent.action_cooldowns[key] = max(0, agent.action_cooldowns[key] - 1)
+                    if agent.action_cooldowns[key] == 0:
+                        del agent.action_cooldowns[key]
             
-            # Try to consume food if hungry
-            if agent.hunger > 50:
+            # Try to consume food if hungry and auto-consume enabled
+            try:
+                runtime_cfg = get_config().runtime
+                auto_consume = getattr(runtime_cfg, "auto_consume", True)
+                hunger_growth_rate = float(getattr(runtime_cfg, "hunger_growth_rate", 3.0))
+            except Exception:
+                # Safe fallbacks if config not initialized
+                auto_consume = True
+                hunger_growth_rate = 3.0
+
+            if auto_consume and agent.hunger > 50:
                 food_consumed = self._try_consume_food(agent)
                 if food_consumed:
                     turn_log.append(f"{agent.name}({agent.aid}) ate {food_consumed} to reduce hunger")
             
             # More gradual hunger increase based on activity
-            base_hunger_increase = 3  # Reduced from 8
+            base_hunger_increase = hunger_growth_rate  # Configurable
             activity_bonus = 1 if hasattr(agent, 'current_action') and agent.current_action else 0
             agent.hunger = min(100, agent.hunger + base_hunger_increase + activity_bonus)
             
@@ -774,19 +1035,62 @@ class World:
         if exported_file:
             logger.info(f"Web data exported to: {exported_file}")
         
-        # Create feedback loops and emergent behavior reports
+        # Collect fact-based metrics for this turn
+        facts = self._collect_turn_facts(turn_log)
+
+        # Emergent report based on facts (heuristics only)
         emergent_report = self._generate_emergent_behavior_report()
         if emergent_report:
             turn_log.extend(emergent_report)
-        
-        # Log turn events
+
+        # Optional: LLM-grounded narrative based on facts
+        narrative_lines: List[str] = []
+        try:
+            cfg = get_config()
+            use_llm = getattr(cfg.output, "turn_summary_llm", True)
+            max_highlights = int(getattr(cfg.output, "turn_summary_max_highlights", 5))
+        except Exception:
+            use_llm = True
+            max_highlights = 5
+
+        if use_llm:
+            llm = get_llm_service()
+            # notable events: select from turn_log
+            notable = [e for e in turn_log if isinstance(e, str)][:10]
+            try:
+                llm_json = await llm.trinity_turn_summary(facts, notable, session)
+            except Exception as e:
+                logger.debug(f"LLM summary failed: {e}")
+                llm_json = {"summary": "", "highlights": [], "warnings": []}
+            corrected = self._validate_and_correct_summary(facts, llm_json)
+            narrative_lines.append(corrected.get("summary", "").strip())
+            for h in corrected.get("highlights", [])[:max_highlights]:
+                narrative_lines.append(f"- {h}")
+            for w in corrected.get("warnings", [])[:max_highlights]:
+                narrative_lines.append(f"! {w}")
+
+        # Log turn events with facts and narrative
         logger.info("\n" + "="*40)
         logger.info(f"TURN SUMMARY - {len(self.agents)} agents alive")
-        logger.info(f"Groups: {len(self.social_manager.groups)}, Technologies: {len(self.tech_system.discovered_techs)}")
-        logger.info(f"Markets: {len(self.economic_system.markets)}, Political Entities: {len(self.political_system.political_entities)}")
+        logger.info(
+            f"Groups: {facts['groups_count']}, Technologies: {facts['technologies_count']}"
+        )
+        logger.info(
+            f"Markets: {facts['markets_count']}, Political Entities: {facts['political_entities']}"
+        )
         logger.info(f"Era: {self.tech_system.eras[self.tech_system.current_era].name}")
+        # Facts bullets
+        logger.info(
+            f"Facts: skills={facts['skill_diversity']}, avg_links={facts['avg_social_connections']:.2f}, econ={facts['economic_health']:.2f}"
+        )
+        if facts.get("new_skills_this_turn"):
+            logger.info("New skills: " + ", ".join(map(str, facts["new_skills_this_turn"])))
         for entry in turn_log:
             logger.info(entry)
+        # LLM narrative (post-validated)
+        for line in narrative_lines:
+            if line:
+                logger.info(line)
         logger.info("="*40 + "\n")
         
         # Increment turn counter
@@ -814,55 +1118,142 @@ class World:
         return conversations
     
     def _generate_emergent_behavior_report(self) -> List[str]:
-        """Generate report on emergent behaviors and feedback loops"""
-        report = []
-        
-        # Analyze population dynamics
-        if len(self.agents) > self.num_agents * 1.5:
+        """Generate emergent behavior report using fact-based thresholds only."""
+        report: List[str] = []
+        agents_alive = len(self.agents)
+        if agents_alive > self.num_agents * 1.5:
             report.append("人口快速增长，社会承受压力增加")
-        elif len(self.agents) < self.num_agents * 0.5:
+        elif agents_alive < max(1, int(self.num_agents * 0.5)):
             report.append("人口下降，社会面临生存挑战")
-        
-        # Analyze skill diversity
+
+        # Skill diversity thresholds
         all_skills = set()
         for agent in self.agents:
             all_skills.update(agent.skills.keys())
-        
-        if len(all_skills) > 15:
+        skill_diversity = len(all_skills)
+        if skill_diversity > 15:
             report.append("技能多样化发展，社会分工出现")
-        elif len(all_skills) < 5:
-            report.append("技能单一，社会发展受限")
-        
-        # Analyze social complexity
+        elif 0 < skill_diversity < 5:
+            report.append("技能发展较为集中，需鼓励多样性")
+
+        # Social complexity
         total_connections = sum(len(agent.social_connections) for agent in self.agents)
-        avg_connections = total_connections / len(self.agents) if self.agents else 0
-        
+        avg_connections = total_connections / len(self.agents) if self.agents else 0.0
         if avg_connections > 8:
             report.append("社会网络复杂化，信息传播加速")
-        elif avg_connections < 2:
-            report.append("社会孤立现象严重，合作困难")
-        
-        # Analyze economic development
-        if self.economic_system.economy.economic_health > 0.7:
+        elif 0 < avg_connections < 2:
+            report.append("社会连接较少，合作成本较高")
+
+        # Economic development
+        econ = getattr(self.economic_system.economy, "economic_health", 0.0)
+        if econ > 0.7:
             report.append("经济繁荣，贸易活跃")
-        elif self.economic_system.economy.economic_health < 0.3:
+        elif econ < 0.3:
             report.append("经济困难，资源分配不均")
-        
-        # Analyze technological progress
+
+        # Technological progress
         tech_progress = self.tech_system.get_era_progress()
         if tech_progress.get("can_advance", False):
             report.append("科技发展迅速，即将进入新时代")
-        
-        # Analyze political development
+
+        # Political development
         if len(self.political_system.political_entities) > 1:
             report.append("政治组织形成，治理结构出现")
-        
-        # Analyze cultural development
+
+        # Cultural development
         total_knowledge = sum(len(knowledge) for knowledge in self.cultural_memory.agent_knowledge.values())
         if total_knowledge > len(self.agents) * 3:
             report.append("知识积累丰富，文化传承活跃")
-        
+
         return report
+
+    def _collect_turn_facts(self, turn_log: List[str]) -> Dict:
+        """Collect deterministic facts for the current turn."""
+        agents_alive = len(self.agents)
+        groups_count = len(self.social_manager.groups)
+        markets_count = len(self.economic_system.markets)
+        political_entities = len(self.political_system.political_entities)
+        technologies_count = len(self.tech_system.discovered_techs)
+
+        # Skill diversity and new skills
+        all_skills = set()
+        for agent in self.agents:
+            all_skills.update(agent.skills.keys())
+        skill_diversity = len(all_skills)
+
+        new_skills: List[str] = []
+        for entry in turn_log:
+            if not isinstance(entry, str):
+                continue
+            # Heuristic: lines like "解锁技能" or "新技能"
+            if "解锁技能" in entry or "新技能" in entry:
+                # Extract skill names inside quotes or after keywords
+                parts = entry.replace("：", ":").split(":")
+                if len(parts) > 1:
+                    candidate = parts[-1].strip()
+                    if candidate:
+                        new_skills.append(candidate)
+
+        # Average social connections
+        total_connections = sum(len(agent.social_connections) for agent in self.agents)
+        avg_social_connections = total_connections / agents_alive if agents_alive else 0.0
+
+        economic_health = getattr(self.economic_system.economy, "economic_health", 0.0)
+
+        # Notable events: births/deaths from logs
+        notable_events: List[str] = []
+        for entry in turn_log:
+            if not isinstance(entry, str):
+                continue
+            if any(keyword in entry for keyword in ["died", "出生", "诞生", "死亡", "found", "发明"]):
+                notable_events.append(entry)
+
+        return {
+            "agents_alive": agents_alive,
+            "groups_count": groups_count,
+            "markets_count": markets_count,
+            "political_entities": political_entities,
+            "technologies_count": technologies_count,
+            "skill_diversity": skill_diversity,
+            "new_skills_this_turn": new_skills[:10],
+            "avg_social_connections": avg_social_connections,
+            "economic_health": float(economic_health),
+            "notable_events": notable_events[:10],
+        }
+
+    def _validate_and_correct_summary(self, facts: Dict, summary_json: Dict) -> Dict:
+        """Validate LLM summary against facts and auto-correct contradictions."""
+        corrected = {
+            "summary": str(summary_json.get("summary", "")),
+            "highlights": list(summary_json.get("highlights", [])),
+            "warnings": list(summary_json.get("warnings", [])),
+        }
+
+        # Guard: skill diversity contradictions
+        skill_div = facts.get("skill_diversity", 0)
+        forbidden_phrases = []
+        if skill_div >= 5:
+            forbidden_phrases.extend(["技能单一", "skill is single", "单一技能"])
+
+        def scrub(items: List[str]) -> List[str]:
+            result: List[str] = []
+            for it in items:
+                s = str(it)
+                if any(p in s for p in forbidden_phrases):
+                    continue
+                result.append(s)
+            return result
+
+        corrected["summary"] = " ".join(scrub([corrected["summary"]])).strip()
+        corrected["highlights"] = scrub(corrected["highlights"])  # allow empty
+        corrected["warnings"] = scrub(corrected["warnings"])    # allow empty
+
+        # Ensure at least one highlight mentions new skills when present
+        new_skills = facts.get("new_skills_this_turn", [])
+        if new_skills and not any("技能" in h or "skill" in h.lower() for h in corrected["highlights"]):
+            corrected["highlights"].insert(0, f"新技能: {', '.join(map(str, new_skills[:3]))}")
+
+        return corrected
     
     def _try_consume_food(self, agent) -> Optional[str]:
         """Try to consume food from agent's inventory to reduce hunger"""

@@ -52,6 +52,8 @@ class WorldConfig:
     """World configuration"""
     size: int = 64
     num_agents: int = 20
+    # Terrain generation algorithm: simple | noise | voronoi | mixed
+    terrain_algorithm: str = "mixed"
 
 @dataclass
 class RuntimeConfig:
@@ -60,6 +62,9 @@ class RuntimeConfig:
     show_map_every: int = 1
     show_conversations: bool = False
     timeout_per_agent: float = 15.0
+    # New in Workstream B: hunger configuration
+    hunger_growth_rate: float = 3.0
+    auto_consume: bool = True
 
 @dataclass
 class PerceptionConfig:
@@ -86,6 +91,9 @@ class OutputConfig:
     use_colors: bool = True
     verbose: bool = True
     show_agent_status: bool = True
+    # Turn summary controls
+    turn_summary_llm: bool = True
+    turn_summary_max_highlights: int = 5
 
 @dataclass
 class Config:
@@ -111,6 +119,15 @@ def set_config(config: Config):
     """Set the global configuration instance"""
     global cfg
     cfg = config
+
+# Backward-compat re-exports for legacy tests
+def init_llm_service(prompt_manager=None):  # type: ignore[override]
+    """Legacy shim: re-export init_llm_service from enhanced_llm for tests.
+
+    Some tests import `init_llm_service` from config for historical reasons.
+    """
+    from .enhanced_llm import init_llm_service as _init
+    return _init(prompt_manager)
 
 # Backward compatibility helpers
 def get_api_key() -> str:
@@ -152,4 +169,7 @@ DEFAULT_RESOURCE_RULES = {                      # Will be deprecated
     "magical_crystal": {"MOUNTAIN": 0.1, "FOREST": 0.05}
 }
 
-
+# Re-export for backward compatibility in tests
+def init_llm_service(*args, **kwargs):  # type: ignore[override]
+    """Initialize global LLM service (compat wrapper)."""
+    return _init_llm_service(*args, **kwargs)

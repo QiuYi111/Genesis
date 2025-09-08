@@ -8,6 +8,8 @@ defaults:
 world:
   size: 64
   num_agents: 10
+  # Terrain generation algorithm: simple | noise | voronoi | mixed
+  terrain_algorithm: mixed
 
 # Runtime parameters  
 runtime:
@@ -15,6 +17,9 @@ runtime:
   show_map_every: 0
   show_conversations: true
   timeout_per_agent: 15.0
+  # Workstream B: hunger & consumption controls (backward-compatible defaults)
+  hunger_growth_rate: 3.0
+  auto_consume: true
 
 # Display and output
 output:

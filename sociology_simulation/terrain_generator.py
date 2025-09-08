@@ -297,7 +297,14 @@ class TerrainGenerator:
             elif temperature < 0.2:
                 return "TUNDRA" if "TUNDRA" in terrain_types else "GRASSLAND" if "GRASSLAND" in terrain_types else terrain_types[0]
             else:
-                return "GRASSLAND" if "GRASSLAND" in terrain_types else terrain_types[0]
+                base = "GRASSLAND" if "GRASSLAND" in terrain_types else terrain_types[0]
+                # Light randomization to avoid extreme skew when available
+                if len(terrain_types) > 1 and random.random() < 0.01:
+                    # pick a different terrain type to add variety
+                    alt_choices = [t for t in terrain_types if t != base]
+                    if alt_choices:
+                        return random.choice(alt_choices)
+                return base
     
     def _generate_voronoi_terrain(self, size: int, terrain_types: List[str]) -> List[List[str]]:
         """Generate terrain using Voronoi diagrams"""
@@ -424,6 +431,9 @@ class TerrainGenerator:
         return smoothed_map
 
 
+_TERRAIN_CACHE: Dict[Tuple[int, int, str, Tuple[str, ...]], List[List[str]]] = {}
+
+
 def generate_advanced_terrain(size: int, terrain_types: List[str], 
                             terrain_colors: Dict[str, List[float]],
                             algorithm: str = "mixed", seed: Optional[int] = None) -> List[List[str]]:
@@ -439,5 +449,12 @@ def generate_advanced_terrain(size: int, terrain_types: List[str],
     Returns:
         2D list representing the terrain map
     """
+    # In-process cache keyed by (size, seed, algorithm, terrain_types)
+    key = (size, seed or 0, algorithm, tuple(terrain_types))
+    if key in _TERRAIN_CACHE:
+        return _TERRAIN_CACHE[key]
+
     generator = TerrainGenerator(seed)
-    return generator.generate_realistic_terrain(size, terrain_types, terrain_colors, algorithm)
+    terrain = generator.generate_realistic_terrain(size, terrain_types, terrain_colors, algorithm)
+    _TERRAIN_CACHE[key] = terrain
+    return terrain
