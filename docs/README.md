@@ -171,9 +171,21 @@ Trinity (神系统)
 本文档随项目持续更新。主要版本发布时会同步更新所有相关文档。
 
 **最后更新**: 2025-09
-**文档版本**: v0.2（W2）
-**对应代码版本**: main（W2 完成）
+**文档版本**: v0.3（W3）
+**对应代码版本**: main（W3 完成）
 
 ---
 
 **开始探索 Project Genesis，从解释社会到预测未来！** 🚀
+## 🧪 快速测试与冒烟（W3）
+
+- 运行单测（需 Python 3.10+ 与 uv 已安装）
+  - 安装依赖：`uv sync`
+  - 运行测试：`uv run pytest -q`
+
+- 运行模拟（默认无网络、Null Provider）
+  - `uv run python -m sociology_simulation.main world.num_agents=10 runtime.turns=30 model.provider=null`
+
+- WebSocket 监控
+  - 未安装 `websockets` 时自动降级为 no-op，API 不变。
+  - 安装后可在 `ws://127.0.0.1:8081/ws` 订阅帧（见 `sociology_simulation/services/web/monitor.py`）。
