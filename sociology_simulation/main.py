@@ -123,6 +123,11 @@ def main(cfg: DictConfig) -> None:
                 goal = getattr(agent, 'goal', 'No goal set')
                 print(f"  {formatter.format_world_event(f'{agent.name}(aid={agent.aid}): {goal}', 'info')}")
             
+            # Track population changes across turns for accurate stats
+            cumulative_births = 0
+            cumulative_deaths = 0
+            prev_alive_ids = {a.aid for a in world.agents if a.health > 0}
+
             for t in range(cfg.runtime.turns):
                 formatter.print_turn_start(t + 1)
                 
@@ -136,23 +141,35 @@ def main(cfg: DictConfig) -> None:
                     'deaths': []
                 }
                 
-                # Store initial agent count
-                initial_agent_count = len([a for a in world.agents if a.health > 0])
-                
+                # Snapshot alive agents pre-step
+                pre_ids = prev_alive_ids
+
                 await world.step(session)
-                
-                # Calculate turn statistics
-                final_agent_count = len([a for a in world.agents if a.health > 0])
-                turn_stats['deaths'] = initial_agent_count - final_agent_count
-                
-                # Update formatter stats
+
+                # Snapshot alive agents post-step
+                post_alive_ids = {a.aid for a in world.agents if a.health > 0}
+
+                # Compute births/deaths for this turn using set diffs (never negative)
+                deaths_this_turn = len(pre_ids - post_alive_ids)
+                births_this_turn = len(post_alive_ids - pre_ids)
+
+                cumulative_deaths += deaths_this_turn
+                cumulative_births += births_this_turn
+                prev_alive_ids = post_alive_ids
+
+                # Expose minimal per-turn stats
+                turn_stats['deaths'] = deaths_this_turn
+                turn_stats['births'] = births_this_turn
+
+                # Update formatter stats (ensure denominator reflects births)
                 formatter.update_stats(
-                    active_agents=final_agent_count,
+                    active_agents=len(post_alive_ids),
+                    total_agents=cfg.world.num_agents + cumulative_births,
                     actions_completed=formatter.stats.actions_completed + turn_stats['actions_completed'],
                     actions_failed=formatter.stats.actions_failed + turn_stats['actions_failed'],
                     social_interactions=formatter.stats.social_interactions + turn_stats['social_interactions'],
                     resource_gathered=formatter.stats.resource_gathered + turn_stats['resource_gathered'],
-                    agent_deaths=formatter.stats.agent_deaths + turn_stats['deaths']
+                    agent_deaths=cumulative_deaths
                 )
                 
                 # Show map periodically

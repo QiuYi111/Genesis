@@ -94,9 +94,12 @@ class OutputConfig:
     # Turn summary controls
     turn_summary_llm: bool = True
     turn_summary_max_highlights: int = 5
-    # Web export throttling
+    # Web export controls
+    enable_web_export: bool = True
     web_export_every: int = 5
     max_agent_log_entries: int = 5
+    # How many recent log entries to scan per agent when extracting conversations
+    conversations_scan_entries: int = 30
 
 @dataclass
 class Config:

@@ -1094,27 +1094,38 @@ class World:
         await self.trinity.adjudicate(turn_log, session)
         await self.trinity.execute_actions(self, session)
         
-        # Collect conversations for this turn
-        conversations = self.get_conversations()
-        
-        # Save turn data for web export
-        events = []
-        for agent in self.agents:
-            if agent.log:
-                events.append(f"{agent.name}({agent.aid}): {agent.log[-1]}")
-        
-        save_turn_for_web(
-            turn_num=self.trinity.turn,
-            agents=self.agents,
-            conversations=conversations,
-            events=events,
-            turn_log=turn_log
-        )
-        
-        # Export incremental data every few turns
-        exported_file = export_incremental_web_data(self.trinity.turn)
-        if exported_file:
-            logger.info(f"Web data exported to: {exported_file}")
+        # Optional web export (can be disabled via config)
+        do_web_export = True
+        export_every = 5
+        try:
+            cfg = get_config()
+            do_web_export = bool(getattr(cfg.output, "enable_web_export", True))
+            export_every = int(getattr(cfg.output, "web_export_every", 5))
+        except Exception:
+            pass
+
+        if do_web_export and export_every > 0:
+            # Collect conversations for this turn only when exporting
+            conversations = self.get_conversations()
+
+            # Save turn data for web export
+            events = []
+            for agent in self.agents:
+                if agent.log:
+                    events.append(f"{agent.name}({agent.aid}): {agent.log[-1]}")
+
+            save_turn_for_web(
+                turn_num=self.trinity.turn,
+                agents=self.agents,
+                conversations=conversations,
+                events=events,
+                turn_log=turn_log
+            )
+
+            # Export incremental data every few turns
+            exported_file = export_incremental_web_data(self.trinity.turn)
+            if exported_file:
+                logger.info(f"Web data exported to: {exported_file}")
         
         # Collect fact-based metrics for this turn
         facts = self._collect_turn_facts(turn_log)
@@ -1180,8 +1191,14 @@ class World:
     def get_conversations(self) -> List[str]:
         """Collect and format all conversations from agent logs"""
         conversations = []
+        # Only scan recent log entries to avoid O(T) growth over turns
+        try:
+            scan_n = int(get_config().output.conversations_scan_entries)
+        except Exception:
+            scan_n = 30
         for agent in self.agents:
-            for log_entry in agent.log:
+            recent_logs = agent.log[-scan_n:] if scan_n > 0 else agent.log
+            for log_entry in recent_logs:
                 if ("↔" in log_entry or "询问" in log_entry or "回答" in log_entry or 
                     "向" in log_entry and "号" in log_entry and ("问" in log_entry or "说" in log_entry) or
                     "发送聊天请求" in log_entry or "回答:" in log_entry):
