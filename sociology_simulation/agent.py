@@ -240,7 +240,13 @@ class Agent:
                         "terrain": world.map[x][y], 
                         "resource": world.resources.get((x, y), {})
                     })
-        for agent in world.agents:
+        # Prefer world's spatial grid if available to avoid O(N^2)
+        candidates = getattr(world, "iter_agents_in_radius", None)
+        if callable(candidates):
+            nearby = world.iter_agents_in_radius(x0, y0, VISION_RADIUS)
+        else:
+            nearby = world.agents
+        for agent in nearby:
             if agent.aid != self.aid and max(abs(agent.pos[0]-x0), abs(agent.pos[1]-y0)) <= VISION_RADIUS:
                 vis_agents.append({
                     "aid": agent.aid,

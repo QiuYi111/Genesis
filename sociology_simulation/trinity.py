@@ -206,8 +206,7 @@ class Trinity:
             # Calculate expected count based on terrain and probability
             expected = 0
             for terrain, prob in self.resource_rules[resource].items():
-                terrain_count = sum(1 for x in range(world.size) for y in range(world.size) 
-                                  if world.map and world.map[x][y] == terrain)
+                terrain_count = world.terrain_counts.get(terrain, 0)
                 expected += terrain_count * prob
             
             scarcity_ratio = count / max(expected, 1)
@@ -236,15 +235,22 @@ class Trinity:
                 
             terrain_probs = self.resource_rules[resource]
             for terrain, base_prob in terrain_probs.items():
-                adjusted_prob = min(1.0, base_prob * multiplier)
-                
-                # Find all tiles of this terrain type
-                for x in range(world.size):
-                    for y in range(world.size):
-                        if world.map[x][y] == terrain and random.random() < adjusted_prob:
-                            if (x, y) not in world.resources:
-                                world.resources[(x, y)] = {}
-                            world.resources[(x, y)][resource] = world.resources[(x, y)].get(resource, 0) + 1
+                adjusted_prob = min(1.0, max(0.0, base_prob * multiplier))
+                positions = world.terrain_positions.get(terrain, [])
+                total = len(positions)
+                if total == 0 or adjusted_prob <= 0.0:
+                    continue
+                expected = total * adjusted_prob
+                k_floor = int(expected)
+                remainder = expected - k_floor
+                k = k_floor + (1 if random.random() < remainder else 0)
+                k = max(0, min(k, total))
+                if k == 0:
+                    continue
+                for (x, y) in random.sample(positions, k):
+                    if (x, y) not in world.resources:
+                        world.resources[(x, y)] = {}
+                    world.resources[(x, y)][resource] = world.resources[(x, y)].get(resource, 0) + 1
     
     def _apply_climate_change(self, world, climate_data: Dict[str, str]):
         """Apply climate/seasonal changes to the world"""

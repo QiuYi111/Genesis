@@ -20,6 +20,9 @@ class WebDataExporter:
             'turns': [],
             'current_turn': 0
         }
+        # Throttling options (may be overridden by config in initialize_export)
+        self.export_every: int = 5
+        self.max_agent_log_entries: int = 5
         
         # Ensure output directory exists
         os.makedirs(output_dir, exist_ok=True)
@@ -27,6 +30,14 @@ class WebDataExporter:
     def initialize_export(self, world_size: int, era_prompt: str, num_agents: int, 
                          terrain_types: List[str], resource_rules: Dict):
         """Initialize export with world metadata"""
+        # Read throttling options from config if available
+        try:
+            from .config import get_config  # type: ignore
+            cfg = get_config()
+            self.export_every = int(getattr(cfg.output, 'web_export_every', self.export_every))
+            self.max_agent_log_entries = int(getattr(cfg.output, 'max_agent_log_entries', self.max_agent_log_entries))
+        except Exception:
+            pass
         self.current_export['metadata'] = {
             'era': era_prompt,
             'world_size': world_size,
@@ -71,7 +82,8 @@ class WebDataExporter:
                 'attributes': agent.attributes,
                 'inventory': agent.inventory,
                 'goal': agent.goal,
-                'log': agent.log[-5:] if len(agent.log) > 5 else agent.log,  # Last 5 actions
+                # Keep last N actions (configurable)
+                'log': agent.log[-self.max_agent_log_entries:] if self.max_agent_log_entries > 0 else [],
                 'memory_agents': len(agent.memory.get('agents', [])),
                 'memory_locations': len(agent.memory.get('locations', []))
             }
@@ -104,7 +116,7 @@ class WebDataExporter:
     
     def export_incremental(self, turn_num: int):
         """Export data incrementally (every few turns)"""
-        if turn_num % 5 == 0:  # Export every 5 turns
+        if self.export_every > 0 and turn_num % self.export_every == 0:
             filename = f"simulation_turn_{turn_num:03d}.json"
             return self.export_to_file(filename)
         return None

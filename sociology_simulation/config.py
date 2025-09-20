@@ -94,6 +94,9 @@ class OutputConfig:
     # Turn summary controls
     turn_summary_llm: bool = True
     turn_summary_max_highlights: int = 5
+    # Web export throttling
+    web_export_every: int = 5
+    max_agent_log_entries: int = 5
 
 @dataclass
 class Config:

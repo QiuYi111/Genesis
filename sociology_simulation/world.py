@@ -64,6 +64,12 @@ class World:
         self.trinity = Trinity(self.bible, era_prompt)
         self.map = None
         self.resources = {}
+        # Terrain indices for fast queries
+        self.terrain_positions: Dict[str, List[tuple]] = {}
+        self.terrain_counts: Dict[str, int] = {}
+        # Spatial grid for fast neighbor queries
+        self._agent_grid: Dict[tuple, List[Agent]] = {}
+        self._grid_cell_size: int = max(1, VISION_RADIUS)
         self.social_manager = SocialStructureManager()
         self.cultural_memory = CulturalMemorySystem()
         self.tech_system = TechnologySystem()
@@ -107,6 +113,7 @@ class World:
         
         self.map = self.generate_realistic_terrain()
         self.resources = {}
+        self._build_terrain_index()
         self.place_resources()
 
         # Validate diversity: ensure resources actually appear; otherwise fall back to defaults
@@ -201,7 +208,7 @@ class World:
             logger.error(f"Advanced terrain generation failed: {e}")
             logger.info("Falling back to simple terrain generation")
             return self.generate_simple_terrain()
-    
+
     def generate_simple_terrain(self):
         """Fallback: Generate simple terrain map with contiguous regions"""
         terrain_types = getattr(self.trinity, "terrain_types", DEFAULT_TERRAIN)
@@ -223,6 +230,19 @@ class World:
         
         return map
 
+    def _build_terrain_index(self) -> None:
+        """Build indices of terrain -> positions and counts for fast queries."""
+        self.terrain_positions = {}
+        self.terrain_counts = {}
+        if self.map is None:
+            return
+        for x in range(self.size):
+            row = self.map[x]
+            for y in range(self.size):
+                terr = row[y]
+                self.terrain_positions.setdefault(terr, []).append((x, y))
+                self.terrain_counts[terr] = self.terrain_counts.get(terr, 0) + 1
+
     def place_resources(self):
         """Place resources according to distribution rules"""
         if self.map is None:
@@ -230,15 +250,25 @@ class World:
             return
             
         resource_rules = getattr(self.trinity, "resource_rules", DEFAULT_RESOURCE_RULES)
-        
+        # Sample positions per terrain to match expected count without full traversal
         for resource, terrain_probs in resource_rules.items():
             for terrain, prob in terrain_probs.items():
-                for x in range(self.size):
-                    for y in range(self.size):
-                        if self.map[x][y] == terrain and random.random() < prob:
-                            if (x, y) not in self.resources:
-                                self.resources[(x, y)] = {}
-                            self.resources[(x, y)][resource] = self.resources[(x, y)].get(resource, 0) + 1
+                positions = self.terrain_positions.get(terrain, [])
+                total = len(positions)
+                if total == 0 or prob <= 0.0:
+                    continue
+                # Target expected count = total * prob
+                expected = total * prob
+                k_floor = int(expected)
+                remainder = expected - k_floor
+                k = k_floor + (1 if random.random() < remainder else 0)
+                k = max(0, min(k, total))
+                if k == 0:
+                    continue
+                for (x, y) in random.sample(positions, k):
+                    if (x, y) not in self.resources:
+                        self.resources[(x, y)] = {}
+                    self.resources[(x, y)][resource] = self.resources[(x, y)].get(resource, 0) + 1
 
     def show_map(self):
         """Display terrain map using matplotlib"""
@@ -765,6 +795,33 @@ class World:
             
             return dead_agents
 
+    # === Spatial grid for neighbor queries ===
+    def _grid_cell(self, x: int, y: int) -> tuple:
+        return (x // self._grid_cell_size, y // self._grid_cell_size)
+
+    def _rebuild_agent_grid(self) -> None:
+        grid: Dict[tuple, List[Agent]] = {}
+        for agent in self.agents:
+            cx, cy = self._grid_cell(agent.pos[0], agent.pos[1])
+            grid.setdefault((cx, cy), []).append(agent)
+        self._agent_grid = grid
+
+    def iter_agents_in_radius(self, x0: int, y0: int, radius: int) -> List[Agent]:
+        """Return agents within Chebyshev radius using the spatial grid."""
+        if not self._agent_grid:
+            # Fallback: return all agents; caller should filter
+            return list(self.agents)
+        cell_r = max(1, (radius + self._grid_cell_size - 1) // self._grid_cell_size)
+        cx0, cy0 = self._grid_cell(x0, y0)
+        candidates: List[Agent] = []
+        for dx in range(-cell_r, cell_r + 1):
+            for dy in range(-cell_r, cell_r + 1):
+                bucket = self._agent_grid.get((cx0 + dx, cy0 + dy))
+                if bucket:
+                    candidates.extend(bucket)
+        # Filter by actual radius and exclude same agent by caller logic
+        return candidates
+
     async def _check_agent_status(self, turn_log: List[str], action_handler: "ActionHandler"):
         """Generate periodic agent status report"""
         status_report = []
@@ -790,6 +847,8 @@ class World:
     async def step(self, session: aiohttp.ClientSession):
         """Process one simulation turn"""
         logger.info(f"\n=== TURN {self.trinity.turn} START ===")
+        # Rebuild spatial grid for this turn (agents may move within the turn later)
+        self._rebuild_agent_grid()
         action_handler = World.ActionHandler(self.bible, self)
         turn_log = []
         

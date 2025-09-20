@@ -168,18 +168,61 @@
   - 关闭叙述 LLM；日志为 WARNING 级，减少 I/O 干扰；地形算法设为 `simple` 保障可重复性。
   - 命令示例：`uv run -q python scripts/bench_offline.py --agents 300 --turns 5 --size 64`
 
-- 结果（macOS aarch64，本地环境，size=64，turns 如下，单位：秒/回合）：
+- 结果（优化前 → 优化后，macOS aarch64，本地环境，size=64，单位：秒/回合）：
 
-  - 100 agents × 5 turns → 平均 0.218，P50 0.214，P95 0.228
-  - 300 agents × 5 turns → 平均 0.730，P50 0.731，P95 0.765
-  - 600 agents × 3 turns → 平均 1.693，P50 1.705，P95 1.732
+  - 100 agents × 5 turns → 0.218（基线，仅采样一次）
+  - 300 agents × 5 turns → 0.730 → 0.696 → 0.702（采样后方差内波动，整体与上一版持平）
+  - 600 agents × 3 turns → 1.693 → 1.626 → 1.628（采样后基本持平）
 
 - 观察：
-  - 100 → 300（×3 agents）回合时长约 ×3.35；100 → 600（×6 agents）约 ×7.76，显示超过线性增长，符合 `Agent.perceive()` 的 O(N²) 邻居扫描特征，以及回合内若干全图操作的放大。
-  - 在关闭 LLM 的前提下仍呈现明显扩展性瓶颈，说明首要需要处理的仍是邻居查询与全图扫描；随后再通过并发上限与批处理抑制 LLM 洪峰。
+  - 优化项（已落地）：
+    - 新增空间网格（cell=VISION_RADIUS），`perceive()` 邻居查询从全量遍历改为遍历相邻桶并按半径过滤；
+    - 预生成 `terrain_positions`/`terrain_counts`，资源再生/期望值估算改为按索引遍历；
+  - 效果：空间网格与地形索引带来 4–5% 降幅；资源“抽样化”在本参数（p≈0.1、地图 64×64）下对回合耗时影响较小（已避免逐格判定，但抽样选位与赋值仍与期望数量同阶）。在更大地图或更多资源种类时，抽样法可显著缩短资源阶段时间。
 
 - 结论与行动项映射：
   - 先落地“网格桶索引 + 分批/限流”两项，预计对 300~600 规模的回合时长带来 2× 以上改善；
   - 将资源放置/再生改为“按地形 positions 抽样 + 预存 terrain_counts”，在大尺寸地图时收益更显著；
   - Web 导出和日志维持节流策略，仅在里程碑回合输出。
 
+---
+
+## 11. 在线测试（真实 LLM）
+
+- 测试命令：
+  - `uv run python scripts/bench_online.py --agents 10 --turns 1 --api-key '<KEY>' --cap-calls -1 --turn-timeout 10`
+
+- 结果（10 agents × 1 turn）：
+  - 初始化：`init_time ≈ 14.41 s`
+  - 回合：`turn_time ≈ 125.20 s`
+  - LLM 统计：
+    - `total_requests=29`，`successful=28`，`avg_response_time≈4.98 s`
+    - 模板使用：`resolve_action=10`、`agent_decide_goal=8`、`agent_generate_name=7`、`trinity_* 合计=3`、`initial_rules=1`
+
+- 诊断（瓶颈归因）：
+  - 行动解析串行：`World.ActionHandler.resolve()` 使用了 `asyncio.Lock` 对“行动解析（resolve_action）”做全局串行，导致 10 次解析近似串行执行（≈ 10 × 5s ≈ 50s），显著抬高回合时间。
+  - 冗余调用路径：每个 agent 通常触发两次昂贵调用（`agent_action` 生成自然语句 + `resolve_action` 解析为 JSON 结果）。
+  - 会话复用不足：`resolve()` 内为每次解析新建 `aiohttp.ClientSession`，缺少共享会话复用，造成额外握手/连接开销。
+  - 其余：Trinity 每回合 ~3 次；名字/目标仅初始化阶段触发（本次 7/8 次）。
+
+- 优先级修复（预计收益）
+  - P0 解除串行锁：将 `ActionHandler` 的 `Lock` 改为“有界 Semaphore（如 8）”或移除，允许并行解析；预计对 10 agents 回合减少 30–50s+（按请求平均 5s 估计）。
+  - P0 复用会话：`resolve()` 改为复用 `World.step()` 的 `ClientSession`（由 step 注入到 `ActionHandler`），避免每次重建会话；通常可减少 5–15% 调用开销。
+  - P1 合并生成与解析：让 `agent_action` 直接输出结构化 JSON（含 position/inventory/log 等），能解析时跳过 `resolve_action`；保留 `_try_dispatch` 与 fallback；有望减少每 agent 1 次昂贵调用。
+  - P1 轻量缓存：
+    - 对 `resolve_action` 增加基于 `(action, bible_hash, agent_state_hash)` 的短期缓存；
+    - 对 `agent_generate_name/goal` 做一次性缓存（当前已基本一次性）。
+  - P2 降频 Trinity：将 `trinity_analyze_behaviors/execute_actions` 改为每 N 回合执行（如 N=3–5），降低后台管理调用频次。
+
+- 最小改动清单（不破坏外部接口）：
+  - `world.py`：
+    - 在 `World.step()` 创建 `ActionHandler` 后注入当前 `session`（如 `action_handler.session = session`）。
+    - 将 `ActionHandler.__init__` 中的 `Lock` 改为 `asyncio.Semaphore(k)`（或移除），`resolve()` 使用该信号量；用注入的 `session` 进行 LLM 调用。
+  - `enhanced_llm.py`：
+    - 支持 `agent_action` 返回 JSON 时直接作为 outcome；否则回退到 `resolve_action`。
+  - 可选：在 `EnhancedLLMService.generate` 增加简单内存缓存（模板名+参数哈希）。
+
+- 后续验证：
+  - 复跑在线基准（10×1），期待回合时长显著下降；
+  - 扩大到 `20×1`、`50×1`，检查平均与 P95；
+  - 将结果补入本文档以指导下一轮参数与架构调整。
