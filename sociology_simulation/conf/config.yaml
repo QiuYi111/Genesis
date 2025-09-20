@@ -28,6 +28,12 @@ output:
   log_rotation: "10 MB"
   log_retention: "30 days"
   log_compression: "zip"
+  # CLI view: pretty | fancy | compact | plain | jsonl
+  mode: fancy
+  emoji: true
+  use_colors: true
+  verbose: true
+  show_agent_status: true
 
 # Vision and perception
 perception:

@@ -91,6 +91,9 @@ class OutputConfig:
     use_colors: bool = True
     verbose: bool = True
     show_agent_status: bool = True
+    # CLI rendering mode and emoji
+    mode: str = "pretty"    # pretty | fancy | compact | plain | jsonl
+    emoji: bool = True
     # Turn summary controls
     turn_summary_llm: bool = True
     turn_summary_max_highlights: int = 5

@@ -6,9 +6,10 @@ Provides structured, readable output with color coding and progress tracking.
 
 import sys
 import time
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any, Optional, Tuple
 from dataclasses import dataclass
 from pathlib import Path
+import shutil
 
 # Color codes for terminal output
 class Colors:
@@ -94,23 +95,33 @@ class SimulationStats:
 class OutputFormatter:
     """Enhanced output formatter for sociology simulation."""
     
-    def __init__(self, use_colors: bool = True, verbose: bool = True):
+    def __init__(self, use_colors: bool = True, verbose: bool = True, mode: str = "pretty", emoji: bool = True):
         self.use_colors = use_colors and sys.stdout.isatty()
         self.verbose = verbose
+        self.mode = mode  # one of: pretty, fancy, compact, plain, jsonl
+        self.emoji = emoji
         self.stats = SimulationStats()
         
         if not self.use_colors:
             Colors.disable()
+
+    # ---------- Terminal sizing ----------
+    def _term_width(self) -> int:
+        try:
+            return shutil.get_terminal_size(fallback=(100, 24)).columns
+        except Exception:
+            return 100
     
     def format_header(self, title: str, level: int = 1) -> str:
         """Format a header with appropriate styling."""
+        width = max(40, min(120, self._term_width()))
         if level == 1:
             # Main header
-            line = "=" * 60
-            return f"\n{Colors.BOLD}{Colors.BRIGHT_CYAN}{line}\n{title.upper():^60}\n{line}{Colors.RESET}\n"
+            line = "=" * width
+            return f"\n{Colors.BOLD}{Colors.BRIGHT_CYAN}{line}\n{title.upper():^{width}}\n{line}{Colors.RESET}\n"
         elif level == 2:
             # Sub header
-            line = "-" * 40
+            line = "-" * max(30, min(80, width - 20))
             return f"\n{Colors.BOLD}{Colors.BRIGHT_YELLOW}{line}\n{title}\n{line}{Colors.RESET}\n"
         else:
             # Minor header
@@ -119,15 +130,17 @@ class OutputFormatter:
     def format_turn_header(self, turn: int, total_turns: int) -> str:
         """Format turn header with progress information."""
         progress = (turn / total_turns) * 100 if total_turns > 0 else 0
-        progress_bar = self._create_progress_bar(progress)
+        width = max(40, min(120, self._term_width()))
+        bar_width = max(20, min(60, width - 20))
+        progress_bar = self._create_progress_bar(progress, width=bar_width)
         
         elapsed = self.stats.elapsed_time
         remaining = self.stats.estimated_time_remaining
         
         header = f"TURN {turn}/{total_turns}"
         time_info = f"Elapsed: {self._format_time(elapsed)} | ETA: {self._format_time(remaining)}"
-        
-        return f"\n{Colors.BOLD}{Colors.BRIGHT_MAGENTA}{'='*50}\n{header:^50}\n{progress_bar}\n{time_info:^50}\n{'='*50}{Colors.RESET}\n"
+        line = "=" * max(40, min(100, width))
+        return f"\n{Colors.BOLD}{Colors.BRIGHT_MAGENTA}{line}\n{header:^{len(line)}}\n{progress_bar}\n{time_info:^{len(line)}}\n{line}{Colors.RESET}\n"
     
     def format_agent_action(self, agent_name: str, agent_id: int, action: str, 
                           success: Optional[bool] = None, details: Optional[str] = None) -> str:
@@ -165,7 +178,9 @@ class OutputFormatter:
         if len(action) > 120:
             action = action[:117] + "..."
         
-        return f"{Colors.BRIGHT_GREEN}⚡{Colors.RESET} {Colors.BOLD}{agent_name}({agent_id}){Colors.RESET} {Colors.BRIGHT_YELLOW}行动 →{Colors.RESET} {Colors.CYAN}{action}{Colors.RESET}"
+        lightning = "⚡" if self.emoji else "*"
+        arrow = "→" if self.emoji else ">"
+        return f"{Colors.BRIGHT_GREEN}{lightning}{Colors.RESET} {Colors.BOLD}{agent_name}({agent_id}){Colors.RESET} {Colors.BRIGHT_YELLOW}行动 {arrow}{Colors.RESET} {Colors.CYAN}{action}{Colors.RESET}"
     
     def format_world_event(self, event: str, event_type: str = "info") -> str:
         """Format world events with appropriate styling."""
@@ -182,14 +197,14 @@ class OutputFormatter:
         
         color = color_map.get(event_type, Colors.WHITE)
         icon_map = {
-            "info": "ℹ",
-            "warning": "⚠",
-            "error": "✗",
-            "success": "✓",
-            "death": "💀",
-            "birth": "👶",
-            "discovery": "🔍",
-            "construction": "🏗"
+            "info": "ℹ" if self.emoji else "i",
+            "warning": "⚠" if self.emoji else "!",
+            "error": "✗" if self.emoji else "x",
+            "success": "✓" if self.emoji else "+",
+            "death": "💀" if self.emoji else "X",
+            "birth": "👶" if self.emoji else "+",
+            "discovery": "🔍" if self.emoji else "*",
+            "construction": "🏗" if self.emoji else "#",
         }
         
         icon = icon_map.get(event_type, "•")
@@ -258,7 +273,9 @@ class OutputFormatter:
     def _create_progress_bar(self, percentage: float, width: int = 40) -> str:
         """Create a visual progress bar."""
         filled = int(width * percentage / 100)
-        bar = "█" * filled + "░" * (width - filled)
+        bar_char = "█" if self.use_colors or self.emoji else "#"
+        empty_char = "░" if self.use_colors or self.emoji else "-"
+        bar = bar_char * filled + empty_char * (width - filled)
         return f"{Colors.BRIGHT_GREEN}[{bar}] {percentage:.1f}%{Colors.RESET}"
     
     def _format_time(self, seconds: float) -> str:
@@ -291,7 +308,15 @@ class OutputFormatter:
     def print_turn_start(self, turn: int):
         """Print turn start information."""
         self.stats.turn = turn
-        print(self.format_turn_header(turn, self.stats.total_turns))
+        if self.mode in ("compact",):
+            # Compact mode: draw lightweight header once every 10 turns
+            if turn == 1 or turn % 10 == 0:
+                print(self.format_turn_header(turn, self.stats.total_turns))
+        elif self.mode in ("fancy",):
+            # Fancy mode: no big header; a HUD line will be printed per turn
+            pass
+        else:
+            print(self.format_turn_header(turn, self.stats.total_turns))
     
     def print_turn_summary(self, turn_stats: Dict[str, Any]):
         """Print turn summary with key events."""
@@ -307,6 +332,101 @@ class OutputFormatter:
                         print(f"  {self.format_world_event(str(event), event_type)}")
                 else:
                     print(f"  {self.format_world_event(str(events), event_type)}")
+
+    # ---------- Fancy/Compact live HUD and panels ----------
+    def format_turn_hud(self, extras: Optional[Dict[str, Any]] = None) -> str:
+        """Return a single-line HUD with progress and key metrics."""
+        stats = self.stats
+        width = max(60, min(160, self._term_width()))
+        progress = f"{stats.turn}/{stats.total_turns}"
+        pct = f"{stats.progress_percentage:.1f}%"
+        elapsed = self._format_time(stats.elapsed_time)
+        eta = self._format_time(stats.estimated_time_remaining)
+        alive = f"{stats.active_agents}/{stats.total_agents}"
+        sr = 0.0
+        denom = stats.actions_completed + stats.actions_failed
+        if denom > 0:
+            sr = (stats.actions_completed / denom) * 100.0
+        success = f"{sr:.1f}%"
+        parts = [
+            f"Turn {progress}",
+            f"{pct}",
+            f"Elapsed {elapsed}",
+            f"ETA {eta}",
+            f"Alive {alive}",
+            f"Success {success}",
+        ]
+        if extras:
+            for k in ["births", "deaths", "resources", "tech"]:
+                if k in extras:
+                    parts.append(f"{k.capitalize()} {extras[k]}")
+        line = " | ".join(parts)
+        if len(line) > width:
+            line = line[: width - 3] + "..."
+        return f"{Colors.BRIGHT_WHITE}{line}{Colors.RESET}"
+
+    def print_turn_panel(self, turn: int, facts: Dict[str, Any], highlights: List[str], events: List[str]) -> None:
+        """Fancy immersive panel for a turn using facts/highlights/events."""
+        width = max(60, min(160, self._term_width()))
+        sep = "─" * width
+        title_icon = "🌐" if self.emoji else "*"
+        header = f"{title_icon} TURN {turn} HIGHLIGHTS"
+        print(f"\n{Colors.BRIGHT_CYAN}{sep}{Colors.RESET}")
+        print(f"{Colors.BOLD}{header:^{width}}{Colors.RESET}")
+        print(f"{Colors.BRIGHT_CYAN}{sep}{Colors.RESET}")
+
+        # Facts row
+        facts_kvs: List[Tuple[str, str]] = []
+        for key in [
+            "groups_count",
+            "technologies_count",
+            "markets_count",
+            "political_entities",
+            "skill_diversity",
+            "avg_social_connections",
+            "economic_health",
+        ]:
+            if key in facts:
+                val = facts[key]
+                if isinstance(val, float):
+                    val = f"{val:.2f}"
+                facts_kvs.append((key, str(val)))
+        # Format two lines of facts
+        line_buf = []
+        chunk = []
+        for k, v in facts_kvs:
+            pretty_k = k.replace("_", " ").title()
+            chunk.append(f"{Colors.DIM}{pretty_k}:{Colors.RESET} {Colors.BRIGHT_YELLOW}{v}{Colors.RESET}")
+            if sum(len(x) for x in chunk) + len(chunk) * 3 > width - 8:
+                line_buf.append("   ".join(chunk))
+                chunk = []
+        if chunk:
+            line_buf.append("   ".join(chunk))
+        for ln in line_buf[:2]:
+            print(ln)
+
+        # Highlights
+        if highlights:
+            star = "⭐" if self.emoji else "*"
+            print(self.format_header("Highlights", 3))
+            for h in highlights[:6]:
+                h = h.strip()
+                if not h:
+                    continue
+                if len(h) > width - 4:
+                    h = h[: width - 7] + "..."
+                print(f" {Colors.BRIGHT_GREEN}{star}{Colors.RESET} {h}")
+
+        # Events marquee
+        if events:
+            bolt = "⚡" if self.emoji else "!"
+            print(self.format_header("Events", 3))
+            for e in events[:6]:
+                e = e.strip()
+                if len(e) > width - 4:
+                    e = e[: width - 7] + "..."
+                print(f" {Colors.BRIGHT_MAGENTA}{bolt}{Colors.RESET} {e}")
+        print(f"{Colors.BRIGHT_CYAN}{sep}{Colors.RESET}")
     
     def print_simulation_end(self):
         """Print simulation end summary."""
@@ -332,7 +452,7 @@ def get_formatter() -> OutputFormatter:
         _formatter = OutputFormatter()
     return _formatter
 
-def set_formatter_options(use_colors: bool = True, verbose: bool = True):
+def set_formatter_options(use_colors: bool = True, verbose: bool = True, mode: str = "pretty", emoji: bool = True):
     """Set global formatter options."""
     global _formatter
-    _formatter = OutputFormatter(use_colors=use_colors, verbose=verbose)
+    _formatter = OutputFormatter(use_colors=use_colors, verbose=verbose, mode=mode, emoji=emoji)

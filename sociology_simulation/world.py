@@ -1185,8 +1185,25 @@ class World:
                 logger.info(line)
         logger.info("="*40 + "\n")
         
+        # Prepare telemetry for CLI rendering
+        try:
+            current_era_name = self.tech_system.eras[self.tech_system.current_era].name
+        except Exception:
+            current_era_name = "Unknown"
+        telemetry = {
+            "facts": facts,
+            "highlights": [ln for ln in narrative_lines if isinstance(ln, str) and ln.strip()],
+            "events": [str(e) for e in turn_log[-12:]],  # last dozen events
+            "agents_alive": len(self.agents),
+            "tech_era": current_era_name,
+            "turn_index": int(self.trinity.turn),
+        }
+        
         # Increment turn counter
         self.trinity.turn += 1
+        
+        # Return telemetry for consumers (backward-compatible: callers can ignore)
+        return telemetry
 
     def get_conversations(self) -> List[str]:
         """Collect and format all conversations from agent logs"""

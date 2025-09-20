@@ -93,7 +93,9 @@ def main(cfg: DictConfig) -> None:
         formatter = get_formatter()
         set_formatter_options(
             use_colors=cfg.output.get('use_colors', True),
-            verbose=cfg.output.get('verbose', True)
+            verbose=cfg.output.get('verbose', True),
+            mode=cfg.output.get('mode', 'pretty'),
+            emoji=cfg.output.get('emoji', True),
         )
         
         # Print simulation start
@@ -144,7 +146,7 @@ def main(cfg: DictConfig) -> None:
                 # Snapshot alive agents pre-step
                 pre_ids = prev_alive_ids
 
-                await world.step(session)
+                telemetry = await world.step(session)
 
                 # Snapshot alive agents post-step
                 post_alive_ids = {a.aid for a in world.agents if a.health > 0}
@@ -171,6 +173,14 @@ def main(cfg: DictConfig) -> None:
                     resource_gathered=formatter.stats.resource_gathered + turn_stats['resource_gathered'],
                     agent_deaths=cumulative_deaths
                 )
+                # Live HUD line for compact/fancy
+                if formatter.mode in ("compact", "fancy"):
+                    hud_extras = {
+                        "births": births_this_turn,
+                        "deaths": deaths_this_turn,
+                    }
+                    print("\r" + formatter.format_turn_hud(hud_extras), end="", flush=True)
+                    print()
                 
                 # Show map periodically
                 if cfg.runtime.show_map_every > 0 and (t+1) % cfg.runtime.show_map_every == 0:
@@ -199,8 +209,19 @@ def main(cfg: DictConfig) -> None:
                         for conv in conversations:
                             print(f"  {formatter.format_world_event(conv, 'info')}")
                 
-                # Print turn summary
-                formatter.print_turn_summary(turn_stats)
+                # Fancy immersive panel if telemetry available
+                if formatter.mode == "fancy" and isinstance(telemetry, dict):
+                    try:
+                        facts = telemetry.get("facts", {})
+                        highlights = telemetry.get("highlights", [])
+                        events = telemetry.get("events", [])
+                        formatter.print_turn_panel(t + 1, facts, highlights, events)
+                    except Exception:
+                        # Fallback to basic summary if anything goes wrong
+                        formatter.print_turn_summary(turn_stats)
+                else:
+                    # Basic summary for other modes
+                    formatter.print_turn_summary(turn_stats)
                 
                 # Show statistics summary every 10 turns
                 if (t+1) % 10 == 0:
