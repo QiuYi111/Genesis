@@ -303,9 +303,12 @@ class World:
     class ActionHandler:
         """Handles agent actions and interactions"""
         def __init__(self, bible: Bible, world: "World"):
-            self.lock = asyncio.Lock()
+            # Allow bounded concurrency for LLM resolutions
+            self.semaphore = asyncio.Semaphore(8)
             self.bible = bible
             self.world = world
+            # Optional shared HTTP session injected by World.step
+            self.session: Optional[aiohttp.ClientSession] = None
             self.courtship_events = []
             self.dead_agents = []
             self.buildings = []
@@ -348,11 +351,13 @@ class World:
             if "build" in action.lower() and agent.age < 16:
                 return {"log": "年龄太小无法建造", "position": list(agent.pos)}
 
-            async with self.lock:
-                async with aiohttp.ClientSession() as session:
-                    llm_service = get_llm_service()
-                    bible_rules = json.dumps(self.bible.get_rules_for_action_handler(), ensure_ascii=False)
-                    
+            async with self.semaphore:
+                llm_service = get_llm_service()
+                bible_rules = json.dumps(self.bible.get_rules_for_action_handler(), ensure_ascii=False)
+                
+                # Reuse injected session when available; fallback to a short-lived session
+                if self.session is not None:
+                    session = self.session
                     outcome = await llm_service.resolve_action(
                         bible_rules=bible_rules,
                         agent_id=agent.aid,
@@ -366,8 +371,23 @@ class World:
                         action=action,
                         session=session
                     )
-                    
                     return await self._process_outcome(outcome, agent, world, session, era_prompt)
+                else:
+                    async with aiohttp.ClientSession() as session:
+                        outcome = await llm_service.resolve_action(
+                            bible_rules=bible_rules,
+                            agent_id=agent.aid,
+                            agent_age=agent.age,
+                            agent_attributes=agent.attributes,
+                            agent_position=list(agent.pos),
+                            agent_inventory=agent.inventory,
+                            agent_health=agent.health,
+                            agent_hunger=agent.hunger,
+                            agent_skills=agent.skills,
+                            action=action,
+                            session=session
+                        )
+                        return await self._process_outcome(outcome, agent, world, session, era_prompt)
 
         def _try_dispatch(self, action: str, agent: Agent) -> Optional[Dict]:
             """Dispatch strictly handled actions without LLM involvement.
@@ -850,6 +870,8 @@ class World:
         # Rebuild spatial grid for this turn (agents may move within the turn later)
         self._rebuild_agent_grid()
         action_handler = World.ActionHandler(self.bible, self)
+        # Inject shared HTTP session for downstream LLM calls
+        action_handler.session = session
         turn_log = []
         
         # Process pending interactions
