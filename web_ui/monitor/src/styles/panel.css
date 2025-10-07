@@ -1,0 +1,79 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+}
+
+.panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.panel__header h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+}
+
+.panel__header p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.panel__badge {
+  align-self: flex-start;
+  padding: 0.35rem 0.75rem;
+  background: rgba(88, 198, 255, 0.15);
+  border: 1px solid rgba(88, 198, 255, 0.35);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.panel__content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.panel__footer {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.85rem;
+}
+
+.panel__footer-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.panel__footer-metric .label {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(20, minmax(0, 1fr));
+  grid-template-rows: repeat(20, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 240px;
+}
+
+.map-grid div {
+  transition: background-color 0.35s ease;
+}
