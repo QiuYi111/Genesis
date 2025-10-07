@@ -3,7 +3,7 @@ model:
   api_key_env: "DEEPSEEK_API_KEY"
   agent_model: "deepseek-chat"
   trinity_model: "deepseek-chat"
-  base_url: "https://api.deepseek.com/v1/chat/completions"
+  base_url: "https://api.deepseek.com/chat/completions"
   
   # Temperature settings
   temperatures:
