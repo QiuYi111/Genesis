@@ -5,7 +5,8 @@ import type {
   ConnectionState,
   InteractionRecord,
   TimelineEvent,
-  TurnPayload
+  TurnPayload,
+  Structure
 } from "../types/simulation";
 
 const TURN_BUFFER_LIMIT = 120;
@@ -19,6 +20,9 @@ type SimulationState = {
   connection: ConnectionState;
   alerts: TimelineEvent[];
   interactionHistory: InteractionRecord[];
+  logs: { timestamp: string; level: string; message: string }[];
+  structures: Structure[];
+  agentActions: Record<string, string>;
   selectedAgentId: string | null;
   selectedTile: { x: number; y: number } | null;
   ingestTurn: (turn: TurnPayload) => void;
@@ -26,6 +30,10 @@ type SimulationState = {
   setPlaybackMode: (mode: PlaybackMode) => void;
   updateConnection: (partial: Partial<ConnectionState>) => void;
   recordInteraction: (interaction: InteractionRecord) => void;
+  appendLogs: (entries: { timestamp: string; level: string; message: string }[]) => void;
+  setStructures: (items: Structure[]) => void;
+  mergeStructures: (items: Structure[]) => void;
+  updateAgentAction: (agentId: string, actionText: string) => void;
   setSelectedAgent: (agentId: string | null, location?: { x: number; y: number }) => void;
   setSelectedTile: (tile: { x: number; y: number } | null) => void;
 };
@@ -44,6 +52,9 @@ const baseState = {
   connection: { ...initialConnection },
   alerts: [] as TimelineEvent[],
   interactionHistory: [] as InteractionRecord[],
+  logs: [] as { timestamp: string; level: string; message: string }[],
+  structures: [] as Structure[],
+  agentActions: {} as Record<string, string>,
   selectedAgentId: null as string | null,
   selectedTile: null as { x: number; y: number } | null
 };
@@ -101,6 +112,33 @@ export const useSimulationStore = create<SimulationState>()(
     recordInteraction: (interaction: InteractionRecord) => {
       set((draft) => {
         draft.interactionHistory = mergeInteractions(draft.interactionHistory, [interaction]);
+      });
+    },
+    appendLogs: (entries) => {
+      set((draft) => {
+        draft.logs.push(...entries);
+        if (draft.logs.length > 400) {
+          draft.logs.splice(0, draft.logs.length - 400);
+        }
+      });
+    },
+    setStructures: (items) => {
+      set((draft) => {
+        draft.structures = items;
+      });
+    },
+    mergeStructures: (items) => {
+      set((draft) => {
+        const map = new Map(draft.structures.map((s) => [s.id, s] as const));
+        for (const it of items) {
+          map.set(it.id, it);
+        }
+        draft.structures = Array.from(map.values());
+      });
+    },
+    updateAgentAction: (agentId, actionText) => {
+      set((draft) => {
+        draft.agentActions[agentId] = actionText;
       });
     },
     setSelectedAgent: (agentId, location) => {
@@ -182,6 +220,10 @@ export function selectInteractionHistory(state: SimulationState): InteractionRec
   return state.interactionHistory;
 }
 
+export function selectLogs(state: SimulationState): { timestamp: string; level: string; message: string }[] {
+  return state.logs;
+}
+
 export function selectAlerts(state: SimulationState): TimelineEvent[] {
   return state.alerts;
 }
@@ -196,4 +238,12 @@ export function selectSelectedAgentId(state: SimulationState): string | null {
 
 export function selectSelectedTile(state: SimulationState): { x: number; y: number } | null {
   return state.selectedTile;
+}
+
+export function selectStructures(state: SimulationState): Structure[] {
+  return state.structures;
+}
+
+export function selectAgentActions(state: SimulationState): Record<string, string> {
+  return state.agentActions;
 }

@@ -10,6 +10,7 @@ from typing import Any, Dict, List, Optional
 
 import websockets
 from aiohttp import web
+from loguru import logger as loguru_logger
 from hydra import compose, initialize_config_dir
 from hydra.core.global_hydra import GlobalHydra
 from omegaconf import DictConfig
@@ -30,7 +31,9 @@ class SimulationMonitor:
             "agents": [],
             "turn": 0,
             "timestamp": None,
-            "logs": []
+            "logs": [],
+            "actions": [],
+            "structures": [],
         }
 
         # WebSocket connections
@@ -44,6 +47,7 @@ class SimulationMonitor:
         # Export settings
         self.export_interval = 1  # Export every turn
         self.max_log_entries = 1000
+        self.max_action_entries = 2000
 
         # Simulation orchestration metadata
         self.simulation_status: Dict[str, Any] = {
@@ -62,6 +66,11 @@ class SimulationMonitor:
         self._world_reference = None
         self._stop_requested = False
         self.orchestrator = None  # Initialised lazily to avoid circular imports
+        # Track last-known actions to emit structured action events per agent
+        self._last_agent_action: Dict[int, Any] = {}
+        # Track discovered structures (markets, settlements, buildings)
+        self._structures: List[Dict[str, Any]] = []
+        self._structure_ids: set = set()
 
     # ------------------------------------------------------------------
     # Simulation lifecycle helpers
@@ -175,12 +184,34 @@ class SimulationMonitor:
                 }
                 agent_data.append(agent_info)
             
+            # Detect agent action changes for action events
+            action_events: List[Dict[str, Any]] = []
+            for a in agent_data:
+                aid = a["aid"]
+                act = a.get("current_action")
+                last = self._last_agent_action.get(aid)
+                if act and act != last:
+                    action_events.append({
+                        "aid": aid,
+                        "name": a.get("name"),
+                        "action": act,
+                        "x": a.get("x"),
+                        "y": a.get("y"),
+                        "turn": turn,
+                        "timestamp": time.time(),
+                    })
+                    self._last_agent_action[aid] = act
+
             # Update current data
             self.current_data.update({
                 "world": world_data,
                 "agents": agent_data,
                 "turn": turn,
-                "timestamp": time.time()
+                "timestamp": time.time(),
+                # Maintain a rolling buffer of action events for consumers without WS
+                "actions": (self.current_data.get("actions", []) + action_events)[-self.max_action_entries:],
+                # Keep structures in sync
+                "structures": list(self._structures),
             })
 
             # Keep orchestration status in sync
@@ -206,6 +237,8 @@ class SimulationMonitor:
                 loop = asyncio.get_event_loop()
                 if loop.is_running():
                     asyncio.create_task(self._broadcast_update())
+                    if action_events:
+                        asyncio.create_task(self._broadcast_actions(action_events))
             except RuntimeError:
                 # No event loop running, skip WebSocket broadcast
                 pass
@@ -214,23 +247,47 @@ class SimulationMonitor:
             logger.error(f"Error updating world data: {e}")
     
     def _serialize_terrain(self, world) -> List[str]:
-        """Serialize terrain data."""
-        terrain = []
-        for y in range(world.size):
-            for x in range(world.size):
-                terrain_type = world.terrain.get((x, y), "GRASSLAND")
-                terrain.append(terrain_type)
-        return terrain
+        """Serialize terrain data from either `world.map` (2D) or `world.terrain` (dict)."""
+        out: List[str] = []
+        # Preferred: 2D map from the modern World implementation
+        if hasattr(world, "map") and getattr(world, "map") is not None:
+            grid = world.map
+            # Flatten in row-major order: index = y * size + x
+            for y in range(world.size):
+                for x in range(world.size):
+                    try:
+                        out.append(grid[x][y])
+                    except Exception:
+                        out.append("GRASSLAND")
+            return out
+
+        # Fallback: dict-based terrain from simple runner
+        terr = getattr(world, "terrain", None)
+        if isinstance(terr, dict):
+            for y in range(world.size):
+                for x in range(world.size):
+                    out.append(terr.get((x, y), "GRASSLAND"))
+            return out
+
+        # Last resort: all grassland
+        for _y in range(world.size):
+            for _x in range(world.size):
+                out.append("GRASSLAND")
+        return out
     
     def _serialize_resources(self, world) -> List[Dict[str, int]]:
-        """Serialize resource data."""
-        resources = []
+        """Serialize resource data from dict keyed by (x,y)."""
+        resources: List[Dict[str, int]] = []
+        wr = getattr(world, "resources", {})
         for y in range(world.size):
             for x in range(world.size):
-                tile_resources = {}
-                if hasattr(world, 'resources') and (x, y) in world.resources:
-                    tile_resources = dict(world.resources[(x, y)])
-                resources.append(tile_resources)
+                tile = {}
+                try:
+                    if (x, y) in wr:
+                        tile = dict(wr[(x, y)])
+                except Exception:
+                    tile = {}
+                resources.append(tile)
         return resources
     
     def _serialize_groups(self, world) -> List[Dict[str, Any]]:
@@ -250,31 +307,50 @@ class SimulationMonitor:
         return groups
     
     def _serialize_social_connections(self, agent) -> List[Dict[str, Any]]:
-        """Serialize agent's social connections."""
-        connections = []
-        if hasattr(agent, 'social_connections'):
-            for conn in agent.social_connections:
-                if hasattr(conn, 'target_id'):
-                    connection_data = {
+        """Serialize agent social connections (supports dict or list representations)."""
+        out: List[Dict[str, Any]] = []
+        sc = getattr(agent, "social_connections", None)
+        if isinstance(sc, dict):
+            for target_id, meta in sc.items():
+                out.append({
+                    "target_id": target_id,
+                    "name": getattr(meta, "name", f"Agent {target_id}") if hasattr(meta, "name") else f"Agent {target_id}",
+                    "relationship": (meta.get("relationship_type") if isinstance(meta, dict) else getattr(meta, "relationship_type", "acquaintance")) or "acquaintance",
+                    "strength": (meta.get("strength") if isinstance(meta, dict) else getattr(meta, "strength", 0.5)) or 0.5,
+                })
+        elif isinstance(sc, list):
+            for conn in sc:
+                if hasattr(conn, "target_id"):
+                    out.append({
                         "target_id": conn.target_id,
-                        "name": getattr(conn, 'name', f"Agent {conn.target_id}"),
-                        "relationship": getattr(conn, 'relationship_type', 'acquaintance'),
-                        "strength": getattr(conn, 'strength', 0.5)
-                    }
-                    connections.append(connection_data)
-        return connections[:10]  # Limit to 10 connections
+                        "name": getattr(conn, "name", f"Agent {conn.target_id}"),
+                        "relationship": getattr(conn, "relationship_type", "acquaintance"),
+                        "strength": getattr(conn, "strength", 0.5),
+                    })
+        return out[:10]
     
     def _serialize_memory(self, agent) -> List[str]:
-        """Serialize agent's recent memories."""
-        memories = []
-        if hasattr(agent, 'memory') and hasattr(agent.memory, 'memories'):
-            recent_memories = list(agent.memory.memories)[-5:]  # Last 5 memories
-            for memory in recent_memories:
-                if hasattr(memory, 'content'):
-                    memories.append(str(memory.content))
-                else:
-                    memories.append(str(memory))
-        return memories
+        """Serialize agent's recent memories defensively."""
+        mem = getattr(agent, "memory", None)
+        out: List[str] = []
+        # Common patterns: list-like or dict of categories -> lists
+        if isinstance(mem, list):
+            for item in mem[-5:]:
+                out.append(str(getattr(item, "content", item)))
+        elif isinstance(mem, dict):
+            # Flatten last items from dict values
+            for val in mem.values():
+                if isinstance(val, list) and val:
+                    out.append(str(getattr(val[-1], "content", val[-1])))
+            out = out[-5:]
+        elif hasattr(mem, "memories"):
+            try:
+                recent = list(mem.memories)[-5:]
+                for m in recent:
+                    out.append(str(getattr(m, "content", m)))
+            except Exception:
+                pass
+        return out
     
     def _calculate_world_stats(self, world, agents: List) -> Dict[str, Any]:
         """Calculate world statistics."""
@@ -315,7 +391,20 @@ class SimulationMonitor:
         # Keep only recent logs
         if len(self.current_data["logs"]) > self.max_log_entries:
             self.current_data["logs"] = self.current_data["logs"][-self.max_log_entries:]
-        
+
+        # Attempt to extract structured structures from log messages
+        new_struct = self._maybe_extract_structure_from_message(message)
+        if new_struct:
+            self._structures.append(new_struct)
+            self._structure_ids.add(new_struct["id"])
+            self.current_data["structures"] = list(self._structures)
+            try:
+                loop = asyncio.get_event_loop()
+                if loop.is_running():
+                    asyncio.create_task(self._broadcast_structures([new_struct]))
+            except RuntimeError:
+                pass
+
         # Send log to WebSocket clients
         try:
             loop = asyncio.get_event_loop()
@@ -365,6 +454,60 @@ class SimulationMonitor:
         }
         
         await self._broadcast_message(message)
+
+    async def _broadcast_actions(self, events: List[Dict[str, Any]]):
+        """Broadcast per-agent action events to all WebSocket clients."""
+        if not self.websocket_clients or not events:
+            return
+        message = {
+            "type": "actions_update",
+            "data": {"events": events},
+        }
+        await self._broadcast_message(message)
+
+    async def _broadcast_structures(self, items: List[Dict[str, Any]]):
+        """Broadcast new structures to all WebSocket clients."""
+        if not self.websocket_clients or not items:
+            return
+        message = {
+            "type": "structures_update",
+            "data": {"structures": items},
+        }
+        await self._broadcast_message(message)
+
+    def _maybe_extract_structure_from_message(self, text: str) -> Optional[Dict[str, Any]]:
+        """Parse simulation logs to extract structure placement events.
+
+        Supported examples:
+          - "New market established at (7, 2): market_1"
+          - "New settlement at (x, y): FooVillage"
+          - "Built hut at (3, 4)"
+        """
+        try:
+            import re
+            m = re.search(r"New\s+market\s+established\s+at\s*\((\d+),\s*(\d+)\)\s*:\s*([\w-]+)", text, re.IGNORECASE)
+            if m:
+                x, y, sid = int(m.group(1)), int(m.group(2)), m.group(3)
+                if sid not in self._structure_ids:
+                    return {"id": sid, "kind": "market", "name": sid, "x": x, "y": y}
+
+            m = re.search(r"New\s+settlement\s+(?:established\s+)?at\s*\((\d+),\s*(\d+)\)\s*:?\s*([\w-]+)?", text, re.IGNORECASE)
+            if m:
+                x, y = int(m.group(1)), int(m.group(2))
+                name = m.group(3) or f"settlement_{x}_{y}"
+                if name not in self._structure_ids:
+                    return {"id": name, "kind": "settlement", "name": name, "x": x, "y": y}
+
+            m = re.search(r"Built\s+(hut|house|workshop|temple)\s+at\s*\((\d+),\s*(\d+)\)", text, re.IGNORECASE)
+            if m:
+                kind = m.group(1).lower()
+                x, y = int(m.group(2)), int(m.group(3))
+                sid = f"{kind}_{x}_{y}"
+                if sid not in self._structure_ids:
+                    return {"id": sid, "kind": kind, "name": sid, "x": x, "y": y}
+        except Exception:
+            return None
+        return None
     
     async def _broadcast_message(self, message: Dict[str, Any]):
         """Broadcast message to all WebSocket clients."""
@@ -457,6 +600,7 @@ class SimulationMonitor:
         self.http_app.router.add_get('/api/agents', self._api_agents)
         self.http_app.router.add_get('/api/world', self._api_world)
         self.http_app.router.add_get('/api/logs', self._api_logs)
+        self.http_app.router.add_get('/api/structures', self._api_structures)
         self.http_app.router.add_get('/api/simulation-status', self._api_simulation_status)
         self.http_app.router.add_post('/api/simulation/start', self._api_start_simulation)
         self.http_app.router.add_post('/api/simulation/stop', self._api_stop_simulation)
@@ -466,39 +610,27 @@ class SimulationMonitor:
         web_ui_path = Path(__file__).parent.parent / "web_ui"
         if web_ui_path.exists():
             monitor_dist = web_ui_path / "monitor" / "dist"
+            control_page = web_ui_path / "control.html"
 
             if monitor_dist.exists() and (monitor_dist / "index.html").exists():
-                # Prefer the new React monitor build if present
+                # Serve the React monitor build when available
                 async def _serve_monitor_index(_request):
                     return web.FileResponse(path=monitor_dist / "index.html")
 
                 self.http_app.router.add_get('/', _serve_monitor_index)
                 self.http_app.router.add_static('/', monitor_dist, name='static-monitor')
-
-                # Also expose the classic UI under /classic/
-                async def _serve_classic_index(_request):
-                    classic_index = web_ui_path / "index.html"
-                    if classic_index.exists():
-                        return web.FileResponse(path=classic_index)
-                    raise web.HTTPNotFound(text="classic index.html not found")
-
-                self.http_app.router.add_get('/classic', _serve_classic_index)
-                self.http_app.router.add_get('/classic/', _serve_classic_index)
-                self.http_app.router.add_static('/classic/', web_ui_path, name='static-classic')
-
-                logger.info("Serving React monitor (dist) at '/'; classic UI at '/classic/'")
+                logger.info("Serving React monitor (dist) at '/'")
             else:
-                # Fallback to classic static UI at root
-                async def _serve_index(_request):
-                    index_file = web_ui_path / "index.html"
-                    if index_file.exists():
-                        return web.FileResponse(path=index_file)
-                    raise web.HTTPNotFound(text="index.html not found in web_ui/")
+                # No React build – serve lightweight control page that uses backend APIs
+                async def _serve_control(_request):
+                    if control_page.exists():
+                        return web.FileResponse(path=control_page)
+                    raise web.HTTPNotFound(text="control.html not found in web_ui/")
 
-                self.http_app.router.add_get('/', _serve_index)
-                self.http_app.router.add_static('/', web_ui_path, name='static-classic-root')
-                logger.info("Serving classic web UI at '/'")
-        
+                self.http_app.router.add_get('/', _serve_control)
+                self.http_app.router.add_static('/', web_ui_path, name='static-webui-root')
+                logger.info("Serving lightweight control page at '/'. Classic UI is deprecated and no longer default.")
+
         return self.http_app
     
     async def _api_simulation_data(self, request):
@@ -518,6 +650,10 @@ class SimulationMonitor:
         limit = int(request.query.get('limit', 50))
         logs = self.current_data["logs"][-limit:]
         return web.json_response({"logs": logs})
+
+    async def _api_structures(self, request):
+        """Return known structures placed on the map."""
+        return web.json_response({"structures": self.current_data.get("structures", [])})
 
     async def _api_simulation_status(self, request):
         """Return orchestration status for dashboards."""
@@ -701,6 +837,7 @@ class LogCapture:
     def __init__(self, monitor: SimulationMonitor):
         self.monitor = monitor
         self.original_handlers = []
+        self._loguru_handler_id = None
     
     def start_capture(self):
         """Start capturing log messages."""
@@ -714,6 +851,25 @@ class LogCapture:
         # Add handler to root logger
         root_logger.addHandler(handler)
         self.original_handlers.append(handler)
+
+        # Also capture Loguru logs into the monitor (without printing to console)
+        if self._loguru_handler_id is None:
+            def _loguru_sink(message):  # message is a loguru Message
+                try:
+                    record = message.record
+                    lvl = record.get("level").name if record.get("level") else "INFO"
+                    txt = record.get("message", "")
+                    # Attach optional agent_id from "extra" if present
+                    agent_id = None
+                    extra = record.get("extra") or {}
+                    if "agent_id" in extra:
+                        agent_id = extra["agent_id"]
+                    self.monitor.add_log_entry(lvl, txt, agent_id)
+                except Exception:
+                    pass
+
+            # Add at INFO level; simulation uses info/debug mostly
+            self._loguru_handler_id = loguru_logger.add(_loguru_sink, level="INFO")
     
     def _emit_log(self, record):
         """Custom log emit function."""
@@ -737,6 +893,12 @@ class LogCapture:
         for handler in self.original_handlers:
             root_logger.removeHandler(handler)
         self.original_handlers.clear()
+        if self._loguru_handler_id is not None:
+            try:
+                loguru_logger.remove(self._loguru_handler_id)
+            except Exception:
+                pass
+            self._loguru_handler_id = None
 
 
 class MonitorSimulationController:

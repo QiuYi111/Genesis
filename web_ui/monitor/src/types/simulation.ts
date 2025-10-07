@@ -37,6 +37,14 @@ export interface WorldState {
   resources: TileResources[];
 }
 
+export interface Structure {
+  id: string;
+  kind: string; // e.g., market, settlement, hut, house
+  name?: string;
+  x: number;
+  y: number;
+}
+
 export interface TimelineEvent {
   id: string;
   turnId: number;

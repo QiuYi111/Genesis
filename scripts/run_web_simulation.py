@@ -25,6 +25,7 @@ def _prepare_path() -> Path:
 _prepare_path()
 
 from sociology_simulation.web_monitor import LogCapture, get_monitor  # noqa: E402
+from loguru import logger as loguru_logger  # noqa: E402
 
 
 logger = logging.getLogger(__name__)
@@ -87,6 +88,12 @@ async def run_monitor(args: argparse.Namespace) -> None:
     """Start the monitor services and optional simulation."""
 
     monitor = get_monitor()
+    # Quiet simulation logs on console: remove existing Loguru sinks,
+    # then capture into web monitor only.
+    try:
+        loguru_logger.remove()
+    except Exception:
+        pass
     log_capture = LogCapture(monitor)
     log_capture.start_capture()
 

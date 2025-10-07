@@ -10,24 +10,24 @@ import hydra
 from loguru import logger
 from omegaconf import DictConfig
 
+if TYPE_CHECKING:
+    from .web_monitor import SimulationMonitor
+
 try:
     from .world import World
     from .config import (
-        Config, ModelConfig, SimulationConfig, WorldConfig, RuntimeConfig, 
-        PerceptionConfig, LoggingConfig, OutputConfig, set_config, get_config
+        Config, ModelConfig, SimulationConfig, WorldConfig, RuntimeConfig,
+        PerceptionConfig, LoggingConfig, OutputConfig, set_config, get_config,
     )
     from .prompts import init_prompt_manager
     from .enhanced_llm import init_llm_service
     from .output_formatter import get_formatter, set_formatter_options
-
-if TYPE_CHECKING:
-    from .web_monitor import SimulationMonitor
 except ImportError:
     # Handle running as script
     from world import World
     from config import (
-        Config, ModelConfig, SimulationConfig, WorldConfig, RuntimeConfig, 
-        PerceptionConfig, LoggingConfig, OutputConfig, set_config, get_config
+        Config, ModelConfig, SimulationConfig, WorldConfig, RuntimeConfig,
+        PerceptionConfig, LoggingConfig, OutputConfig, set_config, get_config,
     )
     from prompts import init_prompt_manager
     from enhanced_llm import init_llm_service

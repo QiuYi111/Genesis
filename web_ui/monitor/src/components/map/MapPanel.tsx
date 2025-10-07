@@ -9,9 +9,11 @@ import {
   selectSelectedTile,
   useSimulationStore
 } from "../../state/store";
-import type { AgentSummary, TileResources, WorldState } from "../../types/simulation";
+import { selectStructures, selectAgentActions } from "../../state/store";
+import type { AgentSummary, TileResources, WorldState, Structure } from "../../types/simulation";
 
-const TILE_SIZE = 16;
+// Use adjustable tile size to make the board feel lighter
+const DEFAULT_TILE_SIZE = 12;
 const TERRAIN_COLORS: Record<string, string> = {
   MOUNTAIN: "#4c4f69",
   FOREST: "#2f7e4d",
@@ -66,9 +68,17 @@ export function MapPanel(): JSX.Element {
   const selectedTile = useSimulationStore(selectSelectedTile);
   const setSelectedAgent = useSimulationStore((state) => state.setSelectedAgent);
   const setSelectedTile = useSimulationStore((state) => state.setSelectedTile);
+  const structures = useSimulationStore(selectStructures);
+  const agentActionsMap = useSimulationStore(selectAgentActions);
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [tileSize, setTileSize] = useState<number>(DEFAULT_TILE_SIZE);
   const [hover, setHover] = useState<HoverState | null>(null);
+  const [showResources, setShowResources] = useState(true);
+  const [showStatus, setShowStatus] = useState(true);
+  const [showHeatmap, setShowHeatmap] = useState(true);
+  const [showStructures, setShowStructures] = useState(true);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
 
   const world = currentTurn?.world;
 
@@ -123,7 +133,7 @@ export function MapPanel(): JSX.Element {
     }
 
     const pixelRatio = window.devicePixelRatio || 1;
-    const mapSize = world.size * TILE_SIZE;
+    const mapSize = world.size * tileSize;
     canvas.width = mapSize * pixelRatio;
     canvas.height = mapSize * pixelRatio;
     canvas.style.width = "100%";
@@ -132,7 +142,7 @@ export function MapPanel(): JSX.Element {
     context.save();
     context.scale(pixelRatio, pixelRatio);
     context.clearRect(0, 0, mapSize, mapSize);
-    context.fillStyle = "#05070f";
+    context.fillStyle = theme === "dark" ? "#05070f" : "#f6f8fa";
     context.fillRect(0, 0, mapSize, mapSize);
 
     for (let y = 0; y < world.size; y += 1) {
@@ -140,25 +150,44 @@ export function MapPanel(): JSX.Element {
         const index = y * world.size + x;
         const terrain = world.terrain[index];
         const color = TERRAIN_COLORS[terrain] ?? TERRAIN_COLORS.DEFAULT;
-        const originX = x * TILE_SIZE;
-        const originY = y * TILE_SIZE;
+        const originX = x * tileSize;
+        const originY = y * tileSize;
 
         context.fillStyle = color;
-        context.fillRect(originX, originY, TILE_SIZE, TILE_SIZE);
-
-        context.fillStyle = "rgba(255, 255, 255, 0.08)";
-        context.fillRect(originX, originY, TILE_SIZE, TILE_SIZE * 0.35);
-        context.fillStyle = "rgba(0, 0, 0, 0.28)";
-        context.fillRect(originX, originY + TILE_SIZE * 0.65, TILE_SIZE, TILE_SIZE * 0.35);
+        context.fillRect(originX, originY, tileSize, tileSize);
 
         const intensity = heatmapLookup.get(makeTileKey(x, y)) ?? 0;
-        if (intensity > 0.01) {
+        if (showHeatmap && intensity > 0.01) {
           context.fillStyle = `rgba(255, 156, 94, ${0.2 + intensity * 0.55})`;
-          context.fillRect(originX, originY, TILE_SIZE, TILE_SIZE);
+          context.fillRect(originX, originY, tileSize, tileSize);
         }
 
-        context.strokeStyle = "rgba(6, 9, 18, 0.7)";
-        context.strokeRect(originX, originY, TILE_SIZE, TILE_SIZE);
+        // Subtle grid only when zoomed enough
+        if (tileSize >= 14) {
+          context.strokeStyle = "rgba(6, 9, 18, 0.5)";
+          context.strokeRect(originX, originY, tileSize, tileSize);
+        }
+
+        // Draw up to two resource emojis for a quick glance
+        const resources = world.resources[index] ?? {};
+        const entries = Object.entries(resources)
+          .filter(([, v]) => (v as number) > 0)
+          .sort((a, b) => (b[1] as number) - (a[1] as number))
+          .slice(0, 2);
+        if (showResources && entries.length) {
+          context.font = `${Math.max(10, tileSize * 0.9)}px system-ui, Apple Color Emoji`;
+          context.textAlign = "left";
+          context.textBaseline = "top";
+          const emojiSize = Math.max(10, tileSize * 0.8);
+          let offset = 1;
+          for (const [k] of entries) {
+            const em = RESOURCE_EMOJI[k] ?? "";
+            if (em) {
+              context.fillText(em, originX + 1, originY + offset);
+              offset += Math.max(emojiSize * 0.55, 10);
+            }
+          }
+        }
       }
     }
 
@@ -166,40 +195,65 @@ export function MapPanel(): JSX.Element {
       context.lineWidth = 2;
       context.strokeStyle = "rgba(123, 241, 168, 0.9)";
       context.strokeRect(
-        selectedTile.x * TILE_SIZE + 1,
-        selectedTile.y * TILE_SIZE + 1,
-        TILE_SIZE - 2,
-        TILE_SIZE - 2
+        selectedTile.x * tileSize + 1,
+        selectedTile.y * tileSize + 1,
+        tileSize - 2,
+        tileSize - 2
       );
     }
 
     for (const [key, cluster] of agentClusters.entries()) {
       const [tileX, tileY] = key.split(":").map(Number);
-      const baseX = tileX * TILE_SIZE;
-      const baseY = tileY * TILE_SIZE;
+      const baseX = tileX * tileSize;
+      const baseY = tileY * tileSize;
 
       cluster.forEach((agent, index) => {
-        const markerSize = 6;
-        const offset = agentOffset(index, TILE_SIZE, markerSize);
-        const drawX = baseX + offset.x;
-        const drawY = baseY + offset.y;
+        const offset = agentOffset(index, tileSize, Math.max(6, tileSize * 0.6));
+        const centerX = baseX + offset.x + tileSize / 2;
+        const centerY = baseY + offset.y + tileSize / 2;
 
+        // Agent emoji based on age/status
+        const emoji = agentEmoji(agent);
+
+        context.font = `${Math.max(12, tileSize)}px system-ui, Apple Color Emoji`;
+        context.textAlign = "center";
+        context.textBaseline = "middle";
+        context.fillText(emoji, centerX, centerY);
+
+        // Selected ring
         if (agent.id === selectedAgentId) {
-          context.fillStyle = "rgba(0, 0, 0, 0.6)";
-          context.fillRect(drawX - 1, drawY - 1, markerSize + 2, markerSize + 2);
-          context.strokeStyle = "rgba(255, 255, 255, 0.9)";
-          context.strokeRect(drawX - 1, drawY - 1, markerSize + 2, markerSize + 2);
+          context.strokeStyle = "rgba(255,255,255,0.85)";
+          context.lineWidth = 2;
+          context.beginPath();
+          context.arc(centerX, centerY, Math.max(6, tileSize * 0.4), 0, Math.PI * 2);
+          context.stroke();
         }
 
-        context.fillStyle = factionColor(agent.faction);
-        context.fillRect(drawX, drawY, markerSize, markerSize);
-        context.fillStyle = "rgba(0, 0, 0, 0.35)";
-        context.fillRect(drawX, drawY + markerSize - 2, markerSize, 2);
+        // Status blip in corner
+        const status = showStatus ? statusEmoji(agent.status) : "";
+        if (status) {
+          context.font = `${Math.max(10, tileSize * 0.8)}px system-ui, Apple Color Emoji`;
+          context.textAlign = "right";
+          context.textBaseline = "top";
+          context.fillText(status, baseX + tileSize - 1, baseY + 1);
+        }
       });
     }
 
+    // Draw structures layer
+    if (showStructures && Array.isArray(structures)) {
+      context.textAlign = "center";
+      context.textBaseline = "middle";
+      context.font = `${Math.max(12, tileSize)}px system-ui, Apple Color Emoji`;
+      for (const s of structures as Structure[]) {
+        const cx = s.x * tileSize + tileSize / 2;
+        const cy = s.y * tileSize + tileSize / 2;
+        context.fillText(structureEmoji(s.kind, s.name), cx, cy);
+      }
+    }
+
     context.restore();
-  }, [world, heatmapLookup, agentClusters, selectedTile, selectedAgentId]);
+  }, [world, heatmapLookup, agentClusters, selectedTile, selectedAgentId, tileSize, showResources, showStatus, showHeatmap, showStructures, theme, structures]);
 
   useEffect(() => {
     if (!selectedAgent || !world) {
@@ -216,7 +270,7 @@ export function MapPanel(): JSX.Element {
       setHover(null);
       return;
     }
-    const coords = translatePointer(event, canvasRef.current, world.size);
+    const coords = translatePointer(event, canvasRef.current, world.size, tileSize);
     if (!coords) {
       setHover(null);
       return;
@@ -234,7 +288,7 @@ export function MapPanel(): JSX.Element {
     if (!world) {
       return;
     }
-    const coords = translatePointer(event, canvasRef.current, world.size);
+    const coords = translatePointer(event, canvasRef.current, world.size, tileSize);
     if (!coords) {
       return;
     }
@@ -283,9 +337,44 @@ export function MapPanel(): JSX.Element {
           <h2>Spatial Ops Board</h2>
           <p>Pixel terrain with live agent overlays and resource telemetry</p>
         </div>
-        <span className="panel__badge">
+        <div className="panel__badge" style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <label style={{ fontSize: 12, opacity: 0.85 }}>
+            Icon size
+            <input
+              type="range"
+              min={8}
+              max={20}
+              step={1}
+              value={tileSize}
+              onChange={(e) => setTileSize(Number(e.target.value))}
+              style={{ marginLeft: 8 }}
+            />
+          </label>
+          <label style={{ fontSize: 12, opacity: 0.85 }}>
+            Resources
+            <input type="checkbox" checked={showResources} onChange={(e) => setShowResources(e.target.checked)} style={{ marginLeft: 6 }} />
+          </label>
+          <label style={{ fontSize: 12, opacity: 0.85 }}>
+            Status
+            <input type="checkbox" checked={showStatus} onChange={(e) => setShowStatus(e.target.checked)} style={{ marginLeft: 6 }} />
+          </label>
+          <label style={{ fontSize: 12, opacity: 0.85 }}>
+            Heatmap
+            <input type="checkbox" checked={showHeatmap} onChange={(e) => setShowHeatmap(e.target.checked)} style={{ marginLeft: 6 }} />
+          </label>
+          <label style={{ fontSize: 12, opacity: 0.85 }}>
+            Structures
+            <input type="checkbox" checked={showStructures} onChange={(e) => setShowStructures(e.target.checked)} style={{ marginLeft: 6 }} />
+          </label>
+          <label style={{ fontSize: 12, opacity: 0.85 }}>
+            Theme
+            <select value={theme} onChange={(e) => setTheme(e.target.value as any)} style={{ marginLeft: 6 }}>
+              <option value="dark">Dark</option>
+              <option value="light">Light</option>
+            </select>
+          </label>
           {currentTurn ? formatTime(currentTurn.occurredAt) : "Awaiting stream"}
-        </span>
+        </div>
       </div>
       <div className="map-panel__content">
         <div className="map-panel__canvas-wrapper">
@@ -391,41 +480,46 @@ export function MapPanel(): JSX.Element {
               <span>{agents.length}</span>
             </header>
             <div className="map-panel__agent-list">
-              {roster.map((agent) => (
-                <button
-                  key={agent.id}
-                  type="button"
-                  className={classNames(
-                    "map-panel__agent",
-                    agent.id === selectedAgentId && "map-panel__agent--selected"
-                  )}
-                  onClick={() => setSelectedAgent(agent.id, agent.location)}
-                >
-                  <div className="map-panel__agent-title">
-                    <span className="map-panel__agent-name">
-                      <span
-                        className="map-panel__agent-faction"
-                        style={{ backgroundColor: factionColor(agent.faction) }}
-                        aria-hidden
-                      />
-                      {agent.name}
-                    </span>
-                    <span className={classNames("map-panel__agent-status", `map-panel__agent-status--${agent.status}`)}>
-                      {STATUS_LABEL[agent.status]}
-                    </span>
+            {roster.map((agent) => (
+              <button
+                key={agent.id}
+                type="button"
+                className={classNames(
+                  "map-panel__agent",
+                  agent.id === selectedAgentId && "map-panel__agent--selected"
+                )}
+                onClick={() => setSelectedAgent(agent.id, agent.location)}
+              >
+                <div className="map-panel__agent-title">
+                  <span className="map-panel__agent-name">
+                    <span
+                      className="map-panel__agent-faction"
+                      style={{ backgroundColor: factionColor(agent.faction) }}
+                      aria-hidden
+                    />
+                    {agent.name}
+                  </span>
+                  <span className={classNames("map-panel__agent-status", `map-panel__agent-status--${agent.status}`)}>
+                    {STATUS_LABEL[agent.status]}
+                  </span>
+                </div>
+                <div className="map-panel__agent-meta">
+                  <span>Morale {Math.round(agent.morale)}</span>
+                  <span>Stores {Math.round(agent.resources)}</span>
+                </div>
+                {agentActionsMap[agent.id] && (
+                  <div className="map-panel__agent-traits" style={{ color: "#9bb4c8" }}>
+                    {truncate(agentActionsMap[agent.id], 120)}
                   </div>
-                  <div className="map-panel__agent-meta">
-                    <span>Morale {Math.round(agent.morale)}</span>
-                    <span>Stores {Math.round(agent.resources)}</span>
-                  </div>
-                  <div className="map-panel__agent-traits">
-                    <span>{agent.role}</span>
-                    <span>
-                      ({agent.location.x}, {agent.location.y})
-                    </span>
-                  </div>
-                </button>
-              ))}
+                )}
+                <div className="map-panel__agent-traits">
+                  <span>{agent.role}</span>
+                  <span>
+                    ({agent.location.x}, {agent.location.y})
+                  </span>
+                </div>
+              </button>
+            ))}
             </div>
           </section>
         </aside>
@@ -459,7 +553,8 @@ function makeTileKey(x: number, y: number): string {
 function translatePointer(
   event: MouseEvent<HTMLCanvasElement>,
   canvas: HTMLCanvasElement | null,
-  worldSize: number
+  worldSize: number,
+  tileSize: number
 ): { x: number; y: number } | null {
   if (!canvas) {
     return null;
@@ -473,8 +568,8 @@ function translatePointer(
   const scaleY = canvas.height / rect.height;
   const canvasX = ((event.clientX - rect.left) * scaleX) / pixelRatio;
   const canvasY = ((event.clientY - rect.top) * scaleY) / pixelRatio;
-  const tileX = Math.floor(canvasX / TILE_SIZE);
-  const tileY = Math.floor(canvasY / TILE_SIZE);
+  const tileX = Math.floor(canvasX / tileSize);
+  const tileY = Math.floor(canvasY / tileSize);
   if (tileX < 0 || tileY < 0 || tileX >= worldSize || tileY >= worldSize) {
     return null;
   }
@@ -504,6 +599,48 @@ function factionColor(faction: string): string {
     return "#f5a97f";
   }
   return "#c1c9ff";
+}
+
+function agentEmoji(agent: AgentSummary): string {
+  // Age and status driven.
+  // We don't have gender; use neutral person by default.
+  const age = (agent as any).age as number | undefined;
+  const status = agent.status;
+  // Status overlay handled separately; base figure by age
+  if (typeof age === "number") {
+    if (age < 12) return "🧒";
+    if (age > 60) return "🧓";
+  }
+  // Role-based flair
+  const role = (agent.role || "").toLowerCase();
+  if (role.includes("scout")) return "🧭";
+  if (role.includes("diplomat")) return "🤝";
+  if (role.includes("strateg")) return "🧠";
+  if (role.includes("mediator")) return "🕊️";
+  return "🧑";
+}
+
+function statusEmoji(status: AgentSummary["status"]): string {
+  switch (status) {
+    case "moving":
+      return "🏃";
+    case "engaged":
+      return "⚔️";
+    case "recovering":
+      return "🛌";
+    default:
+      return "";
+  }
+}
+
+function structureEmoji(kind: string, name?: string): string {
+  const k = (kind || "").toLowerCase();
+  if (k.includes("market")) return "💰";
+  if (k.includes("settlement") || k.includes("village")) return "🏘️";
+  if (k.includes("house") || k.includes("hut") || k.includes("camp")) return "🏠";
+  if (k.includes("temple")) return "⛩️";
+  if (k.includes("workshop")) return "🛠️";
+  return "🏢";
 }
 
 function classNames(...values: Array<string | false | null | undefined>): string {
@@ -589,4 +726,9 @@ function Tooltip({
       )}
     </div>
   );
+}
+
+function truncate(s: string, n: number): string {
+  if (s.length <= n) return s;
+  return s.slice(0, n - 1) + "…";
 }

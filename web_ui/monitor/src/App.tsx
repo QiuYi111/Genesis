@@ -6,10 +6,12 @@ import { AnalyticsPanel } from "./components/analytics/AnalyticsPanel";
 import { TurnControls } from "./components/controls/TurnControls";
 import { InteractionPanel } from "./components/interaction/InteractionPanel";
 import { ConnectionBanner } from "./components/controls/ConnectionBanner";
-import { useMockTurnStream } from "./hooks/useMockTurnStream";
+import { useMonitorStream } from "./services/monitorStream";
+import { RunControls } from "./components/controls/RunControls";
+import { MessageBox } from "./components/messages/MessageBox";
 
 function App(): JSX.Element {
-  useMockTurnStream();
+  useMonitorStream();
 
   return (
     <div className="app-shell">
@@ -20,9 +22,15 @@ function App(): JSX.Element {
             Real-time situational awareness with rewindable turn buffers and interaction tracing
           </p>
         </div>
-        <TurnControls />
+        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+          <TurnControls />
+          <RunControls />
+        </div>
       </header>
       <ConnectionBanner />
+      <div style={{ margin: "8px 0" }}>
+        <MessageBox />
+      </div>
       <PaneLayout
         map={<MapPanel />}
         timeline={<TimelinePanel />}

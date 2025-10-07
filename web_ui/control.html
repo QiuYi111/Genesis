@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Genesis 控制台（轻量版）</title>
+    <style>
+      :root { --bg:#0e1014; --panel:#1a1f29; --muted:#8aa0b4; --accent:#4caf50; --danger:#ff6b6b; }
+      *{box-sizing:border-box} body{margin:0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif; background:var(--bg); color:#e7ecf3}
+      header{display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid #1f2430; background:#10131a}
+      header h1{margin:0; font-size:18px}
+      header .status{font-size:12px; color:var(--muted)}
+      main{display:grid; grid-template-columns: 360px 1fr; gap:16px; padding:16px}
+      .panel{background:var(--panel); border:1px solid #222838; border-radius:10px; overflow:hidden}
+      .panel h2{margin:0; padding:12px 14px; font-size:14px; border-bottom:1px solid #202637; background:#151a23}
+      .panel .content{padding:12px 14px}
+      .row{display:flex; gap:8px}
+      .field{display:flex; flex-direction:column; gap:6px; margin-bottom:10px}
+      .field label{font-size:12px; color:var(--muted)}
+      .field input, .field select, .field textarea{background:#11151d; color:#e7ecf3; border:1px solid #263047; border-radius:8px; padding:8px; font-size:13px}
+      .actions{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
+      button{background:#263047; border:1px solid #2e3953; color:#e7ecf3; padding:8px 12px; border-radius:8px; cursor:pointer; font-size:13px}
+      button.primary{background:var(--accent); border-color:#369e3b; color:#0b120d}
+      button.danger{background:var(--danger); border-color:#cc5a5a; color:#200}
+      button:disabled{opacity:.6; cursor:not-allowed}
+      .hint{font-size:12px; color:var(--muted)}
+      .grid{display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:10px}
+      .map-wrap{position:relative; height: calc(100vh - 64px - 32px);}
+      .map-canvas{width:100%; height:100%}
+      .logs{height:220px; overflow:auto; background:#0f131a; border:1px solid #20283b; border-radius:8px; padding:8px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:12px}
+      .badge{display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border:1px solid #2d364d; border-radius:999px; font-size:12px; color:var(--muted)}
+      .dot{width:8px; height:8px; border-radius:50%}
+      .dot.live{background:#79ffa1}
+      .dot.idle{background:#888}
+      .dot.error{background:#ff6b6b}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Genesis 控制台（轻量版）</h1>
+      <div class="status">
+        <span class="badge" id="status-badge"><span class="dot idle"></span><span id="status-text">空闲</span></span>
+      </div>
+    </header>
+    <main>
+      <section class="panel">
+        <h2>启动/停止</h2>
+        <div class="content">
+          <div class="field"><label>时代提示词（Era Prompt）</label><textarea id="era" rows="2" placeholder="例如：石器时代 原始部落 学习使用简单工具"></textarea></div>
+          <div class="grid">
+            <div class="field"><label>回合（turns）</label><input id="turns" type="number" min="1" placeholder="例如：30" /></div>
+            <div class="field"><label>人数（num_agents）</label><input id="num_agents" type="number" min="1" placeholder="例如：10" /></div>
+            <div class="field"><label>世界尺寸（world_size）</label><input id="world_size" type="number" min="4" placeholder="例如：32" /></div>
+            <div class="field"><label>场景（scenario，可选）</label><input id="scenario" type="text" placeholder="例如：stone_age 或 bronze_age" /></div>
+          </div>
+          <div class="actions">
+            <button class="primary" id="start-btn">启动模拟</button>
+            <button class="danger" id="stop-btn">请求停止</button>
+          </div>
+          <p class="hint" style="margin-top:6px">启动后，右侧地图会通过 WebSocket 实时显示。无 React 构建时使用此轻量页。</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>交互（Trinity/Agent）</h2>
+        <div class="content">
+          <div class="row">
+            <div class="field" style="flex:1">
+              <label>Trinity 广播</label>
+              <input id="trinity_content" type="text" placeholder="要广播的消息" />
+              <input id="trinity_targets" type="text" placeholder="目标 AID 列表（逗号分隔，可留空）" />
+              <div class="actions"><button id="trinity_broadcast">发送广播</button></div>
+            </div>
+            <div class="field" style="flex:1">
+              <label>Agent 互动</label>
+              <div class="grid">
+                <div class="field"><label>源 Agent ID</label><input id="agent_source" type="number" min="0" /></div>
+                <div class="field"><label>目标 Agent ID</label><input id="agent_target" type="number" min="0" /></div>
+              </div>
+              <input id="agent_content" type="text" placeholder="内容（如对话）" />
+              <div class="actions"><button id="agent_send">发送互动</button></div>
+            </div>
+          </div>
+          <div class="field" style="margin-top:8px">
+            <label>状态日志</label>
+            <div id="logs" class="logs"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" style="grid-column: 1 / -1">
+        <h2>地图（原版绘制）</h2>
+        <div class="content map-wrap">
+          <canvas id="map-canvas" class="map-canvas"></canvas>
+          <div id="loading" style="position:absolute;left:12px;top:12px;font-size:12px;color:var(--muted)">等待数据…</div>
+          <div id="tooltip" style="position:absolute;display:none"></div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      async function postJSON(url, body){
+        const resp = await fetch(url,{method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
+        const text = await resp.text();
+        let data = null; try{ data = text ? JSON.parse(text): null } catch(_){ /* ignore */ }
+        if(!resp.ok){ throw new Error((data && data.error) || ('HTTP '+resp.status)) }
+        return data
+      }
+
+      async function refreshStatus(){
+        try{
+          const r = await fetch('/api/simulation-status');
+          if(!r.ok) return;
+          const j = await r.json();
+          const st = (j && j.status) || {};
+          const state = st.state || 'idle';
+          const badge = document.getElementById('status-badge');
+          const text = document.getElementById('status-text');
+          text.textContent = state;
+          badge.querySelector('.dot')?.classList.remove('live','idle','error');
+          if(state === 'running' || state === 'starting'){ badge.querySelector('.dot')?.classList.add('live') }
+          else if(state === 'error'){ badge.querySelector('.dot')?.classList.add('error') }
+          else { badge.querySelector('.dot')?.classList.add('idle') }
+        }catch(e){ /* noop */ }
+      }
+
+      function logLine(msg){
+        const box = document.getElementById('logs');
+        const line = document.createElement('div');
+        const ts = new Date().toLocaleTimeString();
+        line.textContent = '['+ts+'] '+msg;
+        box.appendChild(line); box.scrollTop = box.scrollHeight;
+      }
+
+      document.getElementById('start-btn').addEventListener('click', async () => {
+        const era = document.getElementById('era').value.trim();
+        const turns = document.getElementById('turns').value;
+        const num = document.getElementById('num_agents').value;
+        const size = document.getElementById('world_size').value;
+        const scenario = document.getElementById('scenario').value.trim();
+        const payload = {};
+        if(era) payload.era = era;
+        if(turns) payload.turns = Number(turns);
+        if(num) payload.num_agents = Number(num);
+        if(size) payload.world_size = Number(size);
+        if(scenario) payload.scenario = scenario;
+        try{
+          const res = await postJSON('/api/simulation/start', payload);
+          logLine('启动成功: '+JSON.stringify(res.config || {}));
+        }catch(e){ logLine('启动失败: '+e.message) }
+        refreshStatus();
+      });
+
+      document.getElementById('stop-btn').addEventListener('click', async () => {
+        try{ const res = await postJSON('/api/simulation/stop', {}); logLine('停止请求: '+(res.status||'')) }
+        catch(e){ logLine('停止失败: '+e.message) }
+        refreshStatus();
+      });
+
+      document.getElementById('trinity_broadcast').addEventListener('click', async () => {
+        const content = document.getElementById('trinity_content').value.trim();
+        const targetsRaw = document.getElementById('trinity_targets').value.trim();
+        if(!content){ logLine('请输入广播内容'); return; }
+        const payload = { role: 'trinity', action: 'broadcast', content };
+        if(targetsRaw){ payload.targets = targetsRaw.split(',').map(s => Number(s.trim())).filter(n => Number.isFinite(n)) }
+        try{ await postJSON('/api/interactions', payload); logLine('Trinity 广播已发送') }
+        catch(e){ logLine('Trinity 广播失败: '+e.message) }
+      });
+
+      document.getElementById('agent_send').addEventListener('click', async () => {
+        const source = Number(document.getElementById('agent_source').value);
+        const target = Number(document.getElementById('agent_target').value);
+        const content = document.getElementById('agent_content').value.trim();
+        if(!Number.isFinite(source) || !Number.isFinite(target) || !content){ logLine('请填写完整的 Agent 互动信息'); return; }
+        const payload = { role: 'agent', agent_id: source, target_id: target, content, interaction_type: 'chat' };
+        try{ await postJSON('/api/interactions', payload); logLine('Agent 互动已排队') }
+        catch(e){ logLine('Agent 互动失败: '+e.message) }
+      });
+
+      setInterval(refreshStatus, 1500);
+      refreshStatus();
+    </script>
+
+    <!-- 复用原版地图与 WebSocket 渲染逻辑 -->
+    <script src="/js/simulation-ui.js"></script>
+  </body>
+  </html>
+
