@@ -10,6 +10,7 @@ import aiohttp
 from loguru import logger
 
 from ..config import get_config
+import os
 
 
 class LLMPriority(Enum):
@@ -236,8 +237,15 @@ class LLMService:
         
         model = request.model_override or config.model.agent_model
         
+        # Resolve API key from the environment variable named by config.model.api_key_env
+        api_key = os.getenv(config.model.api_key_env, "")
+        if not api_key:
+            raise ValueError(
+                f"API key not found in environment variable {config.model.api_key_env}"
+            )
+
         headers = {
-            "Authorization": f"Bearer {config.model.api_key_env}",
+            "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json"
         }
         
