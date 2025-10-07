@@ -465,7 +465,39 @@ class SimulationMonitor:
         # Static files (serve web UI)
         web_ui_path = Path(__file__).parent.parent / "web_ui"
         if web_ui_path.exists():
-            self.http_app.router.add_static('/', web_ui_path, name='static')
+            monitor_dist = web_ui_path / "monitor" / "dist"
+
+            if monitor_dist.exists() and (monitor_dist / "index.html").exists():
+                # Prefer the new React monitor build if present
+                async def _serve_monitor_index(_request):
+                    return web.FileResponse(path=monitor_dist / "index.html")
+
+                self.http_app.router.add_get('/', _serve_monitor_index)
+                self.http_app.router.add_static('/', monitor_dist, name='static-monitor')
+
+                # Also expose the classic UI under /classic/
+                async def _serve_classic_index(_request):
+                    classic_index = web_ui_path / "index.html"
+                    if classic_index.exists():
+                        return web.FileResponse(path=classic_index)
+                    raise web.HTTPNotFound(text="classic index.html not found")
+
+                self.http_app.router.add_get('/classic', _serve_classic_index)
+                self.http_app.router.add_get('/classic/', _serve_classic_index)
+                self.http_app.router.add_static('/classic/', web_ui_path, name='static-classic')
+
+                logger.info("Serving React monitor (dist) at '/'; classic UI at '/classic/'")
+            else:
+                # Fallback to classic static UI at root
+                async def _serve_index(_request):
+                    index_file = web_ui_path / "index.html"
+                    if index_file.exists():
+                        return web.FileResponse(path=index_file)
+                    raise web.HTTPNotFound(text="index.html not found in web_ui/")
+
+                self.http_app.router.add_get('/', _serve_index)
+                self.http_app.router.add_static('/', web_ui_path, name='static-classic-root')
+                logger.info("Serving classic web UI at '/'")
         
         return self.http_app
     
