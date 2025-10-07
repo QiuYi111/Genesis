@@ -1,19 +1,18 @@
-"""
-Web monitoring and data export system for sociology simulation.
-Provides real-time data export and WebSocket server for the web UI.
-"""
+"""Web monitoring, orchestration, and data export system for the simulation."""
 
-import json
 import asyncio
-import websockets
+import json
+import logging
 import threading
 import time
 from pathlib import Path
-from typing import Dict, List, Any, Optional
-from dataclasses import asdict
-import aiohttp
+from typing import Any, Dict, List, Optional
+
+import websockets
 from aiohttp import web
-import logging
+from hydra import compose, initialize_config_dir
+from hydra.core.global_hydra import GlobalHydra
+from omegaconf import DictConfig
 
 logger = logging.getLogger(__name__)
 
@@ -33,7 +32,7 @@ class SimulationMonitor:
             "timestamp": None,
             "logs": []
         }
-        
+
         # WebSocket connections
         self.websocket_clients = set()
         self.websocket_server = None
@@ -45,15 +44,106 @@ class SimulationMonitor:
         # Export settings
         self.export_interval = 1  # Export every turn
         self.max_log_entries = 1000
+
+        # Simulation orchestration metadata
+        self.simulation_status: Dict[str, Any] = {
+            "state": "idle",
+            "turn": 0,
+            "total_turns": 0,
+            "era": None,
+            "num_agents": 0,
+            "world_size": 0,
+            "started_at": None,
+            "stopped_at": None,
+            "last_outcome": None,
+            "overrides": [],
+            "error": None,
+        }
+        self._world_reference = None
+        self._stop_requested = False
+        self.orchestrator = None  # Initialised lazily to avoid circular imports
+
+    # ------------------------------------------------------------------
+    # Simulation lifecycle helpers
+    # ------------------------------------------------------------------
+    def attach_world(self, world) -> None:
+        """Expose the live world object for operator interaction."""
+        self._world_reference = world
+
+    def detach_world(self) -> None:
+        """Clear world reference when simulation stops."""
+        self._world_reference = None
+
+    def get_world(self):
+        """Return the active world instance, if any."""
+        return self._world_reference
+
+    def update_status(self, **kwargs: Any) -> None:
+        """Update simulation status metadata."""
+        self.simulation_status.update(kwargs)
+
+    def request_stop(self) -> None:
+        """Signal the running simulation to stop after the current turn."""
+        self._stop_requested = True
+
+    def clear_stop_request(self) -> None:
+        """Reset stop request flag after simulation terminates."""
+        self._stop_requested = False
+
+    def should_stop(self) -> bool:
+        """Check if a stop has been requested."""
+        return self._stop_requested
+
+    def enqueue_interaction(self, interaction: Dict[str, Any]) -> bool:
+        """Queue an operator/agent interaction for processing next turn."""
+        world = self.get_world()
+        if world is None:
+            return False
+        world.pending_interactions.append(interaction)
+        return True
+
+    def broadcast_from_trinity(self, message: str, targets: Optional[List[int]] = None) -> int:
+        """Inject a Trinity broadcast into agent logs."""
+        world = self.get_world()
+        if world is None:
+            return 0
+
+        delivered = 0
+        recipients = world.agents
+        if targets:
+            target_ids = set(targets)
+            recipients = [agent for agent in world.agents if agent.aid in target_ids]
+
+        for agent in recipients:
+            agent.log.append(f"【Trinity】{message}")
+            delivered += 1
+
+        if delivered:
+            self.add_log_entry("INFO", f"Trinity broadcast delivered to {delivered} agents")
+        return delivered
+
+    def get_simulation_status(self) -> Dict[str, Any]:
+        """Return a snapshot of the simulation orchestration status."""
+        return dict(self.simulation_status)
+
+    def _ensure_orchestrator(self) -> "MonitorSimulationController":
+        """Lazy instantiate the orchestration controller."""
+        if self.orchestrator is None:
+            self.orchestrator = MonitorSimulationController(self)
+        return self.orchestrator
         
     def update_world_data(self, world, agents: List, turn: int):
         """Update world data from simulation."""
         try:
             # Extract world data
+            current_era = getattr(world, 'current_era', None)
+            if current_era is None:
+                current_era = getattr(world, 'era_prompt', 'Stone Age')
+
             world_data = {
                 "size": world.size,
                 "turn": turn,
-                "era": getattr(world, 'current_era', 'Stone Age'),
+                "era": current_era,
                 "terrain": self._serialize_terrain(world),
                 "resources": self._serialize_resources(world),
                 "groups": self._serialize_groups(world),
@@ -92,7 +182,21 @@ class SimulationMonitor:
                 "turn": turn,
                 "timestamp": time.time()
             })
-            
+
+            # Keep orchestration status in sync
+            self.simulation_status.update({
+                "turn": turn,
+                "era": world_data.get("era"),
+                "num_agents": len(agent_data),
+            })
+            if self._stop_requested:
+                self.simulation_status.setdefault("state", "running")
+                if self.simulation_status["state"] != "idle":
+                    self.simulation_status["state"] = "stopping"
+            elif self.simulation_status.get("state") in {"initializing", "starting"}:
+                self.simulation_status["state"] = "running"
+            self.simulation_status["error"] = None
+
             # Export to file if needed
             if turn % self.export_interval == 0:
                 self._export_to_file()
@@ -353,7 +457,11 @@ class SimulationMonitor:
         self.http_app.router.add_get('/api/agents', self._api_agents)
         self.http_app.router.add_get('/api/world', self._api_world)
         self.http_app.router.add_get('/api/logs', self._api_logs)
-        
+        self.http_app.router.add_get('/api/simulation-status', self._api_simulation_status)
+        self.http_app.router.add_post('/api/simulation/start', self._api_start_simulation)
+        self.http_app.router.add_post('/api/simulation/stop', self._api_stop_simulation)
+        self.http_app.router.add_post('/api/interactions', self._api_create_interaction)
+
         # Static files (serve web UI)
         web_ui_path = Path(__file__).parent.parent / "web_ui"
         if web_ui_path.exists():
@@ -378,6 +486,166 @@ class SimulationMonitor:
         limit = int(request.query.get('limit', 50))
         logs = self.current_data["logs"][-limit:]
         return web.json_response({"logs": logs})
+
+    async def _api_simulation_status(self, request):
+        """Return orchestration status for dashboards."""
+        return web.json_response({"status": self.get_simulation_status()})
+
+    async def _api_start_simulation(self, request):
+        """Start a new simulation run with optional overrides."""
+        controller = self._ensure_orchestrator()
+        if controller.is_running():
+            return web.json_response({"error": "Simulation already running"}, status=400)
+
+        payload: Dict[str, Any] = {}
+        if request.can_read_body:
+            try:
+                payload = await request.json()
+            except json.JSONDecodeError:
+                return web.json_response({"error": "Invalid JSON payload"}, status=400)
+
+        overrides = payload.get("overrides", [])
+        if overrides is None:
+            overrides = []
+        if not isinstance(overrides, list):
+            return web.json_response({"error": "overrides must be a list"}, status=400)
+
+        overrides = list(overrides)
+
+        # Convenience parameters
+        era = payload.get("era")
+        if era:
+            overrides.append(f"simulation.era_prompt={json.dumps(era)}")
+
+        scenario = payload.get("scenario")
+        if scenario:
+            overrides.append(f"simulation={scenario}")
+
+        for field, key in (
+            ("turns", "runtime.turns"),
+            ("num_agents", "world.num_agents"),
+            ("world_size", "world.size"),
+        ):
+            if field in payload and payload[field] is not None:
+                try:
+                    value = int(payload[field])
+                except (TypeError, ValueError):
+                    return web.json_response({"error": f"{field} must be an integer"}, status=400)
+                overrides.append(f"{key}={value}")
+
+        try:
+            cfg = await controller.start(overrides)
+        except RuntimeError as exc:
+            return web.json_response({"error": str(exc)}, status=400)
+        except Exception as exc:  # pragma: no cover - defensive guard for unexpected failures
+            logger.exception("Failed to start simulation via monitor", exc_info=exc)
+            return web.json_response({"error": "Failed to start simulation"}, status=500)
+
+        summary = {
+            "era": cfg.simulation.era_prompt,
+            "turns": cfg.runtime.turns,
+            "num_agents": cfg.world.num_agents,
+            "world_size": cfg.world.size,
+        }
+
+        return web.json_response({
+            "status": "starting",
+            "config": summary,
+            "overrides": overrides,
+        })
+
+    async def _api_stop_simulation(self, request):
+        """Request the running simulation to stop."""
+        controller = self._ensure_orchestrator()
+        if not controller.is_running():
+            return web.json_response({"status": self.simulation_status.get("state", "idle")})
+
+        await controller.stop()
+        self.update_status(state="stopping")
+        return web.json_response({"status": "stopping"})
+
+    async def _api_create_interaction(self, request):
+        """Queue operator interactions or Trinity directives."""
+        if self.get_world() is None:
+            return web.json_response({"error": "Simulation is not running"}, status=400)
+
+        if not request.can_read_body:
+            return web.json_response({"error": "Missing JSON payload"}, status=400)
+
+        try:
+            payload = await request.json()
+        except json.JSONDecodeError:
+            return web.json_response({"error": "Invalid JSON payload"}, status=400)
+
+        role = payload.get("role", "agent")
+
+        if role == "agent":
+            try:
+                agent_id = int(payload["agent_id"])
+                target_id = int(payload["target_id"])
+            except (KeyError, TypeError, ValueError):
+                return web.json_response({"error": "agent_id and target_id must be integers"}, status=400)
+
+            content = payload.get("content")
+            if not content:
+                return web.json_response({"error": "content is required"}, status=400)
+
+            interaction_type = payload.get("interaction_type", "chat")
+            interaction = {
+                "type": interaction_type,
+                "source_id": agent_id,
+                "target_id": target_id,
+                "content": content,
+            }
+
+            if not self.enqueue_interaction(interaction):
+                return web.json_response({"error": "Failed to queue interaction"}, status=400)
+
+            self.add_log_entry(
+                "INFO",
+                f"Queued {interaction_type} from agent {agent_id} to {target_id}",
+                agent_id=agent_id,
+            )
+            return web.json_response({"status": "queued", "interaction": interaction})
+
+        if role == "trinity":
+            action = payload.get("action", "broadcast")
+
+            if action == "broadcast":
+                content = payload.get("content")
+                if not content:
+                    return web.json_response({"error": "content is required"}, status=400)
+
+                targets = payload.get("targets")
+                target_ids = None
+                if targets is not None:
+                    if not isinstance(targets, list):
+                        return web.json_response({"error": "targets must be a list"}, status=400)
+                    try:
+                        target_ids = [int(t) for t in targets]
+                    except (TypeError, ValueError):
+                        return web.json_response({"error": "targets must be integers"}, status=400)
+
+                delivered = self.broadcast_from_trinity(content, target_ids)
+                self.add_log_entry("INFO", f"Trinity broadcast: {content}")
+                return web.json_response({"status": "broadcast", "delivered": delivered})
+
+            if action == "set_era":
+                new_era = payload.get("era")
+                if not new_era:
+                    return web.json_response({"error": "era is required"}, status=400)
+
+                world = self.get_world()
+                world.trinity.era_prompt = new_era
+                self.simulation_status["era"] = new_era
+                if self.current_data.get("world"):
+                    self.current_data["world"]["era"] = new_era
+                self.add_log_entry("INFO", f"Era updated to {new_era} by operator")
+                return web.json_response({"status": "era_updated", "era": new_era})
+
+            return web.json_response({"error": f"Unknown Trinity action '{action}'"}, status=400)
+
+        return web.json_response({"error": f"Unknown role '{role}'"}, status=400)
     
     async def start_http_server(self, host: str = "localhost", port: int = 8080):
         """Start HTTP server."""
@@ -437,6 +705,93 @@ class LogCapture:
         for handler in self.original_handlers:
             root_logger.removeHandler(handler)
         self.original_handlers.clear()
+
+
+class MonitorSimulationController:
+    """Coordinate simulation execution for the web monitor."""
+
+    def __init__(self, monitor: SimulationMonitor):
+        self.monitor = monitor
+        self._task: Optional[asyncio.Task] = None
+        self._lock = asyncio.Lock()
+        self._active_config: Optional[DictConfig] = None
+
+    def is_running(self) -> bool:
+        return self._task is not None and not self._task.done()
+
+    async def start(self, overrides: List[str]) -> DictConfig:
+        async with self._lock:
+            if self.is_running():
+                raise RuntimeError("Simulation already running")
+
+            cfg = self._compose_config(overrides)
+            self.monitor.update_status(
+                state="starting",
+                total_turns=cfg.runtime.turns,
+                era=cfg.simulation.era_prompt,
+                num_agents=cfg.world.num_agents,
+                world_size=cfg.world.size,
+                overrides=list(overrides),
+                turn=0,
+                started_at=time.time(),
+                stopped_at=None,
+                last_outcome=None,
+                error=None,
+            )
+            self.monitor.clear_stop_request()
+
+            self._task = asyncio.create_task(self._run(cfg))
+            self._task.add_done_callback(self._on_complete)
+            self._active_config = cfg
+            return cfg
+
+    async def stop(self) -> None:
+        async with self._lock:
+            if not self.is_running():
+                return
+            self.monitor.request_stop()
+
+    def get_active_config(self) -> Optional[DictConfig]:
+        return self._active_config
+
+    def _compose_config(self, overrides: List[str]) -> DictConfig:
+        config_dir = Path(__file__).parent / "conf"
+
+        try:
+            global_hydra = GlobalHydra.instance()
+            if global_hydra.is_initialized():
+                global_hydra.clear()
+        except ValueError:
+            # Hydra not initialised yet; nothing to clear
+            pass
+
+        with initialize_config_dir(version_base=None, config_dir=str(config_dir), job_name="monitor"):
+            cfg = compose(config_name="config", overrides=overrides)
+        return cfg
+
+    async def _run(self, cfg: DictConfig) -> None:
+        from .main import run_simulation_from_config
+
+        try:
+            await run_simulation_from_config(cfg, monitor=self.monitor)
+        except Exception as exc:  # pragma: no cover - runtime guard
+            self.monitor.update_status(
+                state="error",
+                error=str(exc),
+                stopped_at=time.time(),
+                last_outcome="error",
+            )
+            self.monitor.add_log_entry("ERROR", f"Simulation crashed: {exc}")
+            raise
+
+    def _on_complete(self, task: asyncio.Task) -> None:
+        try:
+            task.result()
+        except Exception as exc:  # pragma: no cover - already reported in _run
+            logger.error(f"Simulation task ended with error: {exc}")
+        finally:
+            self._task = None
+            self._active_config = None
 
 
 # Global monitor instance
