@@ -147,6 +147,7 @@ Trinity (神系统)
 ├── web_ui/                         # Web UI 静态资源
 │   ├── index.html                  # 监控面板主页面（测试依赖此路径）
 │   ├── js/simulation-ui.js
+│   ├── monitor/                    # 新版 React + Vite 监控控制台
 │   ├── landing/index.html          # 项目 landing/demo 页面
 │   └── experimental/               # 实验性页面
 ├── web_data/                       # 运行期导出 JSON（已 gitignore）

@@ -1,0 +1,29 @@
+.connection-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+.connection-banner strong {
+  font-size: 0.75rem;
+}
+
+.connection-banner--info {
+  background: rgba(88, 198, 255, 0.12);
+  border-color: rgba(88, 198, 255, 0.35);
+}
+
+.connection-banner--warning {
+  background: rgba(255, 198, 107, 0.12);
+  border-color: rgba(255, 198, 107, 0.35);
+}
+
+.connection-banner--danger {
+  background: rgba(255, 123, 123, 0.12);
+  border-color: rgba(255, 123, 123, 0.35);
+}

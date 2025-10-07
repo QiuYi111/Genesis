@@ -1,0 +1,64 @@
+.timeline-list {
+  gap: 0.75rem;
+}
+
+.timeline-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.timeline-item header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timeline-item header h3 {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.timeline-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.timeline-item footer {
+  font-size: 0.75rem;
+  color: rgba(243, 246, 255, 0.6);
+}
+
+.badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.badge--info {
+  background: rgba(88, 198, 255, 0.12);
+  color: #8bd7ff;
+}
+
+.badge--warning {
+  background: rgba(255, 198, 107, 0.12);
+  color: #ffd89c;
+}
+
+.badge--critical {
+  background: rgba(255, 123, 123, 0.12);
+  color: #ff9f9f;
+}
+
+.timeline-empty {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 2rem 0;
+}
