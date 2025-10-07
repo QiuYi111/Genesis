@@ -63,17 +63,3 @@
   letter-spacing: 0.08em;
 }
 
-.map-grid {
-  display: grid;
-  grid-template-columns: repeat(20, minmax(0, 1fr));
-  grid-template-rows: repeat(20, minmax(0, 1fr));
-  gap: 1px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  overflow: hidden;
-  min-height: 240px;
-}
-
-.map-grid div {
-  transition: background-color 0.35s ease;
-}
