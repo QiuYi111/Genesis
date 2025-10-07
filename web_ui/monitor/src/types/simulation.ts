@@ -27,6 +27,16 @@ export interface HeatmapCell {
   intensity: number;
 }
 
+export interface TileResources {
+  [resource: string]: number;
+}
+
+export interface WorldState {
+  size: number;
+  terrain: string[];
+  resources: TileResources[];
+}
+
 export interface TimelineEvent {
   id: string;
   turnId: number;
@@ -57,6 +67,7 @@ export interface TurnPayload {
   cohorts: CohortMetric[];
   heatmap: HeatmapCell[];
   interactions: InteractionRecord[];
+  world: WorldState;
 }
 
 export interface ConnectionState {

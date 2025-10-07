@@ -1,6 +1,12 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-import type { ConnectionState, InteractionRecord, TimelineEvent, TurnPayload } from "../types/simulation";
+import type {
+  AgentSummary,
+  ConnectionState,
+  InteractionRecord,
+  TimelineEvent,
+  TurnPayload
+} from "../types/simulation";
 
 const TURN_BUFFER_LIMIT = 120;
 
@@ -13,11 +19,15 @@ type SimulationState = {
   connection: ConnectionState;
   alerts: TimelineEvent[];
   interactionHistory: InteractionRecord[];
+  selectedAgentId: string | null;
+  selectedTile: { x: number; y: number } | null;
   ingestTurn: (turn: TurnPayload) => void;
   jumpToTurn: (turnId: number) => void;
   setPlaybackMode: (mode: PlaybackMode) => void;
   updateConnection: (partial: Partial<ConnectionState>) => void;
   recordInteraction: (interaction: InteractionRecord) => void;
+  setSelectedAgent: (agentId: string | null, location?: { x: number; y: number }) => void;
+  setSelectedTile: (tile: { x: number; y: number } | null) => void;
 };
 
 const initialConnection: ConnectionState = {
@@ -33,7 +43,9 @@ const baseState = {
   playbackMode: "live" as PlaybackMode,
   connection: { ...initialConnection },
   alerts: [] as TimelineEvent[],
-  interactionHistory: [] as InteractionRecord[]
+  interactionHistory: [] as InteractionRecord[],
+  selectedAgentId: null as string | null,
+  selectedTile: null as { x: number; y: number } | null
 };
 
 export const useSimulationStore = create<SimulationState>()(
@@ -90,6 +102,33 @@ export const useSimulationStore = create<SimulationState>()(
       set((draft) => {
         draft.interactionHistory = mergeInteractions(draft.interactionHistory, [interaction]);
       });
+    },
+    setSelectedAgent: (agentId, location) => {
+      set((draft) => {
+        draft.selectedAgentId = agentId;
+        if (location) {
+          const shouldUpdateTile =
+            !draft.selectedTile ||
+            draft.selectedTile.x !== location.x ||
+            draft.selectedTile.y !== location.y;
+          if (shouldUpdateTile) {
+            draft.selectedTile = { ...location };
+          }
+        }
+      });
+    },
+    setSelectedTile: (tile) => {
+      set((draft) => {
+        if (!tile) {
+          draft.selectedTile = null;
+          return;
+        }
+        const shouldUpdateTile =
+          !draft.selectedTile || draft.selectedTile.x !== tile.x || draft.selectedTile.y !== tile.y;
+        if (shouldUpdateTile) {
+          draft.selectedTile = { ...tile };
+        }
+      });
     }
   }))
 );
@@ -145,4 +184,16 @@ export function selectInteractionHistory(state: SimulationState): InteractionRec
 
 export function selectAlerts(state: SimulationState): TimelineEvent[] {
   return state.alerts;
+}
+
+export function selectAgents(state: SimulationState): AgentSummary[] {
+  return selectCurrentTurn(state)?.agents ?? [];
+}
+
+export function selectSelectedAgentId(state: SimulationState): string | null {
+  return state.selectedAgentId;
+}
+
+export function selectSelectedTile(state: SimulationState): { x: number; y: number } | null {
+  return state.selectedTile;
 }

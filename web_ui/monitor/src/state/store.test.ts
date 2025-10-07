@@ -12,7 +12,12 @@ const baseTurn: TurnPayload = {
   agents: [],
   cohorts: [],
   heatmap: [],
-  interactions: []
+  interactions: [],
+  world: {
+    size: 4,
+    terrain: Array.from({ length: 16 }, () => "PLAINS"),
+    resources: Array.from({ length: 16 }, () => ({}))
+  }
 };
 
 describe("useSimulationStore", () => {
