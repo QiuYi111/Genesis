@@ -1,120 +1,156 @@
 #!/usr/bin/env python3
-"""
-Run sociology simulation with web UI monitoring.
-This script starts the simulation and web servers together.
-"""
+"""Launch the web monitor and optionally start the simulation."""
 
+from __future__ import annotations
+
+import argparse
 import asyncio
-import threading
-import time
+import json
+import logging
+import signal
 import sys
 from pathlib import Path
+from typing import List
 
-# Add the project root to Python path
-project_root = Path(__file__).parent
-sys.path.insert(0, str(project_root))
 
-from sociology_simulation.main import main as simulation_main
-from sociology_simulation.web_monitor import start_web_servers, get_monitor, LogCapture
-import logging
+def _prepare_path() -> Path:
+    """Ensure the project root is available on ``sys.path``."""
 
-# Setup logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+    project_root = Path(__file__).resolve().parent.parent
+    if str(project_root) not in sys.path:
+        sys.path.insert(0, str(project_root))
+    return project_root
+
+
+_prepare_path()
+
+from sociology_simulation.web_monitor import LogCapture, get_monitor  # noqa: E402
+
+
 logger = logging.getLogger(__name__)
 
 
-def run_simulation_with_monitoring():
-    """Run simulation with web monitoring enabled."""
-    
-    # Get monitor instance
+def parse_args() -> argparse.Namespace:
+    """Build and parse the command-line interface."""
+
+    parser = argparse.ArgumentParser(
+        description="Start the Project Genesis monitoring console and simulation back-end."
+    )
+    parser.add_argument("--host", default="0.0.0.0", help="Host to bind HTTP and WebSocket servers")
+    parser.add_argument("--http-port", type=int, default=8081, help="Port for the HTTP API and static assets")
+    parser.add_argument("--ws-port", type=int, default=8765, help="Port for WebSocket updates")
+    parser.add_argument(
+        "--auto-start",
+        action="store_true",
+        help="Immediately start a simulation run instead of waiting for a monitor command",
+    )
+    parser.add_argument("--era", type=str, help="Override the era prompt when auto-starting")
+    parser.add_argument("--scenario", type=str, help="Hydra simulation preset to use (e.g. stone_age)")
+    parser.add_argument("--turns", type=int, help="Number of turns to simulate when auto-starting")
+    parser.add_argument("--num-agents", type=int, help="Agent count when auto-starting")
+    parser.add_argument("--world-size", type=int, help="World size when auto-starting")
+    parser.add_argument(
+        "--override",
+        action="append",
+        default=[],
+        help="Additional Hydra overrides for the simulation (may be repeated)",
+    )
+    parser.add_argument(
+        "--log-level",
+        default="INFO",
+        choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
+        help="Logging verbosity for the launcher",
+    )
+    return parser.parse_args()
+
+
+def build_overrides(args: argparse.Namespace) -> List[str]:
+    """Translate CLI options into Hydra-style overrides."""
+
+    overrides: List[str] = list(args.override or [])
+
+    if args.era:
+        overrides.append(f"simulation.era_prompt={json.dumps(args.era)}")
+    if args.scenario:
+        overrides.append(f"simulation={args.scenario}")
+    if args.turns is not None:
+        overrides.append(f"runtime.turns={int(args.turns)}")
+    if args.num_agents is not None:
+        overrides.append(f"world.num_agents={int(args.num_agents)}")
+    if args.world_size is not None:
+        overrides.append(f"world.size={int(args.world_size)}")
+
+    return overrides
+
+
+async def run_monitor(args: argparse.Namespace) -> None:
+    """Start the monitor services and optional simulation."""
+
     monitor = get_monitor()
-    
-    # Start log capture
     log_capture = LogCapture(monitor)
     log_capture.start_capture()
-    
-    try:
-        # Start web servers in background
-        logger.info("Starting web servers...")
-        web_thread = start_web_servers(
-            host="localhost",
-            ws_port=8765,
-            http_port=8081  # Use different port to avoid conflicts
-        )
-        
-        # Give servers time to start
-        time.sleep(2)
-        
-        logger.info("Web UI available at: http://localhost:8081")
-        logger.info("WebSocket server at: ws://localhost:8765")
-        logger.info("Starting simulation...")
-        
-        # Import and patch the main simulation to use our monitor
-        from sociology_simulation import main
-        
-        # Monkey patch the World.step method to export data
-        original_step = None
-        
-        def patched_step(self):
-            """Patched World.step method that exports data to monitor."""
-            nonlocal original_step
-            
-            # Call original step method
-            result = original_step(self)
-            
-            # Export data to monitor
+
+    stop_event = asyncio.Event()
+    http_runner = None
+
+    loop = asyncio.get_running_loop()
+    for sig_name in ("SIGINT", "SIGTERM"):
+        if hasattr(signal, sig_name):
             try:
-                monitor.update_world_data(self, self.agents, self.turn)
-            except Exception as e:
-                logger.error(f"Error updating monitor: {e}")
-            
-            return result
-        
-        # Apply the patch when simulation starts
-        def patch_world_class():
-            """Apply monitoring patch to World class."""
-            from sociology_simulation.world import World
-            nonlocal original_step
-            
-            if original_step is None:
-                original_step = World.step
-                World.step = patched_step
-                logger.info("Applied monitoring patch to World class")
-        
-        # Patch before running simulation
-        patch_world_class()
-        
-        # Run the simulation with default config
-        import sys
-        import os
-        
-        # Set working directory to ensure config is found
-        os.chdir(project_root)
-        
-        # Add basic arguments to run a simple simulation
-        sys.argv = [
-            'run_web_simulation.py',
-            'runtime.turns=30',
-            'world.num_agents=10',
-            'world.size=32'
-        ]
-        
-        # Run the simulation
-        simulation_main()
-        
-    except KeyboardInterrupt:
-        logger.info("Simulation interrupted by user")
-    except Exception as e:
-        logger.error(f"Error during simulation: {e}")
-        raise
+                loop.add_signal_handler(getattr(signal, sig_name), stop_event.set)
+            except NotImplementedError:
+                # Signal handlers are not available on some platforms (e.g. Windows)
+                pass
+
+    try:
+        monitor.setup_http_server(args.host, args.http_port)
+        http_runner = await monitor.start_http_server(args.host, args.http_port)
+        await monitor.start_websocket_server(args.host, args.ws_port)
+
+        logger.info("Web monitor ready")
+        logger.info("HTTP UI available at http://%s:%s", args.host, args.http_port)
+        logger.info("WebSocket endpoint at ws://%s:%s", args.host, args.ws_port)
+
+        if args.auto_start:
+            overrides = build_overrides(args)
+            controller = monitor._ensure_orchestrator()
+            try:
+                cfg = await controller.start(overrides)
+                logger.info(
+                    "Auto-started simulation: era=%s, turns=%s, agents=%s, world=%s",
+                    cfg.simulation.era_prompt,
+                    cfg.runtime.turns,
+                    cfg.world.num_agents,
+                    cfg.world.size,
+                )
+            except RuntimeError as exc:
+                logger.warning("Simulation already running: %s", exc)
+            except Exception as exc:  # pragma: no cover - defensive guard
+                logger.exception("Failed to auto-start simulation", exc_info=exc)
+
+        logger.info("Monitor running. Use Ctrl+C to exit or the web UI to control the simulation.")
+        await stop_event.wait()
     finally:
-        # Cleanup
         log_capture.stop_capture()
-        logger.info("Simulation ended")
+        await monitor.stop_websocket_server()
+        if http_runner:
+            await http_runner.cleanup()
+
+
+def main() -> None:
+    """Entry point for the launcher script."""
+
+    args = parse_args()
+    logging.basicConfig(
+        level=getattr(logging, args.log_level.upper(), logging.INFO),
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
+
+    try:
+        asyncio.run(run_monitor(args))
+    except KeyboardInterrupt:
+        logger.info("Monitor interrupted by user")
 
 
 if __name__ == "__main__":
-    run_simulation_with_monitoring()
+    main()

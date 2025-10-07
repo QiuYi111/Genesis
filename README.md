@@ -38,6 +38,36 @@ uv run python run_simple_web_simulation.py
 
 > 提示：该入口会启动一个简易 HTTP + WebSocket 服务，用于实时查看地图与智能体状态。
 
+### 运行全功能 Monitor（控制台 + 模拟编排）
+
+Monitor 会同时启动静态页面、HTTP API、WebSocket 推送与模拟调度后台，可在浏览器中启动/停止模拟、设定时代并与 Trinity 互动。
+
+```bash
+# 启动监控控制台，默认监听 0.0.0.0:8081（HTTP）与 0.0.0.0:8765（WebSocket）
+uv run python scripts/run_web_simulation.py
+
+# 自动启动一个模拟（可通过 CLI 覆盖 Hydra 配置）
+uv run python scripts/run_web_simulation.py \
+    --auto-start \
+    --era "stone age with magic" \
+    --turns 30 \
+    --num-agents 12 \
+    --world-size 48
+
+# 高级：传入额外 Hydra override，例如切换到自定义场景
+uv run python scripts/run_web_simulation.py \
+    --auto-start \
+    --scenario stone_age \
+    --override runtime.seed=1234
+```
+
+启动成功后可访问 `http://localhost:8081` 进入监控界面：
+
+- 通过左上角的控制按钮启动或停止模拟
+- 在“Simulation Settings”中覆盖 Era 提示、回合数、智能体数量等配置
+- 通过“Interactions”面板向 Trinity 或特定 Agent 发送消息
+- 右侧仪表板实时显示世界状态、日志与回合事件
+
 ### 核心特性预览
 
 **智能涌现系统**
