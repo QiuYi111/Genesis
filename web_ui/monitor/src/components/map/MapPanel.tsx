@@ -61,6 +61,19 @@ interface HoverState {
   agent?: AgentSummary;
 }
 
+interface StructureCategorySummary {
+  label: string;
+  icon: string;
+  count: number;
+}
+
+interface IntelCardConfig {
+  label: string;
+  value: string | number;
+  detail?: string;
+  tone?: "neutral" | "warning" | "critical";
+}
+
 export function MapPanel(): JSX.Element {
   const currentTurn = useSimulationStore(selectCurrentTurn);
   const agents = useSimulationStore(selectAgents);
@@ -118,6 +131,79 @@ export function MapPanel(): JSX.Element {
       return b.morale - a.morale;
     });
   }, [agents]);
+
+  const structureSummary = useMemo(() => {
+    if (!structures || structures.length === 0) {
+      return { total: 0, categories: [] as StructureCategorySummary[] };
+    }
+    const counts = new Map<string, StructureCategorySummary>();
+    for (const s of structures as Structure[]) {
+      const label = structureLabel(s.kind, s.name);
+      const icon = structureEmoji(s.kind, s.name);
+      const key = `${icon}-${label}`;
+      const existing = counts.get(key) ?? { label, icon, count: 0 };
+      existing.count += 1;
+      counts.set(key, existing);
+    }
+    return {
+      total: structures.length,
+      categories: Array.from(counts.values()).sort((a, b) => b.count - a.count),
+    };
+  }, [structures]);
+
+  const movingAgents = useMemo(() => agents.filter((agent) => agent.status === "moving").length, [agents]);
+  const engagedAgents = useMemo(() => agents.filter((agent) => agent.status === "engaged").length, [agents]);
+  const activeAgents = movingAgents + engagedAgents;
+
+  const worldStats = world?.stats;
+  const groups = world?.groups ?? [];
+  const topGroups = useMemo(() => groups.slice(0, 4), [groups]);
+
+  const intelCards = useMemo((): IntelCardConfig[] => {
+    const cards: IntelCardConfig[] = [];
+    const totalAgents = worldStats?.total_agents ?? agents.length;
+    cards.push({
+      label: "Active agents",
+      value: `${activeAgents}/${totalAgents}`,
+      detail: `${movingAgents} moving · ${engagedAgents} engaged`,
+      tone: activeAgents === 0 ? "warning" : "neutral",
+    });
+
+    if (worldStats) {
+      cards.push({
+        label: "Resource stores",
+        value: formatNumber(worldStats.total_resources),
+        detail: "Across known tiles",
+      });
+      cards.push({
+        label: "Technologies",
+        value: worldStats.technologies_discovered,
+        detail: worldStats.technologies_discovered === 0 ? "Research pending" : undefined,
+        tone: worldStats.technologies_discovered === 0 ? "warning" : "neutral",
+      });
+    }
+
+    const groupCount = worldStats?.total_groups ?? groups.length;
+    cards.push({
+      label: "Group network",
+      value: groupCount,
+      detail: topGroups[0] ? `${topGroups[0].name} leads ${topGroups[0].member_count}` : undefined,
+    });
+
+    if (structureSummary.total > 0) {
+      const highlights = structureSummary.categories
+        .slice(0, 2)
+        .map((category) => `${category.icon} ${category.label}`)
+        .join(" · ");
+      cards.push({
+        label: "Structures tracked",
+        value: structureSummary.total,
+        detail: highlights || undefined,
+      });
+    }
+
+    return cards;
+  }, [worldStats, agents.length, activeAgents, movingAgents, engagedAgents, groups, topGroups, structureSummary]);
 
   useEffect(() => {
     if (!world) {
@@ -332,13 +418,34 @@ export function MapPanel(): JSX.Element {
 
   return (
     <div className="panel panel--map map-panel">
-      <div className="panel__header">
-        <div>
+      <div className="panel__header map-panel__header">
+        <div className="map-panel__heading">
           <h2>Spatial Ops Board</h2>
-          <p>Pixel terrain with live agent overlays and resource telemetry</p>
+          <p>Operational picture with telemetry overlays and actionable intel</p>
         </div>
-        <div className="panel__badge" style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <label style={{ fontSize: 12, opacity: 0.85 }}>
+        <div className="map-panel__header-metrics">
+          <StatBadge label="Turn" value={currentTurn ? `#${currentTurn.turnId}` : "—"} />
+          <StatBadge
+            label="Active"
+            value={`${activeAgents}/${worldStats?.total_agents ?? agents.length}`}
+            hint={`${movingAgents} moving · ${engagedAgents} engaged`}
+          />
+          <StatBadge
+            label="Morale"
+            value={`${Math.round(averageMorale)}%`}
+            tone={averageMorale < 45 ? "critical" : averageMorale < 60 ? "warning" : "neutral"}
+          />
+          <StatBadge
+            label="Structures"
+            value={structureSummary.total}
+            hint={structureSummary.categories[0] ? `${structureSummary.categories[0].icon} ${structureSummary.categories[0].label}` : undefined}
+          />
+          <StatBadge label="Era" value={world?.era ?? "Unknown"} />
+        </div>
+      </div>
+      <div className="map-panel__toolbar">
+        <div className="map-panel__toolbar-group">
+          <label className="map-panel__slider-label">
             Icon size
             <input
               type="range"
@@ -347,35 +454,110 @@ export function MapPanel(): JSX.Element {
               step={1}
               value={tileSize}
               onChange={(e) => setTileSize(Number(e.target.value))}
-              style={{ marginLeft: 8 }}
             />
           </label>
-          <label style={{ fontSize: 12, opacity: 0.85 }}>
+        </div>
+        <div className="map-panel__toolbar-group map-panel__toolbar-group--layers" role="group" aria-label="Map layers">
+          <button
+            type="button"
+            className={classNames("map-panel__layer-toggle", showResources && "map-panel__layer-toggle--active")}
+            onClick={() => setShowResources((prev) => !prev)}
+          >
             Resources
-            <input type="checkbox" checked={showResources} onChange={(e) => setShowResources(e.target.checked)} style={{ marginLeft: 6 }} />
-          </label>
-          <label style={{ fontSize: 12, opacity: 0.85 }}>
+          </button>
+          <button
+            type="button"
+            className={classNames("map-panel__layer-toggle", showStatus && "map-panel__layer-toggle--active")}
+            onClick={() => setShowStatus((prev) => !prev)}
+          >
             Status
-            <input type="checkbox" checked={showStatus} onChange={(e) => setShowStatus(e.target.checked)} style={{ marginLeft: 6 }} />
-          </label>
-          <label style={{ fontSize: 12, opacity: 0.85 }}>
+          </button>
+          <button
+            type="button"
+            className={classNames("map-panel__layer-toggle", showHeatmap && "map-panel__layer-toggle--active")}
+            onClick={() => setShowHeatmap((prev) => !prev)}
+          >
             Heatmap
-            <input type="checkbox" checked={showHeatmap} onChange={(e) => setShowHeatmap(e.target.checked)} style={{ marginLeft: 6 }} />
-          </label>
-          <label style={{ fontSize: 12, opacity: 0.85 }}>
+          </button>
+          <button
+            type="button"
+            className={classNames("map-panel__layer-toggle", showStructures && "map-panel__layer-toggle--active")}
+            onClick={() => setShowStructures((prev) => !prev)}
+          >
             Structures
-            <input type="checkbox" checked={showStructures} onChange={(e) => setShowStructures(e.target.checked)} style={{ marginLeft: 6 }} />
-          </label>
-          <label style={{ fontSize: 12, opacity: 0.85 }}>
-            Theme
-            <select value={theme} onChange={(e) => setTheme(e.target.value as any)} style={{ marginLeft: 6 }}>
-              <option value="dark">Dark</option>
-              <option value="light">Light</option>
-            </select>
-          </label>
-          {currentTurn ? formatTime(currentTurn.occurredAt) : "Awaiting stream"}
+          </button>
+        </div>
+        <div className="map-panel__toolbar-group map-panel__toolbar-group--meta">
+          <div className="map-panel__theme-toggle" role="group" aria-label="Map theme">
+            <button
+              type="button"
+              className={classNames("map-panel__theme-button", theme === "dark" && "map-panel__theme-button--active")}
+              onClick={() => setTheme("dark")}
+            >
+              Dark
+            </button>
+            <button
+              type="button"
+              className={classNames("map-panel__theme-button", theme === "light" && "map-panel__theme-button--active")}
+              onClick={() => setTheme("light")}
+            >
+              Light
+            </button>
+          </div>
+          <span className="map-panel__timestamp" title="Timestamp of latest payload">
+            <span>Telemetry</span>
+            <strong>{currentTurn ? formatTime(currentTurn.occurredAt) : "Awaiting stream"}</strong>
+          </span>
         </div>
       </div>
+      {intelCards.length > 0 && (
+        <div className="map-panel__intel-grid">
+          {intelCards.map((card) => (
+            <IntelCard key={card.label} {...card} />
+          ))}
+        </div>
+      )}
+      {(structureSummary.total > 0 || topGroups.length > 0) && (
+        <div className="map-panel__intel-secondary">
+          {structureSummary.total > 0 && (
+            <section className="map-panel__structures-summary" aria-label="Discovered structures">
+              <header>
+                <h3>Built assets</h3>
+                <span>{structureSummary.total}</span>
+              </header>
+              <div className="map-panel__structure-grid">
+                {structureSummary.categories.slice(0, 5).map((category) => (
+                  <span key={category.label} className="map-panel__structure-chip">
+                    <span className="map-panel__structure-icon" aria-hidden>
+                      {category.icon}
+                    </span>
+                    {category.label}
+                    <strong>{category.count}</strong>
+                  </span>
+                ))}
+              </div>
+            </section>
+          )}
+          {topGroups.length > 0 && (
+            <section className="map-panel__groups-summary" aria-label="Leading social groups">
+              <header>
+                <h3>Influence network</h3>
+                <span>{topGroups.length}</span>
+              </header>
+              <ul className="map-panel__group-list">
+                {topGroups.map((group) => (
+                  <li key={group.id}>
+                    <span className="map-panel__group-name">{group.name}</span>
+                    <span className="map-panel__group-meta">
+                      {group.member_count} agents · Rep {Math.round(group.reputation)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </div>
+      )}
       <div className="map-panel__content">
         <div className="map-panel__canvas-wrapper">
           {world ? (
@@ -461,6 +643,8 @@ export function MapPanel(): JSX.Element {
                   <strong>{selectedAgent.faction}</strong>
                   <span>Status</span>
                   <strong>{STATUS_LABEL[selectedAgent.status]}</strong>
+                  <span>Action</span>
+                  <strong>{formatActionText(selectedAgent.currentAction)}</strong>
                   <span>Morale</span>
                   <strong>{Math.round(selectedAgent.morale)}</strong>
                   <span>Stores</span>
@@ -643,6 +827,24 @@ function structureEmoji(kind: string, name?: string): string {
   return "🏢";
 }
 
+function structureLabel(kind: string, name?: string): string {
+  const source = (kind || name || "").toLowerCase();
+  if (!source) {
+    return "Structure";
+  }
+  if (source.includes("market")) return "Market";
+  if (source.includes("settlement")) return "Settlement";
+  if (source.includes("village")) return "Village";
+  if (source.includes("house") || source.includes("hut")) return "Dwelling";
+  if (source.includes("camp")) return "Encampment";
+  if (source.includes("temple")) return "Temple";
+  if (source.includes("workshop")) return "Workshop";
+  if (name) {
+    return toTitleCase(name);
+  }
+  return toTitleCase(kind);
+}
+
 function classNames(...values: Array<string | false | null | undefined>): string {
   return values.filter(Boolean).join(" ");
 }
@@ -651,11 +853,33 @@ function formatResource(key: string): string {
   return key.charAt(0).toUpperCase() + key.slice(1);
 }
 
+function toTitleCase(input: string): string {
+  return input
+    .split(/[_\s]+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
 function formatTerrain(terrain?: string): string {
   if (!terrain) {
     return "Unknown";
   }
   return terrain.charAt(0) + terrain.slice(1).toLowerCase();
+}
+
+function formatNumber(value: number): string {
+  if (!Number.isFinite(value)) {
+    return "0";
+  }
+  return value.toLocaleString();
+}
+
+function formatActionText(action?: string | null): string {
+  if (!action) {
+    return "Idle";
+  }
+  return toTitleCase(action.replace(/[-_]+/g, " "));
 }
 
 function formatTime(value: string): string {
@@ -731,4 +955,36 @@ function Tooltip({
 function truncate(s: string, n: number): string {
   if (s.length <= n) return s;
   return s.slice(0, n - 1) + "…";
+}
+
+function StatBadge({
+  label,
+  value,
+  hint,
+  tone = "neutral"
+}: {
+  label: string;
+  value: string | number;
+  hint?: string;
+  tone?: "neutral" | "warning" | "critical";
+}): JSX.Element {
+  return (
+    <div className={classNames("map-panel__stat", `map-panel__stat--${tone}`)}>
+      <span className="map-panel__stat-label">{label}</span>
+      <span className="map-panel__stat-value">{value}</span>
+      {hint && <span className="map-panel__stat-hint">{hint}</span>}
+    </div>
+  );
+}
+
+function IntelCard({ label, value, detail, tone = "neutral" }: IntelCardConfig): JSX.Element {
+  return (
+    <article className={classNames("map-panel__intel-card", `map-panel__intel-card--${tone}`)}>
+      <span className="map-panel__intel-label">{label}</span>
+      <strong className="map-panel__intel-value">
+        {typeof value === "number" ? formatNumber(value) : value}
+      </strong>
+      {detail && <span className="map-panel__intel-detail">{detail}</span>}
+    </article>
+  );
 }

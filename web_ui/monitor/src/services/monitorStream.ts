@@ -1,85 +1,22 @@
 import { useEffect } from "react";
 import { useSimulationStore } from "../state/store";
-import type { AgentSummary, InteractionRecord, TurnPayload, WorldState } from "../types/simulation";
-
-function mapBackendToTurnPayload(snapshot: any): TurnPayload | null {
-  if (!snapshot || !snapshot.world) return null;
-
-  const world: WorldState = {
-    size: snapshot.world.size ?? 0,
-    terrain: Array.isArray(snapshot.world.terrain) ? snapshot.world.terrain : [],
-    resources: Array.isArray(snapshot.world.resources) ? snapshot.world.resources : [],
-  };
-
-  const agents: AgentSummary[] = (snapshot.agents || []).map((a: any) => {
-    const id = String(a.aid ?? a.id ?? "?");
-    const name = a.name ?? `Agent ${id}`;
-    const x = Math.floor(a.x ?? (a.pos?.[0] ?? 0));
-    const y = Math.floor(a.y ?? (a.pos?.[1] ?? 0));
-    const inventory = a.inventory || {};
-    const resources = Object.values(inventory).reduce((sum: number, v: any) => sum + (Number(v) || 0), 0);
-    const action = String(a.current_action ?? "idle").toLowerCase();
-    let status: AgentSummary["status"] = "idle";
-    if (action.includes("move")) status = "moving";
-    else if (action.includes("interact") || action.includes("fight") || action.includes("trade")) status = "engaged";
-    else if (action.includes("rest") || action.includes("recover")) status = "recovering";
-
-    return {
-      id,
-      name,
-      faction: String(a.group_id ?? "Cohort"),
-      role: a.role ?? (action ? action : "Citizen"),
-      morale: Number(a.health ?? 100),
-      resources,
-      location: { x, y },
-      status,
-    };
-  });
-
-  // We don't have cohorts/heatmap/events from backend yet; keep empty for now.
-  const turnId = Number(snapshot.turn ?? 0);
-
-  const payload: TurnPayload = {
-    turnId,
-    revision: 1,
-    hash: Math.random().toString(16).slice(2),
-    occurredAt: new Date().toISOString(),
-    latencyMs: 0,
-    events: [],
-    agents,
-    cohorts: [],
-    heatmap: [],
-    interactions: [],
-    world,
-  };
-  return payload;
-}
-
-function mapLogToInteraction(log: any): InteractionRecord | null {
-  if (!log) return null;
-  const content: string = String(log.message ?? "");
-  let actor: InteractionRecord["actor"] = "agent";
-  if (content.includes("【Trinity】") || /\bTrinity\b/.test(content)) actor = "trinity";
-  if (/Operator|用户|User/.test(content)) actor = "user";
-  return {
-    id: `log-${log.timestamp}-${Math.random().toString(16).slice(2)}`,
-    turnId: 0,
-    actor,
-    intent: actor === "trinity" ? "Advisory" : actor === "user" ? "Operator" : "Agent",
-    content,
-    outcome: "",
-    timestamp: new Date(log.timestamp ? log.timestamp * 1000 : Date.now()).toISOString(),
-  };
-}
+import {
+  buildAgentActionMap,
+  mapSnapshotToTurnPayload,
+  normalizeActionEvents,
+  normalizeLogEntries
+} from "./transformers";
 
 export function useMonitorStream(): void {
   const ingestTurn = useSimulationStore((s) => s.ingestTurn);
   const updateConnection = useSimulationStore((s) => s.updateConnection);
   const recordInteraction = useSimulationStore((s) => s.recordInteraction);
   const appendLogs = useSimulationStore((s) => s.appendLogs);
+  const replaceLogs = useSimulationStore((s) => s.replaceLogs);
   const setStructures = useSimulationStore((s) => s.setStructures);
   const mergeStructures = useSimulationStore((s) => s.mergeStructures);
   const updateAgentAction = useSimulationStore((s) => s.updateAgentAction);
+  const setAgentActions = useSimulationStore((s) => s.setAgentActions);
 
   useEffect(() => {
     let ws: WebSocket | null = null;
@@ -102,46 +39,41 @@ export function useMonitorStream(): void {
         try {
           const msg = JSON.parse(evt.data);
           if (msg.type === "simulation_update") {
-            const turn = mapBackendToTurnPayload(msg.data);
-            if (turn) ingestTurn(turn);
-            const actions = Array.isArray(msg.data?.actions) ? msg.data.actions : [];
-            for (const ev of actions) {
-              const rec: InteractionRecord = {
-                id: `act-${ev.aid}-${ev.timestamp}-${Math.random().toString(16).slice(2)}`,
-                actor: "agent",
-                turnId: Number(ev.turn ?? 0),
-                intent: "Action",
-                content: `${ev.name ?? ev.aid}: ${String(ev.action ?? "").replace(/_/g, " ")}`,
-                outcome: "",
-                timestamp: new Date((ev.timestamp ?? Date.now()) * 1000).toISOString(),
-              };
-              recordInteraction(rec);
+            const turn = mapSnapshotToTurnPayload(msg.data);
+            if (turn) {
+              ingestTurn(turn);
+              setAgentActions(buildAgentActionMap(turn.agents));
+            }
+            const normalizedActions = normalizeActionEvents(msg.data?.actions ?? []);
+            for (const { interaction, agentId, actionText } of normalizedActions) {
+              recordInteraction(interaction);
+              if (agentId && actionText) {
+                updateAgentAction(agentId, actionText);
+              }
             }
             const structures = Array.isArray(msg.data?.structures) ? msg.data.structures : null;
             if (structures) setStructures(structures);
+            const logEntries = normalizeLogEntries(msg.data?.logs ?? []);
+            if (logEntries.length) {
+              replaceLogs(logEntries.slice(-200));
+            }
           } else if (msg.type === "log_entry") {
-            const entry = msg.data;
-            if (entry && entry.message) {
-              const ts = new Date((entry.timestamp ?? Date.now()) * 1000).toISOString();
-              appendLogs([{ timestamp: ts, level: String(entry.level || "INFO"), message: String(entry.message) }]);
-              const parsed = extractAgentAttempt(entry.message as string);
-              if (parsed) {
-                updateAgentAction(String(parsed.id), parsed.action);
-              }
+            const entries = normalizeLogEntries([msg.data]);
+            if (entries.length) {
+              appendLogs(entries);
+            }
+          } else if (msg.type === "logs_update") {
+            const entries = normalizeLogEntries(msg.data?.logs ?? []);
+            if (entries.length) {
+              replaceLogs(entries);
             }
           } else if (msg.type === "actions_update") {
-            const events = (msg.data?.events ?? []) as any[];
-            for (const ev of events) {
-              const rec: InteractionRecord = {
-                id: `act-${ev.aid}-${ev.timestamp}-${Math.random().toString(16).slice(2)}`,
-                actor: "agent",
-                turnId: Number(ev.turn ?? 0),
-                intent: "Action",
-                content: `${ev.name ?? ev.aid}: ${String(ev.action ?? "").replace(/_/g, " ")}`,
-                outcome: "",
-                timestamp: new Date((ev.timestamp ?? Date.now()) * 1000).toISOString(),
-              };
-              recordInteraction(rec);
+            const normalizedEvents = normalizeActionEvents(msg.data?.events ?? []);
+            for (const { interaction, agentId, actionText } of normalizedEvents) {
+              recordInteraction(interaction);
+              if (agentId && actionText) {
+                updateAgentAction(agentId, actionText);
+              }
             }
           } else if (msg.type === "structures_update") {
             const items = (msg.data?.structures ?? []) as any[];
@@ -170,7 +102,17 @@ export function useMonitorStream(): void {
       closed = true;
       try { ws?.close(); } catch { /* ignore */ }
     };
-  }, [ingestTurn, updateConnection, recordInteraction, appendLogs, setStructures, mergeStructures, updateAgentAction]);
+  }, [
+    ingestTurn,
+    updateConnection,
+    recordInteraction,
+    appendLogs,
+    replaceLogs,
+    setStructures,
+    mergeStructures,
+    updateAgentAction,
+    setAgentActions,
+  ]);
 }
 
 function buildWsUrl(): string {
@@ -182,32 +124,4 @@ function buildWsUrl(): string {
   const maybeDefaultUi = loc.port === "8081";
   const wsHost = maybeDefaultUi ? loc.hostname + ":8765" : host;
   return `${protocol}//${wsHost}`;
-}
-
-function stripColorCodes(s: string): string {
-  // Remove ANSI and bracketed color marks (e.g., \x1b[93m or [93m)
-  return s
-    .replace(/\x1b\[[0-9;]*m/g, "")
-    .replace(/\[[0-9]{1,3}m/g, "")
-    .replace(/\[0m/g, "");
-}
-
-function extractAgentAttempt(message: string): { id: number; action: string } | null {
-  const text = stripColorCodes(message).trim();
-  if (!text) return null;
-  // Pattern A (Chinese): Eldra(7) 行动 → Move north to chat ...
-  let m = text.match(/([^\(\s]+)\((\d+)\)[^\n]*?行动\s*→\s*(.+)$/);
-  if (m) {
-    const id = Number(m[2]);
-    const action = m[3].trim();
-    return { id, action };
-  }
-  // Pattern B (English): Grok(2): (age 29) attempting: Gather flint ...
-  m = text.match(/[^\(\s]+\((\d+)\).*?attempting:\s*(.+)$/i);
-  if (m) {
-    const id = Number(m[1]);
-    const action = m[2].trim();
-    return { id, action };
-  }
-  return null;
 }

@@ -31,9 +31,11 @@ type SimulationState = {
   updateConnection: (partial: Partial<ConnectionState>) => void;
   recordInteraction: (interaction: InteractionRecord) => void;
   appendLogs: (entries: { timestamp: string; level: string; message: string }[]) => void;
+  replaceLogs: (entries: { timestamp: string; level: string; message: string }[]) => void;
   setStructures: (items: Structure[]) => void;
   mergeStructures: (items: Structure[]) => void;
   updateAgentAction: (agentId: string, actionText: string) => void;
+  setAgentActions: (actions: Record<string, string>) => void;
   setSelectedAgent: (agentId: string | null, location?: { x: number; y: number }) => void;
   setSelectedTile: (tile: { x: number; y: number } | null) => void;
 };
@@ -71,9 +73,15 @@ export const useSimulationStore = create<SimulationState>()(
       }
 
       set((draft) => {
-        draft.turns.push(turn);
-        if (draft.turns.length > TURN_BUFFER_LIMIT) {
-          draft.turns.splice(0, draft.turns.length - TURN_BUFFER_LIMIT);
+        const lastIndex = draft.turns.length - 1;
+        const lastTurn = lastIndex >= 0 ? draft.turns[lastIndex] : null;
+        if (lastTurn && lastTurn.hash === turn.hash) {
+          draft.turns[lastIndex] = turn;
+        } else {
+          draft.turns.push(turn);
+          if (draft.turns.length > TURN_BUFFER_LIMIT) {
+            draft.turns.splice(0, draft.turns.length - TURN_BUFFER_LIMIT);
+          }
         }
         draft.connection.lastTurnId = turn.turnId;
         draft.connection.latencyMs = turn.latencyMs;
@@ -81,7 +89,11 @@ export const useSimulationStore = create<SimulationState>()(
         draft.alerts = mergeAlerts(draft.alerts, turn.events);
         draft.interactionHistory = mergeInteractions(draft.interactionHistory, turn.interactions);
 
-        if (draft.playbackMode === "live" || draft.currentTurnId === null) {
+        if (
+          draft.playbackMode === "live" ||
+          draft.currentTurnId === null ||
+          (lastTurn && draft.currentTurnId === lastTurn.turnId)
+        ) {
           draft.currentTurnId = turn.turnId;
         }
       });
@@ -122,6 +134,11 @@ export const useSimulationStore = create<SimulationState>()(
         }
       });
     },
+    replaceLogs: (entries) => {
+      set((draft) => {
+        draft.logs = entries.slice(-400);
+      });
+    },
     setStructures: (items) => {
       set((draft) => {
         draft.structures = items;
@@ -139,6 +156,11 @@ export const useSimulationStore = create<SimulationState>()(
     updateAgentAction: (agentId, actionText) => {
       set((draft) => {
         draft.agentActions[agentId] = actionText;
+      });
+    },
+    setAgentActions: (actions) => {
+      set((draft) => {
+        draft.agentActions = { ...actions };
       });
     },
     setSelectedAgent: (agentId, location) => {
