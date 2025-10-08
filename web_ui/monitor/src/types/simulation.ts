@@ -12,6 +12,7 @@ export interface AgentSummary {
     y: number;
   };
   status: "idle" | "moving" | "engaged" | "recovering";
+  currentAction?: string | null;
 }
 
 export interface CohortMetric {
@@ -31,10 +32,31 @@ export interface TileResources {
   [resource: string]: number;
 }
 
+export interface WorldStats {
+  total_agents: number;
+  active_agents: number;
+  total_groups: number;
+  total_resources: number;
+  technologies_discovered: number;
+}
+
+export interface WorldGroupSummary {
+  id: string;
+  name: string;
+  member_count: number;
+  reputation: number;
+  type: string;
+  leader?: string | null;
+}
+
 export interface WorldState {
   size: number;
   terrain: string[];
   resources: TileResources[];
+  era?: string;
+  turn?: number;
+  stats?: WorldStats;
+  groups?: WorldGroupSummary[];
 }
 
 export interface Structure {

@@ -9,8 +9,10 @@ import { ConnectionBanner } from "./components/controls/ConnectionBanner";
 import { useMonitorStream } from "./services/monitorStream";
 import { RunControls } from "./components/controls/RunControls";
 import { MessageBox } from "./components/messages/MessageBox";
+import { useSimulationBootstrap } from "./hooks/useSimulationBootstrap";
 
 function App(): JSX.Element {
+  useSimulationBootstrap();
   useMonitorStream();
 
   return (
