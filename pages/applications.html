@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Genesis - Applications</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400..900;1,400..900&amp;family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "inverse-on-surface": "#f5f0e8",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c4c8bc",
+                    "tertiary-container": "#c4a66a",
+                    "on-tertiary-container": "#554020",
+                    "on-primary-fixed-variant": "#2a6038",
+                    "surface-container-low": "#f5f1ea",
+                    "surface-variant": "#e4e0d8",
+                    "on-surface": "#2e3230",
+                    "primary-fixed-dim": "#8ecf9e",
+                    "on-primary-fixed": "#002110",
+                    "surface-bright": "#faf6f0",
+                    "primary-fixed": "#c8e8d0",
+                    "surface-dim": "#dbd7cf",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#f8e0a8",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#d8f0de",
+                    "tertiary-fixed-dim": "#dcc48e",
+                    "tertiary": "#705c30",
+                    "secondary-fixed": "#f0e8db",
+                    "on-tertiary-fixed-variant": "#554020",
+                    "on-background": "#2e3230",
+                    "inverse-primary": "#8ecf9e",
+                    "on-tertiary-fixed": "#221a05",
+                    "surface-container": "#f0ece4",
+                    "inverse-surface": "#2e3230",
+                    "primary": "#4a7c59",
+                    "on-surface-variant": "#4a4e4a",
+                    "surface-tint": "#4a7c59",
+                    "surface-container-high": "#eae6de",
+                    "surface": "#faf6f0",
+                    "error": "#b83230",
+                    "secondary": "#6b6358",
+                    "secondary-fixed-dim": "#d4ccbf",
+                    "on-secondary-container": "#5e5548",
+                    "primary-container": "#78a886",
+                    "on-secondary-fixed-variant": "#4a4538",
+                    "on-tertiary": "#ffffff",
+                    "background": "#faf6f0",
+                    "surface-container-highest": "#e4e0d8",
+                    "outline": "#74796e",
+                    "error-container": "#ffdad8",
+                    "secondary-container": "#f0e8db",
+                    "on-error-container": "#690005",
+                    "on-secondary-fixed": "#1e1a13"
+                },
+                fontFamily: {
+                    "headline": ["Literata"],
+                    "body": ["Nunito Sans"],
+                    "label": ["Nunito Sans"]
+                },
+                borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+            },
+        },
+    }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+        font-family: 'Nunito Sans', sans-serif;
+        background-color: #faf6f0;
+        color: #2e3230;
+    }
+    h1, h2, h3, h4 {
+        font-family: 'Literata', serif;
+    }
+    .glass-card {
+        background: rgba(250, 246, 240, 0.7);
+        backdrop-filter: blur(12px);
+    }
+</style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary/20">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#faf6f0]/80 backdrop-blur-md border-b border-stone-200/50 shadow-sm">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <a href="../index.html" class="text-2xl font-bold font-['Literata'] text-[#4a7c59]">Project Genesis</a>
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center space-x-8">
+        <a class="text-stone-600 hover:text-[#4a7c59] transition-colors font-semibold" href="simulation.html">Simulation</a>
+        <a class="text-stone-600 hover:text-[#4a7c59] transition-colors font-semibold" href="research.html">Research</a>
+        <a class="text-stone-600 hover:text-[#4a7c59] transition-colors font-semibold" href="architecture.html">Architecture</a>
+        <a class="text-[#4a7c59] border-b-2 border-[#4a7c59] pb-1 font-semibold" href="applications.html">Applications</a>
+    </div>
+    <a href="get-access.html" class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold hover:opacity-90 active:scale-95 transition-all">
+        Get Access
+    </a>
+</div>
+</nav>
+
+<main class="pt-24 pb-20">
+<!-- Hero Section -->
+<header class="max-w-7xl mx-auto px-8 py-16 text-center">
+    <h1 class="text-5xl md:text-7xl font-extrabold text-on-surface mb-6 tracking-tight">
+        Rooted in Intelligence. <br/>
+        <span class="text-primary">Grown for Impact.</span>
+    </h1>
+    <p class="text-lg md:text-xl text-on-surface-variant max-w-3xl mx-auto font-body leading-relaxed">
+        Project Genesis provides the foundational architecture for simulating complex human systems. From the micro-interactions of social networks to the macro-evolution of entire cultures.
+    </p>
+</header>
+
+<!-- Bento Grid Applications -->
+<section class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-12 gap-6">
+    <!-- Section 1: Sociology -->
+    <div class="md:col-span-8 bg-surface-container rounded-xl overflow-hidden shadow-sm group hover:shadow-md transition-shadow">
+        <div class="flex flex-col md:flex-row h-full">
+            <div class="p-8 md:w-1/2 flex flex-col justify-center">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="material-symbols-outlined text-primary">groups</span>
+                    <span class="text-tertiary font-bold tracking-wider text-xs uppercase">Sociology</span>
+                </div>
+                <h2 class="text-3xl font-bold mb-4">Social Network Analysis</h2>
+                <p class="text-on-surface-variant mb-6 leading-relaxed">
+                    Simulating the spread of influence and information through complex graph structures. Our engine models emotional contagion and echo-chamber formation with 98% historical accuracy.
+                </p>
+                <div class="bg-surface-bright/50 p-4 rounded-lg border border-outline-variant/30">
+                    <p class="text-sm font-bold text-on-surface mb-1">Case Study: Viral Dynamics</p>
+                    <p class="text-xs text-on-surface-variant">Modeled the adoption of sustainable behaviors across 50,000 heterogeneous synthetic agents.</p>
+                </div>
+            </div>
+            <div class="md:w-1/2 min-h-[300px] relative">
+                <img alt="Abstract network visualization" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArKUrpOSFJB4novhcNUbwqTsLJC6y7IBH0iaLBEzi2H79l5wX83Y6iy9co2l8Meg6_8GZ7e4wu1csUSb_heDuoEiia5DBGSNpLKOPncyZUEO1DuzkMH6FRbYapI4i-Ny0WBvMpIWVQO51b2N_ieEKGVWDxDFzYzA5mbjv8esSMg8yhsTJi4M-FmW5IrquMe4zL_iaX85uvWeEwJzdpvlZzEsrvJux_aeAm08W8IQMp8GK1ZbjuhYuJ3aA_GsgSZ9RmDB7jJvMP6nk"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: Anthropology -->
+    <div class="md:col-span-4 bg-primary text-on-primary rounded-xl p-8 flex flex-col justify-between shadow-sm relative overflow-hidden">
+        <div class="relative z-10">
+            <span class="material-symbols-outlined text-on-primary-container text-4xl mb-4">history_edu</span>
+            <h2 class="text-2xl font-bold mb-3">Anthropology</h2>
+            <p class="text-primary-fixed leading-relaxed text-sm">
+                Tracing the lineage of digital artifacts. Genesis observes how agents develop unique dialects and ritualistic behaviors over generational simulation time.
+            </p>
+        </div>
+        <div class="mt-8 relative z-10">
+            <button class="bg-on-primary text-primary px-4 py-2 rounded-full text-sm font-bold hover:bg-primary-fixed transition-colors">
+                Explore Cultural Evolution
+            </button>
+        </div>
+        <div class="absolute -right-10 -bottom-10 opacity-10">
+            <span class="material-symbols-outlined text-[200px]">forest</span>
+        </div>
+    </div>
+
+    <!-- Section 3: Economics -->
+    <div class="md:col-span-4 bg-tertiary-fixed text-on-tertiary-fixed rounded-xl p-8 shadow-sm flex flex-col group">
+        <div class="mb-6 rounded-lg overflow-hidden h-48">
+            <img alt="Market data visualization" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCORq17EZWdmzom6bQ_EMughy6K9nQXQPqerKWg6B1t3ObvAlDT2BTWAoBUirHIhPoauFv1CoWzlGmaU8bADwzL3nuF5JxCqn8JUiAn-Rc6g44T8nEGnobpYqBVj1f8SCgp5_U0MeOHXUq1BYtXSqjoebjry0Uzn5Xdq2w7EWQxkovnyTy5ELAOyMCGaGVc71XuuIdOTx7NzhFh73I-ksYR2chIIZP3ZEopHc0duDze1MGj9puIcz_fGp0RLOwb1LY-8imHP6ykjog"/>
+        </div>
+        <div class="flex items-center gap-2 mb-2">
+            <span class="material-symbols-outlined text-tertiary">trending_up</span>
+            <h2 class="text-xl font-bold">Economics</h2>
+        </div>
+        <p class="text-on-tertiary-fixed-variant text-sm mb-4 leading-relaxed">
+            Analyzing market emergence in decentralized environments. Genesis agents trade based on scarcity, utility, and social prestige.
+        </p>
+        <div class="mt-auto pt-4 border-t border-tertiary/20">
+            <p class="text-xs font-bold uppercase tracking-widest text-tertiary">Live Deployment</p>
+            <p class="text-sm font-medium">Equilibrium prediction for DeFi protocols.</p>
+        </div>
+    </div>
+
+    <!-- Section 4: Game Development -->
+    <div class="md:col-span-8 bg-surface-container-highest rounded-xl p-8 flex flex-col md:flex-row gap-8 shadow-sm">
+        <div class="md:w-1/2">
+            <span class="material-symbols-outlined text-primary text-4xl mb-4">sports_esports</span>
+            <h2 class="text-3xl font-bold mb-4">Dynamic NPC Systems</h2>
+            <p class="text-on-surface-variant mb-6">
+                Stop scripting. Start growing. Project Genesis allows developers to populate worlds with agents that have persistent memories, evolving relationships, and autonomous goals.
+            </p>
+            <ul class="space-y-3">
+                <li class="flex items-center gap-3 text-sm font-semibold">
+                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Infinite Dialogue Variety
+                </li>
+                <li class="flex items-center gap-3 text-sm font-semibold">
+                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Emergent Quest Generation
+                </li>
+                <li class="flex items-center gap-3 text-sm font-semibold">
+                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Organic World Reactivity
+                </li>
+            </ul>
+        </div>
+        <div class="md:w-1/2 grid grid-cols-2 gap-4">
+            <div class="bg-surface rounded-lg p-4 flex flex-col items-center text-center justify-center border border-outline-variant/20">
+                <span class="text-3xl font-bold text-primary">10k+</span>
+                <span class="text-xs text-on-surface-variant uppercase font-bold tracking-tighter">Concurrent Agents</span>
+            </div>
+            <div class="bg-surface rounded-lg p-4 flex flex-col items-center text-center justify-center border border-outline-variant/20">
+                <span class="text-3xl font-bold text-primary">0ms</span>
+                <span class="text-xs text-on-surface-variant uppercase font-bold tracking-tighter">Latent Response</span>
+            </div>
+            <div class="col-span-2 bg-surface rounded-lg p-4 border border-outline-variant/20 relative overflow-hidden group">
+                <img alt="Immersive game environment" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkcMd2uVDHdFQDCKBIgf0PgK6E9QqXs7Aw92xC6hbgHqIqb4c4YtWOgkLZO9Csum_x13lIdOPvdUXKGdNrKQ71Jbb06_VzQaHa51cZ1Xhl2dOSS_n2k_imS7ry4bfudQSEPKh-11bP_mlvoT-Q0EBx4gChB4UDQ6f82BCdsaJLkc6fIrFlgdVnvAMgj-urQiLqjI0d2Q85KAEQqbPD9klvYWdRACwKXiw5giAlhoWgsKRrSERf9HZ5o70CsoFXETUrWQ0ibVKi45k"/>
+                <div class="relative z-10 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs font-bold text-tertiary">PRO PARTNER</p>
+                        <p class="text-sm font-bold">Aetheria Chronicles</p>
+                    </div>
+                    <span class="material-symbols-outlined text-primary">arrow_forward</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Forward Looking Quote -->
+<section class="max-w-4xl mx-auto px-8 py-24 text-center">
+    <span class="material-symbols-outlined text-primary-container text-6xl mb-6">format_quote</span>
+    <blockquote class="text-3xl md:text-4xl font-headline italic text-on-surface leading-tight mb-8">
+        "The future of intelligence isn't just about answering questions—it's about understanding the soil from which questions grow."
+    </blockquote>
+    <p class="font-bold text-primary tracking-widest uppercase text-sm">— Dr. Elena Vance, Chief Architect</p>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="w-full py-12 px-8 border-t border-stone-200 bg-[#faf6f0]">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-7xl mx-auto">
+    <div class="col-span-2">
+        <a href="../index.html" class="text-xl font-bold font-['Literata'] text-stone-800 mb-4 inline-block">Project Genesis</a>
+        <p class="font-['Nunito_Sans'] text-sm text-stone-600 mb-4">Rooted in Intelligence.</p>
+        <p class="font-['Nunito_Sans'] text-sm text-stone-400">© 2024 Project Genesis. All rights reserved.</p>
+    </div>
+    <div>
+        <h4 class="font-bold text-stone-800 mb-4 font-body">Resources</h4>
+        <ul class="space-y-2">
+            <li><a class="text-stone-500 hover:text-[#4a7c59] transition-all text-sm hover:translate-x-1 inline-block" href="simulation.html">Simulation</a></li>
+            <li><a class="text-stone-500 hover:text-[#4a7c59] transition-all text-sm hover:translate-x-1 inline-block" href="research.html">Methodology</a></li>
+        </ul>
+    </div>
+    <div>
+        <h4 class="font-bold text-stone-800 mb-4 font-body">Legal</h4>
+        <ul class="space-y-2">
+            <li><a class="text-stone-500 hover:text-[#4a7c59] transition-all text-sm hover:translate-x-1 inline-block" href="#">Ethics</a></li>
+            <li><a class="text-stone-500 hover:text-[#4a7c59] transition-all text-sm hover:translate-x-1 inline-block" href="#">Privacy Policy</a></li>
+            <li><a class="text-stone-500 hover:text-[#4a7c59] transition-all text-sm hover:translate-x-1 inline-block" href="#">Terms of Service</a></li>
+        </ul>
+    </div>
+    <div class="col-span-2 flex justify-end items-end gap-4">
+        <a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="https://github.com/QiuYi111/Genesis" target="_blank">
+            <span class="material-symbols-outlined">code</span>
+        </a>
+        <a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">
+            <span class="material-symbols-outlined">language</span>
+        </a>
+        <a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#">
+            <span class="material-symbols-outlined">terminal</span>
+        </a>
+    </div>
+</div>
+</footer>
+</body></html>
