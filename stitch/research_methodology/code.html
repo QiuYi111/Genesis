@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Genesis - Research</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,600;0,700;0,800;1,400&amp;family=Nunito+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#f5f0e8",
+              "on-error": "#ffffff",
+              "outline-variant": "#c4c8bc",
+              "tertiary-container": "#c4a66a",
+              "on-tertiary-container": "#554020",
+              "on-primary-fixed-variant": "#2a6038",
+              "surface-container-low": "#f5f1ea",
+              "surface-variant": "#e4e0d8",
+              "on-surface": "#2e3230",
+              "primary-fixed-dim": "#8ecf9e",
+              "on-primary-fixed": "#002110",
+              "surface-bright": "#faf6f0",
+              "primary-fixed": "#c8e8d0",
+              "surface-dim": "#dbd7cf",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed": "#f8e0a8",
+              "on-primary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#d8f0de",
+              "tertiary-fixed-dim": "#dcc48e",
+              "tertiary": "#705c30",
+              "secondary-fixed": "#f0e8db",
+              "on-tertiary-fixed-variant": "#554020",
+              "on-background": "#2e3230",
+              "inverse-primary": "#8ecf9e",
+              "on-tertiary-fixed": "#221a05",
+              "surface-container": "#f0ece4",
+              "inverse-surface": "#2e3230",
+              "primary": "#4a7c59",
+              "on-surface-variant": "#4a4e4a",
+              "surface-tint": "#4a7c59",
+              "surface-container-high": "#eae6de",
+              "surface": "#faf6f0",
+              "error": "#b83230",
+              "secondary": "#6b6358",
+              "secondary-fixed-dim": "#d4ccbf",
+              "on-secondary-container": "#5e5548",
+              "primary-container": "#78a886",
+              "on-secondary-fixed-variant": "#4a4538",
+              "on-tertiary": "#ffffff",
+              "background": "#faf6f0",
+              "surface-container-highest": "#e4e0d8",
+              "outline": "#74796e",
+              "error-container": "#ffdad8",
+              "secondary-container": "#f0e8db",
+              "on-error-container": "#690005",
+              "on-secondary-fixed": "#1e1a13"
+            },
+            fontFamily: {
+              "headline": ["Literata"],
+              "body": ["Nunito Sans"],
+              "label": ["Nunito Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Nunito Sans', sans-serif; line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: 'Literata', serif; }
+        .tonal-shift { background-color: #f5f1ea; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#faf6f0]/80 backdrop-blur-md border-b border-stone-200/50 shadow-sm">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-bold font-['Literata'] text-[#4a7c59]">Project Genesis</div>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="text-stone-600 hover:text-[#4a7c59] transition-colors font-semibold" href="#">Simulation</a>
+<a class="text-[#4a7c59] border-b-2 border-[#4a7c59] pb-1 font-semibold" href="#">Research</a>
+<a class="text-stone-600 hover:text-[#4a7c59] transition-colors font-semibold" href="#">Architecture</a>
+<a class="text-stone-600 hover:text-[#4a7c59] transition-colors font-semibold" href="#">Applications</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-semibold hover:opacity-90 active:scale-95 transition-all">
+                Get Access
+            </button>
+</div>
+</nav>
+<main class="pt-24 pb-20">
+<!-- Hero & Abstract Section -->
+<section class="max-w-4xl mx-auto px-6 py-16 text-center">
+<span class="text-tertiary font-bold tracking-widest uppercase text-xs mb-4 block">Academic Publication v1.0</span>
+<h1 class="text-5xl md:text-6xl font-extrabold text-on-surface mb-8 leading-tight">Project Genesis - Research</h1>
+<div class="w-24 h-1 bg-primary-container mx-auto mb-12 rounded-full"></div>
+<div class="bg-surface-container-low p-10 md:p-16 rounded-xl text-left border border-outline-variant/30 relative">
+<div class="absolute -top-4 left-10 bg-primary px-4 py-1 rounded-full text-white text-sm font-semibold">Abstract</div>
+<p class="text-lg md:text-xl text-on-surface-variant font-body leading-relaxed italic">
+                    "This research introduces the Trinity System, a multi-modal heuristic framework designed to synchronize biological neural patterns with synthetic intelligence. By leveraging organic grounding as a primary constraint, we demonstrate a 42% increase in alignment stability compared to traditional black-box models. Project Genesis posits that the future of artificial cognition is not found in scale alone, but in the rooted warmth of human-centric architecture."
+                </p>
+<div class="mt-8 flex flex-wrap gap-4">
+<button class="flex items-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-lg font-bold hover:shadow-lg transition-all">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                        Download Paper (PDF)
+                    </button>
+<button class="flex items-center gap-2 bg-secondary-container text-on-secondary-container px-6 py-3 rounded-lg font-bold hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+                        Access Dataset
+                    </button>
+</div>
+</div>
+</section>
+<!-- Methodology: The Trinity System -->
+<section class="bg-surface-container py-24">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-16 text-center max-w-3xl mx-auto">
+<h2 class="text-4xl font-bold mb-4">Methodology: The Trinity System</h2>
+<p class="text-on-surface-variant">Our approach bridges the gap between raw compute and organic logic through three distinct layers of cognitive grounding.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Core 1 -->
+<div class="bg-surface p-8 rounded-xl border border-outline-variant/20 shadow-sm hover:shadow-md transition-all">
+<div class="w-14 h-14 bg-primary-fixed rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="psychology">psychology</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">Bio-Neural Mapping</h3>
+<p class="text-on-surface-variant leading-relaxed">Encoding human intuition into mathematical latent spaces using EEG-derived grounding vectors.</p>
+<ul class="mt-6 space-y-2 text-sm text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span> Real-time latency tracking</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span> Organic feedback loops</li>
+</ul>
+</div>
+<!-- Core 2 -->
+<div class="bg-surface p-8 rounded-xl border border-outline-variant/20 shadow-sm hover:shadow-md transition-all">
+<div class="w-14 h-14 bg-tertiary-fixed rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="hub">hub</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">Recursive Alignment</h3>
+<p class="text-on-surface-variant leading-relaxed">Autonomous refinement protocols that ensure the system's output remains within ethical 'human-warmth' parameters.</p>
+<ul class="mt-6 space-y-2 text-sm text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-sm" data-icon="check_circle">check_circle</span> Ethical constraint filters</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-sm" data-icon="check_circle">check_circle</span> Semantic drift correction</li>
+</ul>
+</div>
+<!-- Core 3 -->
+<div class="bg-surface p-8 rounded-xl border border-outline-variant/20 shadow-sm hover:shadow-md transition-all">
+<div class="w-14 h-14 bg-primary-fixed-dim rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-on-primary-fixed-variant text-3xl" data-icon="forest">forest</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">Ecosystemic Synthesis</h3>
+<p class="text-on-surface-variant leading-relaxed">Final integration where the model interacts with physical constraints, modeled after mycelial networks.</p>
+<ul class="mt-6 space-y-2 text-sm text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-on-primary-fixed-variant text-sm" data-icon="check_circle">check_circle</span> Decentralized node logic</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-on-primary-fixed-variant text-sm" data-icon="check_circle">check_circle</span> Resource efficiency optimization</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Findings Section -->
+<section class="py-24 max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div class="max-w-2xl">
+<h2 class="text-4xl font-bold mb-4">Key Research Findings</h2>
+<p class="text-on-surface-variant text-lg">Quantitative analysis across 12,000 synthetic trials and 450 human verification cycles.</p>
+</div>
+<div class="bg-surface-container-high px-4 py-2 rounded-lg text-sm font-semibold border border-outline-variant/30">
+                    Last Updated: Nov 2024
+                </div>
+</div>
+<!-- Visual Data Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+<!-- Large Data Card -->
+<div class="lg:col-span-2 bg-white rounded-xl p-8 border border-outline-variant/20 shadow-sm flex flex-col justify-between overflow-hidden relative">
+<div class="relative z-10">
+<h4 class="text-xl font-bold mb-2">Alignment Stability Index</h4>
+<p class="text-on-surface-variant mb-8">Performance delta against standard Transformers over 100k tokens.</p>
+<div class="flex items-baseline gap-2">
+<span class="text-6xl font-extrabold text-primary">89.4%</span>
+<span class="text-tertiary font-bold">+12.2% YoY</span>
+</div>
+</div>
+<div class="mt-12 h-40 bg-surface-container-low rounded-lg relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent"></div>
+<img class="w-full h-full object-cover opacity-20" data-alt="Abstract data visualization chart showing upward growth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3ThVG9_80CIcekFJjJQtzFhkQhb7T3drGUELRpTlkKb_ZZYm4qHZEZ3kL3xbnYbiJ7UxaoYZeMbhl-nmlgPTNEMCAkvVwVaUqRdSpuxuaBrMNPrkojUjvtqQP4k-tWHqF0tnSF7EBeOUKoXXs8aHHQqdyBIxez1nJtNj9UHVYUIteHQHf8HV1SbsEJeMX2r8wwcbu2JVqXaS8dPEGn9D3ES3hjjPJb1ammCO3AIYjFUIXFmktOvo04BMJkVr_3TTV4hwkTMDpg5o"/>
+</div>
+</div>
+<!-- Metric Card 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/20 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-4xl text-tertiary mb-4" data-icon="speed">speed</span>
+<h4 class="text-lg font-bold mb-2">Inference Speed</h4>
+<p class="text-4xl font-extrabold text-on-surface mb-2">14ms</p>
+<p class="text-sm text-on-surface-variant">Avg latency at edge</p>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/20 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-4xl text-primary mb-4" data-icon="energy_savings_leaf">energy_savings_leaf</span>
+<h4 class="text-lg font-bold mb-2">Efficiency Ratio</h4>
+<p class="text-4xl font-extrabold text-on-surface mb-2">0.4x</p>
+<p class="text-sm text-on-surface-variant">Carbon footprint vs baseline</p>
+</div>
+<!-- Wide Feature Card -->
+<div class="lg:col-span-4 bg-primary text-on-primary p-10 rounded-xl flex flex-col md:flex-row items-center gap-10">
+<div class="flex-1">
+<h3 class="text-3xl font-bold mb-4 italic">"The Genesis hypothesis suggests that cognitive warmth is not an aesthetic choice, but a functional necessity for safe intelligence scaling."</h3>
+<p class="opacity-80">— Lead Researcher, Dr. Elena Thorne</p>
+</div>
+<div class="w-full md:w-64 h-48 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Microscopic view of organic neural connections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcrCYmIJNz1CfTeXOdOFdzgaIH5EAhdQ7sSiocX8QKocdODJ5ObPFihQYEB4AxcmWg0bUiZHr8efXbnVJtss4JKyni65f5r0EcJ-MH3Uz_NOZFUCqM-R11DIWXmblfNb--wqrzkri54rghrNg_oiOhhyCSudp540rPPcje5r-T3GsNLum0gEE03Yl66ocjLXwbpFPBw2wZx1YjH8T5BaKb-_B4L1nfpsTMZPgUPUs7w_znwkwtnC1JYx0J7TnCSoXkDCEFXPEucro"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Publications and Citation Block -->
+<section class="bg-surface-container-highest py-24">
+<div class="max-w-4xl mx-auto px-6">
+<h2 class="text-3xl font-bold mb-12 text-center">Publications &amp; Citations</h2>
+<div class="space-y-6">
+<!-- Citation 1 -->
+<div class="bg-surface p-6 rounded-lg border-l-4 border-primary shadow-sm hover:translate-x-1 transition-transform">
+<p class="text-sm text-tertiary font-bold mb-2">Journal of Neural Computing (2024)</p>
+<h4 class="text-xl font-bold mb-2">Genesis: A Framework for Organic Alignment in Multi-Modal LLMs</h4>
+<p class="text-sm text-on-surface-variant italic">Thorne, E., Aris, L., &amp; Chen, J. Vol 14, No. 3, pp. 201-224.</p>
+</div>
+<!-- Citation 2 -->
+<div class="bg-surface p-6 rounded-lg border-l-4 border-primary/40 shadow-sm hover:translate-x-1 transition-transform">
+<p class="text-sm text-tertiary font-bold mb-2">AI Ethics Summit (2023)</p>
+<h4 class="text-xl font-bold mb-2">Warmth as a Grounding Constraint for Large Scale Models</h4>
+<p class="text-sm text-on-surface-variant italic">Aris, L. Presentation Proceedings, Session 4A.</p>
+</div>
+</div>
+<!-- Formal Citation Block -->
+<div class="mt-16 bg-surface-container-lowest p-8 rounded-lg border border-outline-variant/30">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-bold text-lg">Cite this Research</h4>
+<button class="text-primary hover:underline flex items-center gap-1 text-sm font-bold">
+<span class="material-symbols-outlined text-base" data-icon="content_copy">content_copy</span> Copy BibTeX
+                        </button>
+</div>
+<div class="bg-surface-container p-6 rounded font-mono text-sm overflow-x-auto whitespace-pre">@article{thorne2024genesis,
+  title={Project Genesis: Rooted Intelligence Framework},
+  author={Thorne, Elena and Aris, Lucas},
+  journal={Global Intelligence Review},
+  year={2024},
+  publisher={Genesis Institute Press}
+}</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 border-t border-stone-200 bg-[#faf6f0]">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-7xl mx-auto">
+<div class="col-span-2">
+<div class="text-xl font-bold font-['Literata'] text-stone-800 mb-4">Project Genesis</div>
+<p class="text-stone-600 font-['Nunito_Sans'] text-sm leading-relaxed">
+                    Rooted in intelligence. Developed at the intersection of biological intuition and synthetic scale.
+                </p>
+</div>
+<div>
+<h5 class="font-bold text-stone-800 mb-4 text-sm uppercase tracking-wider">Resources</h5>
+<ul class="space-y-2 text-stone-500 text-sm">
+<li><a class="hover:text-[#4a7c59] transition-all" href="#">Documentation</a></li>
+<li><a class="hover:text-[#4a7c59] transition-all" href="#">Methodology</a></li>
+<li><a class="hover:text-[#4a7c59] transition-all" href="#">Ethics</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-stone-800 mb-4 text-sm uppercase tracking-wider">Legal</h5>
+<ul class="space-y-2 text-stone-500 text-sm">
+<li><a class="hover:text-[#4a7c59] transition-all" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-[#4a7c59] transition-all" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-4 lg:col-span-2 pt-8 md:pt-0">
+<p class="text-stone-600 font-['Nunito_Sans'] text-sm">
+                    © 2024 Project Genesis. Rooted in Intelligence.
+                </p>
+</div>
+</div>
+</footer>
+</body></html>

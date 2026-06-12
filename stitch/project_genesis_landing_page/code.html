@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Genesis | AI Sociology Simulation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:wght@400;600;700;800&amp;family=Nunito+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-container": "#5e5548",
+                        "inverse-surface": "#2e3230",
+                        "secondary-container": "#f0e8db",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#1e1a13",
+                        "surface-tint": "#4a7c59",
+                        "outline-variant": "#c4c8bc",
+                        "on-tertiary-fixed-variant": "#554020",
+                        "on-primary-fixed-variant": "#2a6038",
+                        "surface-container-highest": "#e4e0d8",
+                        "error-container": "#ffdad8",
+                        "tertiary-fixed-dim": "#dcc48e",
+                        "surface-container-high": "#eae6de",
+                        "surface-container": "#f0ece4",
+                        "error": "#b83230",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#221a05",
+                        "on-error-container": "#690005",
+                        "tertiary-container": "#c4a66a",
+                        "on-surface-variant": "#4a4e4a",
+                        "surface": "#faf6f0",
+                        "inverse-primary": "#8ecf9e",
+                        "tertiary": "#705c30",
+                        "on-tertiary-container": "#554020",
+                        "tertiary-fixed": "#f8e0a8",
+                        "primary": "#4a7c59",
+                        "on-secondary-fixed-variant": "#4a4538",
+                        "secondary-fixed-dim": "#d4ccbf",
+                        "secondary-fixed": "#f0e8db",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f5f0e8",
+                        "background": "#faf6f0",
+                        "primary-container": "#78a886",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#2e3230",
+                        "outline": "#74796e",
+                        "on-primary-fixed": "#002110",
+                        "on-primary-container": "#d8f0de",
+                        "surface-dim": "#dbd7cf",
+                        "secondary": "#6b6358",
+                        "primary-fixed": "#c8e8d0",
+                        "on-surface": "#2e3230",
+                        "surface-container-low": "#f5f1ea",
+                        "surface-bright": "#faf6f0",
+                        "primary-fixed-dim": "#8ecf9e",
+                        "surface-variant": "#e4e0d8",
+                        "on-primary": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Literata"],
+                        "body": ["Nunito Sans"],
+                        "label": ["Nunito Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Nunito Sans', sans-serif; background-color: #faf6f0; color: #2e3230; line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: 'Literata', serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .tonal-shift { background-color: #f5f1ea; }
+        .glass-card { background: rgba(250, 246, 240, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(196, 200, 188, 0.3); }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary/20">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#faf6f0]/80 dark:bg-stone-900/80 backdrop-blur-md border-b border-stone-200/50 dark:border-stone-800/50 shadow-sm">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-bold font-['Literata'] text-[#4a7c59] dark:text-[#6aa37b]">Project Genesis</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#4a7c59] transition-colors font-semibold" href="#simulation">Simulation</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#4a7c59] transition-colors font-semibold" href="#research">Research</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#4a7c59] transition-colors font-semibold" href="#architecture">Architecture</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#4a7c59] transition-colors font-semibold" href="#applications">Applications</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold hover:opacity-90 active:scale-95 transition-all shadow-md">
+                Get Access
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
+<img class="w-full h-full object-cover opacity-20 scale-110" data-alt="Abstract neural network mesh in deep forest colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQXjxzLZCO5oPfQOKdnyVNCqlmWL4McqCj6DEel8jkYJ_4_Jjcd-mQzxKlCDx8pGgaVyhzPGbS46LJscd3FfQO1YbtAuQXUNva6vu65ilTKlZ8LvpMEA1X7QWW2QiFV8m77Nzd8Vuu2Ts7UnvvDxEFrePVFTD68m-n2XHagVG809N7v0UPZNMNuCj-yc3ik2oF7sa-vxk06w9-OeGbjbzp-tjmq6Pb9eJqG3uq2ajRfphfpnHxb_sJEqhXmj4M5Yg4WFU4b3Rnrg4"/>
+</div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="max-w-4xl">
+<span class="inline-block px-4 py-1.5 mb-6 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-bold text-sm tracking-wide">
+                    REVOLUTIONARY SOCIOLOGY ENGINE
+                </span>
+<h1 class="text-6xl md:text-8xl font-extrabold text-on-background leading-tight mb-8">
+                    Project <span class="text-primary">Genesis</span>
+</h1>
+<p class="text-xl md:text-2xl text-on-surface-variant font-body max-w-2xl mb-12">
+                    Where Social Complexity Emerges from Simplicity. A high-fidelity LLM-driven simulation engine designed to explore the roots of human organization.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all">
+                        Launch Simulation <span class="material-symbols-outlined">rocket_launch</span>
+</button>
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-xl font-bold text-lg border border-outline-variant/30 hover:bg-surface-container transition-all">
+                        Read Methodology
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Trinity System Highlights -->
+<section class="py-24 bg-surface" id="simulation">
+<div class="container mx-auto px-6">
+<div class="text-center mb-20">
+<h2 class="text-4xl md:text-5xl font-bold mb-4">The Trinity Core</h2>
+<div class="w-24 h-1 bg-tertiary mx-auto rounded-full"></div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container p-10 rounded-xl hover:translate-y-[-8px] transition-transform duration-300 shadow-sm border border-outline-variant/20">
+<div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">account_tree</span>
+</div>
+<h3 class="text-2xl font-bold mb-4 text-on-surface">Emergent Complexity</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                        Watch as simple rules between individual agents evolve into complex hierarchies, markets, and cultural norms without centralized scripting.
+                    </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container p-10 rounded-xl hover:translate-y-[-8px] transition-transform duration-300 shadow-sm border border-outline-variant/20">
+<div class="w-14 h-14 bg-tertiary/10 rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-tertiary text-3xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<h3 class="text-2xl font-bold mb-4 text-on-surface">LLM-Driven Evolution</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                        Agents powered by deep language models possess unique personalities, motivations, and the ability to negotiate in natural language.
+                    </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container p-10 rounded-xl hover:translate-y-[-8px] transition-transform duration-300 shadow-sm border border-outline-variant/20">
+<div class="w-14 h-14 bg-on-primary-fixed-variant/10 rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-on-primary-fixed-variant text-3xl" style="font-variation-settings: 'FILL' 1;">hub</span>
+</div>
+<h3 class="text-2xl font-bold mb-4 text-on-surface">The Trinity Framework</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                        A tripartite architecture balancing Agent Autonomy, Structural Constraints, and Cultural Memory for holistic social simulation.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Research Abstract & Questions -->
+<section class="py-24 bg-surface-container-low overflow-hidden" id="research">
+<div class="container mx-auto px-6">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="lg:w-1/2">
+<h4 class="text-primary font-bold tracking-widest uppercase text-sm mb-4">Academic Depth</h4>
+<h2 class="text-4xl md:text-5xl font-bold mb-8 leading-tight">The Computational <br/>Sociology Frontier</h2>
+<div class="space-y-6 text-lg text-on-surface-variant italic font-light border-l-4 border-primary/20 pl-8 py-4">
+<p>"Can social structures be reverse-engineered? Project Genesis attempts to answer the fundamental question: if we restart the world with intelligent agents, will the same injustices and hierarchies emerge?"</p>
+</div>
+<div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary">quiz</span>
+<div>
+<p class="font-bold text-on-surface">Path Dependency</p>
+<p class="text-sm">How do early decisions lock societies into long-term structures?</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary">quiz</span>
+<div>
+<p class="font-bold text-on-surface">Norm Emergence</p>
+<p class="text-sm">When does individual behavior become a collective rule?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 relative">
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="glass-card p-8 rounded-xl relative z-10 shadow-xl">
+<img class="rounded-lg mb-6 shadow-inner" data-alt="Digital representation of complex social networks and data nodes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbOLo6KzPgDZjjcWBx0ZaMIV69oeFsfo5761SrQI2zpg3aWjdbRz6_821M8l5-2aBr2HrJgHX-HDTfC9QsSSmzJt1_xvhKnYVkmoi8LQPwuR0RWiy6CJlqRQmB7G3t0YYSkRx7yP6lp6cE_bi5cFvBmM8cc8Ssb5FmVbYBSlAUEHhLatjcxtmPLrvsOTrGIHmofwaRVcqIYXHCiyoChJgx-gcUQL7HKtOPJq-OIiaSfrZQ7L7HsGL3Fo_uQTZUpv4hRIqxXBrpyCk"/>
+<div class="space-y-4">
+<div class="h-2 w-full bg-outline-variant/20 rounded"></div>
+<div class="h-2 w-3/4 bg-outline-variant/20 rounded"></div>
+<div class="h-2 w-5/6 bg-outline-variant/20 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Capabilities -->
+<section class="py-24 bg-surface">
+<div class="container mx-auto px-6">
+<div class="max-w-3xl mb-16">
+<h2 class="text-4xl font-bold mb-6">Simulation Engine Capabilities</h2>
+<p class="text-xl text-on-surface-variant">Precision instruments for large-scale social experimentation.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-1">
+<!-- 1 -->
+<div class="p-8 border border-outline-variant/20 hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-primary mb-4 block group-hover:scale-110 transition-transform">model_training</span>
+<h3 class="text-xl font-bold mb-2">Trinity AI</h3>
+<p class="text-on-surface-variant text-sm">A multi-layered cognitive architecture for agents, mimicking human cognitive biases.</p>
+</div>
+<!-- 2 -->
+<div class="p-8 border border-outline-variant/20 hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-primary mb-4 block group-hover:scale-110 transition-transform">balance</span>
+<h3 class="text-xl font-bold mb-2">Emergent Governance</h3>
+<p class="text-on-surface-variant text-sm">Automated legal system generation based on agent conflicts and resolution histories.</p>
+</div>
+<!-- 3 -->
+<div class="p-8 border border-outline-variant/20 hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-primary mb-4 block group-hover:scale-110 transition-transform">history_edu</span>
+<h3 class="text-xl font-bold mb-2">Cultural Memory</h3>
+<p class="text-on-surface-variant text-sm">Persistent knowledge stores that allow information to pass through generations of agents.</p>
+</div>
+<!-- 4 -->
+<div class="p-8 border border-outline-variant/20 hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-primary mb-4 block group-hover:scale-110 transition-transform">public</span>
+<h3 class="text-xl font-bold mb-2">Living World</h3>
+<p class="text-on-surface-variant text-sm">Dynamic environments that react to agent resource consumption and modification.</p>
+</div>
+<!-- 5 -->
+<div class="p-8 border border-outline-variant/20 hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-primary mb-4 block group-hover:scale-110 transition-transform">auto_awesome</span>
+<h3 class="text-xl font-bold mb-2">LLM Intelligence</h3>
+<p class="text-on-surface-variant text-sm">Plug-and-play support for GPT-4, Claude, and Llama-3 for agent communication.</p>
+</div>
+<!-- 6 -->
+<div class="p-8 border border-outline-variant/20 hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-primary mb-4 block group-hover:scale-110 transition-transform">query_stats</span>
+<h3 class="text-xl font-bold mb-2">Real-time Analytics</h3>
+<p class="text-on-surface-variant text-sm">Visualize Gini coefficients, social mobility, and trust metrics in real-time.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- System Architecture -->
+<section class="py-24 bg-inverse-surface text-inverse-on-surface" id="architecture">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold mb-4">Under the Hood</h2>
+<p class="text-surface-variant/80">The structural flow of Project Genesis</p>
+</div>
+<div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4">
+<div class="w-full md:w-64 p-6 rounded-xl border border-white/10 bg-white/5 text-center">
+<h4 class="font-bold text-primary-fixed mb-2">Trinity System</h4>
+<p class="text-xs opacity-70">Orchestrator &amp; Ruleset</p>
+</div>
+<span class="material-symbols-outlined rotate-90 md:rotate-0 opacity-40">arrow_forward</span>
+<div class="w-full md:w-64 p-6 rounded-xl border border-white/10 bg-white/5 text-center">
+<h4 class="font-bold text-primary-fixed mb-2">Agent System</h4>
+<p class="text-xs opacity-70">LLM Cognitive Layers</p>
+</div>
+<span class="material-symbols-outlined rotate-90 md:rotate-0 opacity-40">arrow_forward</span>
+<div class="w-full md:w-64 p-6 rounded-xl border border-white/10 bg-white/5 text-center">
+<h4 class="font-bold text-primary-fixed mb-2">Social Structure</h4>
+<p class="text-xs opacity-70">Emergent Phenotypes</p>
+</div>
+</div>
+<div class="mt-16 bg-white/5 rounded-2xl p-8 border border-white/10 max-w-4xl mx-auto">
+<div class="flex items-center gap-4 mb-6">
+<div class="flex gap-1.5">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary"></div>
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+</div>
+<span class="text-xs opacity-50 font-mono tracking-widest uppercase">system_architecture.yaml</span>
+</div>
+<div class="font-mono text-sm space-y-2 opacity-80">
+<p class="text-primary-fixed">engine:</p>
+<p class="pl-4">mode: <span class="text-tertiary-fixed">unbound</span></p>
+<p class="pl-4">agents: <span class="text-tertiary-fixed">10000+</span></p>
+<p class="pl-4">language_model: <span class="text-tertiary-fixed">"genesis-llm-v4"</span></p>
+<p class="text-primary-fixed mt-4">social_layers:</p>
+<p class="pl-4">- type: <span class="text-tertiary-fixed">economic_exchange</span></p>
+<p class="pl-4">- type: <span class="text-tertiary-fixed">kinship_net</span></p>
+<p class="pl-4">- type: <span class="text-tertiary-fixed">symbolic_belief</span></p>
+</div>
+</div>
+</div>
+</section>
+<!-- Research Applications -->
+<section class="py-24 bg-surface" id="applications">
+<div class="container mx-auto px-6">
+<h2 class="text-4xl font-bold mb-16 text-center">Application Domains</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- 1 -->
+<div class="group cursor-pointer">
+<div class="h-48 rounded-xl overflow-hidden mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="People interacting in a community square" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu95S191LRzRX7xjXYy6Mg6galrxFjNw3Z6IDMneH7BYrrlKBtqWObSApJqYoxh_VTEZS8_DatgJVOD66XL7Y4YVRpc3Wy4wD1qE5bsUpl293oAIoBYDvd73uonesgGLTh9I5q2WRnDF4k-KfNjx3j6Tze-g_q9z9YftyOsxM2TwGIa-iAnavzcTILJdHcQ5aWPwiM6V9AOhUrjx3A6pCIO-vJylhXrJZwdkh1jKdK57Y63V2MRo16PQf9akymx6lqMMvwJK-DglI"/>
+<div class="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors"></div>
+</div>
+<h4 class="text-xl font-bold mb-1">Sociology</h4>
+<p class="text-sm text-on-surface-variant">Testing theories of class struggle and social cohesion.</p>
+</div>
+<!-- 2 -->
+<div class="group cursor-pointer">
+<div class="h-48 rounded-xl overflow-hidden mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Ancient marketplace or artifact study" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu9MeTDirb97_S4oeddDAt_mT9GmAkSDI1HDtUV6A9FhThT1PYoAnMTwBWRFHkO55yQ5QXm_XH1Mq96VmShQ0dNZC3Ui-6ray_qST1zYmQ_bhIyUvCeI_VgljEKvlTZcGPfTGhQoUmcfW44LNPRfLhjFSrNGfYPKFxnba5M7zm79KDGypnQzgElVlxJK91oYSTu_pyEz_x2Y3U2Kk2QYZJAesnl3ETadbS90DvJMiN71yGnG3P8ln-WqLpM7yOIdnR9XejNKMs9zU"/>
+<div class="absolute inset-0 bg-tertiary/20 group-hover:bg-transparent transition-colors"></div>
+</div>
+<h4 class="text-xl font-bold mb-1">Anthropology</h4>
+<p class="text-sm text-on-surface-variant">Exploring the origins of ritual and kinship systems.</p>
+</div>
+<!-- 3 -->
+<div class="group cursor-pointer">
+<div class="h-48 rounded-xl overflow-hidden mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Stock market graphs overlaid on a map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxC9teuwRNgn9ycTBbnSTunTrri8Dxq6bCSw3rBDRi52PEpEWfix20gLfZhvGpEfjvF6IkZujQO8W6z6TVxaJuQV2jnL0de9LDyEridj3O4AtKpE4kj79paGwyEE8G4lxT5CaqIIjA1ptGvDpFeNQEBg1Uoh83-y9shhS18ALO1StZQki9VI12wfsd3elafZADcHNFc9KnsRKORVnivVJdw6Kefe3ICxqrr0FMkhee_sH9HpUNxkOCfZankWo6OPrysRFxMXuix2g"/>
+<div class="absolute inset-0 bg-secondary/20 group-hover:bg-transparent transition-colors"></div>
+</div>
+<h4 class="text-xl font-bold mb-1">Economics</h4>
+<p class="text-sm text-on-surface-variant">Simulating alternative market structures and currencies.</p>
+</div>
+<!-- 4 -->
+<div class="group cursor-pointer">
+<div class="h-48 rounded-xl overflow-hidden mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Retro computer game or digital world mockup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEJNkmwC4c5SoUlXetObzpwQeeAQ6JFk-VuRLjsLfUiXtMNY4vp3_2WIx7BsUMwB-Dp5ZPvTJAnuBa_djhoqDOXdppN8DYfujTRk5jHHq0dS4xMe5-qFmuPPnv3_mzKGEFMGZCV697axuy4bKzCpZLMIRzKzbxNnJHbeNQDUOxxJzT-zs92gSObCR9UR6PGUo3ePPHhK5zl6Rwzp3qYUtoYr4HQK5DRnkDqar8_rE-F2C9XH_hgTSpeeAlWoO0RklRkrzh8eGiXFM"/>
+<div class="absolute inset-0 bg-primary-container/20 group-hover:bg-transparent transition-colors"></div>
+</div>
+<h4 class="text-xl font-bold mb-1">Game Development</h4>
+<p class="text-sm text-on-surface-variant">Powering hyper-realistic NPC societies and histories.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Start -->
+<section class="py-24 bg-surface-container">
+<div class="container mx-auto px-6">
+<div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border border-outline-variant/30 overflow-hidden">
+<div class="grid md:grid-cols-2">
+<div class="p-12">
+<h2 class="text-3xl font-bold mb-6">Developer Ready</h2>
+<p class="text-on-surface-variant mb-8">Deploy your first simulation in minutes with our robust Python SDK and Docker integration.</p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-bold text-sm">Python 3.10+ Support</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-bold text-sm">OpenAI &amp; Anthropic Native</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-bold text-sm">ElasticSearch Storage Layer</span>
+</li>
+</ul>
+</div>
+<div class="bg-inverse-surface p-12 text-primary-fixed font-mono text-sm flex flex-col justify-center">
+<p class="mb-4 text-outline-variant/50"># Installation</p>
+<p class="mb-6">pip install project-genesis</p>
+<p class="mb-4 text-outline-variant/50"># Initialize Simulation</p>
+<div class="space-y-1">
+<p>from genesis import Trinity</p>
+<p>world = Trinity.create(agents=500)</p>
+<p>world.run(steps=1000)</p>
+<p>world.export_logs("results.json")</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="py-24 bg-primary text-on-primary">
+<div class="container mx-auto px-6 text-center">
+<h2 class="text-4xl md:text-6xl font-extrabold mb-8">Begin the Evolution.</h2>
+<p class="text-xl md:text-2xl text-on-primary-container max-w-2xl mx-auto mb-12">
+                Join a community of researchers and developers redefining how we understand social systems.
+            </p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center">
+<button class="bg-on-primary text-primary px-10 py-4 rounded-xl font-bold text-lg hover:bg-primary-fixed transition-colors">
+                    Request Research Access
+                </button>
+<button class="bg-transparent border-2 border-on-primary/30 text-on-primary px-10 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-3 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">code</span> View on GitHub
+                </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#faf6f0] dark:bg-stone-950 w-full py-12 px-8 border-t border-stone-200 dark:border-stone-800">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-7xl mx-auto">
+<div class="col-span-2">
+<div class="text-xl font-bold font-['Literata'] text-stone-800 dark:text-stone-200 mb-4">Project Genesis</div>
+<p class="font-['Nunito_Sans'] text-sm text-stone-600 dark:text-stone-400 max-w-xs leading-relaxed">
+                    Rooted in Intelligence. Building the tools to understand humanity's past, present, and possible futures through the lens of emergent AI.
+                </p>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-bold text-primary dark:text-[#6aa37b] text-sm">Product</span>
+<a class="text-stone-500 hover:text-[#4a7c59] text-sm transition-all hover:translate-x-1" href="#">Documentation</a>
+<a class="text-stone-500 hover:text-[#4a7c59] text-sm transition-all hover:translate-x-1" href="#">Methodology</a>
+<a class="text-stone-500 hover:text-[#4a7c59] text-sm transition-all hover:translate-x-1" href="#">API Reference</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-bold text-primary dark:text-[#6aa37b] text-sm">About</span>
+<a class="text-stone-500 hover:text-[#4a7c59] text-sm transition-all hover:translate-x-1" href="#">Our Team</a>
+<a class="text-stone-500 hover:text-[#4a7c59] text-sm transition-all hover:translate-x-1" href="#">Ethics</a>
+<a class="text-stone-500 hover:text-[#4a7c59] text-sm transition-all hover:translate-x-1" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-bold text-primary dark:text-[#6aa37b] text-sm">Legal</span>
+<a class="text-stone-500 hover:text-[#4a7c59] text-sm transition-all hover:translate-x-1" href="#">Privacy Policy</a>
+<a class="text-stone-500 hover:text-[#4a7c59] text-sm transition-all hover:translate-x-1" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-stone-200/50 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="font-['Nunito_Sans'] text-sm text-stone-600 dark:text-stone-400">© 2024 Project Genesis. Rooted in Intelligence.</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-stone-400 hover:text-primary cursor-pointer transition-colors">public</span>
+<span class="material-symbols-outlined text-stone-400 hover:text-primary cursor-pointer transition-colors">share</span>
+<span class="material-symbols-outlined text-stone-400 hover:text-primary cursor-pointer transition-colors">terminal</span>
+</div>
+</div>
+</footer>
+</body></html>

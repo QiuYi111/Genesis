@@ -1,0 +1,98 @@
+2025-09-08 16:51:46.899 | SUCCESS  | sociology_simulation.prompts:load_from_config:399 - 从 sociology_simulation/conf/prompts.yaml 加载了 12 个提示词模板
+2025-09-08 16:51:46.900 | INFO     | __main__:main:83 - Starting sociology simulation with Hydra configuration
+2025-09-08 16:51:46.900 | INFO     | __main__:main:84 - Initialized 12 prompt templates
+2025-09-08 16:51:46.900 | INFO     | __main__:main:85 - Prompt statistics: {'total_templates': 12, 'json_templates': 8, 'categories': {'agent': 3, 'trinity': 5, 'action': 2, 'json': 1, 'rule': 1}}
+2025-09-08 16:51:46.900 | INFO     | __main__:main:86 - Era: stone age
+2025-09-08 16:51:46.900 | INFO     | __main__:main:87 - World size: 64x64
+2025-09-08 16:51:46.900 | INFO     | __main__:main:88 - Number of agents: 10
+2025-09-08 16:51:46.900 | INFO     | __main__:main:89 - Turns: 30
+2025-09-08 16:52:15.897 | SUCCESS  | sociology_simulation.trinity:_generate_initial_rules:49 - [Trinity] Generated rules for era: stone age
+2025-09-08 16:52:15.897 | INFO     | sociology_simulation.world:initialize:76 - 
+========================================
+2025-09-08 16:52:15.898 | INFO     | sociology_simulation.world:initialize:77 - INITIALIZING WORLD FOR ERA: stone age
+2025-09-08 16:52:15.899 | INFO     | sociology_simulation.world:initialize:78 - TERRAIN TYPES: FOREST, GRASSLAND, RIVER, MOUNTAIN, SWAMP
+2025-09-08 16:52:15.900 | INFO     | sociology_simulation.world:initialize:79 - RESOURCE RULES:
+2025-09-08 16:52:15.901 | INFO     | sociology_simulation.world:initialize:81 -   WOOD:
+2025-09-08 16:52:15.902 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 70.0% chance
+2025-09-08 16:52:15.903 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 20.0% chance
+2025-09-08 16:52:15.903 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 10.0% chance
+2025-09-08 16:52:15.903 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 5.0% chance
+2025-09-08 16:52:15.903 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 30.0% chance
+2025-09-08 16:52:15.903 | INFO     | sociology_simulation.world:initialize:81 -   STONE:
+2025-09-08 16:52:15.903 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 20.0% chance
+2025-09-08 16:52:15.903 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 30.0% chance
+2025-09-08 16:52:15.903 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 10.0% chance
+2025-09-08 16:52:15.903 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 80.0% chance
+2025-09-08 16:52:15.904 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 10.0% chance
+2025-09-08 16:52:15.904 | INFO     | sociology_simulation.world:initialize:81 -   BERRIES:
+2025-09-08 16:52:15.904 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 60.0% chance
+2025-09-08 16:52:15.904 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 40.0% chance
+2025-09-08 16:52:15.904 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 20.0% chance
+2025-09-08 16:52:15.904 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 10.0% chance
+2025-09-08 16:52:15.904 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 30.0% chance
+2025-09-08 16:52:15.905 | INFO     | sociology_simulation.world:initialize:81 -   FISH:
+2025-09-08 16:52:15.905 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 10.0% chance
+2025-09-08 16:52:15.905 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 0.0% chance
+2025-09-08 16:52:15.905 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 60.0% chance
+2025-09-08 16:52:15.905 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 0.0% chance
+2025-09-08 16:52:15.905 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 40.0% chance
+2025-09-08 16:52:15.905 | INFO     | sociology_simulation.world:initialize:81 -   FLINT:
+2025-09-08 16:52:15.905 | INFO     | sociology_simulation.world:initialize:83 -     - FOREST: 10.0% chance
+2025-09-08 16:52:15.905 | INFO     | sociology_simulation.world:initialize:83 -     - GRASSLAND: 20.0% chance
+2025-09-08 16:52:15.905 | INFO     | sociology_simulation.world:initialize:83 -     - RIVER: 30.0% chance
+2025-09-08 16:52:15.905 | INFO     | sociology_simulation.world:initialize:83 -     - MOUNTAIN: 70.0% chance
+2025-09-08 16:52:15.905 | INFO     | sociology_simulation.world:initialize:83 -     - SWAMP: 10.0% chance
+2025-09-08 16:52:15.905 | INFO     | sociology_simulation.world:initialize:84 - ========================================
+
+2025-09-08 16:52:15.905 | INFO     | sociology_simulation.world:generate_realistic_terrain:143 - Generating terrain using 'mixed' algorithm with seed 481569
+2025-09-08 16:52:16.019 | SUCCESS  | sociology_simulation.world:generate_realistic_terrain:153 - Generated realistic 64x64 terrain map
+2025-09-08 16:52:16.024 | INFO     | sociology_simulation.world:initialize:94 - INITIAL RESOURCE DISTRIBUTION:
+2025-09-08 16:52:16.024 | INFO     | sociology_simulation.world:initialize:96 -   BERRIES: 1758 units
+2025-09-08 16:52:16.024 | INFO     | sociology_simulation.world:initialize:96 -   FISH: 386 units
+2025-09-08 16:52:16.024 | INFO     | sociology_simulation.world:initialize:96 -   FLINT: 753 units
+2025-09-08 16:52:16.024 | INFO     | sociology_simulation.world:initialize:96 -   STONE: 1069 units
+2025-09-08 16:52:16.024 | INFO     | sociology_simulation.world:initialize:96 -   WOOD: 1210 units
+2025-09-08 16:52:16.024 | INFO     | sociology_simulation.world:initialize:97 - ========================================
+
+2025-09-08 16:52:23.127 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLira(5)[0m [94mpersonal goal ➜[0m [3mI will become the tribe's storyteller and peacemaker, using my charm to unite neighboring clans t...[0m
+2025-09-08 16:52:23.127 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mGrok(4)[0m [94mpersonal goal ➜[0m [3mI will become the strongest hunter in the tribe by mastering spear techniques and bringing back t...[0m
+2025-09-08 16:52:23.133 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mRok(9)[0m [94mpersonal goal ➜[0m [3mI will lead my tribe to discover and settle in a new fertile valley with abundant resources.[0m
+2025-09-08 16:52:23.133 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mKael(6)[0m [94mpersonal goal ➜[0m [3mI will become the respected leader of my tribe by using my charm to unite and guide our people to...[0m
+2025-09-08 16:52:23.473 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mGlim(1)[0m [94mpersonal goal ➜[0m [3mI will explore the farthest reaches of our territory to discover new plants and resources that ca...[0m
+2025-09-08 16:52:23.497 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLira(3)[0m [94mpersonal goal ➜[0m [3mI will become the storyteller and peacemaker who unites the scattered tribes through compelling t...[0m
+2025-09-08 16:52:23.509 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLark(8)[0m [94mpersonal goal ➜[0m [3mI will become the respected storyteller and mediator of our tribe, using my charm to preserve our...[0m
+2025-09-08 16:52:23.522 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mGlim(7)[0m [94mpersonal goal ➜[0m [3mI will discover and map all the unique plants, animals, and geological formations within a five-d...[0m
+2025-09-08 16:52:23.655 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mTeller(0)[0m [94mpersonal goal ➜[0m [3mI will become the tribe's storyteller and knowledge-keeper by collecting and sharing tales of our...[0m
+2025-09-08 16:52:23.865 | INFO     | sociology_simulation.agent:decide_goal:183 - [95m🎯[0m [1mLark(2)[0m [94mpersonal goal ➜[0m [3mI will become the tribe's storyteller and explorer, discovering new lands and resources while usi...[0m
+2025-09-08 16:52:23.867 | INFO     | sociology_simulation.world:step:557 - 
+=== TURN 0 START ===
+2025-09-08 16:52:27.866 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mGlim(7)[0m: (age 30) attempting: Move northwest to explore beyond the visible grassland a...
+2025-09-08 16:52:27.995 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mRok(9)[0m: (age 44) attempting: Move west to the river to gather flint and fish.
+2025-09-08 16:52:28.091 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mLira(5)[0m: (age 20) attempting: Move north to the berry-rich grassland to gather resourc...
+2025-09-08 16:52:29.016 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mLark(8)[0m: (age 61) attempting: Gather berries from my current position.
+2025-09-08 16:52:29.055 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mLark(2)[0m: (age 24) attempting: Move east to the riverbank to collect flint.
+2025-09-08 16:52:29.137 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mKael(6)[0m: (age 31) attempting: Move north to the river to fish and gather resources.
+2025-09-08 16:52:29.472 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mGrok(4)[0m: (age 18) attempting: Move to the forest tile at [48,18] to collect stone and ...
+2025-09-08 16:52:29.491 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mGlim(1)[0m: (age 52) attempting: Move east toward the river to explore new territory and ...
+2025-09-08 16:52:29.565 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mLira(3)[0m: (age 25) attempting: Move east to gather berries and flint for crafting and t...
+2025-09-08 16:52:29.957 | INFO     | sociology_simulation.world:resolve:254 - [96m→[0m [1mTeller(0)[0m: (age 35) attempting: Move to the nearby tile with berries to gather food and ...
+2025-09-08 16:52:33.521 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Glim(7):
+2025-09-08 16:52:33.523 | INFO     | sociology_simulation.agent:act:377 - [92m⚡[0m [1mGlim(7)[0m [93m行动 →[0m [36mMove northwest to explore beyond the visible grassland area.[0m
+2025-09-08 16:52:39.077 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Rok(9):
+2025-09-08 16:52:39.079 | INFO     | sociology_simulation.agent:act:377 - [92m⚡[0m [1mRok(9)[0m [93m行动 →[0m [36mMove west to the river to gather flint and fish.[0m
+2025-09-08 16:52:43.632 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Lira(5):
+2025-09-08 16:52:43.634 | INFO     | sociology_simulation.agent:act:377 - [92m⚡[0m [1mLira(5)[0m [93m行动 →[0m [36mMove north to the berry-rich grassland to gather resources and observe the area.[0m
+2025-09-08 16:52:48.142 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Lark(8):
+2025-09-08 16:52:48.145 | INFO     | sociology_simulation.agent:act:377 - [92m⚡[0m [1mLark(8)[0m [93m行动 →[0m [36mGather berries from my current position.[0m
+2025-09-08 16:52:53.852 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Lark(2):
+2025-09-08 16:52:53.856 | INFO     | sociology_simulation.agent:act:377 - [92m⚡[0m [1mLark(2)[0m [93m行动 →[0m [36mMove east to the riverbank to collect flint.[0m
+2025-09-08 16:52:58.809 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Kael(6):
+2025-09-08 16:52:58.811 | INFO     | sociology_simulation.agent:act:377 - [92m⚡[0m [1mKael(6)[0m [93m行动 →[0m [36mMove north to the river to fish and gather resources.[0m
+2025-09-08 16:53:03.333 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Grok(4):
+2025-09-08 16:53:03.335 | INFO     | sociology_simulation.agent:act:377 - [92m⚡[0m [1mGrok(4)[0m [93m行动 →[0m [36mMove to the forest tile at [48,18] to collect stone and berries.[0m
+2025-09-08 16:53:08.150 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Glim(1):
+2025-09-08 16:53:08.152 | INFO     | sociology_simulation.agent:act:377 - [92m⚡[0m [1mGlim(1)[0m [93m行动 →[0m [36mMove east toward the river to explore new territory and resources.[0m
+2025-09-08 16:53:14.164 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Lira(3):
+2025-09-08 16:53:14.166 | INFO     | sociology_simulation.agent:act:377 - [92m⚡[0m [1mLira(3)[0m [93m行动 →[0m [36mMove east to gather berries and flint for crafting and trade.[0m
+2025-09-08 16:53:19.959 | INFO     | sociology_simulation.world:_process_outcome:326 - Processing outcome for Teller(0):
+2025-09-08 16:53:19.960 | INFO     | sociology_simulation.agent:act:377 - [92m⚡[0m [1mTeller(0)[0m [93m行动 →[0m [36mMove to the nearby tile with berries to gather food and observe the surroundings for potential stories.[0m

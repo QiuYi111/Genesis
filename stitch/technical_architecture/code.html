@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Genesis - Architecture</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400..900;1,400..900&amp;family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#f5f0e8",
+              "on-error": "#ffffff",
+              "outline-variant": "#c4c8bc",
+              "tertiary-container": "#c4a66a",
+              "on-tertiary-container": "#554020",
+              "on-primary-fixed-variant": "#2a6038",
+              "surface-container-low": "#f5f1ea",
+              "surface-variant": "#e4e0d8",
+              "on-surface": "#2e3230",
+              "primary-fixed-dim": "#8ecf9e",
+              "on-primary-fixed": "#002110",
+              "surface-bright": "#faf6f0",
+              "primary-fixed": "#c8e8d0",
+              "surface-dim": "#dbd7cf",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed": "#f8e0a8",
+              "on-primary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#d8f0de",
+              "tertiary-fixed-dim": "#dcc48e",
+              "tertiary": "#705c30",
+              "secondary-fixed": "#f0e8db",
+              "on-tertiary-fixed-variant": "#554020",
+              "on-background": "#2e3230",
+              "inverse-primary": "#8ecf9e",
+              "on-tertiary-fixed": "#221a05",
+              "surface-container": "#f0ece4",
+              "inverse-surface": "#2e3230",
+              "primary": "#4a7c59",
+              "on-surface-variant": "#4a4e4a",
+              "surface-tint": "#4a7c59",
+              "surface-container-high": "#eae6de",
+              "surface": "#faf6f0",
+              "error": "#b83230",
+              "secondary": "#6b6358",
+              "secondary-fixed-dim": "#d4ccbf",
+              "on-secondary-container": "#5e5548",
+              "primary-container": "#78a886",
+              "on-secondary-fixed-variant": "#4a4538",
+              "on-tertiary": "#ffffff",
+              "background": "#faf6f0",
+              "surface-container-highest": "#e4e0d8",
+              "outline": "#74796e",
+              "error-container": "#ffdad8",
+              "secondary-container": "#f0e8db",
+              "on-error-container": "#690005",
+              "on-secondary-fixed": "#1e1a13"
+            },
+            fontFamily: {
+              "headline": ["Literata"],
+              "body": ["Nunito Sans"],
+              "label": ["Nunito Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Nunito Sans', sans-serif; background-color: #faf6f0; color: #2e3230; line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: 'Literata', serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .code-block { background-color: #1e1e1e; color: #d4d4d4; font-family: monospace; }
+        .glass-card { background: rgba(250, 246, 240, 0.4); backdrop-filter: blur(8px); border: 1px solid rgba(196, 200, 188, 0.3); }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#faf6f0]/80 backdrop-blur-md border-b border-stone-200/50 shadow-sm">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-bold font-['Literata'] text-[#4a7c59]">Project Genesis</div>
+<div class="hidden md:flex items-center gap-8 font-['Literata'] font-semibold">
+<a class="text-stone-600 hover:text-[#4a7c59] transition-colors" href="#">Simulation</a>
+<a class="text-stone-600 hover:text-[#4a7c59] transition-colors" href="#">Research</a>
+<a class="text-[#4a7c59] border-b-2 border-[#4a7c59] pb-1" href="#">Architecture</a>
+<a class="text-stone-600 hover:text-[#4a7c59] transition-colors" href="#">Applications</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label font-bold hover:opacity-90 active:scale-95 transition-all">
+                Get Access
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+<!-- Hero Header -->
+<header class="mb-20">
+<h1 class="text-5xl md:text-7xl font-headline font-bold text-on-surface tracking-tight mb-6">
+                Project Genesis - Architecture
+            </h1>
+<p class="text-xl md:text-2xl text-on-surface-variant max-w-3xl font-body leading-relaxed">
+                A recursive framework designed for autonomous coordination, multi-layered cognition, and scalable social simulation.
+            </p>
+</header>
+<!-- System Overview: Trinity Section -->
+<section class="mb-32">
+<div class="flex items-center gap-3 mb-10">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="account_tree">account_tree</span>
+<h2 class="text-3xl font-headline font-bold text-on-surface">1. System Overview</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
+<!-- Connectors for Desktop -->
+<div class="hidden lg:block absolute top-1/2 left-1/3 w-1/3 h-px border-t-2 border-dashed border-outline-variant -z-10"></div>
+<!-- Trinity System -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-sm">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="hub">hub</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3">Trinity System</h3>
+<p class="text-on-surface-variant text-sm mb-6">The core orchestration engine managing environment state, physics, and world-rules.</p>
+<div class="space-y-2 w-full text-xs font-label">
+<div class="bg-surface-container-highest p-2 rounded">World State Sync</div>
+<div class="bg-surface-container-highest p-2 rounded">Event Dispatcher</div>
+</div>
+</div>
+<!-- Agent System -->
+<div class="bg-primary text-on-primary p-8 rounded-xl flex flex-col items-center text-center shadow-lg transform lg:scale-105">
+<div class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="smart_toy" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3">Agent System</h3>
+<p class="text-on-primary-container text-sm mb-6">Autonomous cognitive entities with individual memory blocks and goal-oriented behaviors.</p>
+<div class="space-y-2 w-full text-xs font-label">
+<div class="bg-on-primary-fixed-variant p-2 rounded">Recursive Memory</div>
+<div class="bg-on-primary-fixed-variant p-2 rounded">Action Space Mapping</div>
+</div>
+</div>
+<!-- Social Structure -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center shadow-sm">
+<div class="w-16 h-16 rounded-full bg-tertiary/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="groups">groups</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3">Social Structure</h3>
+<p class="text-on-surface-variant text-sm mb-6">Emergent collective dynamics, reputation systems, and institutional formations.</p>
+<div class="space-y-2 w-full text-xs font-label">
+<div class="bg-surface-container-highest p-2 rounded">Relationship Graphs</div>
+<div class="bg-surface-container-highest p-2 rounded">Norm Enforcement</div>
+</div>
+</div>
+</div>
+</section>
+<!-- LLM Cognitive Layers -->
+<section class="mb-32">
+<div class="flex items-center gap-3 mb-10">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="psychology">psychology</span>
+<h2 class="text-3xl font-headline font-bold text-on-surface">2. LLM Cognitive Layers</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<div class="flex gap-4">
+<div class="shrink-0 w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary font-bold">01</div>
+<div>
+<h4 class="font-headline font-bold text-xl mb-2">Perceptual Translation</h4>
+<p class="text-on-surface-variant">Converting world events (JSON) into semantic narratives that LLMs can interpret as 'sensory input'.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="shrink-0 w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary font-bold">02</div>
+<div>
+<h4 class="font-headline font-bold text-xl mb-2">Reflective Processing</h4>
+<p class="text-on-surface-variant">Periodic 'inner monologues' where agents summarize recent events to update long-term memory weights.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="shrink-0 w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary font-bold">03</div>
+<div>
+<h4 class="font-headline font-bold text-xl mb-2">Strategic Execution</h4>
+<p class="text-on-surface-variant">Prompt-driven decision making that selects the most relevant tool or social interaction from the action-space.</p>
+</div>
+</div>
+</div>
+<div class="relative aspect-square rounded-2xl overflow-hidden bg-surface-container-highest group">
+<img alt="Abstract neural network visualization" class="w-full h-full object-cover mix-blend-multiply opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Abstract artistic representation of a neural network with glowing green connections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWldNVul-KF5sRZZe9jO4YCKSugR3KcZm6kGnJsAM9kq9mAKTTiWY2epjskIHshzMhbP0w2X7a_oOB1S0nLkEANrghL0nYl1oRFEhE5y19Cu-nghCbGhcodnVRwKRxNZyy6CDcSN_UuKa3V0erebgN6gwjgdk-Og0zfLwt1dP0ZuboAN13LDdQwCx8D5HWSUQ-Vkkdz2GC-8kP2V1E1xQnuR1QxIsQM01SKlNodeej8xNU-Gs9pKJ-91fvE9VDsXHqSrkq3J_xkeo"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="p-6 glass-card rounded-xl text-center">
+<span class="text-primary font-bold tracking-widest uppercase text-xs">Decision Matrix</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Developer SDK -->
+<section class="mb-32">
+<div class="flex items-center gap-3 mb-10">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="terminal">terminal</span>
+<h2 class="text-3xl font-headline font-bold text-on-surface">3. Developer SDK</h2>
+</div>
+<div class="code-block p-8 rounded-xl shadow-2xl overflow-x-auto border border-stone-800">
+<div class="flex gap-2 mb-6">
+<div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+<div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+</div>
+<pre class="text-sm leading-relaxed"><code><span class="text-primary-fixed-dim">from</span> genesis_sdk <span class="text-primary-fixed-dim">import</span> Agent, Environment
+
+<span class="text-stone-500"># Initialize the Trinity Environment</span>
+env = Environment.load(<span class="text-tertiary-container">"neo_tokyo_01"</span>)
+
+<span class="text-stone-500"># Create an autonomous agent with specific cognitive bias</span>
+architect = Agent(
+    name=<span class="text-tertiary-container">"Aris"</span>,
+    model=<span class="text-tertiary-container">"gpt-4-turbo"</span>,
+    persona={<span class="text-tertiary-container">"trait"</span>: <span class="text-tertiary-container">"analytical"</span>, <span class="text-tertiary-container">"goal"</span>: <span class="text-tertiary-container">"optimization"</span>}
+)
+
+<span class="text-stone-500"># Register the agent to the world state</span>
+env.spawn(architect, location=(<span class="text-primary-container">45.2, -12.8</span>))
+
+<span class="text-stone-500"># Run a recursive cognitive loop</span>
+<span class="text-primary-fixed-dim">while</span> env.is_active():
+    perception = architect.perceive()
+    decision = architect.decide(perception)
+    env.execute(architect, decision)
+    architect.reflect()</code></pre>
+</div>
+</section>
+<!-- Integration Guide -->
+<section class="mb-12">
+<div class="flex items-center gap-3 mb-10">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="settings_input_component">settings_input_component</span>
+<h2 class="text-3xl font-headline font-bold text-on-surface">4. Integration Guide</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-8 rounded-xl bg-surface-container flex flex-col justify-between border border-outline-variant/20 hover:border-primary/40 transition-colors group">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-4xl text-stone-400 group-hover:text-primary transition-colors" data-icon="auto_awesome">auto_awesome</span>
+<span class="bg-primary-fixed text-on-primary-fixed text-xs font-bold px-3 py-1 rounded-full">NATIVE</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-2">OpenAI Framework</h4>
+<p class="text-on-surface-variant text-sm">Full support for GPT-4o, including function calling and native vision perception for visual-environment simulation.</p>
+</div>
+<a class="mt-8 text-primary font-bold flex items-center gap-2 group/link" href="#">
+                        View Config <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="p-8 rounded-xl bg-surface-container flex flex-col justify-between border border-outline-variant/20 hover:border-primary/40 transition-colors group">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-4xl text-stone-400 group-hover:text-primary transition-colors" data-icon="rocket_launch">rocket_launch</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed text-xs font-bold px-3 py-1 rounded-full">HIGH PERFORMANCE</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-2">DeepSeek Integration</h4>
+<p class="text-on-surface-variant text-sm">Optimized for DeepSeek-V2, leveraging MoE (Mixture of Experts) for cost-efficient multi-agent scaling.</p>
+</div>
+<a class="mt-8 text-primary font-bold flex items-center gap-2 group/link" href="#">
+                        Read Benchmark <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 border-t border-stone-200 bg-[#faf6f0]">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-7xl mx-auto">
+<div class="col-span-2">
+<div class="text-xl font-bold font-['Literata'] text-stone-800 mb-4">Project Genesis</div>
+<p class="font-['Nunito_Sans'] text-sm text-stone-600 max-w-xs">Rooted in Intelligence. Building the next generation of autonomous ecosystems.</p>
+</div>
+<div>
+<h5 class="font-bold text-stone-800 mb-4">Resources</h5>
+<ul class="space-y-2 font-['Nunito_Sans'] text-sm text-stone-500">
+<li><a class="hover:text-[#4a7c59] transition-all hover:translate-x-1 inline-block" href="#">Documentation</a></li>
+<li><a class="hover:text-[#4a7c59] transition-all hover:translate-x-1 inline-block" href="#">Methodology</a></li>
+<li><a class="hover:text-[#4a7c59] transition-all hover:translate-x-1 inline-block" href="#">Ethics</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-stone-800 mb-4">Legal</h5>
+<ul class="space-y-2 font-['Nunito_Sans'] text-sm text-stone-500">
+<li><a class="hover:text-[#4a7c59] transition-all hover:translate-x-1 inline-block" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-[#4a7c59] transition-all hover:translate-x-1 inline-block" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-4 lg:col-span-6 border-t border-stone-200 mt-8 pt-8 text-center font-['Nunito_Sans'] text-sm text-stone-600">
+                © 2024 Project Genesis. Rooted in Intelligence.
+            </div>
+</div>
+</footer>
+</body></html>

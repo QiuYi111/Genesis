@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Genesis - Professional Simulation Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400..900;1,400..900&amp;family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#f5f0e8",
+              "on-error": "#ffffff",
+              "outline-variant": "#c4c8bc",
+              "tertiary-container": "#c4a66a",
+              "on-tertiary-container": "#554020",
+              "on-primary-fixed-variant": "#2a6038",
+              "surface-container-low": "#f5f1ea",
+              "surface-variant": "#e4e0d8",
+              "on-surface": "#2e3230",
+              "primary-fixed-dim": "#8ecf9e",
+              "on-primary-fixed": "#002110",
+              "surface-bright": "#faf6f0",
+              "primary-fixed": "#c8e8d0",
+              "surface-dim": "#dbd7cf",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed": "#f8e0a8",
+              "on-primary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#d8f0de",
+              "tertiary-fixed-dim": "#dcc48e",
+              "tertiary": "#705c30",
+              "secondary-fixed": "#f0e8db",
+              "on-tertiary-fixed-variant": "#554020",
+              "on-background": "#2e3230",
+              "inverse-primary": "#8ecf9e",
+              "on-tertiary-fixed": "#221a05",
+              "surface-container": "#f0ece4",
+              "inverse-surface": "#2e3230",
+              "primary": "#4a7c59",
+              "on-surface-variant": "#4a4e4a",
+              "surface-tint": "#4a7c59",
+              "surface-container-high": "#eae6de",
+              "surface": "#faf6f0",
+              "error": "#b83230",
+              "secondary": "#6b6358",
+              "secondary-fixed-dim": "#d4ccbf",
+              "on-secondary-container": "#5e5548",
+              "primary-container": "#78a886",
+              "on-secondary-fixed-variant": "#4a4538",
+              "on-tertiary": "#ffffff",
+              "background": "#faf6f0",
+              "surface-container-highest": "#e4e0d8",
+              "outline": "#74796e",
+              "error-container": "#ffdad8",
+              "secondary-container": "#f0e8db",
+              "on-error-container": "#690005",
+              "on-secondary-fixed": "#1e1a13"
+            },
+            fontFamily: {
+              "headline": ["Literata"],
+              "body": ["Nunito Sans"],
+              "label": ["Nunito Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grid-canvas {
+            display: grid;
+            grid-template-columns: repeat(64, 1fr);
+            grid-template-rows: repeat(64, 1fr);
+            aspect-ratio: 1/1;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c4c8bc;
+            border-radius: 10px;
+        }
+        .log-entry:hover {
+            background-color: rgba(74, 124, 89, 0.05);
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -19px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center px-8 py-4 max-w-[1800px] mx-auto">
+<div class="flex items-center gap-4">
+<div class="text-2xl font-bold font-headline text-primary">Project Genesis</div>
+<div class="h-6 w-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-lg text-xs font-bold tracking-tight">
+<span class="flex h-2 w-2 rounded-full bg-error animate-pulse"></span>
+                    SYSTEM ACTIVE
+                </div>
+</div>
+<div class="hidden md:flex items-center gap-8 font-label">
+<a class="text-primary border-b-2 border-primary pb-1 font-semibold" href="#">Simulation</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Research</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Architecture</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terminal</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-variant rounded-full transition-all">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label font-semibold hover:opacity-90 active:scale-95 transition-all shadow-md">
+                    Control Panel
+                </button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-12 px-6 max-w-[1800px] mx-auto flex flex-col gap-6">
+<!-- Dashboard Header & Era Progress -->
+<header class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<div class="lg:col-span-5">
+<h1 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight">System Overview</h1>
+<p class="text-on-surface-variant mt-2 text-sm">Managing autonomous cellular agents in a high-fidelity 64x64 substrate.</p>
+</div>
+<div class="lg:col-span-7 bg-surface-container border border-outline-variant/30 rounded-2xl p-4 flex flex-col md:flex-row items-center gap-6 shadow-sm">
+<!-- Simulation Era Sidebar-like header element -->
+<div class="flex flex-col border-r border-outline-variant/30 pr-6 mr-2">
+<span class="text-[10px] uppercase tracking-widest font-bold text-tertiary mb-1">Societal Era</span>
+<div class="flex items-center gap-3">
+<span class="font-headline text-xl text-on-surface">Age of Integration</span>
+<span class="material-symbols-outlined text-primary text-sm">auto_awesome</span>
+</div>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between text-[10px] font-bold text-on-surface-variant uppercase mb-2">
+<span>Era Progression</span>
+<span class="text-primary">74.2% to Next: Industrial</span>
+</div>
+<div class="w-full h-3 bg-surface-variant rounded-full overflow-hidden p-[2px]">
+<div class="w-3/4 h-full bg-primary rounded-full shadow-[0_0_8px_rgba(74,124,89,0.3)]"></div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-primary-container text-on-primary-container rounded-lg border border-primary/20">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+<span class="text-xs font-bold font-label">STEP 12,482</span>
+</div>
+<span class="text-[9px] text-on-surface-variant font-bold uppercase tracking-tighter">Real-time Clock: 0.042ms/tick</span>
+</div>
+</div>
+</header>
+<!-- Main Dashboard Content -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Column: Simulation & Controls -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- Enhanced Live Preview Area -->
+<section class="bg-[#121412] rounded-2xl overflow-hidden relative shadow-2xl border border-stone-800 flex flex-col group h-[650px]">
+<!-- Preview UI Header -->
+<div class="p-4 border-b border-white/5 flex justify-between items-center bg-black/40 backdrop-blur-sm z-10">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="flex h-2 w-2 rounded-full bg-error animate-pulse"></span>
+<h2 class="text-stone-300 font-label font-bold text-xs tracking-widest uppercase">Live Viewport</h2>
+</div>
+<div class="h-4 w-[1px] bg-white/10"></div>
+<div class="flex gap-4 text-[10px] text-stone-500 font-mono">
+<span>RES: 64x64</span>
+<span>COORD: 32,18</span>
+<span class="text-primary-fixed-dim">FPS: 60.2</span>
+</div>
+</div>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-stone-400 hover:text-white hover:bg-white/10 transition-all"><span class="material-symbols-outlined text-sm">search</span></button>
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-stone-400 hover:text-white hover:bg-white/10 transition-all"><span class="material-symbols-outlined text-sm">layers</span></button>
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-stone-400 hover:text-white hover:bg-white/10 transition-all"><span class="material-symbols-outlined text-sm">fullscreen</span></button>
+</div>
+</div>
+<!-- The Grid Canvas -->
+<div class="flex-grow flex items-center justify-center p-8 bg-[radial-gradient(circle_at_center,_#1a1c1a_0%,_#0a0b0a_100%)] relative">
+<div class="grid-canvas w-full h-full max-w-[550px] border border-stone-700/50 relative shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+<!-- Procedural segments -->
+<div class="bg-blue-900/30 col-span-20 row-span-12 border border-blue-400/10"></div>
+<div class="bg-[#233a2a] col-span-15 row-span-15 border border-green-400/10"></div>
+<div class="bg-[#2d4d36] col-span-29 row-span-30 border border-green-500/10"></div>
+<div class="bg-[#122417] col-span-10 row-span-20 border border-green-900/20"></div>
+<div class="bg-blue-800/20 col-span-30 row-span-15"></div>
+<div class="bg-amber-900/10 col-span-40 row-span-40"></div>
+<!-- Detailed UI Overlays inside canvas -->
+<div class="absolute inset-0 border border-white/5 pointer-events-none"></div>
+<div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/40 -translate-x-1 -translate-y-1"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/40 translate-x-1 translate-y-1"></div>
+<!-- Hover crosshair (CSS visual only) -->
+<div class="absolute top-1/2 left-0 w-full h-[1px] bg-white/10"></div>
+<div class="absolute left-1/2 top-0 h-full w-[1px] bg-white/10"></div>
+<!-- Single high-detail agent example -->
+<div class="relative group/agent cursor-pointer" style="grid-column: 32; grid-row: 24;">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-2 h-2 bg-tertiary rounded-full shadow-[0_0_12px_#dcc48e]"></div>
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 bg-black/80 backdrop-blur-md px-2 py-1 rounded border border-white/20 text-[9px] text-white opacity-0 group-hover/agent:opacity-100 whitespace-nowrap transition-opacity">
+                                        ID: AGENT_042 | HP: 100%
+                                    </div>
+</div>
+</div>
+</div>
+<!-- HUD Elements -->
+<div class="absolute bottom-16 right-8 flex flex-col gap-2">
+<div class="bg-black/60 border border-white/10 rounded px-3 py-1.5 text-[10px] text-stone-400 flex items-center gap-2 backdrop-blur-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span> Zoom: 2.4x
+                             </div>
+<div class="bg-black/60 border border-white/10 rounded px-3 py-1.5 text-[10px] text-stone-400 flex items-center gap-2 backdrop-blur-sm">
+<span class="w-2 h-2 rounded-full bg-blue-500"></span> Filter: Hydration
+                             </div>
+</div>
+</div>
+<!-- Enhanced Legend & Status -->
+<div class="px-6 py-4 bg-black/40 border-t border-white/5 flex justify-between items-center text-xs text-stone-400 backdrop-blur-sm">
+<div class="flex gap-6">
+<div class="flex items-center gap-2"><div class="w-2.5 h-2.5 bg-blue-900/80 rounded-sm"></div> Water (Low Flow)</div>
+<div class="flex items-center gap-2"><div class="w-2.5 h-2.5 bg-[#2d4d36] rounded-sm"></div> Forest (Mature)</div>
+<div class="flex items-center gap-2"><div class="w-2.5 h-2.5 bg-[#4a7c59] rounded-sm"></div> Grassland</div>
+<div class="flex items-center gap-2"><div class="w-2.5 h-2.5 bg-tertiary rounded-sm"></div> Agent (Nomadic)</div>
+</div>
+<div class="text-primary-fixed-dim font-bold tracking-widest text-[10px] uppercase">
+                            Rendering Engine v4.2-stable
+                        </div>
+</div>
+</section>
+<!-- Simulation Control Panel -->
+<section class="bg-surface-container rounded-2xl p-4 border border-outline-variant/30 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-4">
+<button class="w-12 h-12 flex items-center justify-center bg-primary text-on-primary rounded-full hover:scale-105 transition-transform shadow-lg">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center bg-surface-variant text-on-surface-variant rounded-full hover:bg-outline-variant/40 transition-colors">
+<span class="material-symbols-outlined text-xl">pause</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center bg-surface-variant text-on-surface-variant rounded-full hover:bg-outline-variant/40 transition-colors">
+<span class="material-symbols-outlined text-xl">skip_next</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/40 mx-2"></div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-on-surface-variant opacity-60">Playback Speed</span>
+<div class="flex items-center gap-3">
+<input class="w-32 h-1.5 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" max="10" min="1" type="range" value="4"/>
+<span class="text-xs font-bold font-mono">1.0x</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-surface-variant text-on-surface-variant text-xs font-bold rounded-lg hover:bg-outline-variant transition-colors border border-outline-variant/20">RESET ENV</button>
+<button class="px-4 py-2 bg-error/10 text-error text-xs font-bold rounded-lg hover:bg-error/20 transition-colors border border-error/20">TERMINATE</button>
+</div>
+</section>
+</div>
+<!-- Right Column: Console & Analytics -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Improved Agent Interaction Log (Console Feed) -->
+<section class="flex flex-col h-[450px] bg-[#1a1c1a] rounded-2xl border border-stone-800 shadow-xl overflow-hidden">
+<div class="p-4 border-b border-white/5 flex items-center justify-between bg-black/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">terminal</span>
+<h3 class="font-label text-xs font-bold tracking-widest text-stone-300 uppercase">Interaction Console</h3>
+</div>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded bg-green-900/30 text-[9px] text-green-400 border border-green-500/20 uppercase font-bold">Live Feed</span>
+<button class="text-stone-500 hover:text-white"><span class="material-symbols-outlined text-sm">filter_list</span></button>
+</div>
+</div>
+<div class="flex-grow overflow-y-auto custom-scrollbar p-3 flex flex-col gap-2 font-mono text-[11px]">
+<!-- Log Entry: Action -->
+<div class="log-entry p-2.5 rounded-lg border border-white/5 bg-white/[0.02] flex flex-col gap-1 transition-colors">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="text-primary font-bold">[ACTION]</span>
+<span class="text-stone-300">Agent_042</span>
+</div>
+<span class="text-stone-600">12:47:01</span>
+</div>
+<p class="text-stone-400">Migrating to Sector 4-G. Reasoning: Biomass depletion in North.</p>
+</div>
+<!-- Log Entry: Info -->
+<div class="log-entry p-2.5 rounded-lg border border-white/5 flex flex-col gap-1 transition-colors">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="text-blue-400 font-bold">[INFO]</span>
+<span class="text-stone-300">Agent_109</span>
+</div>
+<span class="text-stone-600">12:47:42</span>
+</div>
+<p class="text-stone-400 italic">Initiating collective movement pattern Sigma. Consensus: 84%.</p>
+</div>
+<!-- Log Entry: Alert -->
+<div class="log-entry p-2.5 rounded-lg border border-error/20 bg-error/5 flex flex-col gap-1 transition-colors">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="text-error font-bold">[ALERT]</span>
+<span class="text-stone-300">SYSTEM</span>
+</div>
+<span class="text-stone-600">12:48:10</span>
+</div>
+<p class="text-stone-400">Localized resource spike detected in Grid 12,55. Potential conflict zone.</p>
+</div>
+<!-- Log Entry: Protocol -->
+<div class="log-entry p-2.5 rounded-lg border border-primary/20 bg-primary/5 flex flex-col gap-1 transition-colors">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="text-primary font-bold">[EVOLUTION]</span>
+<span class="text-stone-300">PROTOCOL</span>
+</div>
+<span class="text-stone-600">12:48:20</span>
+</div>
+<p class="text-stone-100 font-bold">New emergent behavior: 'Communal Storage' cataloged.</p>
+</div>
+</div>
+</section>
+<!-- Mini Metrics Grid -->
+<section class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container rounded-2xl p-4 border border-outline-variant/30 flex flex-col gap-1 shadow-sm">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-70">Social Index</span>
+<div class="text-2xl font-headline font-bold text-primary">0.82 <span class="text-xs text-primary/60">↑</span></div>
+<div class="mt-2 h-8 w-full flex items-end gap-1">
+<div class="bg-primary/20 w-full h-[20%] rounded-sm"></div>
+<div class="bg-primary/30 w-full h-[35%] rounded-sm"></div>
+<div class="bg-primary/50 w-full h-[60%] rounded-sm"></div>
+<div class="bg-primary w-full h-[80%] rounded-sm"></div>
+</div>
+</div>
+<div class="bg-surface-container rounded-2xl p-4 border border-outline-variant/30 flex flex-col gap-1 shadow-sm">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase opacity-70">Conflict Rate</span>
+<div class="text-2xl font-headline font-bold text-error">1.4% <span class="text-xs text-error/60">↓</span></div>
+<div class="mt-2 h-8 w-full flex items-end gap-1">
+<div class="bg-error/40 w-full h-[60%] rounded-sm"></div>
+<div class="bg-error/30 w-full h-[40%] rounded-sm"></div>
+<div class="bg-error/20 w-full h-[25%] rounded-sm"></div>
+<div class="bg-error/10 w-full h-[15%] rounded-sm"></div>
+</div>
+</div>
+</section>
+<!-- Era Timeline Detail (Sidebar Element) -->
+<section class="bg-surface-container-high rounded-2xl p-5 border border-outline-variant/30 shadow-sm flex-grow">
+<h4 class="font-headline font-bold mb-4 text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">timeline</span>
+                        Social Progression
+                     </h4>
+<div class="ml-4 border-l-2 border-outline-variant/40 pl-6 space-y-6 relative">
+<div class="timeline-step text-on-surface-variant/40 relative">
+<span class="text-[10px] font-bold uppercase block mb-0.5">Stage 1</span>
+<span class="text-sm font-bold">Hunter-Gatherer</span>
+</div>
+<div class="timeline-step text-on-surface-variant/40 relative">
+<span class="text-[10px] font-bold uppercase block mb-0.5">Stage 2</span>
+<span class="text-sm font-bold">Agrarian Hubs</span>
+</div>
+<div class="timeline-step text-primary relative">
+<span class="text-[10px] font-bold uppercase block mb-0.5">Current Stage</span>
+<span class="text-sm font-bold">The Integration Era</span>
+<p class="text-[10px] mt-1 text-on-surface-variant/70">Cooperative storage systems emerging.</p>
+</div>
+<div class="timeline-step text-on-surface-variant/20 relative">
+<span class="text-[10px] font-bold uppercase block mb-0.5">Upcoming</span>
+<span class="text-sm font-bold">Industrial Synthesis</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Cohesive Simulation Metrics Grid (Analytics Section) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+<!-- Population Dynamics Chart -->
+<div class="bg-surface-container rounded-2xl p-6 border border-outline-variant/30 shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-6">
+<div class="flex flex-col">
+<h3 class="font-headline text-lg font-bold">Population Dynamics</h3>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Last 1000 Steps</p>
+</div>
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<div class="flex justify-between items-end gap-3 h-40 mb-2">
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-primary/20 h-1/4 rounded-t-md hover:bg-primary/30 transition-colors relative group">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] font-bold opacity-0 group-hover:opacity-100">450</div>
+</div>
+<span class="text-[9px] font-bold text-on-surface-variant">S-1</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-primary/30 h-1/3 rounded-t-md hover:bg-primary/40 transition-colors"></div>
+<span class="text-[9px] font-bold text-on-surface-variant">S-2</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-primary/40 h-1/2 rounded-t-md hover:bg-primary/50 transition-colors"></div>
+<span class="text-[9px] font-bold text-on-surface-variant">S-3</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-primary/60 h-2/3 rounded-t-md hover:bg-primary/70 transition-colors"></div>
+<span class="text-[9px] font-bold text-on-surface-variant">S-4</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-primary/80 h-[85%] rounded-t-md hover:bg-primary/90 transition-colors"></div>
+<span class="text-[9px] font-bold text-on-surface-variant">S-5</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-primary h-full rounded-t-md relative group">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-primary">1,024</div>
+</div>
+<span class="text-[9px] font-bold text-primary">LIVE</span>
+</div>
+</div>
+<div class="flex justify-between mt-4 p-3 bg-surface-bright rounded-xl border border-outline-variant/20">
+<div>
+<div class="text-[9px] font-bold text-on-surface-variant uppercase">Birth Rate</div>
+<div class="text-lg font-bold text-primary">+4.2%</div>
+</div>
+<div class="h-10 w-[1px] bg-outline-variant/30"></div>
+<div class="text-right">
+<div class="text-[9px] font-bold text-on-surface-variant uppercase">Mortality</div>
+<div class="text-lg font-bold text-on-surface">1.1%</div>
+</div>
+</div>
+</div>
+<!-- Resource Distribution Breakdown -->
+<div class="bg-surface-container rounded-2xl p-6 border border-outline-variant/30 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<div class="flex flex-col">
+<h3 class="font-headline text-lg font-bold">Resource Distribution</h3>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Total Substrate Saturation</p>
+</div>
+<span class="material-symbols-outlined text-tertiary">database</span>
+</div>
+<div class="space-y-5">
+<div>
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="flex items-center gap-2 text-blue-700"><span class="material-symbols-outlined text-sm">water_drop</span> Hydration</span>
+<span>88.5%</span>
+</div>
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-blue-500 rounded-full" style="width: 88.5%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="flex items-center gap-2 text-green-700"><span class="material-symbols-outlined text-sm">energy_savings_leaf</span> Biomass</span>
+<span>62.1%</span>
+</div>
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 62.1%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="flex items-center gap-2 text-amber-700"><span class="material-symbols-outlined text-sm">home</span> Infrastructure</span>
+<span>14.9%</span>
+</div>
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 14.9%"></div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/30 flex justify-between items-center">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Substrate Integrity</span>
+<span class="px-2 py-1 bg-green-100 text-green-800 rounded text-[9px] font-extrabold">OPTIMAL</span>
+</div>
+</div>
+</div>
+<!-- Social Connectivity Index -->
+<div class="bg-surface-container rounded-2xl p-6 border border-outline-variant/30 shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-6">
+<div class="flex flex-col">
+<h3 class="font-headline text-lg font-bold">Collective Intel</h3>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Social Complexity Graph</p>
+</div>
+<span class="material-symbols-outlined text-on-secondary-fixed-variant">psychology</span>
+</div>
+<!-- Circular/Spider Chart Representation (Simplified) -->
+<div class="flex-grow flex items-center justify-center relative py-4">
+<div class="w-32 h-32 rounded-full border-2 border-dashed border-outline-variant flex items-center justify-center relative">
+<div class="absolute inset-0 flex items-center justify-center">
+<svg class="w-24 h-24" viewbox="0 0 100 100">
+<polygon class="fill-primary/20 stroke-primary stroke-2" points="50,10 90,40 80,85 20,85 10,40"></polygon>
+<circle class="fill-primary" cx="50" cy="50" r="2"></circle>
+</svg>
+</div>
+<span class="absolute -top-3 left-1/2 -translate-x-1/2 text-[9px] font-bold text-on-surface-variant">COOP</span>
+<span class="absolute top-1/2 -right-6 -translate-y-1/2 text-[9px] font-bold text-on-surface-variant">TRADE</span>
+<span class="absolute -bottom-3 left-1/2 -translate-x-1/2 text-[9px] font-bold text-on-surface-variant">LIT</span>
+<span class="absolute top-1/2 -left-8 -translate-y-1/2 text-[9px] font-bold text-on-surface-variant">TECH</span>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-2 gap-2">
+<div class="bg-surface-bright p-2 rounded-lg text-center">
+<div class="text-[9px] font-bold text-on-surface-variant uppercase">Sync Rank</div>
+<div class="text-sm font-bold text-on-surface">Level 4</div>
+</div>
+<div class="bg-surface-bright p-2 rounded-lg text-center">
+<div class="text-[9px] font-bold text-on-surface-variant uppercase">Consensus</div>
+<div class="text-sm font-bold text-on-surface">Tier II</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 border-t border-outline-variant/30 bg-surface">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-[1800px] mx-auto">
+<div class="col-span-2">
+<div class="text-xl font-bold font-headline text-primary mb-4">Project Genesis</div>
+<p class="font-body text-sm text-on-surface-variant max-w-xs">Rooted in Intelligence. Building the foundations of silicon-based civilizations. High-fidelity ecosystem modeling for emergent structures.</p>
+<div class="flex gap-4 mt-6 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">hub</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">public</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">shield</span>
+</div>
+</div>
+<div>
+<h4 class="font-label font-bold text-primary mb-4">Core Systems</h4>
+<ul class="flex flex-col gap-2 font-body text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-all hover:translate-x-1 inline-block" href="#">Environment API</a></li>
+<li><a class="hover:text-primary transition-all hover:translate-x-1 inline-block" href="#">Agent Logic</a></li>
+<li><a class="hover:text-primary transition-all hover:translate-x-1 inline-block" href="#">Historical Log</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label font-bold text-primary mb-4">Research</h4>
+<ul class="flex flex-col gap-2 font-body text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-all hover:translate-x-1 inline-block" href="#">Whitepaper</a></li>
+<li><a class="hover:text-primary transition-all hover:translate-x-1 inline-block" href="#">Methodology</a></li>
+<li><a class="hover:text-primary transition-all hover:translate-x-1 inline-block" href="#">Peer Review</a></li>
+</ul>
+</div>
+<div class="col-span-1 lg:col-span-2 flex flex-col items-end">
+<div class="bg-surface-container rounded-2xl p-4 border border-outline-variant/30 w-full max-w-xs">
+<h5 class="text-xs font-bold uppercase text-on-surface-variant mb-2">Operational Status</h5>
+<div class="flex items-center gap-3">
+<span class="flex h-3 w-3 rounded-full bg-primary shadow-[0_0_8px_rgba(74,124,89,0.5)]"></span>
+<span class="text-sm font-bold">Stable Connection</span>
+</div>
+<div class="mt-4 text-[10px] text-on-surface-variant font-mono">
+                        Latency: 14ms | Uptime: 99.98%
+                    </div>
+</div>
+</div>
+</div>
+<div class="max-w-[1800px] mx-auto mt-12 pt-8 border-t border-outline-variant/20 flex justify-between items-center text-[11px] font-bold text-on-surface-variant/50 uppercase tracking-widest">
+<span>© 2024 Genesis Intelligence Systems. All Rights Reserved.</span>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="hover:text-primary transition-colors" href="#">Ethics</a>
+<a class="hover:text-primary transition-colors" href="#">Terms</a>
+</div>
+</div>
+</footer>
+</body></html>
