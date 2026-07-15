@@ -139,9 +139,11 @@ class Agent:
         # Skills system
         self.skills: Dict[str, float] = {}  # skill_name -> proficiency (0-1)
         
-        # Social system
+        # Social system integration
         self.social_connections: Dict[str, float] = {}  # agent_id -> relationship_strength (-1 to 1)
         self.reputation: Dict[str, float] = {}  # group_id -> reputation
+        self.group_memberships: List[str] = []  # group IDs this agent belongs to
+        self.leadership_score: float = 0.0  # 0.0 to 1.0
         
         # State and goals
         self.state = AgentState.IDLE
@@ -586,11 +588,38 @@ class Agent:
             "inventory_weight": f"{self.current_inventory_weight:.1f}/{self.max_inventory_weight:.1f}",
             "skills": self.skills,
             "social_connections": len(self.social_connections),
+            "group_memberships": self.group_memberships,
+            "leadership_score": self.leadership_score,
             "memories": len(self.memories),
             "goals": [goal.to_dict() for goal in self.goals],
             "life_goals": self.life_goals,
             "needs": {name: attr.current for name, attr in self.needs.items()},
         }
+    
+    def join_group(self, group_id: str) -> bool:
+        """Add this agent to a group"""
+        if group_id not in self.group_memberships:
+            self.group_memberships.append(group_id)
+            return True
+        return False
+    
+    def leave_group(self, group_id: str) -> bool:
+        """Remove this agent from a group"""
+        if group_id in self.group_memberships:
+            self.group_memberships.remove(group_id)
+            return True
+        return False
+    
+    def is_in_group(self, group_id: str) -> bool:
+        """Check if agent is in a specific group"""
+        return group_id in self.group_memberships
+    
+    def get_social_influence_score(self) -> float:
+        """Calculate agent's social influence based on attributes and memberships"""
+        base_score = self.attributes['charisma'].current / 20.0
+        group_bonus = min(0.5, len(self.group_memberships) * 0.1)
+        leadership_bonus = self.leadership_score * 0.3
+        return min(1.0, base_score + group_bonus + leadership_bonus)
     
     def __str__(self) -> str:
         return f"{self.name}({self.id}) at {self.position}"
